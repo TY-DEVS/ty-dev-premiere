@@ -34,7 +34,7 @@ const en = {
         desc: "Scalable multi-tenant platforms built for growth",
       },
       { title: "Web Applications", desc: "Modern, fast, and user-centric web experiences" },
-      { title: "AI Automation", desc: "Intelligent systems that streamline your operations" },
+      { title: "Digital Marketing & SEO", desc: "Ad creation, SEO optimization, and data-driven marketing strategies" },
       {
         title: "Business Automation",
         desc: "Workflow automation that saves time and reduces costs",
@@ -45,7 +45,7 @@ const en = {
         title: "Cloud Infrastructure",
         desc: "Scalable, secure, and resilient cloud architectures",
       },
-      { title: "Admin Dashboards", desc: "Custom panels and portals for full business control" },
+      { title: "AI Automation", desc: "Intelligent systems that streamline your operations" },
     ],
   },
   portfolio: {
@@ -217,7 +217,7 @@ const en = {
       {
         firstName: "Moutia",
         lastName: "Ben Yahia",
-        role: "SEO EXPERT",
+        role: "CEO",
         image: "/team/moutiabenyahia.png",
         linkedin: "https://www.linkedin.com/in/moutia-ben-yahia/?locale=fr",
       },
@@ -327,7 +327,10 @@ const fr: typeof en = {
         title: "Applications Web",
         desc: "Expériences web modernes, rapides et centrées utilisateur",
       },
-      { title: "Automatisation IA", desc: "Systèmes intelligents qui optimisent vos opérations" },
+      {
+        title: "Marketing Digital & SEO",
+        desc: "Création de publicités Ads, optimisation SEO et stratégies d'acquisition",
+      },
       {
         title: "Automatisation Business",
         desc: "Workflows automatisés qui économisent temps et coûts",
@@ -341,10 +344,7 @@ const fr: typeof en = {
         title: "Infrastructure Cloud",
         desc: "Architectures cloud scalables, sécurisées et résilientes",
       },
-      {
-        title: "Dashboards Admin",
-        desc: "Panneaux et portails sur mesure pour piloter votre business",
-      },
+      { title: "Automatisation IA", desc: "Systèmes intelligents qui optimisent vos opérations" },
     ],
   },
   portfolio: {
@@ -525,7 +525,7 @@ const fr: typeof en = {
       {
         firstName: "Moutia",
         lastName: "Ben Yahia",
-        role: "EXPERT SEO",
+        role: "CEO",
         image: "/team/moutiabenyahia.png",
         linkedin: "https://www.linkedin.com/in/moutia-ben-yahia/?locale=fr",
       },
