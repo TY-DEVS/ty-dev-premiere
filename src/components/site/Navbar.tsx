@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
 import { TyDevLogo } from "./TyDevLogo";
+
+type NavItem = { to: "/" | "/about" | "/services" | "/portfolio" | "/contact"; label: string };
 
 export function Navbar() {
   const { lang, setLang, t } = useI18n();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -16,7 +20,6 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Lock body scroll when drawer open
   useEffect(() => {
     if (open) {
       const prev = document.body.style.overflow;
@@ -27,12 +30,17 @@ export function Navbar() {
     }
   }, [open]);
 
-  const navItems = [
-    { id: "home", label: t.nav.home },
-    { id: "about", label: t.nav.about },
-    { id: "services", label: t.nav.services },
-    { id: "portfolio", label: t.nav.portfolio },
-    { id: "contact", label: t.nav.contact },
+  // Close drawer on route change
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  const navItems: NavItem[] = [
+    { to: "/", label: t.nav.home },
+    { to: "/about", label: t.nav.about },
+    { to: "/services", label: t.nav.services },
+    { to: "/portfolio", label: t.nav.portfolio },
+    { to: "/contact", label: t.nav.contact },
   ];
 
   return (
@@ -48,19 +56,20 @@ export function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10 h-18 flex items-center justify-between py-4">
-          <a href="#home" aria-label="TY Dev home" className="shrink-0">
+          <Link to="/" aria-label="TY Dev home" className="shrink-0">
             <TyDevLogo />
-          </a>
+          </Link>
 
           <nav className="hidden lg:flex items-center gap-1 rounded-full border border-border/60 bg-surface/30 backdrop-blur-md px-2 py-1.5">
             {navItems.map((item) => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                className="relative px-3.5 py-1.5 text-[13px] text-muted-foreground hover:text-foreground transition-colors rounded-full hover:bg-surface/60"
+              <Link
+                key={item.to}
+                to={item.to}
+                activeOptions={{ exact: true }}
+                className="relative px-3.5 py-1.5 text-[13px] text-muted-foreground hover:text-foreground transition-colors rounded-full hover:bg-surface/60 data-[status=active]:text-foreground data-[status=active]:bg-surface/70"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -68,12 +77,12 @@ export function Navbar() {
             <div className="hidden sm:block">
               <LangToggle lang={lang} setLang={setLang} />
             </div>
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand text-primary-foreground text-sm font-medium transition-all hover:shadow-[0_0_30px_oklch(0.6_0.22_265/0.5)] hover:-translate-y-0.5"
             >
               {t.nav.cta}
-            </a>
+            </Link>
             <button
               className="lg:hidden text-foreground p-2 rounded-lg border border-border/60 bg-surface/40 backdrop-blur-md hover:bg-surface/70 transition-colors"
               onClick={() => setOpen(true)}
@@ -107,7 +116,7 @@ function MobileDrawer({
 }: {
   open: boolean;
   onClose: () => void;
-  navItems: { id: string; label: string }[];
+  navItems: NavItem[];
   lang: "en" | "fr";
   setLang: (l: "en" | "fr") => void;
   cta: string;
@@ -116,7 +125,6 @@ function MobileDrawer({
     <AnimatePresence>
       {open && (
         <>
-          {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -127,7 +135,6 @@ function MobileDrawer({
             aria-hidden
           />
 
-          {/* Drawer */}
           <motion.aside
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
@@ -138,14 +145,12 @@ function MobileDrawer({
             aria-modal="true"
             aria-label="Mobile navigation"
           >
-            {/* Ambient glow */}
             <div
               className="pointer-events-none absolute -top-32 -right-20 w-80 h-80 rounded-full blur-3xl opacity-40"
               style={{ background: "radial-gradient(circle, oklch(0.6 0.22 265 / 0.4), transparent 70%)" }}
               aria-hidden
             />
 
-            {/* Header */}
             <div className="relative flex items-center justify-between px-6 py-5 border-b border-border/50">
               <TyDevLogo />
               <button
@@ -157,7 +162,6 @@ function MobileDrawer({
               </button>
             </div>
 
-            {/* Nav links */}
             <nav className="relative flex-1 overflow-y-auto px-3 py-6">
               <div className="px-3 mb-2 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground/70">
                 // {lang === "fr" ? "Navigation" : "Navigate"}
@@ -165,21 +169,22 @@ function MobileDrawer({
               <ul className="flex flex-col">
                 {navItems.map((item, i) => (
                   <motion.li
-                    key={item.id}
+                    key={item.to}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.15 + i * 0.06, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                   >
-                    <a
-                      href={`#${item.id}`}
+                    <Link
+                      to={item.to}
                       onClick={onClose}
-                      className="group flex items-center justify-between gap-3 px-3 py-3.5 rounded-lg hover:bg-surface/50 transition-colors"
+                      activeOptions={{ exact: true }}
+                      className="group flex items-center justify-between gap-3 px-3 py-3.5 rounded-lg hover:bg-surface/50 transition-colors data-[status=active]:bg-surface/60"
                     >
                       <span className="flex items-center gap-3">
                         <span className="font-mono text-[11px] text-muted-foreground/60 w-6">
                           0{i + 1}
                         </span>
-                        <span className="font-display text-lg text-foreground group-hover:text-brand transition-colors">
+                        <span className="font-display text-lg text-foreground group-hover:text-brand transition-colors group-data-[status=active]:text-brand">
                           {item.label}
                         </span>
                       </span>
@@ -187,31 +192,28 @@ function MobileDrawer({
                         size={16}
                         className="text-muted-foreground/50 group-hover:text-brand group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
                       />
-                    </a>
+                    </Link>
                   </motion.li>
                 ))}
               </ul>
 
-              {/* CTA */}
               <motion.div
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 className="px-3 mt-6"
               >
-                <a
-                  href="#contact"
+                <Link
+                  to="/contact"
                   onClick={onClose}
                   className="flex items-center justify-center gap-2 w-full px-5 py-3.5 rounded-full bg-brand text-primary-foreground font-medium shadow-[0_0_40px_oklch(0.6_0.22_265/0.4)] transition-all hover:shadow-[0_0_60px_oklch(0.6_0.22_265/0.7)]"
                 >
                   {cta}
                   <ArrowUpRight size={16} />
-                </a>
+                </Link>
               </motion.div>
             </nav>
 
-
-            {/* Footer */}
             <div className="relative border-t border-border/50 px-6 py-4 flex items-center justify-between">
               <LangToggle lang={lang} setLang={setLang} />
               <span className="font-mono text-[10px] text-muted-foreground/60">

@@ -1,16 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { I18nProvider } from "@/i18n/context";
-import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
-
 import { Services } from "@/components/site/Services";
-import { Portfolio } from "@/components/site/Portfolio";
 import { WhyUs } from "@/components/site/WhyUs";
-import { TechStack } from "@/components/site/TechStack";
 import { Process } from "@/components/site/Process";
-import { About } from "@/components/site/About";
-import { Contact } from "@/components/site/Contact";
-import { Footer } from "@/components/site/Footer";
+import { CtaStrip } from "@/components/site/CtaStrip";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -37,21 +30,12 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <I18nProvider>
-      <div className="relative min-h-screen bg-background text-foreground overflow-x-hidden">
-        <Navbar />
-        <main>
-          <Hero />
-          <Services />
-          <About />
-          <Portfolio />
-          <WhyUs />
-          <TechStack />
-          <Process />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
-    </I18nProvider>
+    <>
+      <Hero />
+      <Services />
+      <WhyUs />
+      <Process />
+      <CtaStrip />
+    </>
   );
 }
