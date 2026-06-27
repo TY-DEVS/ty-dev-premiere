@@ -1,8 +1,57 @@
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { ArrowRight, Zap } from "lucide-react";
 import { useI18n } from "@/i18n/context";
 
 const ease = [0.22, 1, 0.36, 1] as const;
+
+const containerVariants: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+};
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 18, filter: "blur(6px)" },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.9, ease },
+  },
+};
+
+function WordReveal({
+  text,
+  className = "",
+  delayStart = 0,
+}: {
+  text: string;
+  className?: string;
+  delayStart?: number;
+}) {
+  const words = text.split(/\s+/).filter(Boolean);
+  return (
+    <span className={className}>
+      {words.map((w, i) => (
+        <span
+          key={`${w}-${i}`}
+          className="inline-block overflow-hidden align-bottom pb-[0.08em]"
+        >
+          <motion.span
+            className="inline-block"
+            initial={{ y: "110%", opacity: 0 }}
+            animate={{ y: "0%", opacity: 1 }}
+            transition={{ duration: 0.85, delay: delayStart + i * 0.08, ease }}
+          >
+            {w}
+            {i < words.length - 1 ? "\u00A0" : ""}
+          </motion.span>
+        </span>
+      ))}
+    </span>
+  );
+}
+
+
 
 export function Hero() {
   const { t } = useI18n();
