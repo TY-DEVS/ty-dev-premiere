@@ -108,6 +108,7 @@ export function Contact() {
               type: formData.get("type") as string,
               budget: formData.get("budget") as string,
               desc: formData.get("desc") as string,
+              source: window.location.origin, // Capture which domain was used
             };
 
             // Basic validation

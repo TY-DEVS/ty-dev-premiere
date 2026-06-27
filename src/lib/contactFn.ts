@@ -2,9 +2,9 @@ import { createServerFn } from "@tanstack/react-start";
 import nodemailer from "nodemailer";
 
 export const sendContactEmailFn = createServerFn({ method: "POST" })
-  .validator((data: { name: string; email: string; phone?: string; type: string; budget: string; desc: string }) => data)
+  .validator((data: { name: string; email: string; phone?: string; type: string; budget: string; desc: string; source?: string }) => data)
   .handler(async (ctx) => {
-    const { name, email, phone, type, budget, desc } = ctx.data;
+    const { name, email, phone, type, budget, desc, source } = ctx.data;
 
     try {
       const transporter = nodemailer.createTransport({
@@ -26,7 +26,9 @@ export const sendContactEmailFn = createServerFn({ method: "POST" })
         replyTo: email,
         subject: `Nouveau Contact: ${name} - ${type}`,
         text: `
-Nouveau message depuis le formulaire de contact TY Dev:
+Nouveau message depuis le formulaire de contact:
+
+Source du contact: ${source || "Non définie"}
 
 Nom: ${name}
 Email: ${email}
