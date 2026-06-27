@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowUpRight, Mail, Globe, MapPin } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { useI18n } from "@/i18n/context";
 import { TyDevLogo } from "./TyDevLogo";
 
@@ -157,21 +157,8 @@ function MobileDrawer({
               </button>
             </div>
 
-            {/* Status */}
-            <div className="relative px-6 py-4 border-b border-border/40">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border/60 bg-surface/40">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inset-0 rounded-full bg-[oklch(0.7_0.18_145)] animate-ping opacity-60" />
-                  <span className="relative rounded-full h-2 w-2 bg-[oklch(0.7_0.18_145)]" />
-                </span>
-                <span className="font-mono text-[10px] tracking-wider uppercase text-muted-foreground">
-                  {lang === "fr" ? "Disponible · Nouveaux projets" : "Available · New projects"}
-                </span>
-              </div>
-            </div>
-
             {/* Nav links */}
-            <nav className="relative flex-1 overflow-y-auto px-3 py-4">
+            <nav className="relative flex-1 overflow-y-auto px-3 py-6">
               <div className="px-3 mb-2 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground/70">
                 // {lang === "fr" ? "Navigation" : "Navigate"}
               </div>
@@ -221,46 +208,8 @@ function MobileDrawer({
                   <ArrowUpRight size={16} />
                 </a>
               </motion.div>
-
-              {/* Contact info */}
-              <div className="mt-7 px-3">
-                <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground/70 mb-3">
-                  // {lang === "fr" ? "Contact" : "Contact"}
-                </div>
-                <ul className="space-y-3 text-sm">
-                  <li>
-                    <a
-                      href="mailto:contact@ty-dev.site"
-                      className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      <span className="w-8 h-8 rounded-lg border border-border/60 bg-surface/40 flex items-center justify-center text-brand">
-                        <Mail size={14} />
-                      </span>
-                      contact@ty-dev.site
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://ty-dev.site"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      <span className="w-8 h-8 rounded-lg border border-border/60 bg-surface/40 flex items-center justify-center text-brand">
-                        <Globe size={14} />
-                      </span>
-                      ty-dev.site
-                    </a>
-                  </li>
-                  <li className="flex items-center gap-3 text-muted-foreground">
-                    <span className="w-8 h-8 rounded-lg border border-border/60 bg-surface/40 flex items-center justify-center text-brand">
-                      <MapPin size={14} />
-                    </span>
-                    France · EU · Worldwide
-                  </li>
-                </ul>
-              </div>
             </nav>
+
 
             {/* Footer */}
             <div className="relative border-t border-border/50 px-6 py-4 flex items-center justify-between">
