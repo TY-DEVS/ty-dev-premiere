@@ -35,8 +35,8 @@ function Index() {
   return (
     <>
       <Hero />
-      <Services />
       <About />
+      <Services />
       <Portfolio />
       <WhyUs />
       <TechStack />

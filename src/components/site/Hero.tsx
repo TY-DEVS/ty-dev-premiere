@@ -3,7 +3,6 @@ import { ArrowRight, Zap } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
 
-
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const containerVariants: Variants = {
@@ -34,10 +33,7 @@ function WordReveal({
   return (
     <span className={className}>
       {words.map((w, i) => (
-        <span
-          key={`${w}-${i}`}
-          className="inline-block overflow-hidden align-bottom pb-[0.08em]"
-        >
+        <span key={`${w}-${i}`} className="inline-block overflow-hidden align-bottom pb-[0.08em]">
           <motion.span
             className="inline-block"
             initial={{ y: "110%", opacity: 0 }}
@@ -52,8 +48,6 @@ function WordReveal({
     </span>
   );
 }
-
-
 
 export function Hero() {
   const { t } = useI18n();
@@ -82,8 +76,7 @@ export function Hero() {
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full blur-3xl pointer-events-none"
         style={{
-          background:
-            "radial-gradient(circle, oklch(0.6 0.22 265 / 0.4), transparent 60%)",
+          background: "radial-gradient(circle, oklch(0.6 0.22 265 / 0.4), transparent 60%)",
         }}
         aria-hidden
       />
@@ -118,7 +111,7 @@ export function Hero() {
               <WordReveal
                 text={t.hero.titleAccent}
                 className="text-gradient-brand"
-                delayStart={(t.hero.title1.trim().split(/\s+/).length) * 0.08}
+                delayStart={t.hero.title1.trim().split(/\s+/).length * 0.08}
               />
             </h1>
 
@@ -138,7 +131,10 @@ export function Hero() {
                 className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-brand text-primary-foreground font-medium shadow-[0_0_40px_oklch(0.6_0.22_265/0.4)] transition-all duration-300 hover:shadow-[0_0_60px_oklch(0.6_0.22_265/0.7)] hover:-translate-y-0.5"
               >
                 {t.hero.cta1}
-                <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight
+                  size={18}
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                />
               </Link>
               <Link
                 to="/portfolio"
@@ -170,12 +166,8 @@ export function Hero() {
               <TerminalMock />
             </motion.div>
           </motion.div>
-
         </div>
       </div>
-
-
-
     </section>
   );
 }
@@ -234,8 +226,7 @@ function TerminalMock() {
           <CodeLine n={5}>
             {"    "}
             <span className="text-[oklch(0.7_0.18_300)]">return</span>{" "}
-            <span className="text-cyan">await</span>{" "}
-            <span className="text-foreground">ship</span>
+            <span className="text-cyan">await</span> <span className="text-foreground">ship</span>
             <span className="text-muted-foreground">(</span>
             <span className="text-[oklch(0.78_0.14_140)]">'production'</span>
             <span className="text-muted-foreground">)</span>;

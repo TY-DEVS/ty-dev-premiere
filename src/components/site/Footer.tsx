@@ -1,4 +1,14 @@
-import { Instagram, Linkedin, Facebook, Twitter, Youtube, Mail, MapPin, ArrowRight, ArrowUpRight, Globe } from "lucide-react";
+import {
+  Instagram,
+  Linkedin,
+  Facebook,
+  Twitter,
+  Youtube,
+  Mail,
+  Clock,
+  ArrowRight,
+  ArrowUpRight,
+} from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
 import { TyDevLogo } from "./TyDevLogo";
@@ -6,7 +16,11 @@ import { TyDevLogo } from "./TyDevLogo";
 const socialList = [
   { Icon: Instagram, href: "https://www.instagram.com/tydev__/", label: "Instagram" },
   { Icon: Linkedin, href: "https://www.linkedin.com/company/ty-devs/", label: "LinkedIn" },
-  { Icon: Facebook, href: "https://www.facebook.com/people/TY-DEV/61581507878160/", label: "Facebook" },
+  {
+    Icon: Facebook,
+    href: "https://www.facebook.com/people/TY-DEV/61581507878160/",
+    label: "Facebook",
+  },
   { Icon: Twitter, href: "https://x.com/tydev__", label: "X" },
   { Icon: Youtube, href: "https://www.youtube.com/@TY-Dev", label: "YouTube" },
 ];
@@ -30,9 +44,13 @@ export function Footer() {
           <div className="relative max-w-xl text-center md:text-left">
             <h2 className="text-3xl md:text-4xl font-semibold text-foreground font-display leading-tight mb-3 tracking-tight">
               {lang === "fr" ? (
-                <>Prêt à passer à l'<span className="text-brand">échelle</span> ?</>
+                <>
+                  Prêt à passer à l'<span className="text-brand">échelle</span> ?
+                </>
               ) : (
-                <>Ready to scale your <span className="text-brand">digital presence</span>?</>
+                <>
+                  Ready to scale your <span className="text-brand">digital presence</span>?
+                </>
               )}
             </h2>
             <p className="text-base md:text-lg text-muted-foreground">
@@ -87,10 +105,18 @@ export function Footer() {
             <FooterColTitle>{t.footer.company}</FooterColTitle>
             <ul className="space-y-4 text-sm">
               {t.footer.companyLinks.map((label, i) => {
-                const routes = ["/about", "/portfolio", "/contact", "/services"] as const;
+                const routes = ["/about", "/portfolio", "/contact"] as const;
+                const route = routes[i];
+                if (!route) {
+                  return (
+                    <li key={label} className="text-muted-foreground/50 cursor-not-allowed">
+                      {label}
+                    </li>
+                  );
+                }
                 return (
                   <li key={label}>
-                    <Link to={routes[i]} className="hover:text-brand transition-colors">
+                    <Link to={route} className="hover:text-brand transition-colors">
                       {label}
                     </Link>
                   </li>
@@ -111,8 +137,8 @@ export function Footer() {
                 <span className="font-mono text-[13px]">{EMAIL}</span>
               </a>
               <div className="flex items-center gap-3 text-sm">
-                <MapPin size={15} className="text-muted-foreground/70" />
-                <span className="font-mono text-[13px]">Sheridan, WY · Worldwide</span>
+                <Clock size={15} className="text-muted-foreground/70" />
+                <span className="font-mono text-[13px]">{t.footer.hours}</span>
               </div>
               <div className="flex items-center gap-3 pt-2">
                 {socialList.map(({ Icon, href, label }) => (
@@ -163,16 +189,6 @@ export function Footer() {
                 FR
               </button>
             </div>
-            <a
-              href={`https://${SITE}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group text-xs font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2 uppercase tracking-[0.16em] font-mono"
-            >
-              <Globe size={12} />
-              {SITE}
-              <ArrowUpRight size={12} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
           </div>
         </div>
       </div>

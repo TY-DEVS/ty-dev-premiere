@@ -1,7 +1,13 @@
 export function TyDevLogo({ className = "" }: { className?: string }) {
   return (
     <div className={`flex items-center gap-2 ${className}`}>
-      <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg
+        width="32"
+        height="32"
+        viewBox="0 0 40 40"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <defs>
           <linearGradient id="gearGrad" x1="0" y1="0" x2="40" y2="40">
             <stop offset="0%" stopColor="oklch(0.68 0.2 265)" />
@@ -14,7 +20,15 @@ export function TyDevLogo({ className = "" }: { className?: string }) {
           opacity="0.9"
         />
         <circle cx="20" cy="22" r="9" fill="oklch(0.13 0.03 260)" />
-        <text x="20" y="26" textAnchor="middle" fontSize="9" fontFamily="JetBrains Mono, monospace" fill="oklch(0.82 0.16 220)" fontWeight="700">
+        <text
+          x="20"
+          y="26"
+          textAnchor="middle"
+          fontSize="9"
+          fontFamily="JetBrains Mono, monospace"
+          fill="oklch(0.82 0.16 220)"
+          fontWeight="700"
+        >
           {"</>"}
         </text>
       </svg>

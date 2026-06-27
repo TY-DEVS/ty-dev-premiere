@@ -27,8 +27,7 @@ export function PageHeader({
           backgroundImage:
             "linear-gradient(oklch(0.6 0.22 265) 1px, transparent 1px), linear-gradient(90deg, oklch(0.6 0.22 265) 1px, transparent 1px)",
           backgroundSize: "72px 72px",
-          maskImage:
-            "radial-gradient(ellipse 70% 60% at 30% 40%, black 30%, transparent 75%)",
+          maskImage: "radial-gradient(ellipse 70% 60% at 30% 40%, black 30%, transparent 75%)",
         }}
         aria-hidden
       />
@@ -38,8 +37,7 @@ export function PageHeader({
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
         className="absolute -top-32 -left-24 w-[640px] h-[640px] rounded-full blur-3xl pointer-events-none"
         style={{
-          background:
-            "radial-gradient(circle, oklch(0.6 0.22 265 / 0.35), transparent 60%)",
+          background: "radial-gradient(circle, oklch(0.6 0.22 265 / 0.35), transparent 60%)",
         }}
         aria-hidden
       />

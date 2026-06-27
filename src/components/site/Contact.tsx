@@ -1,13 +1,27 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MessageCircle, Globe, Instagram, Linkedin, Facebook, Twitter, Youtube, Send } from "lucide-react";
+import {
+  Mail,
+  MessageCircle,
+  Globe,
+  Instagram,
+  Linkedin,
+  Facebook,
+  Twitter,
+  Youtube,
+  Send,
+} from "lucide-react";
 import { useI18n } from "@/i18n/context";
 import { Section } from "./Services";
 
 const socials = [
   { Icon: Instagram, href: "https://www.instagram.com/tydev__/", label: "Instagram" },
   { Icon: Linkedin, href: "https://www.linkedin.com/company/ty-devs/", label: "LinkedIn" },
-  { Icon: Facebook, href: "https://www.facebook.com/people/TY-DEV/61581507878160/", label: "Facebook" },
+  {
+    Icon: Facebook,
+    href: "https://www.facebook.com/people/TY-DEV/61581507878160/",
+    label: "Facebook",
+  },
   { Icon: Twitter, href: "https://x.com/tydev__", label: "X" },
   { Icon: TikTokIcon, href: "https://www.tiktok.com/@tydev__", label: "TikTok" },
   { Icon: Youtube, href: "https://www.youtube.com/@TY-Dev", label: "YouTube" },
@@ -35,16 +49,26 @@ export function Contact() {
           transition={{ duration: 0.6 }}
           className="lg:col-span-2"
         >
-          <div className="font-mono text-xs uppercase tracking-wider text-brand mb-4">// CONTACT</div>
+          <div className="font-mono text-xs uppercase tracking-wider text-brand mb-4">
+            // CONTACT
+          </div>
           <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight mb-4">
             {t.contact.title}
           </h2>
           <p className="text-muted-foreground text-lg mb-10">{t.contact.subtitle}</p>
 
-          <div className="space-y-4 mb-10">
+          <div className="space-y-2 mb-12">
             <ContactRow Icon={Mail} text="contact@ty-dev.site" href="mailto:contact@ty-dev.site" />
-            <ContactRow Icon={MessageCircle} text="WhatsApp: +33 07 59 44 01 05" href="https://wa.me/33759440105" />
-            <ContactRow Icon={Instagram} text="@tydev__" href="https://www.instagram.com/tydev__/" />
+            <ContactRow
+              Icon={MessageCircle}
+              text="WhatsApp: +33 07 59 44 01 05"
+              href="https://wa.me/33759440105"
+            />
+            <ContactRow
+              Icon={Instagram}
+              text="@tydev__"
+              href="https://www.instagram.com/tydev__/"
+            />
           </div>
 
           <div className="flex gap-3 flex-wrap">
@@ -55,9 +79,9 @@ export function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="w-10 h-10 rounded-full bg-surface/60 border border-border flex items-center justify-center text-muted-foreground hover:text-brand hover:border-brand/60 hover:shadow-[0_0_20px_oklch(0.6_0.22_265/0.3)] transition-all"
+                className="w-12 h-12 rounded-xl bg-surface/40 border border-border flex items-center justify-center text-muted-foreground hover:text-white hover:bg-brand hover:border-brand hover:-translate-y-1 hover:shadow-[0_10px_20px_-10px_oklch(0.6_0.22_265/0.5)] transition-all duration-300"
               >
-                <Icon size={16} />
+                <Icon size={18} />
               </a>
             ))}
           </div>
@@ -74,18 +98,30 @@ export function Contact() {
             (e.target as HTMLFormElement).reset();
             setTimeout(() => setSent(false), 5000);
           }}
-          className="lg:col-span-3 p-8 md:p-10 rounded-3xl bg-surface/40 border border-border backdrop-blur-sm space-y-5"
+          className="relative lg:col-span-3 p-8 md:p-12 rounded-[2rem] bg-gradient-to-br from-[oklch(0.08_0.025_260)] to-[oklch(0.05_0.015_260)] border border-border/50 shadow-2xl space-y-6 overflow-hidden"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="absolute inset-0 pointer-events-none opacity-20 bg-[radial-gradient(ellipse_at_top_right,oklch(0.6_0.22_265/0.4),transparent_60%)]" />
+          
+          <div className="relative grid grid-cols-1 md:grid-cols-2 gap-6">
             <Field label={t.contact.form.name} name="name" required />
             <Field label={t.contact.form.email} name="email" type="email" required />
           </div>
-          <Field label={t.contact.form.phone} name="phone" type="tel" />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <SelectField label={t.contact.form.type} name="type" options={t.contact.form.typeOptions} />
-            <SelectField label={t.contact.form.budget} name="budget" options={t.contact.form.budgetOptions} />
+          <div className="relative">
+            <Field label={t.contact.form.phone} name="phone" type="tel" />
           </div>
-          <div>
+          <div className="relative grid grid-cols-1 md:grid-cols-2 gap-6">
+            <SelectField
+              label={t.contact.form.type}
+              name="type"
+              options={t.contact.form.typeOptions}
+            />
+            <SelectField
+              label={t.contact.form.budget}
+              name="budget"
+              options={t.contact.form.budgetOptions}
+            />
+          </div>
+          <div className="relative">
             <label className="block font-mono text-xs uppercase tracking-wider text-muted-foreground mb-2">
               {t.contact.form.desc}
             </label>
@@ -94,38 +130,58 @@ export function Contact() {
               required
               rows={5}
               placeholder={t.contact.form.descPlaceholder}
-              className="w-full px-4 py-3 rounded-xl bg-background/60 border border-border focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all text-foreground placeholder:text-muted-foreground/60 resize-none"
+              className="w-full px-5 py-4 rounded-xl bg-surface/50 border border-border/60 focus:border-brand focus:bg-background focus:ring-4 focus:ring-brand/10 outline-none transition-all duration-300 text-foreground text-sm placeholder:text-muted-foreground/50 resize-none"
             />
           </div>
-          <button
-            type="submit"
-            className="group w-full inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-brand text-primary-foreground font-medium shadow-[0_0_40px_oklch(0.6_0.22_265/0.4)] transition-all hover:shadow-[0_0_60px_oklch(0.6_0.22_265/0.7)] hover:-translate-y-0.5"
-          >
-            {t.contact.form.submit}
-            <Send size={16} className="transition-transform group-hover:translate-x-1" />
-          </button>
+          <div className="relative pt-2">
+            <button
+              type="submit"
+              className="group w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-brand text-primary-foreground font-semibold shadow-[0_10px_40px_-10px_oklch(0.6_0.22_265/0.5)] transition-all duration-300 hover:shadow-[0_15px_50px_-10px_oklch(0.6_0.22_265/0.7)] hover:-translate-y-1"
+            >
+              {t.contact.form.submit}
+              <Send size={18} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+            </button>
+          </div>
           {sent && (
-            <p className="text-sm text-center text-cyan font-mono">{t.contact.form.success}</p>
+            <p className="relative text-sm text-center text-brand font-mono animate-in fade-in slide-in-from-bottom-2">{t.contact.form.success}</p>
           )}
-          <p className="text-xs text-center text-muted-foreground">{t.contact.form.note}</p>
+          <p className="relative text-xs text-center text-muted-foreground/60">{t.contact.form.note}</p>
         </motion.form>
       </div>
     </Section>
   );
 }
 
-function ContactRow({ Icon, text, href }: { Icon: React.ComponentType<{ size?: number; className?: string }>; text: string; href: string }) {
+function ContactRow({
+  Icon,
+  text,
+  href,
+}: {
+  Icon: React.ComponentType<{ size?: number; className?: string }>;
+  text: string;
+  href: string;
+}) {
   return (
-    <a href={href} className="flex items-center gap-3 group">
-      <div className="w-10 h-10 rounded-lg bg-brand/10 border border-brand/30 flex items-center justify-center text-brand">
-        <Icon size={16} />
+    <a href={href} className="flex items-center gap-4 group p-3 -ml-3 rounded-2xl hover:bg-surface/40 transition-all duration-300">
+      <div className="w-12 h-12 rounded-xl bg-brand/10 border border-brand/20 flex items-center justify-center text-brand transition-transform duration-500 group-hover:scale-110 group-hover:bg-brand group-hover:text-white group-hover:shadow-[0_0_20px_oklch(0.6_0.22_265/0.4)]">
+        <Icon size={20} />
       </div>
-      <span className="text-foreground group-hover:text-brand transition-colors">{text}</span>
+      <span className="text-foreground font-medium group-hover:text-brand transition-colors text-sm md:text-base">{text}</span>
     </a>
   );
 }
 
-function Field({ label, name, type = "text", required = false }: { label: string; name: string; type?: string; required?: boolean }) {
+function Field({
+  label,
+  name,
+  type = "text",
+  required = false,
+}: {
+  label: string;
+  name: string;
+  type?: string;
+  required?: boolean;
+}) {
   return (
     <div>
       <label className="block font-mono text-xs uppercase tracking-wider text-muted-foreground mb-2">
@@ -135,7 +191,7 @@ function Field({ label, name, type = "text", required = false }: { label: string
         type={type}
         name={name}
         required={required}
-        className="w-full px-4 py-3 rounded-xl bg-background/60 border border-border focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all text-foreground"
+        className="w-full px-5 py-3.5 rounded-xl bg-surface/50 border border-border/60 focus:border-brand focus:bg-background focus:ring-4 focus:ring-brand/10 outline-none transition-all duration-300 text-foreground text-sm"
       />
     </div>
   );
@@ -149,10 +205,10 @@ function SelectField({ label, name, options }: { label: string; name: string; op
       </label>
       <select
         name={name}
-        className="w-full px-4 py-3 rounded-xl bg-background/60 border border-border focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all text-foreground"
+        className="w-full px-5 py-3.5 rounded-xl bg-surface/50 border border-border/60 focus:border-brand focus:bg-background focus:ring-4 focus:ring-brand/10 outline-none transition-all duration-300 text-foreground text-sm appearance-none cursor-pointer"
       >
         {options.map((o) => (
-          <option key={o} value={o} className="bg-background">
+          <option key={o} value={o} className="bg-[oklch(0.08_0.025_260)] text-foreground">
             {o}
           </option>
         ))}

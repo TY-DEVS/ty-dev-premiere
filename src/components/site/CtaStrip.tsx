@@ -7,10 +7,7 @@ export function CtaStrip() {
   const { t, lang } = useI18n();
   return (
     <section className="relative py-20 md:py-28 overflow-hidden">
-      <div
-        aria-hidden
-        className="absolute inset-0 mesh-bg opacity-50"
-      />
+      <div aria-hidden className="absolute inset-0 mesh-bg opacity-50" />
       <div className="relative max-w-5xl mx-auto px-6 lg:px-10">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -22,7 +19,9 @@ export function CtaStrip() {
           <div
             aria-hidden
             className="absolute -top-32 -right-24 w-96 h-96 rounded-full opacity-40 blur-3xl"
-            style={{ background: "radial-gradient(circle, oklch(0.6 0.22 265 / 0.4), transparent 60%)" }}
+            style={{
+              background: "radial-gradient(circle, oklch(0.6 0.22 265 / 0.4), transparent 60%)",
+            }}
           />
           <div className="relative flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
             <div className="max-w-2xl">
@@ -31,9 +30,14 @@ export function CtaStrip() {
               </div>
               <h3 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1]">
                 {lang === "fr" ? (
-                  <>Construisons quelque chose <span className="text-gradient-brand">d'exceptionnel</span>.</>
+                  <>
+                    Construisons quelque chose{" "}
+                    <span className="text-gradient-brand">d'exceptionnel</span>.
+                  </>
                 ) : (
-                  <>Let's build something <span className="text-gradient-brand">exceptional</span>.</>
+                  <>
+                    Let's build something <span className="text-gradient-brand">exceptional</span>.
+                  </>
                 )}
               </h3>
               <p className="mt-4 text-muted-foreground md:text-lg">

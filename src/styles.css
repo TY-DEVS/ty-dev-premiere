@@ -102,12 +102,17 @@
 
 @utility glow-border {
   box-shadow: 0 0 0 1px oklch(0.6 0.22 265 / 0.15);
-  transition: box-shadow 0.4s ease, transform 0.4s ease, border-color 0.4s ease;
+  transition:
+    box-shadow 0.4s ease,
+    transform 0.4s ease,
+    border-color 0.4s ease;
 }
 
 @utility glow-border-hover {
   &:hover {
-    box-shadow: 0 0 0 1px oklch(0.6 0.22 265 / 0.5), 0 0 30px oklch(0.6 0.22 265 / 0.25);
+    box-shadow:
+      0 0 0 1px oklch(0.6 0.22 265 / 0.5),
+      0 0 30px oklch(0.6 0.22 265 / 0.25);
     transform: translateY(-4px);
   }
 }
@@ -124,13 +129,24 @@
 }
 
 @keyframes pulse-dot {
-  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 oklch(0.6 0.22 265 / 0.6); }
-  50% { opacity: 0.6; box-shadow: 0 0 0 8px oklch(0.6 0.22 265 / 0); }
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 oklch(0.6 0.22 265 / 0.6);
+  }
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 0 8px oklch(0.6 0.22 265 / 0);
+  }
 }
 
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 @utility animate-marquee {
@@ -138,9 +154,16 @@
 }
 
 @keyframes mesh-float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -20px) scale(1.05); }
-  66% { transform: translate(-20px, 20px) scale(0.95); }
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -20px) scale(1.05);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
 }
 
 @utility animate-mesh {
@@ -148,8 +171,15 @@
 }
 
 @keyframes bounce-arrow {
-  0%, 100% { transform: translateY(0); opacity: 0.6; }
-  50% { transform: translateY(8px); opacity: 1; }
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 1;
+  }
 }
 
 @utility animate-bounce-arrow {

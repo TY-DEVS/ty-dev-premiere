@@ -4,6 +4,7 @@ import { About } from "@/components/site/About";
 import { TechStack } from "@/components/site/TechStack";
 import { CtaStrip } from "@/components/site/CtaStrip";
 import { useI18n } from "@/i18n/context";
+import { Team } from "@/components/site/Team";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -42,6 +43,7 @@ function AboutPage() {
         }
       />
       <About />
+      <Team />
       <TechStack />
       <CtaStrip />
     </>

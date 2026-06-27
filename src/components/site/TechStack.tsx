@@ -2,9 +2,23 @@ import { useI18n } from "@/i18n/context";
 import { Section, SectionHeader } from "./Services";
 
 const stack = [
-  "React", "Next.js", "Node.js", "TypeScript", "Python", "Supabase",
-  "PostgreSQL", "MongoDB", "AWS", "Docker", "Stripe", "OpenAI",
-  "Tailwind CSS", "GraphQL", "Redis", "Vercel", "Firebase",
+  "React",
+  "Next.js",
+  "Node.js",
+  "TypeScript",
+  "Python",
+  "Supabase",
+  "PostgreSQL",
+  "MongoDB",
+  "AWS",
+  "Docker",
+  "Stripe",
+  "OpenAI",
+  "Tailwind CSS",
+  "GraphQL",
+  "Redis",
+  "Vercel",
+  "Firebase",
 ];
 
 export function TechStack() {

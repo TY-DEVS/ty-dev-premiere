@@ -147,7 +147,9 @@ function MobileDrawer({
           >
             <div
               className="pointer-events-none absolute -top-32 -right-20 w-80 h-80 rounded-full blur-3xl opacity-40"
-              style={{ background: "radial-gradient(circle, oklch(0.6 0.22 265 / 0.4), transparent 70%)" }}
+              style={{
+                background: "radial-gradient(circle, oklch(0.6 0.22 265 / 0.4), transparent 70%)",
+              }}
               aria-hidden
             />
 
