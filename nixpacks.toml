@@ -1,2 +1,12 @@
+[variables]
+NITRO_PRESET = "node-server"
+PORT = "3000"
+
 [phases.install]
 cmds = ["npm install"]
+
+[phases.build]
+cmds = ["npm run build"]
+
+[start]
+cmd = "node .output/server/index.mjs"
