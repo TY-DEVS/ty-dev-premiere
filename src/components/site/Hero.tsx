@@ -6,94 +6,244 @@ export function Hero() {
   const { t } = useI18n();
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16">
-      {/* Animated mesh background */}
+    <section
+      id="home"
+      className="relative flex items-center overflow-hidden pt-32 pb-20 md:pt-36 md:pb-28 lg:min-h-[100svh]"
+    >
+      {/* Layered background */}
       <div className="absolute inset-0 mesh-bg animate-mesh" aria-hidden />
       <div
-        className="absolute inset-0 opacity-[0.04]"
+        className="absolute inset-0 opacity-[0.05]"
         style={{
           backgroundImage:
             "linear-gradient(oklch(0.6 0.22 265) 1px, transparent 1px), linear-gradient(90deg, oklch(0.6 0.22 265) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-          maskImage: "radial-gradient(ellipse at center, black 30%, transparent 70%)",
+          backgroundSize: "64px 64px",
+          maskImage: "radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 75%)",
         }}
         aria-hidden
       />
-      {/* Particle dots */}
+      {/* Glow orb */}
+      <div
+        className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full opacity-40 blur-3xl pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(circle, oklch(0.6 0.22 265 / 0.4), transparent 60%)",
+        }}
+        aria-hidden
+      />
       <Particles />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border bg-surface/40 backdrop-blur-md font-mono text-[11px] tracking-wider text-muted-foreground mb-8"
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-brand pulse-dot" />
-          {t.hero.eyebrow}
-        </motion.div>
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-16 items-center">
+          {/* Left — text */}
+          <div className="text-center lg:text-left">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border bg-surface/40 backdrop-blur-md font-mono text-[11px] tracking-wider text-muted-foreground mb-6"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-brand pulse-dot" />
+              {t.hero.eyebrow}
+            </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="font-display font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1.05] mb-6"
-        >
-          {t.hero.title1}
-          <span className="text-gradient-brand">{t.hero.titleAccent}</span>
-        </motion.h1>
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="font-display font-bold text-[2.6rem] sm:text-6xl lg:text-7xl xl:text-[5.25rem] tracking-tight leading-[1.02] mb-6"
+            >
+              {t.hero.title1}
+              <span className="text-gradient-brand">{t.hero.titleAccent}</span>
+            </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.25 }}
-          className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
-        >
-          {t.hero.subtitle}
-        </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.25 }}
+              className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed"
+            >
+              {t.hero.subtitle}
+            </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.35 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
-        >
-          <a
-            href="#contact"
-            className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-brand text-primary-foreground font-medium shadow-[0_0_40px_oklch(0.6_0.22_265/0.4)] transition-all hover:shadow-[0_0_60px_oklch(0.6_0.22_265/0.7)] hover:-translate-y-0.5"
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.35 }}
+              className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 mb-10"
+            >
+              <a
+                href="#contact"
+                className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-brand text-primary-foreground font-medium shadow-[0_0_40px_oklch(0.6_0.22_265/0.4)] transition-all hover:shadow-[0_0_60px_oklch(0.6_0.22_265/0.7)] hover:-translate-y-0.5"
+              >
+                {t.hero.cta1}
+                <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+              </a>
+              <a
+                href="#portfolio"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-border bg-surface/30 backdrop-blur-md text-foreground font-medium transition-all hover:border-brand/50 hover:bg-surface/60"
+              >
+                {t.hero.cta2}
+              </a>
+            </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.6 }}
+              className="font-mono text-[11px] sm:text-xs text-muted-foreground/80"
+            >
+              {t.hero.trust}
+            </motion.p>
+          </div>
+
+          {/* Right — code terminal visual */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.3 }}
+            className="relative mx-auto w-full max-w-lg lg:max-w-none"
           >
-            {t.hero.cta1}
-            <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-          </a>
-          <a
-            href="#portfolio"
-            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-border bg-surface/30 backdrop-blur-md text-foreground font-medium transition-all hover:border-brand/50 hover:bg-surface/60"
-          >
-            {t.hero.cta2}
-          </a>
-        </motion.div>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.6 }}
-          className="font-mono text-xs text-muted-foreground/80"
-        >
-          {t.hero.trust}
-        </motion.p>
+            <TerminalMock />
+          </motion.div>
+        </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce-arrow">
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce-arrow hidden md:block">
         <ArrowDown size={20} className="text-muted-foreground" />
       </div>
     </section>
   );
 }
 
-function Particles() {
-  const dots = Array.from({ length: 30 });
+function TerminalMock() {
   return (
-    <div className="absolute inset-0 overflow-hidden" aria-hidden>
+    <div className="relative">
+      {/* Glow */}
+      <div
+        className="absolute -inset-6 rounded-3xl opacity-60 blur-2xl"
+        style={{
+          background:
+            "radial-gradient(circle at 30% 30%, oklch(0.6 0.22 265 / 0.5), transparent 60%), radial-gradient(circle at 70% 70%, oklch(0.82 0.16 220 / 0.3), transparent 60%)",
+        }}
+        aria-hidden
+      />
+      <div className="relative rounded-2xl bg-[oklch(0.1_0.025_260)]/95 border border-border backdrop-blur-xl shadow-[0_30px_80px_-20px_oklch(0_0_0/0.6)] overflow-hidden">
+        {/* Title bar */}
+        <div className="flex items-center justify-between px-4 py-3 border-b border-border bg-surface/40">
+          <div className="flex gap-1.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-[oklch(0.6_0.18_25)]" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[oklch(0.75_0.15_85)]" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[oklch(0.7_0.18_145)]" />
+          </div>
+          <div className="font-mono text-[11px] text-muted-foreground">~/ty-dev/scale.ts</div>
+          <div className="w-10" />
+        </div>
+        {/* Code body */}
+        <div className="p-5 sm:p-6 font-mono text-[12px] sm:text-[13px] leading-relaxed">
+          <CodeLine n={1}>
+            <span className="text-[oklch(0.7_0.18_300)]">const</span>{" "}
+            <span className="text-cyan">tyDev</span> ={" "}
+            <span className="text-muted-foreground">{"{"}</span>
+          </CodeLine>
+          <CodeLine n={2}>
+            {"  "}
+            <span className="text-brand">mission</span>:{" "}
+            <span className="text-[oklch(0.78_0.14_140)]">'scale_your_business'</span>,
+          </CodeLine>
+          <CodeLine n={3}>
+            {"  "}
+            <span className="text-brand">stack</span>:{" "}
+            <span className="text-muted-foreground">[</span>
+            <span className="text-[oklch(0.78_0.14_140)]">'react'</span>,{" "}
+            <span className="text-[oklch(0.78_0.14_140)]">'next'</span>,{" "}
+            <span className="text-[oklch(0.78_0.14_140)]">'ai'</span>
+            <span className="text-muted-foreground">]</span>,
+          </CodeLine>
+          <CodeLine n={4}>
+            {"  "}
+            <span className="text-brand">build</span>:{" "}
+            <span className="text-[oklch(0.7_0.18_300)]">async</span>{" "}
+            <span className="text-muted-foreground">()</span> {"=>"}{" "}
+            <span className="text-muted-foreground">{"{"}</span>
+          </CodeLine>
+          <CodeLine n={5}>
+            {"    "}
+            <span className="text-[oklch(0.7_0.18_300)]">return</span>{" "}
+            <span className="text-cyan">await</span>{" "}
+            <span className="text-foreground">ship</span>
+            <span className="text-muted-foreground">(</span>
+            <span className="text-[oklch(0.78_0.14_140)]">'production'</span>
+            <span className="text-muted-foreground">)</span>;
+          </CodeLine>
+          <CodeLine n={6}>
+            {"  "}
+            <span className="text-muted-foreground">{"}"}</span>,
+          </CodeLine>
+          <CodeLine n={7}>
+            <span className="text-muted-foreground">{"}"}</span>;
+          </CodeLine>
+          <CodeLine n={8}>
+            <span className="text-muted-foreground/60">{"// "}</span>
+            <span className="text-muted-foreground/60">deploy → ✓ live in 4 weeks</span>
+            <motion.span
+              className="inline-block w-2 h-3.5 bg-brand ml-1 align-middle"
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ duration: 1, repeat: Infinity }}
+            />
+          </CodeLine>
+        </div>
+        {/* Status bar */}
+        <div className="flex items-center justify-between px-4 py-2 border-t border-border bg-surface/40 font-mono text-[10px] text-muted-foreground">
+          <div className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-[oklch(0.7_0.18_145)] pulse-dot" />
+            BUILD PASSING
+          </div>
+          <div>TypeScript · UTF-8</div>
+        </div>
+      </div>
+
+      {/* Floating badge */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.2, duration: 0.6 }}
+        className="absolute -bottom-5 -left-3 sm:-left-6 px-3 py-2 rounded-xl bg-surface border border-border backdrop-blur-md shadow-xl flex items-center gap-2"
+      >
+        <div className="w-7 h-7 rounded-lg bg-brand/15 border border-brand/30 flex items-center justify-center">
+          <span className="text-brand text-sm">⚡</span>
+        </div>
+        <div>
+          <div className="font-mono text-[10px] text-muted-foreground">LATENCY</div>
+          <div className="font-display text-xs font-bold">&lt; 100ms</div>
+        </div>
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.4, duration: 0.6 }}
+        className="absolute -top-4 -right-2 sm:-right-5 px-3 py-2 rounded-xl bg-surface border border-border backdrop-blur-md shadow-xl"
+      >
+        <div className="font-mono text-[10px] text-muted-foreground">UPTIME</div>
+        <div className="font-display text-xs font-bold text-cyan">99.99%</div>
+      </motion.div>
+    </div>
+  );
+}
+
+function CodeLine({ n, children }: { n: number; children: React.ReactNode }) {
+  return (
+    <div className="flex">
+      <span className="select-none text-muted-foreground/40 w-6 text-right pr-3 shrink-0">{n}</span>
+      <span className="whitespace-pre">{children}</span>
+    </div>
+  );
+}
+
+function Particles() {
+  const dots = Array.from({ length: 24 });
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
       {dots.map((_, i) => {
         const left = (i * 37) % 100;
         const top = (i * 53) % 100;
