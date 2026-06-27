@@ -6,14 +6,13 @@ export const sendContactEmailFn = createServerFn({ method: "POST" })
   .handler(async (ctx) => {
     const { name, email, phone, type, budget, desc, source } = ctx.data;
 
-    try {
       const transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST || "mail.ty-dev.site",
-        port: parseInt(process.env.SMTP_PORT || "587"),
-        secure: process.env.SMTP_PORT === "465", 
+        host: "83.229.19.107", // Force direct IP to bypass Cloudflare and Coolify env issues
+        port: 587,
+        secure: false, 
         auth: {
-          user: process.env.SMTP_USER,
-          pass: process.env.SMTP_PASS,
+          user: process.env.SMTP_USER || "contact@ty-dev.site",
+          pass: process.env.SMTP_PASS?.replace(/"/g, ""), // Automatically remove quotes if they accidentally put them in Coolify
         },
         tls: {
             rejectUnauthorized: false
