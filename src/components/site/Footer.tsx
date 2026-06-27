@@ -1,4 +1,5 @@
 import { Instagram, Linkedin, Facebook, Twitter, Youtube, Mail, MapPin, ArrowRight, ArrowUpRight, Globe } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
 import { TyDevLogo } from "./TyDevLogo";
 
@@ -40,8 +41,8 @@ export function Footer() {
                 : "Let's craft high-performance solutions together."}
             </p>
           </div>
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="group relative inline-flex items-center gap-2 px-8 py-4 bg-brand text-white font-semibold rounded-full overflow-hidden transition-all hover:pr-12 shadow-[0_0_40px_-10px_oklch(0.55_0.22_265)] hover:shadow-[0_0_60px_-5px_oklch(0.55_0.22_265)]"
           >
             <span className="relative z-10">{t.nav.cta}</span>
@@ -49,7 +50,7 @@ export function Footer() {
               size={18}
               className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all"
             />
-          </a>
+          </Link>
         </div>
 
         {/* Main Footer Grid */}
@@ -73,9 +74,9 @@ export function Footer() {
             <ul className="space-y-4 text-sm">
               {t.services.items.slice(0, 5).map((s) => (
                 <li key={s.title}>
-                  <a href="#services" className="hover:text-brand transition-colors">
+                  <Link to="/services" className="hover:text-brand transition-colors">
                     {s.title}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -86,12 +87,12 @@ export function Footer() {
             <FooterColTitle>{t.footer.company}</FooterColTitle>
             <ul className="space-y-4 text-sm">
               {t.footer.companyLinks.map((label, i) => {
-                const hrefs = ["#about", "#portfolio", "#contact", "#"];
+                const routes = ["/about", "/portfolio", "/contact", "/services"] as const;
                 return (
                   <li key={label}>
-                    <a href={hrefs[i]} className="hover:text-brand transition-colors">
+                    <Link to={routes[i]} className="hover:text-brand transition-colors">
                       {label}
-                    </a>
+                    </Link>
                   </li>
                 );
               })}

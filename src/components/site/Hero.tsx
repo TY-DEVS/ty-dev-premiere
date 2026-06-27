@@ -1,6 +1,8 @@
 import { motion, type Variants } from "framer-motion";
 import { ArrowRight, Zap } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
+
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -131,19 +133,19 @@ export function Hero() {
               variants={fadeUp}
               className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 mb-10"
             >
-              <a
-                href="#contact"
+              <Link
+                to="/contact"
                 className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-brand text-primary-foreground font-medium shadow-[0_0_40px_oklch(0.6_0.22_265/0.4)] transition-all duration-300 hover:shadow-[0_0_60px_oklch(0.6_0.22_265/0.7)] hover:-translate-y-0.5"
               >
                 {t.hero.cta1}
                 <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
-              </a>
-              <a
-                href="#portfolio"
+              </Link>
+              <Link
+                to="/portfolio"
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-border bg-surface/30 backdrop-blur-md text-foreground font-medium transition-all duration-300 hover:border-brand/50 hover:bg-surface/60"
               >
                 {t.hero.cta2}
-              </a>
+              </Link>
             </motion.div>
 
             <motion.p
