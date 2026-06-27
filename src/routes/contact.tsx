@@ -10,13 +10,13 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Start a project with TY Dev. Reach us at contact@ty-dev.site — replies within 24 hours.",
+          "Start a project with TY Dev. Reach us at contact@ty-dev.fr — replies within 24 hours.",
       },
       { property: "og:title", content: "Contact — TY Dev" },
       {
         property: "og:description",
         content:
-          "Start a project with TY Dev. Reach us at contact@ty-dev.site — replies within 24 hours.",
+          "Start a project with TY Dev. Reach us at contact@ty-dev.fr — replies within 24 hours.",
       },
     ],
     links: [{ rel: "canonical", href: "/contact" }],

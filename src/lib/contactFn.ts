@@ -8,12 +8,12 @@ export const sendContactEmailFn = createServerFn({ method: "POST" })
 
     try {
       const transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST || "mail.ty-dev.site",
-        port: parseInt(process.env.SMTP_PORT || "587"),
-        secure: process.env.SMTP_PORT === "465", 
+        host: process.env.SMTP_HOST || "83.229.19.107",
+        port: parseInt(process.env.SMTP_PORT || "465"),
+        secure: process.env.SMTP_PORT === "465" || !process.env.SMTP_PORT, // true if port 465 or not set (default 465)
         auth: {
           user: process.env.SMTP_USER,
-          pass: process.env.SMTP_PASS,
+          pass: process.env.SMTP_PASS?.replace(/"/g, ""), // Automatically remove quotes if they accidentally put them in Coolify
         },
         tls: {
             rejectUnauthorized: false
@@ -22,7 +22,7 @@ export const sendContactEmailFn = createServerFn({ method: "POST" })
 
       const mailOptions = {
         from: process.env.SMTP_USER,
-        to: process.env.CONTACT_RECEIVER || process.env.SMTP_USER,
+        to: "contact@ty-dev.fr, benyaalamedyassine24@gmail.com",
         replyTo: email,
         subject: `Nouveau Contact: ${name} - ${type}`,
         text: `
