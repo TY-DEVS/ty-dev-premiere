@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowUpRight, Mail, Globe, MapPin } from "lucide-react";
 import { useI18n } from "@/i18n/context";
 import { TyDevLogo } from "./TyDevLogo";
-
-const sections = ["home", "services", "portfolio", "about", "contact"] as const;
 
 export function Navbar() {
   const { lang, setLang, t } = useI18n();
@@ -17,6 +15,17 @@ export function Navbar() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Lock body scroll when drawer open
+  useEffect(() => {
+    if (open) {
+      const prev = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = prev;
+      };
+    }
+  }, [open]);
 
   const navItems = [
     { id: "home", label: t.nav.home },
@@ -56,7 +65,9 @@ export function Navbar() {
           </nav>
 
           <div className="flex items-center gap-2 md:gap-3">
-            <LangToggle lang={lang} setLang={setLang} />
+            <div className="hidden sm:block">
+              <LangToggle lang={lang} setLang={setLang} />
+            </div>
             <a
               href="#contact"
               className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand text-primary-foreground text-sm font-medium transition-all hover:shadow-[0_0_30px_oklch(0.6_0.22_265/0.5)] hover:-translate-y-0.5"
@@ -64,52 +75,204 @@ export function Navbar() {
               {t.nav.cta}
             </a>
             <button
-              className="lg:hidden text-foreground p-1.5 rounded-md hover:bg-surface/60 transition-colors"
+              className="lg:hidden text-foreground p-2 rounded-lg border border-border/60 bg-surface/40 backdrop-blur-md hover:bg-surface/70 transition-colors"
               onClick={() => setOpen(true)}
               aria-label="Open menu"
             >
-              <Menu size={22} />
+              <Menu size={20} />
             </button>
           </div>
         </div>
       </motion.header>
 
-      <AnimatePresence>
-        {open && (
+      <MobileDrawer
+        open={open}
+        onClose={() => setOpen(false)}
+        navItems={navItems}
+        lang={lang}
+        setLang={setLang}
+        cta={t.nav.cta}
+      />
+    </>
+  );
+}
+
+function MobileDrawer({
+  open,
+  onClose,
+  navItems,
+  lang,
+  setLang,
+  cta,
+}: {
+  open: boolean;
+  onClose: () => void;
+  navItems: { id: string; label: string }[];
+  lang: "en" | "fr";
+  setLang: (l: "en" | "fr") => void;
+  cta: string;
+}) {
+  return (
+    <AnimatePresence>
+      {open && (
+        <>
+          {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[60] bg-background/95 backdrop-blur-2xl lg:hidden"
+            transition={{ duration: 0.3 }}
+            onClick={onClose}
+            className="fixed inset-0 z-[60] bg-background/70 backdrop-blur-md lg:hidden"
+            aria-hidden
+          />
+
+          {/* Drawer */}
+          <motion.aside
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "tween", ease: [0.22, 1, 0.36, 1], duration: 0.5 }}
+            className="fixed top-0 right-0 bottom-0 z-[70] w-[88vw] max-w-[360px] lg:hidden flex flex-col bg-[oklch(0.1_0.025_260)]/95 backdrop-blur-2xl border-l border-border/60 shadow-[0_0_60px_-10px_oklch(0_0_0/0.6)]"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile navigation"
           >
-            <div className="flex justify-end p-6">
-              <button onClick={() => setOpen(false)} aria-label="Close menu">
-                <X size={28} />
+            {/* Ambient glow */}
+            <div
+              className="pointer-events-none absolute -top-32 -right-20 w-80 h-80 rounded-full blur-3xl opacity-40"
+              style={{ background: "radial-gradient(circle, oklch(0.6 0.22 265 / 0.4), transparent 70%)" }}
+              aria-hidden
+            />
+
+            {/* Header */}
+            <div className="relative flex items-center justify-between px-6 py-5 border-b border-border/50">
+              <TyDevLogo />
+              <button
+                onClick={onClose}
+                aria-label="Close menu"
+                className="p-2 rounded-lg border border-border/60 bg-surface/40 hover:bg-surface/70 transition-colors"
+              >
+                <X size={18} />
               </button>
             </div>
-            <nav className="flex flex-col items-center gap-8 mt-12 font-display text-3xl">
-              {navItems.map((item) => (
-                <a
-                  key={item.id}
-                  href={`#${item.id}`}
-                  onClick={() => setOpen(false)}
-                  className="hover:text-brand transition-colors"
-                >
-                  {item.label}
-                </a>
-              ))}
-              <a
-                href="#contact"
-                onClick={() => setOpen(false)}
-                className="mt-4 px-6 py-3 rounded-full bg-brand text-primary-foreground text-base"
+
+            {/* Status */}
+            <div className="relative px-6 py-4 border-b border-border/40">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border/60 bg-surface/40">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inset-0 rounded-full bg-[oklch(0.7_0.18_145)] animate-ping opacity-60" />
+                  <span className="relative rounded-full h-2 w-2 bg-[oklch(0.7_0.18_145)]" />
+                </span>
+                <span className="font-mono text-[10px] tracking-wider uppercase text-muted-foreground">
+                  {lang === "fr" ? "Disponible · Nouveaux projets" : "Available · New projects"}
+                </span>
+              </div>
+            </div>
+
+            {/* Nav links */}
+            <nav className="relative flex-1 overflow-y-auto px-3 py-4">
+              <div className="px-3 mb-2 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground/70">
+                // {lang === "fr" ? "Navigation" : "Navigate"}
+              </div>
+              <ul className="flex flex-col">
+                {navItems.map((item, i) => (
+                  <motion.li
+                    key={item.id}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.15 + i * 0.06, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    <a
+                      href={`#${item.id}`}
+                      onClick={onClose}
+                      className="group flex items-center justify-between gap-3 px-3 py-3.5 rounded-lg hover:bg-surface/50 transition-colors"
+                    >
+                      <span className="flex items-center gap-3">
+                        <span className="font-mono text-[11px] text-muted-foreground/60 w-6">
+                          0{i + 1}
+                        </span>
+                        <span className="font-display text-lg text-foreground group-hover:text-brand transition-colors">
+                          {item.label}
+                        </span>
+                      </span>
+                      <ArrowUpRight
+                        size={16}
+                        className="text-muted-foreground/50 group-hover:text-brand group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
+                      />
+                    </a>
+                  </motion.li>
+                ))}
+              </ul>
+
+              {/* CTA */}
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                className="px-3 mt-6"
               >
-                {t.nav.cta}
-              </a>
+                <a
+                  href="#contact"
+                  onClick={onClose}
+                  className="flex items-center justify-center gap-2 w-full px-5 py-3.5 rounded-full bg-brand text-primary-foreground font-medium shadow-[0_0_40px_oklch(0.6_0.22_265/0.4)] transition-all hover:shadow-[0_0_60px_oklch(0.6_0.22_265/0.7)]"
+                >
+                  {cta}
+                  <ArrowUpRight size={16} />
+                </a>
+              </motion.div>
+
+              {/* Contact info */}
+              <div className="mt-7 px-3">
+                <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground/70 mb-3">
+                  // {lang === "fr" ? "Contact" : "Contact"}
+                </div>
+                <ul className="space-y-3 text-sm">
+                  <li>
+                    <a
+                      href="mailto:contact@ty-dev.site"
+                      className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      <span className="w-8 h-8 rounded-lg border border-border/60 bg-surface/40 flex items-center justify-center text-brand">
+                        <Mail size={14} />
+                      </span>
+                      contact@ty-dev.site
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://ty-dev.site"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      <span className="w-8 h-8 rounded-lg border border-border/60 bg-surface/40 flex items-center justify-center text-brand">
+                        <Globe size={14} />
+                      </span>
+                      ty-dev.site
+                    </a>
+                  </li>
+                  <li className="flex items-center gap-3 text-muted-foreground">
+                    <span className="w-8 h-8 rounded-lg border border-border/60 bg-surface/40 flex items-center justify-center text-brand">
+                      <MapPin size={14} />
+                    </span>
+                    France · EU · Worldwide
+                  </li>
+                </ul>
+              </div>
             </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+
+            {/* Footer */}
+            <div className="relative border-t border-border/50 px-6 py-4 flex items-center justify-between">
+              <LangToggle lang={lang} setLang={setLang} />
+              <span className="font-mono text-[10px] text-muted-foreground/60">
+                © {new Date().getFullYear()} TY Dev
+              </span>
+            </div>
+          </motion.aside>
+        </>
+      )}
+    </AnimatePresence>
   );
 }
 
