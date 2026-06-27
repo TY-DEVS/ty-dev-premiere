@@ -43,9 +43,9 @@ function Index() {
         <main>
           <Hero />
           <Services />
+          <About />
           <Portfolio />
           <WhyUs />
-          <About />
           <TechStack />
           <Process />
           <Contact />
