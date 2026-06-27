@@ -1,7 +1,6 @@
-import { Instagram, Linkedin, Facebook, Twitter, Youtube, Mail, Globe, ArrowUpRight, MapPin } from "lucide-react";
+import { Instagram, Linkedin, Facebook, Twitter, Youtube, Mail, MapPin, ArrowRight, ArrowUpRight, Globe } from "lucide-react";
 import { useI18n } from "@/i18n/context";
 import { TyDevLogo } from "./TyDevLogo";
-import { LangToggle } from "./Navbar";
 
 const socialList = [
   { Icon: Instagram, href: "https://www.instagram.com/tydev__/", label: "Instagram" },
@@ -18,102 +17,63 @@ export function Footer() {
   const { t, lang, setLang } = useI18n();
 
   return (
-    <footer className="relative overflow-hidden border-t border-border/60 bg-[oklch(0.09_0.025_260)]">
-      {/* Ambient glow */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 -top-40 h-80 opacity-60"
-        style={{
-          background:
-            "radial-gradient(60% 100% at 50% 0%, oklch(0.55 0.22 265 / 0.18), transparent 70%)",
-        }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage:
-            "linear-gradient(oklch(1 0 0) 1px, transparent 1px), linear-gradient(90deg, oklch(1 0 0) 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
-          maskImage: "radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%)",
-        }}
-      />
-
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-10 pt-20 pb-10">
-        {/* CTA strip */}
-        <div className="relative mb-16 rounded-2xl border border-border/70 bg-gradient-to-br from-[oklch(0.13_0.04_265)] to-[oklch(0.1_0.025_260)] px-8 py-10 md:px-12 md:py-12 overflow-hidden">
+    <footer className="relative bg-[oklch(0.06_0.02_260)] px-4 md:px-8 lg:px-12 pt-12 pb-12">
+      <div className="mx-auto w-full max-w-7xl rounded-3xl overflow-hidden border border-border/60 bg-[oklch(0.08_0.025_260)] text-muted-foreground">
+        {/* CTA Top Bar */}
+        <div className="relative border-b border-border/60 p-8 md:p-12 flex flex-col md:flex-row justify-between items-center gap-8 bg-gradient-to-br from-[oklch(0.08_0.025_260)] to-[oklch(0.11_0.04_265)] overflow-hidden">
           <div
             aria-hidden
-            className="absolute -right-20 -top-20 h-64 w-64 rounded-full opacity-40 blur-3xl"
+            className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full opacity-40 blur-3xl"
             style={{ background: "oklch(0.55 0.22 265 / 0.35)" }}
           />
-          <div className="relative flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-            <div>
-              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-brand mb-3">
-                // {lang === "fr" ? "Prêt à construire" : "Ready to build"}
-              </p>
-              <h3 className="text-2xl md:text-3xl font-semibold tracking-tight max-w-xl">
-                {lang === "fr"
-                  ? "Transformons votre vision en logiciel."
-                  : "Let's turn your vision into shipped software."}
-              </h3>
-            </div>
-            <a
-              href="#contact"
-              className="group inline-flex items-center gap-2 self-start md:self-auto rounded-full bg-brand px-6 py-3 text-sm font-medium text-white shadow-[0_0_40px_-10px_oklch(0.55_0.22_265)] transition-all hover:shadow-[0_0_60px_-5px_oklch(0.55_0.22_265)] hover:-translate-y-0.5"
-            >
-              {t.nav.cta}
-              <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
+          <div className="relative max-w-xl text-center md:text-left">
+            <h2 className="text-3xl md:text-4xl font-semibold text-foreground font-display leading-tight mb-3 tracking-tight">
+              {lang === "fr" ? (
+                <>Prêt à passer à l'<span className="text-brand">échelle</span> ?</>
+              ) : (
+                <>Ready to scale your <span className="text-brand">digital presence</span>?</>
+              )}
+            </h2>
+            <p className="text-base md:text-lg text-muted-foreground">
+              {lang === "fr"
+                ? "Concevons ensemble des solutions à haute performance."
+                : "Let's craft high-performance solutions together."}
+            </p>
           </div>
+          <a
+            href="#contact"
+            className="group relative inline-flex items-center gap-2 px-8 py-4 bg-brand text-white font-semibold rounded-full overflow-hidden transition-all hover:pr-12 shadow-[0_0_40px_-10px_oklch(0.55_0.22_265)] hover:shadow-[0_0_60px_-5px_oklch(0.55_0.22_265)]"
+          >
+            <span className="relative z-10">{t.nav.cta}</span>
+            <ArrowRight
+              size={18}
+              className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all"
+            />
+          </a>
         </div>
 
-        {/* Main grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 pb-12 border-b border-border/60">
-          {/* Brand */}
-          <div className="md:col-span-5">
+        {/* Main Footer Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-12 p-8 md:p-12 border-b border-border/60">
+          {/* Brand Column */}
+          <div className="space-y-6">
             <TyDevLogo />
-            <p className="mt-5 text-sm text-muted-foreground leading-relaxed max-w-sm">
-              {t.footer.tagline}
-            </p>
-
-            <div className="mt-6 space-y-2.5 text-sm">
-              <a
-                href={`mailto:${EMAIL}`}
-                className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <span className="flex h-8 w-8 items-center justify-center rounded-md border border-border/70 bg-surface/40 group-hover:border-brand/60 group-hover:text-brand transition-colors">
-                  <Mail size={13} />
-                </span>
-                <span className="font-mono text-[13px]">{EMAIL}</span>
-              </a>
-              <a
-                href={`https://${SITE}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <span className="flex h-8 w-8 items-center justify-center rounded-md border border-border/70 bg-surface/40 group-hover:border-brand/60 group-hover:text-brand transition-colors">
-                  <Globe size={13} />
-                </span>
-                <span className="font-mono text-[13px]">{SITE}</span>
-              </a>
-              <div className="flex items-center gap-3 text-muted-foreground">
-                <span className="flex h-8 w-8 items-center justify-center rounded-md border border-border/70 bg-surface/40">
-                  <MapPin size={13} />
-                </span>
-                <span className="font-mono text-[13px]">Sheridan, Wyoming · 🌍 Global</span>
-              </div>
+            <p className="text-sm leading-relaxed">{t.footer.tagline}</p>
+            <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-brand">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+              </span>
+              {lang === "fr" ? "Disponible pour de nouveaux projets" : "Available for new projects"}
             </div>
           </div>
 
           {/* Services */}
-          <div className="md:col-span-3">
+          <div>
             <FooterColTitle>{t.footer.services}</FooterColTitle>
-            <ul className="space-y-2.5 text-sm text-muted-foreground">
-              {t.services.items.slice(0, 6).map((s) => (
+            <ul className="space-y-4 text-sm">
+              {t.services.items.slice(0, 5).map((s) => (
                 <li key={s.title}>
-                  <a href="#services" className="hover:text-foreground transition-colors">
+                  <a href="#services" className="hover:text-brand transition-colors">
                     {s.title}
                   </a>
                 </li>
@@ -122,14 +82,14 @@ export function Footer() {
           </div>
 
           {/* Company */}
-          <div className="md:col-span-2">
+          <div>
             <FooterColTitle>{t.footer.company}</FooterColTitle>
-            <ul className="space-y-2.5 text-sm text-muted-foreground">
+            <ul className="space-y-4 text-sm">
               {t.footer.companyLinks.map((label, i) => {
                 const hrefs = ["#about", "#portfolio", "#contact", "#"];
                 return (
                   <li key={label}>
-                    <a href={hrefs[i]} className="hover:text-foreground transition-colors">
+                    <a href={hrefs[i]} className="hover:text-brand transition-colors">
                       {label}
                     </a>
                   </li>
@@ -139,41 +99,79 @@ export function Footer() {
           </div>
 
           {/* Connect */}
-          <div className="md:col-span-2">
+          <div>
             <FooterColTitle>{t.footer.connect}</FooterColTitle>
-            <div className="flex flex-wrap gap-2">
-              {socialList.map(({ Icon, href, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="w-9 h-9 rounded-md bg-surface/40 border border-border/70 flex items-center justify-center text-muted-foreground hover:text-brand hover:border-brand/60 hover:bg-brand/5 transition-all"
-                >
-                  <Icon size={14} />
-                </a>
-              ))}
-            </div>
-            <div className="mt-5">
-              <LangToggle lang={lang} setLang={setLang} />
+            <div className="space-y-4">
+              <a
+                href={`mailto:${EMAIL}`}
+                className="flex items-center gap-3 text-sm hover:text-foreground transition-colors"
+              >
+                <Mail size={15} className="text-muted-foreground/70" />
+                <span className="font-mono text-[13px]">{EMAIL}</span>
+              </a>
+              <div className="flex items-center gap-3 text-sm">
+                <MapPin size={15} className="text-muted-foreground/70" />
+                <span className="font-mono text-[13px]">Sheridan, WY · Worldwide</span>
+              </div>
+              <div className="flex items-center gap-3 pt-2">
+                {socialList.map(({ Icon, href, label }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="w-10 h-10 rounded-full border border-border/70 flex items-center justify-center text-muted-foreground hover:text-brand hover:border-brand/60 hover:bg-brand/5 transition-all"
+                  >
+                    <Icon size={15} />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-xs font-mono text-muted-foreground">
-          <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
-            <span>{t.footer.rights}</span>
-            <span className="hidden md:inline opacity-40">·</span>
+        {/* Bottom Bar */}
+        <div className="px-8 py-6 flex flex-col sm:flex-row justify-between items-center gap-6 bg-[oklch(0.05_0.015_260)]">
+          <div className="flex items-center gap-4 md:gap-6 text-xs font-mono text-muted-foreground/80 flex-wrap justify-center">
+            <span className="uppercase tracking-[0.16em]">{t.footer.rights}</span>
+            <span className="hidden sm:inline text-border">|</span>
             <span className="opacity-70">{t.footer.made}</span>
           </div>
-          <div className="flex items-center gap-2">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-            </span>
-            <span>{lang === "fr" ? "Disponible pour de nouveaux projets" : "Available for new projects"}</span>
+
+          <div className="flex items-center gap-5">
+            <div className="flex bg-[oklch(0.1_0.025_260)] p-1 rounded-lg border border-border/70">
+              <button
+                onClick={() => setLang("en")}
+                className={`px-3 py-1 text-[10px] font-bold rounded transition-all ${
+                  lang === "en"
+                    ? "text-white bg-[oklch(0.15_0.04_260)] shadow-sm"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => setLang("fr")}
+                className={`px-3 py-1 text-[10px] font-bold rounded transition-all ${
+                  lang === "fr"
+                    ? "text-white bg-[oklch(0.15_0.04_260)] shadow-sm"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                FR
+              </button>
+            </div>
+            <a
+              href={`https://${SITE}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group text-xs font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2 uppercase tracking-[0.16em] font-mono"
+            >
+              <Globe size={12} />
+              {SITE}
+              <ArrowUpRight size={12} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
           </div>
         </div>
       </div>
@@ -183,7 +181,7 @@ export function Footer() {
 
 function FooterColTitle({ children }: { children: React.ReactNode }) {
   return (
-    <h4 className="font-mono text-[11px] uppercase tracking-[0.18em] text-foreground/90 mb-5">
+    <h4 className="text-foreground font-semibold mb-6 uppercase tracking-[0.16em] text-xs font-mono">
       {children}
     </h4>
   );
