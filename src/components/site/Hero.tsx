@@ -174,23 +174,6 @@ export function Hero() {
 
 
 
-      {/* Subtle scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.4, duration: 1, ease }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2"
-        aria-hidden
-      >
-        <span className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground/60 uppercase">Scroll</span>
-        <span className="relative h-8 w-px bg-border overflow-hidden">
-          <motion.span
-            className="absolute inset-x-0 top-0 h-3 bg-brand"
-            animate={{ y: [-12, 32] }}
-            transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </span>
-      </motion.div>
     </section>
   );
 }
