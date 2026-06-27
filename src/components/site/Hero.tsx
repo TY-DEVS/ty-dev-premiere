@@ -26,9 +26,9 @@ export function Hero() {
       />
       {/* Glow orb */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 0.35, scale: 1 }}
-        transition={{ duration: 1.6, ease }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: [0.28, 0.42, 0.28] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full blur-3xl pointer-events-none"
         style={{
           background:
@@ -36,6 +36,7 @@ export function Hero() {
         }}
         aria-hidden
       />
+
       <Particles />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10">
@@ -105,13 +106,19 @@ export function Hero() {
 
           {/* Right — code terminal visual */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 40, filter: "blur(10px)" }}
+            animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
             transition={{ duration: 1.1, delay: 0.45, ease }}
             className="relative mx-auto w-full max-w-lg lg:max-w-none"
           >
-            <TerminalMock />
+            <motion.div
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <TerminalMock />
+            </motion.div>
           </motion.div>
+
         </div>
       </div>
 
