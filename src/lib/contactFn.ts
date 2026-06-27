@@ -20,8 +20,8 @@ export const sendContactEmailFn = createServerFn({ method: "POST" })
       });
 
       const mailOptions = {
-        from: process.env.SMTP_USER,
-        to: process.env.CONTACT_RECEIVER || process.env.SMTP_USER,
+        from: process.env.SMTP_USER || "contact@ty-dev.site",
+        to: (process.env.CONTACT_RECEIVER || process.env.SMTP_USER || "contact@ty-dev.site").replace(/"/g, ""),
         replyTo: email,
         subject: `Nouveau Contact: ${name} - ${type}`,
         text: `
