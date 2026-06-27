@@ -1,8 +1,57 @@
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { ArrowRight, Zap } from "lucide-react";
 import { useI18n } from "@/i18n/context";
 
 const ease = [0.22, 1, 0.36, 1] as const;
+
+const containerVariants: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+};
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 18, filter: "blur(6px)" },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.9, ease },
+  },
+};
+
+function WordReveal({
+  text,
+  className = "",
+  delayStart = 0,
+}: {
+  text: string;
+  className?: string;
+  delayStart?: number;
+}) {
+  const words = text.split(/\s+/).filter(Boolean);
+  return (
+    <span className={className}>
+      {words.map((w, i) => (
+        <span
+          key={`${w}-${i}`}
+          className="inline-block overflow-hidden align-bottom pb-[0.08em]"
+        >
+          <motion.span
+            className="inline-block"
+            initial={{ y: "110%", opacity: 0 }}
+            animate={{ y: "0%", opacity: 1 }}
+            transition={{ duration: 0.85, delay: delayStart + i * 0.08, ease }}
+          >
+            {w}
+            {i < words.length - 1 ? "\u00A0" : ""}
+          </motion.span>
+        </span>
+      ))}
+    </span>
+  );
+}
+
+
 
 export function Hero() {
   const { t } = useI18n();
@@ -42,41 +91,44 @@ export function Hero() {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-16 items-center">
           {/* Left — text */}
-          <div className="text-center lg:text-left">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="text-center lg:text-left"
+          >
             <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease }}
+              variants={fadeUp}
               className="inline-flex items-center gap-2 mb-8 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground"
             >
-              <span className="h-px w-8 bg-brand" />
+              <motion.span
+                className="h-px bg-brand block"
+                initial={{ width: 0 }}
+                animate={{ width: 32 }}
+                transition={{ duration: 0.9, delay: 0.2, ease }}
+              />
               <span className="text-brand">TY/DEV</span>
               <span className="opacity-50">— EST. 2025</span>
             </motion.div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.1, ease }}
-              className="font-display font-bold text-[2.6rem] sm:text-6xl lg:text-7xl xl:text-[5.25rem] tracking-tight leading-[1.02] mb-6"
-            >
-              {t.hero.title1}
-              <span className="text-gradient-brand">{t.hero.titleAccent}</span>
-            </motion.h1>
+            <h1 className="font-display font-bold text-[2.6rem] sm:text-6xl lg:text-7xl xl:text-[5.25rem] tracking-tight leading-[1.02] mb-6">
+              <WordReveal text={t.hero.title1.trim()} />{" "}
+              <WordReveal
+                text={t.hero.titleAccent}
+                className="text-gradient-brand"
+                delayStart={(t.hero.title1.trim().split(/\s+/).length) * 0.08}
+              />
+            </h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.25, ease }}
+              variants={fadeUp}
               className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed"
             >
               {t.hero.subtitle}
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.38, ease }}
+              variants={fadeUp}
               className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 mb-10"
             >
               <a
@@ -95,25 +147,23 @@ export function Hero() {
             </motion.div>
 
             <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1.2, delay: 0.7, ease }}
+              variants={fadeUp}
               className="font-mono text-[11px] sm:text-xs text-muted-foreground/80"
             >
               {t.hero.trust}
             </motion.p>
-          </div>
+          </motion.div>
 
           {/* Right — code terminal visual */}
           <motion.div
-            initial={{ opacity: 0, x: 40, filter: "blur(10px)" }}
-            animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-            transition={{ duration: 1.1, delay: 0.45, ease }}
+            initial={{ opacity: 0, y: 30, filter: "blur(12px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 1.2, delay: 0.6, ease }}
             className="relative mx-auto w-full max-w-lg lg:max-w-none"
           >
             <motion.div
               animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
             >
               <TerminalMock />
             </motion.div>
@@ -121,6 +171,8 @@ export function Hero() {
 
         </div>
       </div>
+
+
 
       {/* Subtle scroll indicator */}
       <motion.div
