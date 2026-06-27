@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowDown } from "lucide-react";
+import { ArrowRight, ArrowDown, Zap } from "lucide-react";
 import { useI18n } from "@/i18n/context";
 
 export function Hero() {
@@ -41,10 +41,11 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border bg-surface/40 backdrop-blur-md font-mono text-[11px] tracking-wider text-muted-foreground mb-6"
+              className="inline-flex items-center gap-2 mb-8 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-brand pulse-dot" />
-              {t.hero.eyebrow}
+              <span className="h-px w-8 bg-brand" />
+              <span className="text-brand">TY/DEV</span>
+              <span className="opacity-50">— EST. 2025</span>
             </motion.div>
 
             <motion.h1
@@ -210,8 +211,8 @@ function TerminalMock() {
         transition={{ delay: 1.2, duration: 0.6 }}
         className="absolute -bottom-5 -left-3 sm:-left-6 px-3 py-2 rounded-xl bg-surface border border-border backdrop-blur-md shadow-xl flex items-center gap-2"
       >
-        <div className="w-7 h-7 rounded-lg bg-brand/15 border border-brand/30 flex items-center justify-center">
-          <span className="text-brand text-sm">⚡</span>
+        <div className="w-7 h-7 rounded-lg bg-brand/15 border border-brand/30 flex items-center justify-center text-brand">
+          <Zap size={13} strokeWidth={2.5} />
         </div>
         <div>
           <div className="font-mono text-[10px] text-muted-foreground">LATENCY</div>

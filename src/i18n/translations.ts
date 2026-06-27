@@ -17,7 +17,7 @@ const en = {
       "Custom SaaS platforms, AI automation systems, and high-performance web applications — engineered for real business growth.",
     cta1: "Start a Project",
     cta2: "View Our Work",
-    trust: "Trusted by businesses in 🇫🇷 France · 🇨🇭 Switzerland · 🇬🇧 UK · 🌍 Worldwide",
+    trust: "Trusted by businesses across France, Switzerland, the UK & worldwide.",
   },
   stats: [
     { value: 50, suffix: "+", label: "Projects Delivered" },
@@ -98,7 +98,7 @@ const en = {
   about: {
     title: "About TY Dev",
     body: "TY Dev is a software development agency founded in 2025, headquartered in Sheridan, Wyoming, with a team operating globally. We specialize in custom software, SaaS platforms, AI automation, and modern web development — helping startups, e-commerce brands, and growing businesses build technology that scales. We combine engineering rigor, design precision, and automation-first thinking to deliver solutions that create real, measurable impact.",
-    badges: ["🌍 Global Reach", "🤖 AI-Driven", "⚙️ Automation First", "🚀 Founded 2025"],
+    badges: ["Global Reach", "AI-Driven", "Automation First", "Founded 2025"],
   },
   contact: {
     title: "Start Your Project",
@@ -146,7 +146,7 @@ const fr: typeof en = {
       "Plateformes SaaS, automatisation IA et applications web haute performance — conçues pour une vraie croissance.",
     cta1: "Démarrer un Projet",
     cta2: "Voir Nos Projets",
-    trust: "Reconnus par des entreprises en 🇫🇷 France · 🇨🇭 Suisse · 🇬🇧 UK · 🌍 Monde",
+    trust: "Reconnus par des entreprises en France, en Suisse, au Royaume-Uni et à l'international.",
   },
   stats: [
     { value: 50, suffix: "+", label: "Projets Livrés" },
@@ -227,7 +227,7 @@ const fr: typeof en = {
   about: {
     title: "À Propos de TY Dev",
     body: "TY Dev est une agence de développement logiciel fondée en 2025, basée à Sheridan, Wyoming, avec une équipe qui opère à l'international. Nous sommes spécialisés dans le logiciel sur mesure, les plateformes SaaS, l'automatisation IA et le développement web moderne — accompagnant startups, marques e-commerce et entreprises en croissance pour créer des technologies qui scalent.",
-    badges: ["🌍 Portée Mondiale", "🤖 IA-Driven", "⚙️ Automatisation d'Abord", "🚀 Fondée en 2025"],
+    badges: ["Portée Mondiale", "IA-Driven", "Automatisation d'Abord", "Fondée en 2025"],
   },
   contact: {
     title: "Démarrez Votre Projet",

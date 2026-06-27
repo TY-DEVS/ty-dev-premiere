@@ -34,28 +34,28 @@ export function Navbar() {
         transition={{ duration: 0.6 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "backdrop-blur-xl bg-background/70 border-b border-border"
+            ? "backdrop-blur-xl bg-background/75 border-b border-border/60 shadow-[0_8px_30px_-12px_oklch(0_0_0/0.5)]"
             : "bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10 h-18 flex items-center justify-between py-4">
-          <a href="#home" aria-label="TY Dev home">
+          <a href="#home" aria-label="TY Dev home" className="shrink-0">
             <TyDevLogo />
           </a>
 
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-1 rounded-full border border-border/60 bg-surface/30 backdrop-blur-md px-2 py-1.5">
             {navItems.map((item) => (
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                className="relative px-3.5 py-1.5 text-[13px] text-muted-foreground hover:text-foreground transition-colors rounded-full hover:bg-surface/60"
               >
                 {item.label}
               </a>
             ))}
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 md:gap-3">
             <LangToggle lang={lang} setLang={setLang} />
             <a
               href="#contact"
@@ -64,11 +64,11 @@ export function Navbar() {
               {t.nav.cta}
             </a>
             <button
-              className="lg:hidden text-foreground"
+              className="lg:hidden text-foreground p-1.5 rounded-md hover:bg-surface/60 transition-colors"
               onClick={() => setOpen(true)}
               aria-label="Open menu"
             >
-              <Menu size={24} />
+              <Menu size={22} />
             </button>
           </div>
         </div>
