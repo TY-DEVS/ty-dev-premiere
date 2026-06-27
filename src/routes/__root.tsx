@@ -14,7 +14,7 @@ import { I18nProvider } from "@/i18n/context";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { ScrollToTop } from "@/components/site/ScrollToTop";
-import { WhatsAppButton } from "@/components/site/WhatsAppButton";
+import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 import { Toaster } from "sonner";
 
 function NotFoundComponent() {
@@ -139,7 +139,7 @@ function RootComponent() {
           </main>
           <Footer />
           <ScrollToTop />
-          <WhatsAppButton />
+          <FloatingWhatsApp />
         </div>
         <Toaster richColors position="top-right" />
       </I18nProvider>
