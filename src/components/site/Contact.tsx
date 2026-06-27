@@ -3,16 +3,18 @@ import { motion } from "framer-motion";
 import {
   Mail,
   MessageCircle,
-  Globe,
   Instagram,
   Linkedin,
   Facebook,
   Twitter,
   Youtube,
   Send,
+  Loader2,
 } from "lucide-react";
+import { toast } from "sonner";
 import { useI18n } from "@/i18n/context";
 import { Section } from "./Services";
+import { sendContactEmailFn } from "@/lib/contactFn";
 
 const socials = [
   { Icon: Instagram, href: "https://www.instagram.com/tydev__/", label: "Instagram" },
@@ -37,7 +39,7 @@ function TikTokIcon(props: React.SVGProps<SVGSVGElement>) {
 
 export function Contact() {
   const { t } = useI18n();
-  const [sent, setSent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   return (
     <Section id="contact">
@@ -92,11 +94,41 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          onSubmit={(e) => {
+          onSubmit={async (e) => {
             e.preventDefault();
-            setSent(true);
-            (e.target as HTMLFormElement).reset();
-            setTimeout(() => setSent(false), 5000);
+            
+            if (isSubmitting) return;
+
+            const form = e.target as HTMLFormElement;
+            const formData = new FormData(form);
+            const data = {
+              name: formData.get("name") as string,
+              email: formData.get("email") as string,
+              phone: formData.get("phone") as string,
+              type: formData.get("type") as string,
+              budget: formData.get("budget") as string,
+              desc: formData.get("desc") as string,
+            };
+
+            // Basic validation
+            if (!data.name.trim() || !data.email.trim() || !data.desc.trim()) {
+              toast.error("Veuillez remplir tous les champs obligatoires avec des informations valides.");
+              return;
+            }
+
+            setIsSubmitting(true);
+            const loadingToastId = toast.loading("Envoi de votre message en cours...");
+
+            try {
+              await sendContactEmailFn({ data });
+              toast.success("Message envoyé avec succès ! Nous vous répondrons très vite.", { id: loadingToastId });
+              form.reset();
+            } catch (error) {
+              console.error(error);
+              toast.error("Une erreur est survenue lors de l'envoi de votre message. Veuillez vérifier votre connexion ou réessayer plus tard.", { id: loadingToastId });
+            } finally {
+              setIsSubmitting(false);
+            }
           }}
           className="relative lg:col-span-3 p-8 md:p-12 rounded-[2rem] bg-gradient-to-br from-[oklch(0.08_0.025_260)] to-[oklch(0.05_0.015_260)] border border-border/50 shadow-2xl space-y-6 overflow-hidden"
         >
@@ -136,15 +168,17 @@ export function Contact() {
           <div className="relative pt-2">
             <button
               type="submit"
-              className="group w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-brand text-primary-foreground font-semibold shadow-[0_10px_40px_-10px_oklch(0.6_0.22_265/0.5)] transition-all duration-300 hover:shadow-[0_15px_50px_-10px_oklch(0.6_0.22_265/0.7)] hover:-translate-y-1"
+              disabled={isSubmitting}
+              className="group w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-brand text-primary-foreground font-semibold shadow-[0_10px_40px_-10px_oklch(0.6_0.22_265/0.5)] transition-all duration-300 hover:shadow-[0_15px_50px_-10px_oklch(0.6_0.22_265/0.7)] hover:-translate-y-1 disabled:opacity-70 disabled:hover:translate-y-0 disabled:hover:shadow-[0_10px_40px_-10px_oklch(0.6_0.22_265/0.5)] disabled:cursor-not-allowed"
             >
-              {t.contact.form.submit}
-              <Send size={18} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+              {isSubmitting ? "Envoi en cours..." : t.contact.form.submit}
+              {isSubmitting ? (
+                <Loader2 size={18} className="animate-spin" />
+              ) : (
+                <Send size={18} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+              )}
             </button>
           </div>
-          {sent && (
-            <p className="relative text-sm text-center text-brand font-mono animate-in fade-in slide-in-from-bottom-2">{t.contact.form.success}</p>
-          )}
           <p className="relative text-xs text-center text-muted-foreground/60">{t.contact.form.note}</p>
         </motion.form>
       </div>

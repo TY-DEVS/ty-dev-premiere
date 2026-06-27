@@ -14,6 +14,7 @@ import { I18nProvider } from "@/i18n/context";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { ScrollToTop } from "@/components/site/ScrollToTop";
+import { Toaster } from "sonner";
 
 function NotFoundComponent() {
   return (
@@ -112,11 +113,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         {children}
         <Scripts />
       </body>
@@ -138,6 +139,7 @@ function RootComponent() {
           <Footer />
           <ScrollToTop />
         </div>
+        <Toaster richColors position="top-right" />
       </I18nProvider>
     </QueryClientProvider>
   );
