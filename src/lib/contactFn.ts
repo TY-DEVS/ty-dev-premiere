@@ -8,8 +8,8 @@ export const sendContactEmailFn = createServerFn({ method: "POST" })
     try {
       const transporter = nodemailer.createTransport({
         host: "83.229.19.107", // Force direct IP to bypass Cloudflare and Coolify env issues
-        port: 587,
-        secure: false, 
+        port: 465, // Using 465 because VPS providers often block port 587 outbound
+        secure: true, 
         auth: {
           user: process.env.SMTP_USER || "contact@ty-dev.site",
           pass: process.env.SMTP_PASS?.replace(/"/g, ""), // Automatically remove quotes if they accidentally put them in Coolify
