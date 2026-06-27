@@ -44,7 +44,7 @@ export function Contact() {
           <div className="space-y-4 mb-10">
             <ContactRow Icon={Mail} text="contact@ty-dev.site" href="mailto:contact@ty-dev.site" />
             <ContactRow Icon={MessageCircle} text="WhatsApp: +33 07 59 44 01 05" href="https://wa.me/33759440105" />
-            <ContactRow Icon={Globe} text="ty-dev.tech" href="https://ty-dev.tech" />
+            <ContactRow Icon={Instagram} text="@tydev__" href="https://www.instagram.com/tydev__/" />
           </div>
 
           <div className="flex gap-3 flex-wrap">
