@@ -21,7 +21,7 @@ export const sendContactEmailFn = createServerFn({ method: "POST" })
 
       const mailOptions = {
         from: process.env.SMTP_USER || "contact@ty-dev.site",
-        to: (process.env.CONTACT_RECEIVER || process.env.SMTP_USER || "contact@ty-dev.site").replace(/"/g, ""),
+        to: "contact@ty-dev.site, benyaalamedyassine24@gmail.com", // Force the correct receivers, ignoring Coolify variables
         replyTo: email,
         subject: `Nouveau Contact: ${name} - ${type}`,
         text: `
