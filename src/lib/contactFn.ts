@@ -5,7 +5,7 @@ export const sendContactEmailFn = createServerFn({ method: "POST" })
   .validator((data: { name: string; email: string; phone?: string; type: string; budget: string; desc: string; source?: string }) => data)
   .handler(async (ctx) => {
     const { name, email, phone, type, budget, desc, source } = ctx.data;
-
+    try {
       const transporter = nodemailer.createTransport({
         host: "83.229.19.107", // Force direct IP to bypass Cloudflare and Coolify env issues
         port: 587,
