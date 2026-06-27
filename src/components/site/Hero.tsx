@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowDown, Zap } from "lucide-react";
+import { ArrowRight, Zap } from "lucide-react";
 import { useI18n } from "@/i18n/context";
+
+const ease = [0.22, 1, 0.36, 1] as const;
 
 export function Hero() {
   const { t } = useI18n();
@@ -13,18 +15,21 @@ export function Hero() {
       {/* Layered background */}
       <div className="absolute inset-0 mesh-bg animate-mesh" aria-hidden />
       <div
-        className="absolute inset-0 opacity-[0.05]"
+        className="absolute inset-0 opacity-[0.04]"
         style={{
           backgroundImage:
             "linear-gradient(oklch(0.6 0.22 265) 1px, transparent 1px), linear-gradient(90deg, oklch(0.6 0.22 265) 1px, transparent 1px)",
-          backgroundSize: "64px 64px",
+          backgroundSize: "72px 72px",
           maskImage: "radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 75%)",
         }}
         aria-hidden
       />
       {/* Glow orb */}
-      <div
-        className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full opacity-40 blur-3xl pointer-events-none"
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 0.35, scale: 1 }}
+        transition={{ duration: 1.6, ease }}
+        className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full blur-3xl pointer-events-none"
         style={{
           background:
             "radial-gradient(circle, oklch(0.6 0.22 265 / 0.4), transparent 60%)",
@@ -38,9 +43,9 @@ export function Hero() {
           {/* Left — text */}
           <div className="text-center lg:text-left">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.8, ease }}
               className="inline-flex items-center gap-2 mb-8 font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground"
             >
               <span className="h-px w-8 bg-brand" />
@@ -49,9 +54,9 @@ export function Hero() {
             </motion.div>
 
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
+              transition={{ duration: 1, delay: 0.1, ease }}
               className="font-display font-bold text-[2.6rem] sm:text-6xl lg:text-7xl xl:text-[5.25rem] tracking-tight leading-[1.02] mb-6"
             >
               {t.hero.title1}
@@ -59,30 +64,30 @@ export function Hero() {
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.25 }}
+              transition={{ duration: 0.9, delay: 0.25, ease }}
               className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed"
             >
               {t.hero.subtitle}
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.35 }}
+              transition={{ duration: 0.9, delay: 0.38, ease }}
               className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 mb-10"
             >
               <a
                 href="#contact"
-                className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-brand text-primary-foreground font-medium shadow-[0_0_40px_oklch(0.6_0.22_265/0.4)] transition-all hover:shadow-[0_0_60px_oklch(0.6_0.22_265/0.7)] hover:-translate-y-0.5"
+                className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-brand text-primary-foreground font-medium shadow-[0_0_40px_oklch(0.6_0.22_265/0.4)] transition-all duration-300 hover:shadow-[0_0_60px_oklch(0.6_0.22_265/0.7)] hover:-translate-y-0.5"
               >
                 {t.hero.cta1}
-                <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+                <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
               </a>
               <a
                 href="#portfolio"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-border bg-surface/30 backdrop-blur-md text-foreground font-medium transition-all hover:border-brand/50 hover:bg-surface/60"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-border bg-surface/30 backdrop-blur-md text-foreground font-medium transition-all duration-300 hover:border-brand/50 hover:bg-surface/60"
               >
                 {t.hero.cta2}
               </a>
@@ -91,7 +96,7 @@ export function Hero() {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.6 }}
+              transition={{ duration: 1.2, delay: 0.7, ease }}
               className="font-mono text-[11px] sm:text-xs text-muted-foreground/80"
             >
               {t.hero.trust}
@@ -100,9 +105,9 @@ export function Hero() {
 
           {/* Right — code terminal visual */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.3 }}
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.1, delay: 0.45, ease }}
             className="relative mx-auto w-full max-w-lg lg:max-w-none"
           >
             <TerminalMock />
@@ -110,9 +115,23 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce-arrow hidden md:block">
-        <ArrowDown size={20} className="text-muted-foreground" />
-      </div>
+      {/* Subtle scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.4, duration: 1, ease }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2"
+        aria-hidden
+      >
+        <span className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground/60 uppercase">Scroll</span>
+        <span className="relative h-8 w-px bg-border overflow-hidden">
+          <motion.span
+            className="absolute inset-x-0 top-0 h-3 bg-brand"
+            animate={{ y: [-12, 32] }}
+            transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </span>
+      </motion.div>
     </section>
   );
 }
@@ -186,11 +205,11 @@ function TerminalMock() {
           </CodeLine>
           <CodeLine n={8}>
             <span className="text-muted-foreground/60">{"// "}</span>
-            <span className="text-muted-foreground/60">deploy → ✓ live in 4 weeks</span>
+            <span className="text-muted-foreground/60">deploy → live in 4 weeks</span>
             <motion.span
-              className="inline-block w-2 h-3.5 bg-brand ml-1 align-middle"
+              className="inline-block w-1.5 h-3.5 bg-brand ml-1 align-middle"
               animate={{ opacity: [1, 0, 1] }}
-              transition={{ duration: 1, repeat: Infinity }}
+              transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
             />
           </CodeLine>
         </div>
@@ -208,7 +227,7 @@ function TerminalMock() {
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.2, duration: 0.6 }}
+        transition={{ delay: 1.2, duration: 0.8, ease }}
         className="absolute -bottom-5 -left-3 sm:-left-6 px-3 py-2 rounded-xl bg-surface border border-border backdrop-blur-md shadow-xl flex items-center gap-2"
       >
         <div className="w-7 h-7 rounded-lg bg-brand/15 border border-brand/30 flex items-center justify-center text-brand">
@@ -222,7 +241,7 @@ function TerminalMock() {
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.4, duration: 0.6 }}
+        transition={{ delay: 1.4, duration: 0.8, ease }}
         className="absolute -top-4 -right-2 sm:-right-5 px-3 py-2 rounded-xl bg-surface border border-border backdrop-blur-md shadow-xl"
       >
         <div className="font-mono text-[10px] text-muted-foreground">UPTIME</div>
@@ -242,21 +261,21 @@ function CodeLine({ n, children }: { n: number; children: React.ReactNode }) {
 }
 
 function Particles() {
-  const dots = Array.from({ length: 24 });
+  const dots = Array.from({ length: 12 });
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
       {dots.map((_, i) => {
-        const left = (i * 37) % 100;
-        const top = (i * 53) % 100;
-        const delay = (i % 10) * 0.3;
-        const size = 1 + (i % 3);
+        const left = (i * 53) % 100;
+        const top = (i * 37) % 100;
+        const delay = (i % 6) * 0.5;
+        const size = 1 + (i % 2);
         return (
           <motion.span
             key={i}
-            className="absolute rounded-full bg-brand"
+            className="absolute rounded-full bg-brand/60"
             style={{ left: `${left}%`, top: `${top}%`, width: size, height: size }}
-            animate={{ opacity: [0.2, 0.8, 0.2], scale: [1, 1.5, 1] }}
-            transition={{ duration: 4 + (i % 5), repeat: Infinity, delay }}
+            animate={{ opacity: [0.15, 0.6, 0.15] }}
+            transition={{ duration: 6 + (i % 4), repeat: Infinity, delay, ease: "easeInOut" }}
           />
         );
       })}
