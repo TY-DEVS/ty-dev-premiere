@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowUpRight, Mail, Globe, MapPin } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { useI18n } from "@/i18n/context";
 import { TyDevLogo } from "./TyDevLogo";
 
