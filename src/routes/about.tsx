@@ -9,18 +9,23 @@ import { Team } from "@/components/site/Team";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — TY Dev" },
+      { title: "À Propos — TY Dev | Agence Web Tunisie, Djerba, Tunis" },
       {
         name: "description",
         content:
-          "Meet TY Dev — an independent software & AI agency engineering scalable platforms for modern businesses.",
+          "TY Dev, votre agence de développement web et IA en Tunisie. Basés à Djerba, nous accompagnons entreprises tunisiennes dans leur transformation digitale.",
       },
-      { property: "og:title", content: "About — TY Dev" },
+      {
+        name: "keywords",
+        content: "agence web tunisie, développement web djerba, agence digitale tunis, transformation digitale tunisie, équipe web tunisie",
+      },
+      { property: "og:title", content: "À Propos de TY Dev — Agence Web Tunisie" },
       {
         property: "og:description",
         content:
-          "Meet TY Dev — an independent software & AI agency engineering scalable platforms for modern businesses.",
+          "Agence tunisienne spécialisée en développement web et solutions digitales. Présents à Djerba et Tunis.",
       },
+      { property: "og:url", content: "https://ty-dev.tech/about" },
     ],
     links: [{ rel: "canonical", href: "/about" }],
   }),

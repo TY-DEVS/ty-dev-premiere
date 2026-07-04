@@ -6,18 +6,23 @@ import { useI18n } from "@/i18n/context";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — TY Dev" },
+      { title: "Contact — TY Dev Tunisie | Devis Gratuit Djerba, Tunis" },
       {
         name: "description",
         content:
-          "Start a project with TY Dev. Reach us at contact@ty-dev.tech — replies within 24 hours.",
+          "Contactez TY Dev pour votre projet web en Tunisie. Devis gratuit sous 24h. Agence à Djerba, Tunis. Tél: +216 52 949 272 | Email: contact@ty-dev.tech",
       },
-      { property: "og:title", content: "Contact — TY Dev" },
+      {
+        name: "keywords",
+        content: "contact agence web tunisie, devis site internet djerba, contact développeur web tunis, agence digitale tunisie contact",
+      },
+      { property: "og:title", content: "Contact TY Dev — Agence Web Tunisie" },
       {
         property: "og:description",
         content:
-          "Start a project with TY Dev. Reach us at contact@ty-dev.tech — replies within 24 hours.",
+          "Démarrez votre projet web avec TY Dev. Réponse sous 24h. WhatsApp: +216 52 949 272",
       },
+      { property: "og:url", content: "https://ty-dev.tech/contact" },
     ],
     links: [{ rel: "canonical", href: "/contact" }],
   }),

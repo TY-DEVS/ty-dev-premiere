@@ -78,21 +78,37 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "TY Dev — AI & Software Development Agency" },
+      { title: "TY Dev — Agence Développement Web & IA en Tunisie | Djerba, Tunis" },
       {
         name: "description",
         content:
-          "TY Dev builds custom SaaS platforms, AI automation, and high-performance web applications.",
+          "Agence de développement web et IA en Tunisie. Solutions SaaS, sites web professionnels, e-commerce et automatisation IA à Djerba, Tunis et toute la Tunisie. Contact: +216 52 949 272",
+      },
+      {
+        name: "keywords",
+        content:
+          "développement web tunisie, agence web djerba, création site web tunis, développement application tunisie, agence digitale tunisie, site web professionnel djerba, e-commerce tunisie, développeur web tunis, création site internet djerba, agence web tunisie, développement logiciel tunisie, saas tunisie, automatisation ia tunisie, ty-dev.tech",
       },
       { name: "author", content: "TY Dev" },
-      { property: "og:title", content: "TY Dev — AI & Software Development Agency" },
+      { name: "geo.region", content: "TN" },
+      { name: "geo.placename", content: "Djerba, Tunis, Tunisie" },
+      { name: "geo.position", content: "33.8076;10.8451" },
+      { name: "ICBM", content: "33.8076, 10.8451" },
+      { property: "og:title", content: "TY Dev — Agence Développement Web & IA en Tunisie" },
       {
         property: "og:description",
         content:
-          "TY Dev builds custom SaaS platforms, AI automation, and high-performance web applications.",
+          "Votre agence web et IA en Tunisie. Développement de sites web, applications SaaS et solutions e-commerce à Djerba, Tunis et toute la Tunisie.",
       },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
+      { property: "og:url", content: "https://ty-dev.tech" },
+      { property: "og:locale", content: "fr_TN" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "TY Dev — Agence Web & IA Tunisie | Djerba, Tunis" },
+      {
+        name: "twitter:description",
+        content: "Solutions web et IA professionnelles en Tunisie. Contact: +216 52 949 272",
+      },
     ],
     links: [
       { rel: "icon", type: "image/jpeg", href: "/favicon.jpg" },
@@ -113,7 +129,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="fr" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>

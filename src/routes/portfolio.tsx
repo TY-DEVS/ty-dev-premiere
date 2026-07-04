@@ -7,18 +7,23 @@ import { useI18n } from "@/i18n/context";
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
     meta: [
-      { title: "Portfolio — TY Dev" },
+      { title: "Portfolio — TY Dev | Réalisations Web Tunisie, Djerba, Tunis" },
       {
         name: "description",
         content:
-          "Selected work from TY Dev — premium websites, SaaS platforms, and AI-driven applications shipped for clients worldwide.",
+          "Découvrez nos réalisations web en Tunisie : sites vitrine, e-commerce, applications SaaS. Projets livrés pour clients à Djerba, Tunis et internationaux. Agence web tunisienne.",
       },
-      { property: "og:title", content: "Portfolio — TY Dev" },
+      {
+        name: "keywords",
+        content: "portfolio web tunisie, réalisations sites web djerba, projets web tunis, exemples sites internet tunisie, agence web portfolio tunisie",
+      },
+      { property: "og:title", content: "Portfolio TY Dev — Projets Web Tunisie" },
       {
         property: "og:description",
         content:
-          "Selected work from TY Dev — premium websites, SaaS platforms, and AI-driven applications shipped for clients worldwide.",
+          "Nos réalisations web pour clients en Tunisie et à l'international. Sites professionnels, e-commerce et applications.",
       },
+      { property: "og:url", content: "https://ty-dev.tech/portfolio" },
     ],
     links: [{ rel: "canonical", href: "/portfolio" }],
   }),

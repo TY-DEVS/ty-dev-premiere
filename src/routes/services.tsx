@@ -9,18 +9,23 @@ import { useI18n } from "@/i18n/context";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — TY Dev" },
+      { title: "Services Web & IA — TY Dev Tunisie | Djerba, Tunis" },
       {
         name: "description",
         content:
-          "Custom SaaS, AI automation, web applications, e-commerce, integrations, and cloud infrastructure — end-to-end engineering by TY Dev.",
+          "Services de développement web en Tunisie : création sites internet, applications web, e-commerce, automatisation IA. Agence digitale à Djerba, Tunis. Devis gratuit.",
       },
-      { property: "og:title", content: "Services — TY Dev" },
+      {
+        name: "keywords",
+        content: "services web tunisie, création site internet djerba, développement web tunis, agence digitale tunisie, e-commerce tunisie, application web tunisie, automatisation ia tunisie",
+      },
+      { property: "og:title", content: "Services Développement Web — TY Dev Tunisie" },
       {
         property: "og:description",
         content:
-          "Custom SaaS, AI automation, web applications, e-commerce, integrations, and cloud infrastructure — end-to-end engineering by TY Dev.",
+          "Solutions web complètes en Tunisie : sites vitrine, e-commerce, applications SaaS et automatisation IA. Contact: +216 52 949 272",
       },
+      { property: "og:url", content: "https://ty-dev.tech/services" },
     ],
     links: [{ rel: "canonical", href: "/services" }],
   }),

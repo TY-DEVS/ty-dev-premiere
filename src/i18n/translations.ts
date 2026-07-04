@@ -298,7 +298,7 @@ const fr: typeof en = {
     cta: "Démarrer un Projet",
   },
   hero: {
-    eyebrow: "AGENCE LOGICIELLE IA",
+    eyebrow: "DÉVELOPPEMENT LOGICIEL & IA",
     title1: "Nous Créons des Logiciels qui ",
     titleAccent: "Évoluent.",
     subtitle:
@@ -514,7 +514,7 @@ const fr: typeof en = {
   },
   about: {
     title: "À Propos de TY Dev",
-    body: "TY Dev est une agence de développement logiciel fondée en 2025. Nous sommes spécialisés dans le logiciel sur mesure, les plateformes SaaS, l'automatisation IA et le développement web moderne — accompagnant startups, marques e-commerce et entreprises en croissance pour créer des technologies qui scalent.",
+    body: "TY Dev est une entreprise de développement logiciel fondée en 2025. Nous sommes spécialisés dans le logiciel sur mesure, les plateformes SaaS, l'automatisation IA et le développement web moderne — accompagnant startups, marques e-commerce et entreprises en croissance pour créer des technologies qui scalent.",
     badges: ["Portée Mondiale", "IA-Driven", "Automatisation d'Abord", "Fondée en 2025"],
   },
   team: {

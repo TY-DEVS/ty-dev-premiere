@@ -11,20 +11,28 @@ import { CtaStrip } from "@/components/site/CtaStrip";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "TY Dev — AI & Software Development Agency" },
+      { title: "TY Dev — Agence Web Tunisie | Développement Sites Internet Djerba, Tunis" },
       {
         name: "description",
         content:
-          "Custom SaaS platforms, AI automation, and high-performance web applications. Engineered for real business growth.",
+          "Agence de développement web professionnelle en Tunisie. Création de sites internet, applications web, e-commerce et solutions IA à Djerba, Tunis, Sfax et partout en Tunisie. Devis gratuit +216 52 949 272",
       },
-      { property: "og:title", content: "TY Dev — AI & Software Development Agency" },
+      {
+        name: "keywords",
+        content:
+          "agence web tunisie, développement web djerba, création site internet tunis, agence digitale djerba, site web professionnel tunisie, développeur web tunis, création site e-commerce tunisie, application web tunisie, agence web djerba, développement logiciel tunisie, site vitrine tunisie, refonte site web tunisie",
+      },
+      { property: "og:title", content: "TY Dev — Agence Web & Développement en Tunisie | Djerba, Tunis" },
       {
         property: "og:description",
         content:
-          "Custom SaaS platforms, AI automation, and high-performance web applications. Engineered for real business growth.",
+          "Votre partenaire web en Tunisie. Sites internet professionnels, e-commerce, applications SaaS et IA. Présents à Djerba, Tunis et toute la Tunisie. Contact: contact@ty-dev.tech",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: "https://ty-dev.tech" },
+      { property: "og:locale", content: "fr_TN" },
+      { name: "geo.region", content: "TN-11;TN-23" },
+      { name: "geo.placename", content: "Djerba, Tunis" },
     ],
     links: [{ rel: "canonical", href: "/" }],
   }),
