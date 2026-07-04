@@ -284,7 +284,6 @@ const en = {
     connect: "Connect",
     companyLinks: ["About", "Portfolio", "Contact"],
     rights: "© 2026 TY Dev. All rights reserved.",
-    made: "Made with precision.",
     hours: "Mon - Sat : 9AM - 6PM",
   },
 };
@@ -592,7 +591,6 @@ const fr: typeof en = {
     connect: "Réseaux",
     companyLinks: ["À Propos", "Réalisations", "Contact"],
     rights: "© 2026 TY Dev. Tous droits réservés.",
-    made: "Conçu avec précision.",
     hours: "Lun - Sam : 09:00 - 18:00",
   },
 };
