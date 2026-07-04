@@ -213,7 +213,7 @@ function TerminalMock() {
             <span className="text-muted-foreground">[</span>
             <span className="text-[oklch(0.78_0.14_140)]">'react'</span>,{" "}
             <span className="text-[oklch(0.78_0.14_140)]">'next'</span>,{" "}
-            <span className="text-[oklch(0.78_0.14_140)]">'ai'</span>
+            <span className="text-[oklch(0.78_0.14_140)]">'node'</span>
             <span className="text-muted-foreground">]</span>,
           </CodeLine>
           <CodeLine n={4}>

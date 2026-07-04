@@ -11,7 +11,7 @@ export const sendContactEmailFn = createServerFn({ method: "POST" })
         port: 465, // Using 465 because VPS providers often block port 587 outbound
         secure: true, 
         auth: {
-          user: process.env.SMTP_USER || "contact@ty-dev.site",
+          user: process.env.SMTP_USER || "contact@ty-dev.tech",
           pass: process.env.SMTP_PASS?.replace(/"/g, ""), // Automatically remove quotes if they accidentally put them in Coolify
         },
         tls: {
@@ -20,8 +20,8 @@ export const sendContactEmailFn = createServerFn({ method: "POST" })
       });
 
       const mailOptions = {
-        from: process.env.SMTP_USER || "contact@ty-dev.site",
-        to: "contact@ty-dev.site, benyaalamedyassine24@gmail.com", // Force the correct receivers, ignoring Coolify variables
+        from: process.env.SMTP_USER || "contact@ty-dev.tech",
+        to: "contact@ty-dev.tech, benyaalamedyassine24@gmail.com", // Force the correct receivers, ignoring Coolify variables
         replyTo: email,
         subject: `Nouveau Contact: ${name} - ${type}`,
         text: `

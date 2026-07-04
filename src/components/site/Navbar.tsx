@@ -238,7 +238,7 @@ export function LangToggle({
 }) {
   return (
     <div className="relative flex items-center bg-surface/60 border border-border rounded-full p-1 text-xs font-mono">
-      {(["en", "fr"] as const).map((l) => (
+      {(["fr", "en"] as const).map((l) => (
         <button
           key={l}
           onClick={() => setLang(l)}
