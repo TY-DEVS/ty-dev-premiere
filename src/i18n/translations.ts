@@ -80,6 +80,14 @@ const en = {
         url: "https://luxurycartransport24.com",
       },
       {
+        category: "E-Commerce · Furniture",
+        title: "Sweet Home",
+        service: "E-Commerce Platform",
+        image: "/portfolio/sweethomeshop.fr_.png",
+        desc: "High-end furniture store founded in Paris. Featuring curated collections, 3x/4x payment options, and premium delivery & installation.",
+        url: "https://sweethomeshop.fr",
+      },
+      {
         category: "Automotive Photography",
         title: "DRT Shot",
         service: "Portfolio Website",
@@ -377,6 +385,14 @@ const fr: typeof en = {
         image: "/portfolio/luxurycartransport24.com_.png",
         desc: "Spécialiste du transport mondial sécurisé pour les voitures de luxe et les hypercars.",
         url: "https://luxurycartransport24.com",
+      },
+      {
+        category: "E-Commerce · Mobilier",
+        title: "Sweet Home",
+        service: "Plateforme E-Commerce",
+        image: "/portfolio/sweethomeshop.fr_.png",
+        desc: "Maison fondée à Paris spécialisée dans le mobilier durable. Boutique en ligne haut de gamme avec paiement 3x/4x sans frais et livraison avec installation.",
+        url: "https://sweethomeshop.fr",
       },
       {
         category: "Photographie Automobile",
