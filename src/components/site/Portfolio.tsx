@@ -37,6 +37,8 @@ export function Portfolio() {
                   className="w-full h-full object-cover object-top opacity-90 transition-opacity duration-1000 group-hover:opacity-100 select-none pointer-events-none"
                   draggable={false}
                   onContextMenu={(e) => e.preventDefault()}
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 shadow-[inset_0_0_30px_oklch(0_0_0/0.4)] pointer-events-none transition-opacity duration-700 group-hover:opacity-0" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.05_0.015_260)] via-transparent to-transparent opacity-80" />
