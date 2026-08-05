@@ -234,7 +234,7 @@ const en = {
         firstName: "Moutia",
         lastName: "Ben Yahia",
         role: "CEO",
-        image: "/team/moutiabenyahia.webp",
+        image: "/team/moutiabenyahia.png",
         linkedin: "https://www.linkedin.com/in/moutia-ben-yahia/?locale=fr",
       },
       {
@@ -557,7 +557,7 @@ const fr: typeof en = {
         firstName: "Moutia",
         lastName: "Ben Yahia",
         role: "CEO",
-        image: "/team/moutiabenyahia.webp",
+        image: "/team/moutiabenyahia.png",
         linkedin: "https://www.linkedin.com/in/moutia-ben-yahia/?locale=fr",
       },
       {
