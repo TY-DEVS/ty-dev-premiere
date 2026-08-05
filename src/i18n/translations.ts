@@ -104,6 +104,14 @@ const en = {
         url: "https://aa-motors.fr",
       },
       {
+        category: "SPC Flooring · B2B",
+        title: "SOL SPC PRO",
+        service: "E-Commerce Platform",
+        image: "/portfolio/solsocpro.webp",
+        desc: "High-end SPC specialist for professionals in the Île-de-France region. Offers durable and aesthetic coverings: wood-effect planks, natural stone tiles, and marble or polished concrete effect panels.",
+        url: "#",
+      },
+      {
         category: "HVAC · Local Services",
         title: "Climabat.34",
         service: "Local Business Website",
@@ -403,12 +411,20 @@ const fr: typeof en = {
         url: "https://drt-shot.ty-dev.site",
       },
       {
-        category: "Automobile · Transport Prestige",
+        category: "Automobile · Transport de Prestige",
         title: "AA Motors",
         service: "Application Web Premium",
         image: "/portfolio/aa-motors.fr_.webp",
-        desc: "Site premium pour un spécialiste du transport et dépannage de véhicules de prestige. Interventions en France et en Europe — élégance, discrétion et sécurité.",
+        desc: "Site vitrine premium pour un spécialiste français du transport et du dépannage de véhicules de prestige. Interventions en France et en Europe — avec l'élégance, la discrétion et la sécurité comme maîtres-mots.",
         url: "https://aa-motors.fr",
+      },
+      {
+        category: "Revêtements SPC · B2B",
+        title: "SOL SPC PRO",
+        service: "Plateforme E-Commerce",
+        image: "/portfolio/solsocpro.webp",
+        desc: "Spécialiste SPC Haut de Gamme pour Professionnels en Île-de-France. Propose des revêtements durables et esthétiques : lames effet bois, dalles pierre naturelle et panneaux effet marbre ou béton ciré.",
+        url: "#",
       },
       {
         category: "CVC · Services Locaux",
