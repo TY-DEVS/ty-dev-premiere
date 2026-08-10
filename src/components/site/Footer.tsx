@@ -104,24 +104,26 @@ export function Footer() {
           <div>
             <FooterColTitle>{t.footer.company}</FooterColTitle>
             <ul className="space-y-4 text-sm">
-              {t.footer.companyLinks.map((label, i) => {
-                const routes = ["/about", "/portfolio", "/contact"] as const;
-                const route = routes[i];
-                if (!route) {
-                  return (
-                    <li key={label} className="text-muted-foreground/50 cursor-not-allowed">
-                      {label}
-                    </li>
-                  );
-                }
-                return (
-                  <li key={label}>
-                    <Link to={route} className="hover:text-brand transition-colors">
-                      {label}
-                    </Link>
-                  </li>
-                );
-              })}
+              <li>
+                <Link to="/about" className="hover:text-brand transition-colors">
+                  {t.nav.about}
+                </Link>
+              </li>
+              <li>
+                <Link to="/portfolio" className="hover:text-brand transition-colors">
+                  {t.nav.portfolio}
+                </Link>
+              </li>
+              <li>
+                <Link to="/demos" className="hover:text-brand transition-colors">
+                  {(t.nav as any).demos || "Démos"}
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="hover:text-brand transition-colors">
+                  {t.nav.contact}
+                </Link>
+              </li>
             </ul>
           </div>
 

@@ -5,6 +5,7 @@ const en = {
     home: "Home",
     services: "Services",
     portfolio: "Portfolio",
+    demos: "Live Demos",
     about: "About",
     contact: "Contact",
     cta: "Start a Project",
@@ -189,8 +190,17 @@ const en = {
         desc: "Company specialized in private chauffeur transport. Modern site to facilitate client contact and bookings.",
         url: "https://netprochauffeurs.fr",
       },
+    ],
+  },
+  demos: {
+    title: "Interactive Live Demos",
+    subtitle: "Explore fully functional demo platforms and templates crafted for various industries.",
+    viewDemo: "Test Live Demo",
+    viewAll: "Explore All Demos",
+    more: "More interactive demos uploaded regularly.",
+    items: [
       {
-        category: "Luxury Car Rental · Demo",
+        category: "Luxury Car Rental",
         title: "AMG Lux Rentals",
         service: "Interactive Booking Demo",
         image: "/portfolio/amglux-rentals.demo.ty-dev.site_.webp",
@@ -198,7 +208,7 @@ const en = {
         url: "https://amglux-rentals.demo.ty-dev.site/",
       },
       {
-        category: "Automotive Detailing · Demo",
+        category: "Automotive Detailing",
         title: "AUTOMOTO Detailing",
         service: "Premium Service Showcase",
         image: "/portfolio/automoto-detailing.demo.ty-dev.site_.webp",
@@ -206,7 +216,7 @@ const en = {
         url: "https://automoto-detailing.demo.ty-dev.site/",
       },
       {
-        category: "Car Protection & Aesthetics · Demo",
+        category: "Car Protection & Aesthetics",
         title: "AZX Detailing",
         service: "Modern Showcase Website",
         image: "/portfolio/azx-detailing.demo.ty-dev.site_.webp",
@@ -214,7 +224,7 @@ const en = {
         url: "https://azx-detailing.demo.ty-dev.site/",
       },
       {
-        category: "Auto & Home Cleaning · Demo",
+        category: "Auto & Home Cleaning",
         title: "Brill Auto Maison 83",
         service: "Service Showcase Demo",
         image: "/portfolio/brillautomaison83.demo.ty-dev.site_.webp",
@@ -222,7 +232,7 @@ const en = {
         url: "https://brillautomaison83.demo.ty-dev.site/",
       },
       {
-        category: "Car Transport & Logistics · Demo",
+        category: "Car Transport & Logistics",
         title: "Auto Liefern",
         service: "Logistics Showcase Demo",
         image: "/portfolio/autoliefern.demo.ty-dev.site_.webp",
@@ -460,6 +470,7 @@ const fr: typeof en = {
     home: "Accueil",
     services: "Services",
     portfolio: "Réalisations",
+    demos: "Démos",
     about: "À Propos",
     contact: "Contact",
     cta: "Démarrer un Projet",
@@ -654,8 +665,17 @@ const fr: typeof en = {
         desc: "Entreprise spécialisée dans le transport avec chauffeur privé. Site moderne pour faciliter la prise de contact.",
         url: "https://netprochauffeurs.fr",
       },
+    ],
+  },
+  demos: {
+    title: "Démos & Maquettes Interactives",
+    subtitle: "Explorez nos exemples de sites et applications prêts à être personnalisés pour votre secteur d'activité.",
+    viewDemo: "Tester la Démo en Direct",
+    viewAll: "Voir toutes les démos",
+    more: "De nouvelles démonstrations interactives sont ajoutées régulièrement.",
+    items: [
       {
-        category: "Location Voiture de Luxe · Démo",
+        category: "Location Voiture de Luxe",
         title: "AMG Lux Rentals",
         service: "Démo Réservation Interactive",
         image: "/portfolio/amglux-rentals.demo.ty-dev.site_.webp",
@@ -663,7 +683,7 @@ const fr: typeof en = {
         url: "https://amglux-rentals.demo.ty-dev.site/",
       },
       {
-        category: "Detailing Automobile · Démo",
+        category: "Detailing Automobile",
         title: "AUTOMOTO Detailing",
         service: "Vitrine Services Premium",
         image: "/portfolio/automoto-detailing.demo.ty-dev.site_.webp",
@@ -671,7 +691,7 @@ const fr: typeof en = {
         url: "https://automoto-detailing.demo.ty-dev.site/",
       },
       {
-        category: "Protection & Esthétique Auto · Démo",
+        category: "Protection & Esthétique Auto",
         title: "AZX Detailing",
         service: "Site Vitrine Moderne",
         image: "/portfolio/azx-detailing.demo.ty-dev.site_.webp",
@@ -679,7 +699,7 @@ const fr: typeof en = {
         url: "https://azx-detailing.demo.ty-dev.site/",
       },
       {
-        category: "Nettoyage Auto & Maison · Démo",
+        category: "Nettoyage Auto & Maison",
         title: "Brill Auto Maison 83",
         service: "Vitrine Services à Domicile",
         image: "/portfolio/brillautomaison83.demo.ty-dev.site_.webp",
@@ -687,7 +707,7 @@ const fr: typeof en = {
         url: "https://brillautomaison83.demo.ty-dev.site/",
       },
       {
-        category: "Transport & Logistique Auto · Démo",
+        category: "Transport & Logistique Auto",
         title: "Auto Liefern",
         service: "Application Logistique Démo",
         image: "/portfolio/autoliefern.demo.ty-dev.site_.webp",
