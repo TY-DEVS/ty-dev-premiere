@@ -10,34 +10,74 @@ function getItemFilterGroup(item: any): string {
   const text = `${item.category || ""} ${item.title || ""} ${item.service || ""} ${item.desc || ""}`.toLowerCase();
 
   if (
+    text.includes("location voiture") ||
+    text.includes("location de voiture") ||
+    text.includes("luxury car rental") ||
+    text.includes("rental marketplace") ||
+    text.includes("fleet") ||
+    text.includes("amg lux") ||
+    text.includes("drivehub")
+  ) {
+    return "rental";
+  }
+  if (
+    text.includes("detailing") ||
+    text.includes("lustrage") ||
+    text.includes("ppf") ||
+    text.includes("céramique") ||
+    text.includes("car care") ||
+    text.includes("pare-brise") ||
+    text.includes("vitrage") ||
+    text.includes("teintage") ||
+    text.includes("étoilé") ||
+    text.includes("etoile") ||
+    text.includes("car staging") ||
+    text.includes("glazone") ||
+    text.includes("inside car") ||
+    text.includes("magic clean") ||
+    text.includes("sylvester") ||
+    text.includes("lustra") ||
+    text.includes("knights") ||
+    text.includes("protech") ||
+    text.includes("eclat auto") ||
+    text.includes("id cars") ||
+    text.includes("light luxury") ||
+    text.includes("automoto") ||
+    text.includes("azx")
+  ) {
+    return "detailing";
+  }
+  if (
     text.includes("concierg") ||
     text.includes("vip") ||
     text.includes("relocation") ||
-    text.includes("villa")
+    text.includes("chauffeur") ||
+    text.includes("transfer") ||
+    text.includes("gentleman")
   ) {
     return "conciergerie";
-  }
-  if (
-    text.includes("rénov") ||
-    text.includes("bâtiment") ||
-    text.includes("plomberie") ||
-    text.includes("carrelage") ||
-    text.includes("pierre") ||
-    text.includes("stone") ||
-    text.includes("jardin") ||
-    text.includes("paysage") ||
-    text.includes("habitat") ||
-    text.includes("déco")
-  ) {
-    return "batiment";
   }
   if (
     text.includes("nettoyage") ||
     text.includes("clean") ||
     text.includes("hygiène") ||
-    text.includes("propreté")
+    text.includes("propreté") ||
+    text.includes("entretien")
   ) {
     return "nettoyage";
+  }
+  if (
+    text.includes("rénov") ||
+    text.includes("bâtiment") ||
+    text.includes("pierre") ||
+    text.includes("stone") ||
+    text.includes("jardin") ||
+    text.includes("paysage") ||
+    text.includes("habitat") ||
+    text.includes("déco") ||
+    text.includes("structiba")
+  ) {
+    return "batiment";
   }
   if (
     text.includes("boutique") ||
@@ -46,28 +86,16 @@ function getItemFilterGroup(item: any): string {
     text.includes("repair") ||
     text.includes("graphics") ||
     text.includes("branding") ||
-    text.includes("e-commerce")
+    text.includes("e-commerce") ||
+    text.includes("broker") ||
+    text.includes("concession") ||
+    text.includes("jrackz") ||
+    text.includes("logistique") ||
+    text.includes("autoliefern")
   ) {
     return "tech";
   }
-  if (
-    text.includes("auto") ||
-    text.includes("car") ||
-    text.includes("detailing") ||
-    text.includes("voiture") ||
-    text.includes("chauffeur") ||
-    text.includes("transport") ||
-    text.includes("lavage") ||
-    text.includes("lustrage") ||
-    text.includes("ppf") ||
-    text.includes("etoile") ||
-    text.includes("étoilé") ||
-    text.includes("vitrage") ||
-    text.includes("fleet")
-  ) {
-    return "auto";
-  }
-  return "auto";
+  return "detailing";
 }
 
 export function Demos({ isPage = false }: { isPage?: boolean }) {
@@ -87,21 +115,40 @@ export function Demos({ isPage = false }: { isPage?: boolean }) {
     return lang === "fr"
       ? [
           { id: "all", label: "Tous" },
-          { id: "auto", label: "Automobile & Detailing" },
+          { id: "rental", label: "Location de Voiture" },
+          { id: "detailing", label: "Detailing Auto" },
           { id: "conciergerie", label: "Conciergerie & VIP" },
-          { id: "batiment", label: "Bâtiment & Rénovation" },
           { id: "nettoyage", label: "Nettoyage & Entretien" },
+          { id: "batiment", label: "Bâtiment & Rénovation" },
           { id: "tech", label: "E-Commerce & Tech" },
         ]
       : [
           { id: "all", label: "All" },
-          { id: "auto", label: "Automotive & Detailing" },
+          { id: "rental", label: "Car Rental" },
+          { id: "detailing", label: "Auto Detailing" },
           { id: "conciergerie", label: "Concierge & VIP" },
-          { id: "batiment", label: "Building & Renovation" },
           { id: "nettoyage", label: "Cleaning & Maintenance" },
+          { id: "batiment", label: "Building & Renovation" },
           { id: "tech", label: "E-Commerce & Tech" },
         ];
   }, [lang]);
+
+  const counts = useMemo(() => {
+    const res: Record<string, number> = {
+      all: demosData.items.length,
+      rental: 0,
+      detailing: 0,
+      conciergerie: 0,
+      nettoyage: 0,
+      batiment: 0,
+      tech: 0,
+    };
+    demosData.items.forEach((item: any) => {
+      const grp = getItemFilterGroup(item);
+      if (res[grp] !== undefined) res[grp]++;
+    });
+    return res;
+  }, [demosData.items]);
 
   const filteredItems = useMemo(() => {
     if (activeFilter === "all") return demosData.items;
@@ -116,26 +163,38 @@ export function Demos({ isPage = false }: { isPage?: boolean }) {
     <Section id="demos">
       <SectionHeader title={demosData.title} subtitle={demosData.subtitle} />
 
-      {/* Category Filter Pills Bar */}
-      <div className="mt-10 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 px-2">
-        {filterOptions.map((f) => {
-          const isActive = activeFilter === f.id;
-          return (
-            <button
-              key={f.id}
-              onClick={() => {
-                setActiveFilter(f.id);
-              }}
-              className={`relative px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 backdrop-blur-md select-none ${
-                isActive
-                  ? "bg-cyan-500 text-slate-950 shadow-[0_0_25px_oklch(0.75_0.18_200/0.4)] border border-cyan-400 font-bold scale-105"
-                  : "bg-surface/40 text-muted-foreground hover:text-foreground border border-border/60 hover:border-cyan-500/40 hover:bg-surface/80"
-              }`}
-            >
-              {f.label}
-            </button>
-          );
-        })}
+      {/* Category Filter Pills Bar - Optimized for Mobile & Desktop PC */}
+      <div className="mt-10 relative max-w-full">
+        <div className="flex items-center justify-start md:justify-center gap-2.5 sm:gap-3 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden pb-3 pt-1 px-2 max-w-full scroll-smooth">
+          {filterOptions.map((f) => {
+            const isActive = activeFilter === f.id;
+            const count = counts[f.id] || 0;
+            return (
+              <button
+                key={f.id}
+                onClick={() => {
+                  setActiveFilter(f.id);
+                }}
+                className={`shrink-0 relative flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 backdrop-blur-md select-none ${
+                  isActive
+                    ? "bg-cyan-500 text-slate-950 shadow-[0_0_25px_oklch(0.75_0.18_200/0.4)] border border-cyan-400 font-bold scale-105"
+                    : "bg-surface/50 text-muted-foreground hover:text-foreground border border-border/60 hover:border-cyan-500/40 hover:bg-surface/80"
+                }`}
+              >
+                <span>{f.label}</span>
+                <span
+                  className={`text-[10px] px-2 py-0.5 rounded-full font-mono font-bold ${
+                    isActive
+                      ? "bg-slate-950/20 text-slate-950"
+                      : "bg-background/80 text-muted-foreground/80 border border-border/40"
+                  }`}
+                >
+                  {count}
+                </span>
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
