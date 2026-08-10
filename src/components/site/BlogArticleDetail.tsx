@@ -135,6 +135,27 @@ export function BlogArticleDetail({ post }: { post: BlogPost }) {
         <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[oklch(0.09_0.03_250)] to-[oklch(0.06_0.02_250)] border border-cyan-500/20 backdrop-blur-md shadow-2xl">
           <div className="prose prose-invert prose-cyan max-w-none prose-headings:font-display prose-headings:font-bold prose-h2:text-2xl prose-h2:text-cyan-300 prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-xl prose-h3:text-foreground prose-p:text-muted-foreground/90 prose-p:leading-relaxed prose-li:text-muted-foreground/90 prose-strong:text-foreground prose-code:text-cyan-300 prose-code:bg-surface/80 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded">
             {post.content[lang].split("\n").map((paragraph, idx) => {
+              const renderInline = (text: string) => {
+                const parts = text.split(/(\*\*.*?\*\*|`.*?`)/g);
+                return parts.map((part, pIdx) => {
+                  if (part.startsWith("**") && part.endsWith("**")) {
+                    return (
+                      <strong key={pIdx} className="text-foreground font-semibold">
+                        {part.slice(2, -2)}
+                      </strong>
+                    );
+                  }
+                  if (part.startsWith("`") && part.endsWith("`")) {
+                    return (
+                      <code key={pIdx} className="text-cyan-300 bg-cyan-950/40 border border-cyan-500/20 px-1.5 py-0.5 rounded font-mono text-xs">
+                        {part.slice(1, -1)}
+                      </code>
+                    );
+                  }
+                  return part;
+                });
+              };
+
               if (paragraph.startsWith("## ")) {
                 return (
                   <h2 key={idx} className="font-display font-bold text-2xl text-cyan-300 mt-8 mb-4">
@@ -158,15 +179,15 @@ export function BlogArticleDetail({ post }: { post: BlogPost }) {
               }
               if (paragraph.startsWith("- ")) {
                 return (
-                  <li key={idx} className="text-muted-foreground/90 text-sm sm:text-base leading-relaxed ml-4 list-disc">
-                    {paragraph.replace("- ", "")}
+                  <li key={idx} className="text-muted-foreground/90 text-sm sm:text-base leading-relaxed ml-4 list-disc mb-1">
+                    {renderInline(paragraph.replace("- ", ""))}
                   </li>
                 );
               }
-              if (paragraph.startsWith("1. ") || paragraph.startsWith("2. ") || paragraph.startsWith("3. ")) {
+              if (paragraph.startsWith("1. ") || paragraph.startsWith("2. ") || paragraph.startsWith("3. ") || paragraph.startsWith("4. ")) {
                 return (
-                  <li key={idx} className="text-muted-foreground/90 text-sm sm:text-base leading-relaxed ml-4 list-decimal">
-                    {paragraph.replace(/^\d+\.\s*/, "")}
+                  <li key={idx} className="text-muted-foreground/90 text-sm sm:text-base leading-relaxed ml-4 list-decimal mb-1">
+                    {renderInline(paragraph.replace(/^\d+\.\s*/, ""))}
                   </li>
                 );
               }
@@ -176,7 +197,7 @@ export function BlogArticleDetail({ post }: { post: BlogPost }) {
               if (paragraph.trim() !== "") {
                 return (
                   <p key={idx} className="text-muted-foreground/90 text-sm sm:text-base leading-relaxed mb-4">
-                    {paragraph}
+                    {renderInline(paragraph)}
                   </p>
                 );
               }

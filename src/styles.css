@@ -32,8 +32,8 @@
   --color-brand: var(--brand);
   --color-brand-glow: var(--brand-glow);
   --color-cyan: var(--cyan);
-  --font-display: "Space Grotesk", sans-serif;
-  --font-sans: "Inter", sans-serif;
+  --font-display: "Space Grotesk", "Inter", system-ui, -apple-system, sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 }
 

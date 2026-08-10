@@ -45,7 +45,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ty-dev.site/blog/docker-kubernetes-containerization-deployer-vos-plateformes-saas-sans-interruption</loc>
+    <loc>https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients</loc>
     <lastmod>2026-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.85</priority>
