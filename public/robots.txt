@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ty-dev.site/sitemap.xml
