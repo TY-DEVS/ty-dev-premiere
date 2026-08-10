@@ -4,6 +4,7 @@ import { Services } from "@/components/site/Services";
 import { Process } from "@/components/site/Process";
 import { TechStack } from "@/components/site/TechStack";
 import { CtaStrip } from "@/components/site/CtaStrip";
+import { Testimonials } from "@/components/site/Testimonials";
 import { useI18n } from "@/i18n/context";
 
 export const Route = createFileRoute("/services")({
@@ -45,6 +46,7 @@ function ServicesPage() {
       <Services />
       <Process />
       <TechStack />
+      <Testimonials />
       <CtaStrip />
     </>
   );

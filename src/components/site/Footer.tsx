@@ -162,8 +162,6 @@ export function Footer() {
         <div className="px-8 py-6 flex flex-col sm:flex-row justify-between items-center gap-6 bg-[oklch(0.05_0.015_260)]">
           <div className="flex items-center gap-4 md:gap-6 text-xs font-mono text-muted-foreground/80 flex-wrap justify-center">
             <span className="uppercase tracking-[0.16em]">{t.footer.rights}</span>
-            <span className="hidden sm:inline text-border">|</span>
-            <span className="opacity-70">{t.footer.made}</span>
           </div>
 
           <div className="flex items-center gap-5">
