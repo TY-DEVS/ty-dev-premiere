@@ -9,7 +9,10 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "blog:publish": "node scripts/publish_blog.mjs --publish-next",
+    "blog:sitemap": "node scripts/generate_sitemap.mjs",
+    "blog:mcp": "node scripts/mcp_blog_server.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

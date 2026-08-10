@@ -1,0 +1,54 @@
+name: Automated Daily Blog Publisher (8h - 9h AM)
+
+on:
+  schedule:
+    # Runs every day at 06:30 UTC (08:30 AM Europe/Paris time, between 8:00 and 9:00 AM)
+    - cron: '30 6 * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub UI
+
+jobs:
+  publish-daily-blog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Codebase
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Publish Daily Article & Update Sitemap
+        env:
+          BLOG_ADMIN_TOKEN: ${{ secrets.BLOG_ADMIN_TOKEN || 'tydev_blog_admin_secret_key_2026' }}
+          SITE_URL: 'https://ty-dev.site'
+        run: |
+          node scripts/publish_blog.mjs --publish-next
+
+      - name: Commit and Push Changes to main, Raouf & ty-dev-tn
+        run: |
+          git config --global user.name "TY Dev Automated Publisher"
+          git config --global user.email "bot@ty-dev.site"
+          
+          git add src/data/blogPosts.ts public/sitemap.xml
+          git commit -m "chore(blog): publication automatique quotidienne du blog et mise à jour du sitemap" || exit 0
+          
+          # Push to main
+          git push origin main
+          
+          # Sync & push to Raouf
+          git checkout -f Raouf
+          git pull origin Raouf --rebase || true
+          git merge -X theirs main -m "chore(blog): sync daily post with Raouf"
+          git push origin Raouf
+          
+          # Sync & push to ty-dev-tn
+          git checkout -f ty-dev-tn
+          git pull origin ty-dev-tn --rebase || true
+          git merge -X theirs main -m "chore(blog): sync daily post with ty-dev-tn"
+          git push origin ty-dev-tn
+          
+          git checkout -f main
