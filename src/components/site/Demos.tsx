@@ -1,6 +1,18 @@
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, ArrowRight, ArrowDown, MonitorPlay } from "lucide-react";
+import {
+  ExternalLink,
+  ArrowRight,
+  ArrowDown,
+  MonitorPlay,
+  Sparkles,
+  Car,
+  ShieldCheck,
+  Crown,
+  Droplets,
+  Building2,
+  ShoppingBag,
+} from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
 import { Section, SectionHeader } from "./Services";
@@ -114,41 +126,24 @@ export function Demos({ isPage = false }: { isPage?: boolean }) {
   const filterOptions = useMemo(() => {
     return lang === "fr"
       ? [
-          { id: "all", label: "Tous" },
-          { id: "rental", label: "Location de Voiture" },
-          { id: "detailing", label: "Detailing Auto" },
-          { id: "conciergerie", label: "Conciergerie & VIP" },
-          { id: "nettoyage", label: "Nettoyage & Entretien" },
-          { id: "batiment", label: "Bâtiment & Rénovation" },
-          { id: "tech", label: "E-Commerce & Tech" },
+          { id: "all", label: "Tous", icon: Sparkles },
+          { id: "rental", label: "Location de Voiture", icon: Car },
+          { id: "detailing", label: "Detailing Auto", icon: ShieldCheck },
+          { id: "conciergerie", label: "Conciergerie & VIP", icon: Crown },
+          { id: "nettoyage", label: "Nettoyage & Entretien", icon: Droplets },
+          { id: "batiment", label: "Bâtiment & Rénovation", icon: Building2 },
+          { id: "tech", label: "E-Commerce & Tech", icon: ShoppingBag },
         ]
       : [
-          { id: "all", label: "All" },
-          { id: "rental", label: "Car Rental" },
-          { id: "detailing", label: "Auto Detailing" },
-          { id: "conciergerie", label: "Concierge & VIP" },
-          { id: "nettoyage", label: "Cleaning & Maintenance" },
-          { id: "batiment", label: "Building & Renovation" },
-          { id: "tech", label: "E-Commerce & Tech" },
+          { id: "all", label: "All", icon: Sparkles },
+          { id: "rental", label: "Car Rental", icon: Car },
+          { id: "detailing", label: "Auto Detailing", icon: ShieldCheck },
+          { id: "conciergerie", label: "Concierge & VIP", icon: Crown },
+          { id: "nettoyage", label: "Cleaning & Maintenance", icon: Droplets },
+          { id: "batiment", label: "Building & Renovation", icon: Building2 },
+          { id: "tech", label: "E-Commerce & Tech", icon: ShoppingBag },
         ];
   }, [lang]);
-
-  const counts = useMemo(() => {
-    const res: Record<string, number> = {
-      all: demosData.items.length,
-      rental: 0,
-      detailing: 0,
-      conciergerie: 0,
-      nettoyage: 0,
-      batiment: 0,
-      tech: 0,
-    };
-    demosData.items.forEach((item: any) => {
-      const grp = getItemFilterGroup(item);
-      if (res[grp] !== undefined) res[grp]++;
-    });
-    return res;
-  }, [demosData.items]);
 
   const filteredItems = useMemo(() => {
     if (activeFilter === "all") return demosData.items;
@@ -163,33 +158,30 @@ export function Demos({ isPage = false }: { isPage?: boolean }) {
     <Section id="demos">
       <SectionHeader title={demosData.title} subtitle={demosData.subtitle} />
 
-      {/* Category Filter Pills Bar - Optimized for Mobile & Desktop PC */}
-      <div className="mt-10 relative max-w-full">
-        <div className="flex items-center justify-start md:justify-center gap-2.5 sm:gap-3 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden pb-3 pt-1 px-2 max-w-full scroll-smooth">
+      {/* Modern Glassmorphic Category Filter Control */}
+      <div className="mt-10 flex justify-center max-w-full px-2">
+        <div className="inline-flex items-center gap-1 sm:gap-1.5 p-1.5 rounded-2xl md:rounded-full bg-surface/60 border border-cyan-500/20 backdrop-blur-xl shadow-2xl overflow-x-auto max-w-full [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           {filterOptions.map((f) => {
             const isActive = activeFilter === f.id;
-            const count = counts[f.id] || 0;
+            const Icon = f.icon;
             return (
               <button
                 key={f.id}
-                onClick={() => {
-                  setActiveFilter(f.id);
-                }}
-                className={`shrink-0 relative flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 backdrop-blur-md select-none ${
-                  isActive
-                    ? "bg-cyan-500 text-slate-950 shadow-[0_0_25px_oklch(0.75_0.18_200/0.4)] border border-cyan-400 font-bold scale-105"
-                    : "bg-surface/50 text-muted-foreground hover:text-foreground border border-border/60 hover:border-cyan-500/40 hover:bg-surface/80"
+                onClick={() => setActiveFilter(f.id)}
+                className={`relative flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl md:rounded-full text-xs sm:text-sm font-semibold tracking-wide transition-colors duration-300 shrink-0 select-none ${
+                  isActive ? "text-slate-950 font-bold" : "text-muted-foreground hover:text-foreground"
                 }`}
               >
-                <span>{f.label}</span>
-                <span
-                  className={`text-[10px] px-2 py-0.5 rounded-full font-mono font-bold ${
-                    isActive
-                      ? "bg-slate-950/20 text-slate-950"
-                      : "bg-background/80 text-muted-foreground/80 border border-border/40"
-                  }`}
-                >
-                  {count}
+                {isActive && (
+                  <motion.div
+                    layoutId="activeDemoFilterPill"
+                    className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-cyan-300 rounded-xl md:rounded-full shadow-[0_0_20px_oklch(0.75_0.18_200/0.4)] z-0"
+                    transition={{ type: "spring", stiffness: 450, damping: 32 }}
+                  />
+                )}
+                <span className="relative z-10 flex items-center gap-2">
+                  <Icon className={`w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 ${isActive ? "text-slate-950" : "text-cyan-400/80"}`} />
+                  <span>{f.label}</span>
                 </span>
               </button>
             );
