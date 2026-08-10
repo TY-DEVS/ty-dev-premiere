@@ -8,18 +8,25 @@ import { useI18n } from "@/i18n/context";
 export const Route = createFileRoute("/demos")({
   head: () => ({
     meta: [
-      { title: "Démos & Maquettes Interactives — TY Dev" },
+      { title: "Démos & Maquettes Interactives — TY Dev | Agence Web & SaaS" },
       {
         name: "description",
         content:
-          "Explore interactive live demos and website templates crafted by TY Dev — ready to customize for your business.",
+          "Découvrez 39 démos interactives et maquettes de sites vitrines, plateformes SaaS, réservations en ligne et e-commerce développées sur-mesure par TY Dev.",
       },
-      { property: "og:title", content: "Démos & Maquettes Interactives — TY Dev" },
+      {
+        name: "keywords",
+        content:
+          "démos interactives, maquettes web, templates SaaS, site vitrine sur-mesure, location voiture, detailing auto, conciergerie VIP, agence web TY Dev",
+      },
+      { property: "og:title", content: "Démos & Maquettes Interactives — TY Dev | Agence Web & SaaS" },
       {
         property: "og:description",
         content:
-          "Explore interactive live demos and website templates crafted by TY Dev — ready to customize for your business.",
+          "Découvrez 39 démos interactives et maquettes de sites vitrines, plateformes SaaS, réservations en ligne et e-commerce développées sur-mesure par TY Dev.",
       },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/demos" },
     ],
     links: [{ rel: "canonical", href: "/demos" }],
   }),
