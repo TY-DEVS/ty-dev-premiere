@@ -40,12 +40,12 @@ function DemosPage() {
       <PageHeader
         eyebrow="// 04 — DEMOS & TEMPLATES"
         crumb={(t.nav as any).demos || "Démos"}
-        title={lang === "fr" ? "Démos interactives," : "Interactive live demos,"}
+        title={lang === "fr" ? "Démos interactives," : "Interactive demos,"}
         accent={lang === "fr" ? "prêtes à personnaliser." : "ready to customize."}
         subtitle={
           lang === "fr"
             ? "Explorez nos exemples de sites et plateformes conçus pour booster votre activité en quelques jours."
-            : "Explore live demo platforms and templates crafted to elevate your business in days."
+            : "Explore demo platforms and templates crafted to elevate your business in days."
         }
       />
       <Demos isPage={true} />

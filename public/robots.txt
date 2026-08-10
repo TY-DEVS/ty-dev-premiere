@@ -1,11 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ty-dev.tech/sitemap.xml
-
-# Optimisation pour moteurs de recherche tunisiens
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
+Sitemap: https://ty-dev.site/sitemap.xml

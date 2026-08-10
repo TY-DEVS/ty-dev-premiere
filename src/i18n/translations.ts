@@ -5,7 +5,8 @@ const en = {
     home: "Home",
     services: "Services",
     portfolio: "Portfolio",
-    demos: "Live Demos",
+    demos: "Demos",
+    blog: "Blog",
     about: "About",
     contact: "Contact",
     cta: "Start a Project",
@@ -193,9 +194,9 @@ const en = {
     ],
   },
   demos: {
-    title: "Interactive Live Demos",
+    title: "Interactive Demos",
     subtitle: "Explore fully functional demo platforms and templates crafted for various industries.",
-    viewDemo: "Test Live Demo",
+    viewDemo: "Test Demo",
     viewAll: "Explore All Demos",
     more: "More interactive demos uploaded regularly.",
     items: [
@@ -783,6 +784,7 @@ const fr: typeof en = {
     services: "Services",
     portfolio: "Réalisations",
     demos: "Démos",
+    blog: "Blog",
     about: "À Propos",
     contact: "Contact",
     cta: "Démarrer un Projet",
@@ -982,7 +984,7 @@ const fr: typeof en = {
   demos: {
     title: "Démos & Maquettes Interactives",
     subtitle: "Explorez nos exemples de sites et applications prêts à être personnalisés pour votre secteur d'activité.",
-    viewDemo: "Tester la Démo en Direct",
+    viewDemo: "Tester la Démo",
     viewAll: "Voir toutes les démos",
     more: "De nouvelles démonstrations interactives sont ajoutées régulièrement.",
     items: [
