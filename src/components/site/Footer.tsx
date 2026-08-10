@@ -2,20 +2,13 @@ import {
   Instagram,
   Linkedin,
   Facebook,
+  Twitter,
   Youtube,
   Mail,
   Clock,
   ArrowRight,
   ArrowUpRight,
 } from "lucide-react";
-
-function XIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15" {...props}>
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-    </svg>
-  );
-}
 import { Link } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
 import { TyDevLogo } from "./TyDevLogo";
@@ -28,11 +21,11 @@ const socialList = [
     href: "https://www.facebook.com/people/TY-DEV/61581507878160/",
     label: "Facebook",
   },
-  { Icon: XIcon, href: "https://x.com/tydev__", label: "X" },
+  { Icon: Twitter, href: "https://x.com/tydev__", label: "X" },
   { Icon: Youtube, href: "https://www.youtube.com/@TY-Dev", label: "YouTube" },
 ];
 
-const EMAIL = "contact@ty-dev.tech";
+const EMAIL = "contact@ty-dev.fr";
 const SITE = "ty-dev.site";
 
 export function Footer() {
@@ -168,9 +161,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="px-8 py-6 flex flex-col sm:flex-row justify-between items-center gap-6 bg-[oklch(0.05_0.015_260)]">
           <div className="flex items-center gap-4 md:gap-6 text-xs font-mono text-muted-foreground/80 flex-wrap justify-center">
-            <Link to="/legal" className="uppercase tracking-[0.16em] hover:text-brand transition-colors">
-              {t.footer.rights}
-            </Link>
+            <span className="uppercase tracking-[0.16em]">{t.footer.rights}</span>
           </div>
 
           <div className="flex items-center gap-5">

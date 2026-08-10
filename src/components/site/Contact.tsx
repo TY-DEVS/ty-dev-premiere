@@ -67,16 +67,11 @@ export function Contact() {
           <p className="text-muted-foreground text-lg mb-10">{t.contact.subtitle}</p>
 
           <div className="space-y-2 mb-12">
-            <ContactRow Icon={Mail} text="contact@ty-dev.tech" href="mailto:contact@ty-dev.tech" />
+            <ContactRow Icon={Mail} text="contact@ty-dev.fr" href="mailto:contact@ty-dev.fr" />
             <ContactRow
               Icon={MessageCircle}
-              text="WhatsApp: +33 07 59 44 01 05"
-              href="https://wa.me/33759440105"
-            />
-            <ContactRow
-              Icon={MessageCircle}
-              text="WhatsApp TN: +216 52 949 272"
-              href="https://wa.me/21652949272"
+              text="WhatsApp: +33 7 68 47 47 45"
+              href="https://wa.me/33768474745"
             />
             <ContactRow
               Icon={Instagram}

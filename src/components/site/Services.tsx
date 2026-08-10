@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { Code2, Globe, Bot, Cog, ShoppingCart, Link2, Cloud, LayoutDashboard, ArrowUpRight } from "lucide-react";
+import { Code2, Globe, Megaphone, Cog, ShoppingCart, Link2, Cloud, Bot, ArrowUpRight } from "lucide-react";
 import { useI18n } from "@/i18n/context";
 
-const icons = [Code2, Globe, Bot, Cog, ShoppingCart, Link2, Cloud, LayoutDashboard];
+const icons = [Code2, Globe, Megaphone, Cog, ShoppingCart, Link2, Cloud, Bot];
 
 export function Services() {
   const { t } = useI18n();

@@ -1,28 +1,24 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/site/PageHeader";
 import { Contact } from "@/components/site/Contact";
+import { Testimonials } from "@/components/site/Testimonials";
 import { useI18n } from "@/i18n/context";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — TY Dev Tunisie | Devis Gratuit Djerba, Tunis" },
+      { title: "Contact — TY Dev" },
       {
         name: "description",
         content:
-          "Contactez TY Dev pour votre projet web en Tunisie. Devis gratuit sous 24h. Agence à Djerba, Tunis. Tél: +216 52 949 272 | Email: contact@ty-dev.tech",
+          "Start a project with TY Dev. Reach us at contact@ty-dev.fr — replies within 24 hours.",
       },
-      {
-        name: "keywords",
-        content: "contact agence web tunisie, devis site internet djerba, contact développeur web tunis, agence digitale tunisie contact",
-      },
-      { property: "og:title", content: "Contact TY Dev — Agence Web Tunisie" },
+      { property: "og:title", content: "Contact — TY Dev" },
       {
         property: "og:description",
         content:
-          "Démarrez votre projet web avec TY Dev. Réponse sous 24h. WhatsApp: +216 52 949 272",
+          "Start a project with TY Dev. Reach us at contact@ty-dev.fr — replies within 24 hours.",
       },
-      { property: "og:url", content: "https://ty-dev.tech/contact" },
     ],
     links: [{ rel: "canonical", href: "/contact" }],
   }),
@@ -45,6 +41,7 @@ function ContactPage() {
         }
       />
       <Contact />
+      <Testimonials />
     </>
   );
 }
