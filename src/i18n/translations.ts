@@ -440,14 +440,6 @@ const en = {
         url: "https://mmh-compagnie.demo.ty-dev.site/",
       },
       {
-        category: "Plumbing, Heating & Tiling",
-        title: "MS Plomberie & Carrelage",
-        service: "Artisan Contractor Showcase",
-        image: "/portfolio/ms-plomberie-carrelage.demo.ty-dev.site_.webp",
-        desc: "Trusted plumbing, heating, and tiling contractor based in Sallanches specializing in luxury bathroom design and large format tiles in Mont-Blanc region.",
-        url: "https://ms-plomberie-carrelage.demo.ty-dev.site/",
-      },
-      {
         category: "Smartphone & Tech Repair",
         title: "PhoneFix 971",
         service: "Express Repair Service",
@@ -1185,14 +1177,6 @@ const fr: typeof en = {
         image: "/portfolio/mmh-compagnie.demo.ty-dev.site_.webp",
         desc: "Services de conciergerie et d'accompagnement sur-mesure pour les expatriés à Paris (logement de luxe, mobilité et démarches administratives).",
         url: "https://mmh-compagnie.demo.ty-dev.site/",
-      },
-      {
-        category: "Plomberie, Chauffage & Carrelage",
-        title: "MS Plomberie & Carrelage",
-        service: "Artisan Plombier & Carreleur",
-        image: "/portfolio/ms-plomberie-carrelage.demo.ty-dev.site_.webp",
-        desc: "Artisan plombier-chauffagiste et carreleur basé à Sallanches spécialisé dans les salles de bains sur-mesure et pose de carrelage grand format au Pays du Mont-Blanc.",
-        url: "https://ms-plomberie-carrelage.demo.ty-dev.site/",
       },
       {
         category: "Réparation Téléphone & High-Tech",
