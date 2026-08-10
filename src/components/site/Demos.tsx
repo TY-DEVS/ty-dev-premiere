@@ -51,28 +51,16 @@ export function Demos({ isPage = false }: { isPage?: boolean }) {
                   />
                   <div className="absolute inset-0 shadow-[inset_0_0_30px_oklch(0_0_0/0.5)] pointer-events-none transition-opacity duration-700 group-hover:opacity-0" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.06_0.02_250)] via-transparent to-transparent opacity-85" />
-
-                  {/* Top Live Demo Badge */}
-                  <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background/80 border border-cyan-400/40 text-cyan-300 font-mono text-[10px] uppercase tracking-widest font-semibold backdrop-blur-md shadow-lg">
-                    <span className="relative flex h-2 w-2">
-                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75" />
-                      <span className="relative inline-flex h-2 w-2 rounded-full bg-cyan-400" />
-                    </span>
-                    <span>Live Demo</span>
-                  </div>
                 </div>
               )}
 
               {/* Content Area */}
               <div className="relative flex flex-col justify-between flex-grow p-6 sm:p-8 z-10">
                 <div className="relative z-10">
-                  {/* Badges */}
+                  {/* Category Badge Only */}
                   <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4">
-                    <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 font-mono text-[10px] uppercase tracking-widest font-semibold">
-                      <Sparkles className="w-3 h-3" />
-                      {p.service}
-                    </span>
-                    <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground/70 border border-border/60 rounded-full px-3 py-1 backdrop-blur-sm">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 font-mono text-[10px] uppercase tracking-widest font-semibold">
+                      <Sparkles className="w-3 h-3 text-cyan-400" />
                       {p.category}
                     </span>
                   </div>
