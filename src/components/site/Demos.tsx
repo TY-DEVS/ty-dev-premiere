@@ -1,20 +1,23 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Sparkles, MonitorPlay } from "lucide-react";
+import { ExternalLink, ArrowRight, ArrowDown, MonitorPlay } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
 import { Section, SectionHeader } from "./Services";
 
 export function Demos({ isPage = false }: { isPage?: boolean }) {
   const { t } = useI18n();
-  const [showAll, setShowAll] = useState(isPage);
+  const [showAll, setShowAll] = useState(false);
   const demosData = (t as any).demos || {
     title: "Démos & Maquettes Interactives",
     subtitle: "Explorez nos exemples de sites et applications prêts à être personnalisés.",
     viewDemo: "Tester la Démo",
+    viewAll: "Voir toutes les démos",
     items: [],
   };
 
-  const displayedItems = showAll ? demosData.items : demosData.items.slice(0, 4);
+  const limit = isPage ? 6 : 4;
+  const displayedItems = showAll ? demosData.items : demosData.items.slice(0, limit);
 
   return (
     <Section id="demos">
@@ -57,10 +60,9 @@ export function Demos({ isPage = false }: { isPage?: boolean }) {
               {/* Content Area */}
               <div className="relative flex flex-col justify-between flex-grow p-6 sm:p-8 z-10">
                 <div className="relative z-10">
-                  {/* Category Badge Only */}
+                  {/* Badges */}
                   <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 font-mono text-[10px] uppercase tracking-widest font-semibold">
-                      <Sparkles className="w-3 h-3 text-cyan-400" />
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-brand border border-brand/30 bg-brand/10 rounded-full px-3.5 py-1 backdrop-blur-sm font-semibold">
                       {p.category}
                     </span>
                   </div>
@@ -93,6 +95,28 @@ export function Demos({ isPage = false }: { isPage?: boolean }) {
           ))}
         </AnimatePresence>
       </div>
+
+      {!showAll && demosData.items.length > limit && (
+        <div className="mt-16 flex justify-center">
+          {isPage ? (
+            <button
+              onClick={() => setShowAll(true)}
+              className="group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-surface/40 border border-border/80 text-foreground font-semibold shadow-[0_10px_30px_-10px_oklch(0.6_0.22_265/0.2)] hover:bg-brand hover:border-brand hover:text-white hover:shadow-[0_15px_40px_-10px_oklch(0.6_0.22_265/0.4)] transition-all duration-300 hover:-translate-y-1"
+            >
+              {demosData.viewAll || "Voir toutes les démos"}
+              <ArrowDown size={18} className="transition-transform duration-300 group-hover:translate-y-1" />
+            </button>
+          ) : (
+            <Link
+              to="/demos"
+              className="group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-surface/40 border border-border/80 text-foreground font-semibold shadow-[0_10px_30px_-10px_oklch(0.6_0.22_265/0.2)] hover:bg-brand hover:border-brand hover:text-white hover:shadow-[0_15px_40px_-10px_oklch(0.6_0.22_265/0.4)] transition-all duration-300 hover:-translate-y-1"
+            >
+              {demosData.viewAll || "Voir toutes les démos"}
+              <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
+          )}
+        </div>
+      )}
     </Section>
   );
 }
