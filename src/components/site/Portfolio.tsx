@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, ArrowRight, ArrowDown } from "lucide-react";
+import { ArrowUpRight, ArrowRight, ArrowDown, MonitorPlay } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
 import { Section, SectionHeader } from "./Services";
 
 export function Portfolio({ isPage = false }: { isPage?: boolean }) {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const [showAll, setShowAll] = useState(isPage ? false : false);
   const initialLimit = isPage ? 6 : 4;
   const displayedItems = showAll ? t.portfolio.items : t.portfolio.items.slice(0, initialLimit);
@@ -87,9 +87,9 @@ export function Portfolio({ isPage = false }: { isPage?: boolean }) {
         </AnimatePresence>
       </div>
       
-      {!showAll && t.portfolio.items.length > displayedItems.length && (
-        <div className="mt-16 flex justify-center">
-          {isPage ? (
+      <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-4">
+        {!showAll && t.portfolio.items.length > displayedItems.length && (
+          isPage ? (
             <button
               onClick={() => setShowAll(true)}
               className="group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-surface/40 border border-border/80 text-foreground font-semibold shadow-[0_10px_30px_-10px_oklch(0.6_0.22_265/0.2)] hover:bg-brand hover:border-brand hover:text-white hover:shadow-[0_15px_40px_-10px_oklch(0.6_0.22_265/0.4)] transition-all duration-300 hover:-translate-y-1"
@@ -105,9 +105,19 @@ export function Portfolio({ isPage = false }: { isPage?: boolean }) {
               {(t.portfolio as any).viewAll || "Voir tous les projets"}
               <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
-          )}
-        </div>
-      )}
+          )
+        )}
+
+        {/* CTA Button to view Demos */}
+        <Link
+          to="/demos"
+          className="group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 font-semibold shadow-[0_10px_30px_-10px_oklch(0.75_0.18_200/0.25)] hover:bg-cyan-500 hover:border-cyan-400 hover:text-slate-950 hover:shadow-[0_15px_40px_-10px_oklch(0.75_0.18_200/0.45)] transition-all duration-300 hover:-translate-y-1"
+        >
+          <MonitorPlay className="w-4 h-4 text-cyan-400 group-hover:text-slate-950 transition-colors" />
+          <span>{lang === "fr" ? "Voir nos démos" : "Voir nos démos"}</span>
+          <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+        </Link>
+      </div>
 
       <motion.p
         initial={{ opacity: 0 }}
