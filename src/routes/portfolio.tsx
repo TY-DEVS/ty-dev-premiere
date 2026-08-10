@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/site/PageHeader";
 import { Portfolio } from "@/components/site/Portfolio";
 import { CtaStrip } from "@/components/site/CtaStrip";
+import { Testimonials } from "@/components/site/Testimonials";
 import { useI18n } from "@/i18n/context";
 
 export const Route = createFileRoute("/portfolio")({
@@ -40,7 +41,8 @@ function PortfolioPage() {
             : "A look at the platforms and experiences we've shipped for our clients."
         }
       />
-      <Portfolio />
+      <Portfolio isPage={true} />
+      <Testimonials />
       <CtaStrip />
     </>
   );

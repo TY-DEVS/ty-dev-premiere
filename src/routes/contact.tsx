@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/site/PageHeader";
 import { Contact } from "@/components/site/Contact";
+import { Testimonials } from "@/components/site/Testimonials";
 import { useI18n } from "@/i18n/context";
 
 export const Route = createFileRoute("/contact")({
@@ -40,6 +41,7 @@ function ContactPage() {
         }
       />
       <Contact />
+      <Testimonials />
     </>
   );
 }

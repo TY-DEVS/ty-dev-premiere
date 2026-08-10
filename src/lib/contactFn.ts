@@ -5,15 +5,14 @@ export const sendContactEmailFn = createServerFn({ method: "POST" })
   .validator((data: { name: string; email: string; phone?: string; type: string; budget: string; desc: string; source?: string }) => data)
   .handler(async (ctx) => {
     const { name, email, phone, type, budget, desc, source } = ctx.data;
-
     try {
       const transporter = nodemailer.createTransport({
-        host: "83.229.19.107", 
-        port: 465,
+        host: "83.229.19.107", // Force direct IP to bypass Cloudflare and Coolify env issues
+        port: 465, // Using 465 because VPS providers often block port 587 outbound
         secure: true, 
         auth: {
           user: process.env.SMTP_USER || "contact@ty-dev.site",
-          pass: process.env.SMTP_PASS?.replace(/"/g, ""),
+          pass: process.env.SMTP_PASS?.replace(/"/g, ""), // Automatically remove quotes if they accidentally put them in Coolify
         },
         tls: {
             rejectUnauthorized: false

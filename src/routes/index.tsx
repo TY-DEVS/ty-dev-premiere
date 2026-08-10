@@ -3,6 +3,7 @@ import { Hero } from "@/components/site/Hero";
 import { Services } from "@/components/site/Services";
 import { About } from "@/components/site/About";
 import { Portfolio } from "@/components/site/Portfolio";
+import { Testimonials } from "@/components/site/Testimonials";
 import { WhyUs } from "@/components/site/WhyUs";
 import { TechStack } from "@/components/site/TechStack";
 import { Process } from "@/components/site/Process";
@@ -38,6 +39,7 @@ function Index() {
       <About />
       <Services />
       <Portfolio />
+      <Testimonials />
       <WhyUs />
       <TechStack />
       <Process />
