@@ -20,6 +20,18 @@ const staticPages = [
   { url: '/contact', priority: '0.8', changefreq: 'monthly' },
 ];
 
+// Service pages
+const serviceSlugs = [
+  "saas-sur-mesure",
+  "applications-web-pwa",
+  "seo-et-marketing-digital",
+  "automatisation-processus-metiers",
+  "e-commerce-et-integrations",
+  "integration-apis-webhooks",
+  "devops-cloud-infrastructure",
+  "integration-ia-llm",
+];
+
 async function generateSitemap() {
   const blogPostsFile = path.join(rootDir, 'src', 'data', 'blogPosts.ts');
   const content = fs.readFileSync(blogPostsFile, 'utf-8');
@@ -43,6 +55,16 @@ async function generateSitemap() {
     xml += `  </url>\n`;
   }
 
+  // Add service landing pages
+  for (const slug of serviceSlugs) {
+    xml += `  <url>\n`;
+    xml += `    <loc>${domain}/services/${slug}</loc>\n`;
+    xml += `    <lastmod>${today}</lastmod>\n`;
+    xml += `    <changefreq>weekly</changefreq>\n`;
+    xml += `    <priority>0.9</priority>\n`;
+    xml += `  </url>\n`;
+  }
+
   // Add blog posts
   for (const slug of uniqueSlugs) {
     xml += `  <url>\n`;
@@ -57,7 +79,7 @@ async function generateSitemap() {
 
   const outputPath = path.join(rootDir, 'public', 'sitemap.xml');
   fs.writeFileSync(outputPath, xml, 'utf-8');
-  console.log(`✅ Sitemap.xml generated successfully with ${staticPages.length + uniqueSlugs.length} URLs at ${outputPath}`);
+  console.log(`✅ Sitemap.xml generated successfully with ${staticPages.length + serviceSlugs.length + uniqueSlugs.length} URLs at ${outputPath}`);
 }
 
 generateSitemap().catch(console.error);

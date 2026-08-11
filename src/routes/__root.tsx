@@ -77,11 +77,11 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "TY Dev",
-  "alternateName": "TY-DEV Agency",
+  "alternateName": "TY-DEV International AI & Software Agency",
   "url": "https://ty-dev.site",
   "logo": "https://ty-dev.site/logo.jpg",
   "image": "https://ty-dev.site/logo.jpg",
-  "description": "TY Dev concevoit et développe des applications web sur-mesure, plateformes SaaS, automatisations IA et architectures Cloud haute performance pour clients internationaux en Europe, Amérique et Asie.",
+  "description": "TY Dev concevoit et développe des applications web sur-mesure, plateformes SaaS, automatisations IA et architectures Cloud haute performance pour clients internationaux.",
   "email": "contact@ty-dev.site",
   "knowsAbout": [
     "Artificial Intelligence Agents",
@@ -91,12 +91,15 @@ const organizationSchema = {
     "Cloud DevOps & Infrastructure"
   ],
   "areaServed": [
-    { "@type": "AdministrativeArea", "name": "Europe" },
-    { "@type": "AdministrativeArea", "name": "North America" },
-    { "@type": "AdministrativeArea", "name": "Asia" },
-    { "@type": "AdministrativeArea", "name": "Worldwide" }
+    { "@type": "Continent", "name": "Europe" },
+    { "@type": "Continent", "name": "North America" },
+    { "@type": "Continent", "name": "Asia" },
+    { "@type": "Country", "name": "Worldwide" }
   ],
-  "availableLanguage": ["French", "English"],
+  "availableLanguage": [
+    { "@type": "Language", "name": "French", "alternateName": "fr" },
+    { "@type": "Language", "name": "English", "alternateName": "en" }
+  ],
   "priceRange": "$$"
 };
 
@@ -113,21 +116,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "TY Dev — Agence de Développement Web, SaaS & Agents IA (Global)" },
+      { title: "TY Dev — Agence de Développement Web, SaaS & Agents IA" },
       {
         name: "description",
         content:
-          "TY Dev crée des plateformes SaaS sur mesure, des automatisations IA et des applications web haute performance pour des entreprises en Europe, Amérique et Asie.",
+          "TY Dev crée des plateformes SaaS sur mesure, des automatisations IA et des applications web haute performance. Agence d'ingénierie logicielle pour entreprises ambitieuses.",
       },
-      { name: "keywords", content: "agence web internationale, développement saas europe, saas usa, agent ia, react, vite, devops, seo international" },
+      { name: "keywords", content: "agence web, développement saas, agent ia, react, vite, devops, seo, tanstack, architecture logicielle, web agency europe, software agency us" },
       { name: "author", content: "TY Dev" },
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       { property: "og:site_name", content: "TY Dev" },
-      { property: "og:title", content: "TY Dev — Global Software & AI Engineering Agency" },
+      { property: "og:title", content: "TY Dev — Agence de Développement Web, SaaS & Agents IA" },
       {
         property: "og:description",
         content:
-          "Custom SaaS platforms, AI automation, and high-performance web applications shipped worldwide across Europe, Americas, and Asia.",
+          "Plateformes SaaS sur mesure, automatisations IA et applications web haute performance. Conçu pour la croissance mesurable.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://ty-dev.site" },
@@ -138,15 +141,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:locale:alternate", content: "en_US" },
       { property: "og:locale:alternate", content: "en_GB" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "TY Dev — Global Software & AI Engineering Agency" },
-      { name: "twitter:description", content: "Custom SaaS platforms, AI automation, and high-performance web applications shipped worldwide." },
+      { name: "twitter:title", content: "TY Dev — Agence de Développement Web, SaaS & Agents IA" },
+      { name: "twitter:description", content: "Plateformes SaaS sur mesure, automatisations IA et applications web haute performance." },
       { name: "twitter:image", content: "https://ty-dev.site/logo.jpg" },
     ],
     links: [
       { rel: "canonical", href: "https://ty-dev.site" },
-      { rel: "alternate", href: "https://ty-dev.site", hrefLang: "fr" },
-      { rel: "alternate", href: "https://ty-dev.site", hrefLang: "en" },
-      { rel: "alternate", href: "https://ty-dev.site", hrefLang: "x-default" },
+      { rel: "alternate", hrefLang: "fr", href: "https://ty-dev.site" },
+      { rel: "alternate", hrefLang: "en", href: "https://ty-dev.site" },
+      { rel: "alternate", hrefLang: "x-default", href: "https://ty-dev.site" },
       { rel: "icon", type: "image/jpeg", href: "/favicon.jpg" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
