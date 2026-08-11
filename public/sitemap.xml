@@ -57,24 +57,6 @@
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
     <loc>https://ty-dev.site/blog/pwa-progressive-web-apps-l-avenir-du-mobile-sans-passer-par-les-stores-en-2026</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>daily</changefreq>
