@@ -40,8 +40,8 @@ function Index() {
       <About />
       <Services />
       <Portfolio />
-      <Demos />
       <Testimonials />
+      <Demos />
       <WhyUs />
       <TechStack />
       <Process />

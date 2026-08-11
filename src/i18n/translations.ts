@@ -732,7 +732,7 @@ const en = {
   footer: {
     tagline: "Engineering the future of digital business.",
     services: "Services",
-    company: "Company",
+    company: "Navigation",
     connect: "Connect",
     companyLinks: ["About", "Portfolio", "Contact"],
     rights: "© 2026 TY Dev. All rights reserved.",
@@ -1483,7 +1483,7 @@ const fr: typeof en = {
   footer: {
     tagline: "Nous façonnons l'avenir du business numérique.",
     services: "Services",
-    company: "Entreprise",
+    company: "Navigation",
     connect: "Réseaux",
     companyLinks: ["À Propos", "Réalisations", "Contact"],
     rights: "© 2026 TY Dev. Tous droits réservés.",

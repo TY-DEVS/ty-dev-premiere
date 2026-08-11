@@ -100,13 +100,18 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Company */}
+          {/* Navigation */}
           <div>
             <FooterColTitle>{t.footer.company}</FooterColTitle>
-            <ul className="space-y-4 text-sm">
+            <ul className="space-y-3.5 text-sm">
               <li>
                 <Link to="/about" className="hover:text-brand transition-colors">
                   {t.nav.about}
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" className="hover:text-brand transition-colors">
+                  {t.nav.services}
                 </Link>
               </li>
               <li>
@@ -116,7 +121,12 @@ export function Footer() {
               </li>
               <li>
                 <Link to="/demos" className="hover:text-brand transition-colors">
-                  {(t.nav as any).demos || "Démos"}
+                  {t.nav.demos}
+                </Link>
+              </li>
+              <li>
+                <Link to="/blog" className="hover:text-brand transition-colors">
+                  {t.nav.blog}
                 </Link>
               </li>
               <li>
