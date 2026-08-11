@@ -118,22 +118,41 @@ export function Contact() {
               source: window.location.origin, // Capture which domain was used
             };
 
+            // Email regex verification
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
             // Basic validation
-            if (!data.name.trim() || !data.email.trim() || !data.phone.trim() || !data.desc.trim()) {
-              toast.error("Veuillez remplir tous les champs obligatoires avec des informations valides.");
+            if (!data.name.trim()) {
+              toast.error("Veuillez renseigner votre nom.");
+              return;
+            }
+
+            if (!data.email.trim() || !emailRegex.test(data.email.trim())) {
+              toast.error("Veuillez saisir une adresse e-mail valide (ex: nom@domaine.com).");
+              return;
+            }
+
+            if (!data.phone.trim()) {
+              toast.error("Veuillez renseigner votre numéro de téléphone.");
+              return;
+            }
+
+            if (!data.desc.trim() || data.desc.trim().length < 5) {
+              toast.error("Veuillez décrire votre projet (au moins 5 caractères).");
               return;
             }
 
             setIsSubmitting(true);
-            const loadingToastId = toast.loading("Envoi de votre message en cours...");
+            const loadingToastId = toast.loading("Vérification & envoi de votre message...");
 
             try {
               await sendContactEmailFn({ data });
               toast.success("Message envoyé avec succès ! Nous vous répondrons très vite.", { id: loadingToastId });
               form.reset();
-            } catch (error) {
-              console.error(error);
-              toast.error("Une erreur est survenue lors de l'envoi de votre message. Veuillez vérifier votre connexion ou réessayer plus tard.", { id: loadingToastId });
+            } catch (error: any) {
+              console.error("[Form Error]", error);
+              const msg = error?.message || "Une erreur est survenue lors de l'envoi de votre message. Veuillez réessayez.";
+              toast.error(msg, { id: loadingToastId });
             } finally {
               setIsSubmitting(false);
             }

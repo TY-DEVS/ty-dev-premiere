@@ -1,50 +1,161 @@
 import { createServerFn } from "@tanstack/react-start";
 import nodemailer from "nodemailer";
 
+const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+function getSmtpTransporter() {
+  const host = process.env.SMTP_HOST || "83.229.19.107";
+  const port = Number(process.env.SMTP_PORT) || 465;
+  const isSecure = port === 465;
+  const user = process.env.SMTP_USER || "contact@ty-dev.site";
+  const pass = process.env.SMTP_PASS?.replace(/"/g, "") || "mW4@B*NHEPP9szv";
+
+  return nodemailer.createTransport({
+    host,
+    port,
+    secure: isSecure,
+    auth: {
+      user,
+      pass,
+    },
+    tls: {
+      rejectUnauthorized: false,
+    },
+    connectionTimeout: 15000,
+    greetingTimeout: 10000,
+  });
+}
+
+function parseReceivers(): string[] {
+  const raw = process.env.CONTACT_RECEIVER || "contact@ty-dev.site, benyaalamedyassine24@gmail.com, amine.benammar17@gmail.com";
+  const cleaned = raw.replace(/"/g, "");
+  const list = cleaned
+    .split(",")
+    .map((e) => e.trim())
+    .filter((e) => EMAIL_REGEX.test(e));
+
+  if (list.length === 0) {
+    return ["contact@ty-dev.site", "benyaalamedyassine24@gmail.com", "amine.benammar17@gmail.com"];
+  }
+
+  return list;
+}
+
 export const sendContactEmailFn = createServerFn({ method: "POST" })
   .validator((data: { name: string; email: string; phone?: string; type: string; budget: string; desc: string; source?: string }) => data)
   .handler(async (ctx) => {
     const { name, email, phone, type, budget, desc, source } = ctx.data;
+
+    // 1. Strict email verification
+    const cleanEmail = (email || "").trim();
+    const cleanName = (name || "").trim();
+    const cleanDesc = (desc || "").trim();
+    const cleanPhone = (phone || "").trim();
+
+    if (!cleanEmail || !EMAIL_REGEX.test(cleanEmail)) {
+      console.warn(`[ContactForm] Rejected invalid sender email: "${email}"`);
+      throw new Error("L'adresse e-mail saisie est invalide. Veuillez vérifier votre saisie.");
+    }
+
+    if (!cleanName || cleanName.length < 2) {
+      throw new Error("Veuillez renseigner un nom valide (au moins 2 caractères).");
+    }
+
+    if (!cleanDesc || cleanDesc.length < 5) {
+      throw new Error("Veuillez décrire votre projet de manière plus détaillée.");
+    }
+
     try {
-      const transporter = nodemailer.createTransport({
-        host: "83.229.19.107", // Force direct IP to bypass Cloudflare and Coolify env issues
-        port: 465, // Using 465 because VPS providers often block port 587 outbound
-        secure: true, 
-        auth: {
-          user: process.env.SMTP_USER || "contact@ty-dev.site",
-          pass: process.env.SMTP_PASS?.replace(/"/g, ""), // Automatically remove quotes if they accidentally put them in Coolify
-        },
-        tls: {
-            rejectUnauthorized: false
-        }
-      });
+      const transporter = getSmtpTransporter();
+      const receivers = parseReceivers();
+      const senderUser = process.env.SMTP_USER || "contact@ty-dev.site";
 
-      const mailOptions = {
-        from: process.env.SMTP_USER || "contact@ty-dev.site",
-        to: process.env.CONTACT_RECEIVER || "contact@ty-dev.site, benyaalamedyassine24@gmail.com, amine.benammar17@gmail.com",
-        replyTo: email,
-        subject: `Nouveau Contact: ${name} - ${type}`,
-        text: `
-Nouveau message depuis le formulaire de contact:
+      const htmlContent = `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #0f172a; color: #f8fafc; padding: 30px; border-radius: 12px; border: 1px solid #1e293b;">
+          <div style="border-bottom: 2px solid #3b82f6; padding-bottom: 15px; margin-bottom: 20px;">
+            <h2 style="color: #60a5fa; margin: 0; font-size: 22px;">🚀 Nouveau Message de Contact</h2>
+            <p style="color: #94a3b8; font-size: 13px; margin: 5px 0 0 0;">Reçu via: ${source || "https://ty-dev.site"}</p>
+          </div>
+          <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 14px;">
+            <tr>
+              <td style="padding: 8px 0; color: #94a3b8; width: 140px;"><strong>Nom complet:</strong></td>
+              <td style="padding: 8px 0; color: #ffffff;">${cleanName}</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #94a3b8;"><strong>Email de contact:</strong></td>
+              <td style="padding: 8px 0; color: #60a5fa;"><a href="mailto:${cleanEmail}" style="color: #60a5fa; text-decoration: underline;">${cleanEmail}</a></td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #94a3b8;"><strong>Téléphone:</strong></td>
+              <td style="padding: 8px 0; color: #ffffff;">${cleanPhone || "Non renseigné"}</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #94a3b8;"><strong>Type de projet:</strong></td>
+              <td style="padding: 8px 0; color: #f59e0b;"><strong>${type || "Non précisé"}</strong></td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #94a3b8;"><strong>Budget estimé:</strong></td>
+              <td style="padding: 8px 0; color: #10b981;"><strong>${budget || "Non précisé"}</strong></td>
+            </tr>
+          </table>
+          <div style="background-color: #1e293b; padding: 15px; border-radius: 8px; border-left: 4px solid #3b82f6;">
+            <h3 style="margin-top: 0; color: #94a3b8; font-size: 14px; text-transform: uppercase;">Message / Description du Projet:</h3>
+            <p style="margin: 0; line-height: 1.6; white-space: pre-wrap; font-size: 14px;">${cleanDesc}</p>
+          </div>
+          <div style="margin-top: 25px; pt: 15px; border-top: 1px solid #1e293b; text-align: center; color: #64748b; font-size: 12px;">
+            Message envoyé automatiquement depuis le site TY DEV
+          </div>
+        </div>
+      `;
 
-Source du contact: ${source || "Non définie"}
+      const textContent = `
+Nouveau message depuis le formulaire de contact TY-DEV:
 
-Nom: ${name}
-Email: ${email}
-Téléphone: ${phone || "Non renseigné"}
+Source: ${source || "Non définie"}
+Nom: ${cleanName}
+Email: ${cleanEmail}
+Téléphone: ${cleanPhone || "Non renseigné"}
 Type de Projet: ${type}
 Budget: ${budget}
 
-Description:
-${desc}
-        `,
+Description du projet:
+${cleanDesc}
+      `;
+
+      const mailOptions = {
+        from: `"TY DEV Site" <${senderUser}>`,
+        to: receivers,
+        replyTo: cleanEmail,
+        subject: `[Formulaire Site] ${cleanName} - ${type || "Nouveau projet"}`,
+        text: textContent,
+        html: htmlContent,
       };
 
-      await transporter.sendMail(mailOptions);
-      return { success: true };
-    } catch (error) {
-      console.error("Failed to send email:", error);
-      // We throw a generic error so we don't leak SMTP errors to the client
-      throw new Error("Failed to send email");
+      const info = await transporter.sendMail(mailOptions);
+      console.log(`[ContactForm] Email successfully sent to [${receivers.join(", ")}]. MessageID: ${info.messageId}`);
+      return { success: true, messageId: info.messageId };
+    } catch (error: any) {
+      console.error("[ContactForm] Error sending email:", error);
+      throw new Error(`Échec de l'envoi du message: ${error?.message || "Erreur serveur SMTP"}`);
     }
   });
+
+export const verifyEmailSmtpFn = createServerFn({ method: "GET" }).handler(async () => {
+  try {
+    const transporter = getSmtpTransporter();
+    await transporter.verify();
+    const receivers = parseReceivers();
+    return {
+      status: "ok",
+      receivers,
+      message: "Connexion SMTP vérifiée avec succès.",
+    };
+  } catch (error: any) {
+    console.error("[SMTP Verification] Failed:", error);
+    return {
+      status: "error",
+      message: error?.message || "Erreur de vérification SMTP",
+    };
+  }
+});
+
