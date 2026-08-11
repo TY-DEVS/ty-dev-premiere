@@ -25,7 +25,7 @@ const socialList = [
   { Icon: Youtube, href: "https://www.youtube.com/@TY-Dev", label: "YouTube" },
 ];
 
-const EMAIL = "contact@ty-dev.fr";
+const EMAIL = "contact@ty-dev.site";
 const SITE = "ty-dev.site";
 
 export function Footer() {

@@ -67,11 +67,11 @@ export function Contact() {
           <p className="text-muted-foreground text-lg mb-10">{t.contact.subtitle}</p>
 
           <div className="space-y-2 mb-12">
-            <ContactRow Icon={Mail} text="contact@ty-dev.fr" href="mailto:contact@ty-dev.fr" />
+            <ContactRow Icon={Mail} text="contact@ty-dev.site" href="mailto:contact@ty-dev.site" />
             <ContactRow
               Icon={MessageCircle}
-              text="WhatsApp: +33 7 68 47 47 45"
-              href="https://wa.me/33768474745"
+              text="WhatsApp: +33 7 59 44 01 05"
+              href="https://wa.me/33759440105"
             />
             <ContactRow
               Icon={Instagram}
@@ -119,7 +119,7 @@ export function Contact() {
             };
 
             // Basic validation
-            if (!data.name.trim() || !data.email.trim() || !data.desc.trim()) {
+            if (!data.name.trim() || !data.email.trim() || !data.phone.trim() || !data.desc.trim()) {
               toast.error("Veuillez remplir tous les champs obligatoires avec des informations valides.");
               return;
             }
@@ -147,18 +147,20 @@ export function Contact() {
             <Field label={t.contact.form.email} name="email" type="email" required />
           </div>
           <div className="relative">
-            <Field label={t.contact.form.phone} name="phone" type="tel" />
+            <Field label={t.contact.form.phone} name="phone" type="tel" required />
           </div>
           <div className="relative grid grid-cols-1 md:grid-cols-2 gap-6">
             <SelectField
               label={t.contact.form.type}
               name="type"
               options={t.contact.form.typeOptions}
+              placeholder={t.contact.form.selectType}
             />
             <SelectField
               label={t.contact.form.budget}
               name="budget"
               options={t.contact.form.budgetOptions}
+              placeholder={t.contact.form.selectBudget}
             />
           </div>
           <div className="relative">
@@ -239,7 +241,17 @@ function Field({
   );
 }
 
-function SelectField({ label, name, options }: { label: string; name: string; options: string[] }) {
+function SelectField({
+  label,
+  name,
+  options,
+  placeholder,
+}: {
+  label: string;
+  name: string;
+  options: string[];
+  placeholder?: string;
+}) {
   return (
     <div>
       <label className="block font-mono text-xs uppercase tracking-wider text-muted-foreground mb-2">
@@ -247,8 +259,15 @@ function SelectField({ label, name, options }: { label: string; name: string; op
       </label>
       <select
         name={name}
+        defaultValue=""
+        required
         className="w-full px-5 py-3.5 rounded-xl bg-surface/50 border border-border/60 focus:border-brand focus:bg-background focus:ring-4 focus:ring-brand/10 outline-none transition-all duration-300 text-foreground text-sm appearance-none cursor-pointer"
       >
+        {placeholder && (
+          <option value="" disabled className="bg-[oklch(0.08_0.025_260)] text-muted-foreground">
+            {placeholder}
+          </option>
+        )}
         {options.map((o) => (
           <option key={o} value={o} className="bg-[oklch(0.08_0.025_260)] text-foreground">
             {o}

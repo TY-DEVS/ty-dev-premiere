@@ -748,8 +748,9 @@ const en = {
     form: {
       name: "Full Name",
       email: "Email",
-      phone: "Phone (optional)",
+      phone: "Phone",
       type: "Project Type",
+      selectType: "Select project type...",
       typeOptions: [
         "Custom SaaS Platform",
         "Web Application",
@@ -759,6 +760,7 @@ const en = {
         "Other",
       ],
       budget: "Project Timeline",
+      selectBudget: "Select project timeline...",
       budgetOptions: ["ASAP", "1–3 months", "3–6 months", "Flexible"],
       desc: "Project Description",
       descPlaceholder: "Tell us about your project...",
@@ -1545,8 +1547,9 @@ const fr: typeof en = {
     form: {
       name: "Nom Complet",
       email: "Email",
-      phone: "Téléphone (optionnel)",
+      phone: "Téléphone",
       type: "Type de Projet",
+      selectType: "Choisir le type de projet...",
       typeOptions: [
         "Plateforme SaaS sur mesure",
         "Application Web",
@@ -1556,6 +1559,7 @@ const fr: typeof en = {
         "Autre",
       ],
       budget: "Délai du Projet",
+      selectBudget: "Choisir le délai du projet...",
       budgetOptions: ["Dès que possible", "1–3 mois", "3–6 mois", "Flexible"],
       desc: "Description du Projet",
       descPlaceholder: "Parlez-nous de votre projet...",
