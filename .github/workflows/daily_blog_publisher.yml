@@ -42,6 +42,7 @@ jobs:
           git commit -m "chore(blog): publication automatique quotidienne du blog et mise à jour du sitemap" || exit 0
           
           # Push to main, Raouf and ty-dev-tn
-          git push origin HEAD:main
+          git pull origin main --rebase || true
+          git push --force origin HEAD:main
           git push --force origin HEAD:refs/heads/Raouf
           git push --force origin HEAD:refs/heads/ty-dev-tn
