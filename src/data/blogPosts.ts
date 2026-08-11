@@ -29,6 +29,41 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026",
+    slug: "bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026",
+    title: {
+        fr: "Bases de Données Relationnelles vs NoSQL : PostgreSQL, Redis & MongoDB en 2026",
+        en: "Relational vs NoSQL Databases: PostgreSQL, Redis & MongoDB in 2026"
+    },
+    summary: {
+        fr: "Guide technique d'architecture pour sélectionner le bon moteur de stockage, optimiser les index et concevoir une stratégie multi-base performante.",
+        en: "Technical architecture guide for selecting storage engines, optimizing indexes, and building scalable multi-database systems."
+    },
+    category: "Software Architecture",
+    date: {
+        fr: "11 Août 2026",
+        en: "August 11, 2026"
+    },
+    author: {
+        name: "Mohamed Yassine Ben Yaala",
+        role: "CO-FOUNDER",
+        avatar: "/team/mohamedyassinbenyaala.jfif"
+    },
+    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80",
+    tags: [
+        "PostgreSQL",
+        "Database",
+        "Redis",
+        "MongoDB",
+        "Backend",
+        "SQL"
+    ],
+    content: {
+        fr: "\n## Choisir le Bon Moteur de Données pour la Scalabilité\n\nLe choix de la couche de stockage est l'une des décisions d'architecture les plus critiques lors du développement d'une application SaaS. En 2026, l'approche dominante n'est pas le choix d'un moteur unique, mais l'adoption d'une **Architecture de Persistence Polyglotte**.\n\n---\n\n### 1. PostgreSQL : La Source Unique de Vérité (SSOT)\n\nPostgreSQL est devenu le moteur relationnel incontournable grâce à sa robustesse et sa grande polyvalence :\n\n- **Garanties ACID** : Transactions atomiques et cohérence absolue des données financières et comptes utilisateurs.\n- **Fonctionnalités Avancées** : Support natif du format JSONB, recherche plein texte et extensions géospatiales (PostGIS) ou vectorielles (Pgvector).\n- **Indexation Performante** : Utilisation des index B-Tree, BRIN, GIN et Partial Indexes pour des requêtes optimisées.\n\n```sql\n-- Index partiel pour optimiser les requêtes sur les utilisateurs actifs\nCREATE INDEX idx_active_users ON users (email) WHERE status = 'active';\n```\n\n---\n\n### 2. Redis : In-Memory Caching & Distributed Locks\n\nRedis complète la base relationnelle en gérant la couche de haute performance en mémoire :\n\n- **Cache de Session & Token JWT** : Accès ultra-rapide (< 2ms) aux données de session.\n- **Rate Limiting** : Algorithme Token Bucket pour protéger les routes API contre les abus.\n- **Verrous Distribués (Redlock)** : Protection contre les conditions de concurrence lors des paiements.\n\n---\n\n### 3. MongoDB : Documents Flexibles & Analytique\n\nMongoDB excelle dans la gestion de schémas hautement dynamiques et variables :\n\n- **Logs & Audit Trails** : Stockage de journaux d'événements sans schéma rigide préalable.\n- **Pipeline d'Agrégation** : Traitement analytique rapide de grands volumes de métriques.\n\n---\n\n### Recommandations & Matrice de Choix\n\n| Besoin Métier | Moteur Recommandé | Raison Technique |\n| :--- | :--- | :--- |\n| Utilisateurs, Facturation, Abonnements | **PostgreSQL** | Transactions ACID & Intégrité Référentielle |\n| Cache, Sessions, Rate Limits | **Redis** | Latence sub-milliseconde & In-Memory |\n| Logs d'activité, Analytics non-structurés | **MongoDB** | Schéma flexible & Agrégations rapides |\n",
+        en: "\n## Choosing the Optimal Data Layer for High-Scale Apps\n\nDatabase selection is one of the most critical architectural decisions for SaaS platforms. In 2026, leading engineering teams leverage a **Polyglot Persistence Architecture** to maximize performance and reliability.\n\n---\n\n### 1. PostgreSQL: The Single Source of Truth (SSOT)\n\nPostgreSQL is the gold standard relational engine for core data storage:\n\n- **ACID Guarantees**: Strict transactional integrity for billing, user accounts, and critical data.\n- **Advanced Capabilities**: Native JSONB query engine, full-text search, and Pgvector embeddings.\n- **Index Optimization**: B-Tree, BRIN, GIN, and Partial Indexing strategies.\n\n```sql\n-- Partial index to speed up active user lookups\nCREATE INDEX idx_active_users ON users (email) WHERE status = 'active';\n```\n\n---\n\n### 2. Redis: Sub-Millisecond In-Memory Caching\n\nRedis acts as the high-throughput caching and synchronization layer:\n\n- **Session & JWT Storage**: Fast sub-2ms key-value retrieval.\n- **API Rate Limiting**: Protecting critical endpoints via Token Bucket patterns.\n- **Distributed Locking**: Preventing race conditions in payment workflows.\n\n---\n\n### 3. MongoDB: Flexible Document Store\n\nMongoDB excels at handling dynamic, evolving document schemas:\n\n- **Activity Audit Logs**: Storing unstructured telemetry and event streams.\n- **Aggregation Pipelines**: Real-time analytical rollups across high-volume datasets.\n\n---\n\n### Architecture Decision Matrix\n\n| Data Workload | Target Engine | Engineering Rationale |\n| :--- | :--- | :--- |\n| Core SaaS Data & Billing | **PostgreSQL** | ACID Compliance & Foreign Keys |\n| Session State & Caching | **Redis** | In-Memory Performance & TTLs |\n| Telemetry & Audit Logs | **MongoDB** | Dynamic Schema & Aggregation |\n"
+    }
+},
+  {
     id: "integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026",
     slug: "integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026",
     title: {
