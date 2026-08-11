@@ -3,31 +3,58 @@ import nodemailer from "nodemailer";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-function getSmtpTransporter() {
-  const host = process.env.SMTP_HOST || "83.229.19.107";
-  const port = Number(process.env.SMTP_PORT) || 465;
-  const isSecure = port === 465;
-  const user = process.env.SMTP_USER || "contact@ty-dev.site";
-  const pass = process.env.SMTP_PASS?.replace(/"/g, "") || "mW4@B*NHEPP9szv";
+const DEFAULT_HOST = "83.229.19.107";
+const DEFAULT_USER = "contact@ty-dev.site";
+const DEFAULT_PASS = "mW4@B*NHEPP9szv";
+const DEFAULT_RECEIVERS = "contact@ty-dev.site, benyaalamedyassine24@gmail.com, amine.benammar17@gmail.com";
 
-  return nodemailer.createTransport({
-    host,
-    port,
-    secure: isSecure,
-    auth: {
-      user,
-      pass,
-    },
-    tls: {
-      rejectUnauthorized: false,
-    },
-    connectionTimeout: 15000,
-    greetingTimeout: 10000,
-  });
+async function sendMailWithFallback(mailOptions: nodemailer.SendMailOptions) {
+  const host = (process.env.SMTP_HOST || DEFAULT_HOST).trim();
+  const user = (process.env.SMTP_USER || DEFAULT_USER).trim();
+  const pass = (process.env.SMTP_PASS || DEFAULT_PASS).replace(/"/g, "").trim();
+  const envPort = process.env.SMTP_PORT ? Number(process.env.SMTP_PORT) : null;
+
+  // Define port configurations to try in order
+  const configsToTry = envPort
+    ? [
+        { host, port: envPort, secure: envPort === 465 },
+        { host, port: 465, secure: true },
+        { host, port: 587, secure: false },
+      ]
+    : [
+        { host, port: 465, secure: true },
+        { host, port: 587, secure: false },
+      ];
+
+  let lastError: any = null;
+
+  for (const config of configsToTry) {
+    try {
+      console.log(`[ContactForm] Attempting SMTP via ${config.host}:${config.port} (secure: ${config.secure})...`);
+      const transporter = nodemailer.createTransport({
+        host: config.host,
+        port: config.port,
+        secure: config.secure,
+        auth: { user, pass },
+        tls: { rejectUnauthorized: false },
+        connectionTimeout: 8000, // 8s timeout per attempt
+        greetingTimeout: 5000,
+      });
+
+      const info = await transporter.sendMail(mailOptions);
+      console.log(`[ContactForm] SUCCESS via port ${config.port}! MessageID: ${info.messageId}`);
+      return info;
+    } catch (err: any) {
+      console.warn(`[ContactForm] Warning: SMTP attempt failed on port ${config.port}: ${err?.message || err}`);
+      lastError = err;
+    }
+  }
+
+  throw lastError || new Error("Tous les ports SMTP (465, 587) ont échoué.");
 }
 
 function parseReceivers(): string[] {
-  const raw = process.env.CONTACT_RECEIVER || "contact@ty-dev.site, benyaalamedyassine24@gmail.com, amine.benammar17@gmail.com";
+  const raw = process.env.CONTACT_RECEIVER || DEFAULT_RECEIVERS;
   const cleaned = raw.replace(/"/g, "");
   const list = cleaned
     .split(",")
@@ -35,7 +62,7 @@ function parseReceivers(): string[] {
     .filter((e) => EMAIL_REGEX.test(e));
 
   if (list.length === 0) {
-    return ["contact@ty-dev.site", "benyaalamedyassine24@gmail.com", "amine.benammar17@gmail.com"];
+    return DEFAULT_RECEIVERS.split(",").map((e) => e.trim());
   }
 
   return list;
@@ -131,7 +158,7 @@ ${cleanDesc}
         html: htmlContent,
       };
 
-      const info = await transporter.sendMail(mailOptions);
+      const info = await sendMailWithFallback(mailOptions);
       console.log(`[ContactForm] Email successfully sent to [${receivers.join(", ")}]. MessageID: ${info.messageId}`);
       return { success: true, messageId: info.messageId };
     } catch (error: any) {
