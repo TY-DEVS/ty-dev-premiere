@@ -18,7 +18,7 @@ export function PageHeader({
   crumb: string;
 }) {
   return (
-    <section className="relative overflow-hidden pt-36 pb-16 md:pt-44 md:pb-24 border-b border-border/60">
+    <section className="relative overflow-hidden pt-28 pb-8 md:pt-44 md:pb-20 border-b border-border/60">
       {/* Background layers */}
       <div className="absolute inset-0 mesh-bg opacity-70" aria-hidden />
       <div

@@ -764,24 +764,105 @@ export default defineConfig({
   },
 ];
 
+// AI-Powered Article Generator (OpenAI, Gemini, Groq, OpenRouter)
+async function generateAIArticle() {
+  const apiKey = process.env.OPENAI_API_KEY || process.env.GEMINI_API_KEY || process.env.GROQ_API_KEY || process.env.OPENROUTER_API_KEY;
+  if (!apiKey) return null;
+
+  console.log('🤖 AI API Key detected! Generating brand new AI technical article...');
+
+  const prompt = `You are a Principal Software Architect writing a top-tier technical engineering blog post for TY-DEV agency (specializing in SaaS, AI Agents, Cloud, DevOps, React, Vite).
+Generate a brand new, highly informative, modern technical article on a fresh trending engineering topic (e.g. AI Agents, Serverless DBs, Web Vitals, Kubernetes, Microfrontends, Stripe billing, Edge Computing, TypeScript patterns).
+
+Respond strictly in valid JSON format with no markdown wrappers outside JSON:
+{
+  "titleFr": "Titre captivant et professionnel en français",
+  "titleEn": "Engaging professional title in English",
+  "summaryFr": "Résumé concis de 2 phrases en français",
+  "summaryEn": "Concise 2-sentence summary in English",
+  "category": "Engineering & API",
+  "tags": ["AI", "SaaS", "Cloud", "Architecture"],
+  "contentFr": "Contenu complet au format Markdown avec titres (##), sous-titres (###), exemples de code et conseils d'ingénierie en français",
+  "contentEn": "Full content in Markdown format with headers (##), subheaders (###), code examples and engineering advice in English"
+}`;
+
+  try {
+    let jsonResult = null;
+
+    if (process.env.OPENAI_API_KEY || process.env.GROQ_API_KEY || process.env.OPENROUTER_API_KEY) {
+      const endpoint = process.env.GROQ_API_KEY
+        ? 'https://api.groq.com/openai/v1/chat/completions'
+        : (process.env.OPENROUTER_API_KEY ? 'https://openrouter.ai/api/v1/chat/completions' : 'https://api.openai.com/v1/chat/completions');
+      const model = process.env.GROQ_API_KEY
+        ? 'llama-3.3-70b-versatile'
+        : (process.env.OPENROUTER_API_KEY ? 'meta-llama/llama-3.3-70b-instruct' : 'gpt-4o-mini');
+
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${apiKey}`,
+        },
+        body: JSON.stringify({
+          model,
+          messages: [{ role: 'user', content: prompt }],
+          response_format: { type: 'json_object' },
+        }),
+      });
+
+      const data = await response.json();
+      const rawText = data.choices?.[0]?.message?.content;
+      if (rawText) jsonResult = JSON.parse(rawText);
+    } else if (process.env.GEMINI_API_KEY) {
+      const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`;
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: { responseMimeType: 'application/json' }
+        }),
+      });
+
+      const data = await response.json();
+      const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+      if (rawText) jsonResult = JSON.parse(rawText);
+    }
+
+    if (jsonResult && jsonResult.titleFr && jsonResult.contentFr) {
+      console.log(`✨ AI Article Generated: "${jsonResult.titleFr}"`);
+      return jsonResult;
+    }
+  } catch (err) {
+    console.warn('⚠️ AI generation encountered an issue, falling back to library:', err.message);
+  }
+  return null;
+}
+
 // Command Line Interface Execution
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const args = process.argv.slice(2);
   const tokenArg = args.find(a => a.startsWith('--token='))?.split('=')[1];
 
   if (args.includes('--publish-next') || args.includes('--auto-daily')) {
-    const blogPostsFile = path.join(rootDir, 'src', 'data', 'blogPosts.ts');
-    const fileContent = fs.readFileSync(blogPostsFile, 'utf-8');
-    const postMatches = [...fileContent.matchAll(/id:\s*["']([^"']+)["']/g)];
-    const libraryIndex = postMatches.length % dailyArticlesLibrary.length;
-    const articleToPublish = dailyArticlesLibrary[libraryIndex];
+    (async () => {
+      const blogPostsFile = path.join(rootDir, 'src', 'data', 'blogPosts.ts');
+      const fileContent = fs.readFileSync(blogPostsFile, 'utf-8');
+      const postMatches = [...fileContent.matchAll(/id:\s*["']([^"']+)["']/g)];
+      const libraryIndex = postMatches.length % dailyArticlesLibrary.length;
 
-    publishArticle({
-      ...articleToPublish,
-      token: tokenArg || secretToken,
-    });
+      // Attempt AI Generation if API key is provided, else fallback to pre-written library
+      const aiArticle = await generateAIArticle();
+      const articleToPublish = aiArticle || dailyArticlesLibrary[libraryIndex];
+
+      publishArticle({
+        ...articleToPublish,
+        token: tokenArg || secretToken,
+      });
+    })();
   } else {
     console.log(`ℹ️ Usage: node scripts/publish_blog.mjs --publish-next [--token=${secretToken}]`);
   }
 }
+
 

@@ -9,6 +9,8 @@ on:
 jobs:
   publish-daily-blog:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout Codebase
         uses: actions/checkout@v4
@@ -19,36 +21,32 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Publish Daily Article & Update Sitemap
         env:
           BLOG_ADMIN_TOKEN: ${{ secrets.BLOG_ADMIN_TOKEN || 'tydev_blog_admin_secret_key_2026' }}
           SITE_URL: 'https://ty-dev.site'
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
           node scripts/publish_blog.mjs --publish-next
 
       - name: Commit and Push Changes to main, Raouf & ty-dev-tn
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.name "TY Dev Automated Publisher"
           git config --global user.email "bot@ty-dev.site"
+          git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
           
           git add src/data/blogPosts.ts public/sitemap.xml
           git commit -m "chore(blog): publication automatique quotidienne du blog et mise à jour du sitemap" || exit 0
           
-          # Push to main
-          git push origin main
-          
-          # Sync & push to Raouf
-          git checkout -f Raouf
-          git pull origin Raouf --rebase || true
-          git merge -X theirs main -m "chore(blog): sync daily post with Raouf"
-          git push origin Raouf
-          
-          # Sync & push to ty-dev-tn
-          git checkout -f ty-dev-tn
-          git pull origin ty-dev-tn --rebase || true
-          git merge -X theirs main -m "chore(blog): sync daily post with ty-dev-tn"
-          git push origin ty-dev-tn
-          
-          git checkout -f main
+          # Push to main, Raouf and ty-dev-tn
+          git pull origin main --rebase || true
+          git push --force origin HEAD:main
+          git push --force origin HEAD:refs/heads/Raouf
+          git push --force origin HEAD:refs/heads/ty-dev-tn
