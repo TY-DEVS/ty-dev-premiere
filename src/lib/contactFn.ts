@@ -8,13 +8,28 @@ const DEFAULT_USER = "contact@ty-dev.site";
 const DEFAULT_PASS = "mW4@B*NHEPP9szv";
 const DEFAULT_RECEIVERS = "contact@ty-dev.site, benyaalamedyassine24@gmail.com, amine.benammar17@gmail.com";
 
+function getSmtpTransporter(port: number = 465) {
+  const host = (process.env.SMTP_HOST || DEFAULT_HOST).trim();
+  const user = (process.env.SMTP_USER || DEFAULT_USER).trim();
+  const pass = (process.env.SMTP_PASS || DEFAULT_PASS).replace(/"/g, "").trim();
+
+  return nodemailer.createTransport({
+    host,
+    port,
+    secure: port === 465,
+    auth: { user, pass },
+    tls: { rejectUnauthorized: false },
+    connectionTimeout: 10000,
+    greetingTimeout: 8000,
+  });
+}
+
 async function sendMailWithFallback(mailOptions: nodemailer.SendMailOptions) {
   const host = (process.env.SMTP_HOST || DEFAULT_HOST).trim();
   const user = (process.env.SMTP_USER || DEFAULT_USER).trim();
   const pass = (process.env.SMTP_PASS || DEFAULT_PASS).replace(/"/g, "").trim();
   const envPort = process.env.SMTP_PORT ? Number(process.env.SMTP_PORT) : null;
 
-  // Define port configurations to try in order
   const configsToTry = envPort
     ? [
         { host, port: envPort, secure: envPort === 465 },
@@ -37,7 +52,7 @@ async function sendMailWithFallback(mailOptions: nodemailer.SendMailOptions) {
         secure: config.secure,
         auth: { user, pass },
         tls: { rejectUnauthorized: false },
-        connectionTimeout: 8000, // 8s timeout per attempt
+        connectionTimeout: 8000,
         greetingTimeout: 5000,
       });
 
@@ -93,9 +108,8 @@ export const sendContactEmailFn = createServerFn({ method: "POST" })
     }
 
     try {
-      const transporter = getSmtpTransporter();
       const receivers = parseReceivers();
-      const senderUser = process.env.SMTP_USER || "contact@ty-dev.site";
+      const senderUser = (process.env.SMTP_USER || DEFAULT_USER).trim();
 
       const htmlContent = `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #0f172a; color: #f8fafc; padding: 30px; border-radius: 12px; border: 1px solid #1e293b;">
@@ -169,7 +183,7 @@ ${cleanDesc}
 
 export const verifyEmailSmtpFn = createServerFn({ method: "GET" }).handler(async () => {
   try {
-    const transporter = getSmtpTransporter();
+    const transporter = getSmtpTransporter(465);
     await transporter.verify();
     const receivers = parseReceivers();
     return {
@@ -185,4 +199,3 @@ export const verifyEmailSmtpFn = createServerFn({ method: "GET" }).handler(async
     };
   }
 });
-
