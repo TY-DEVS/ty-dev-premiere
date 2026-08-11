@@ -72,7 +72,7 @@ export function Blog({ isPage = false }: { isPage?: boolean }) {
   };
 
   return (
-    <Section id="blog">
+    <Section id="blog" className={isPage ? "!py-4 md:!py-10" : ""}>
       {/* Inject SEO JSON-LD Schema */}
       <script
         type="application/ld+json"
@@ -93,11 +93,11 @@ export function Blog({ isPage = false }: { isPage?: boolean }) {
       )}
 
       {/* Modern Top Mode Switcher (Articles TY Dev vs Veille Tech Live) */}
-      <div className="mt-10 flex flex-col items-center">
-        <div className="inline-flex items-center p-1.5 rounded-2xl bg-surface/70 border border-cyan-500/20 backdrop-blur-xl shadow-2xl">
+      <div className={`${isPage ? "mt-0 md:mt-2" : "mt-6 md:mt-10"} flex flex-col items-center w-full px-2 sm:px-4`}>
+        <div className="w-full max-w-sm sm:w-auto inline-flex items-center p-1 sm:p-1.5 rounded-2xl bg-surface/80 border border-cyan-500/20 backdrop-blur-xl shadow-2xl">
           <button
             onClick={() => setActiveTab("articles")}
-            className={`relative flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
+            className={`flex-1 sm:flex-initial relative flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-6 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-300 ${
               activeTab === "articles"
                 ? "text-slate-950 font-bold"
                 : "text-muted-foreground hover:text-foreground"
@@ -110,15 +110,15 @@ export function Blog({ isPage = false }: { isPage?: boolean }) {
                 transition={{ type: "spring", stiffness: 450, damping: 32 }}
               />
             )}
-            <span className="relative z-10 flex items-center gap-2">
-              <BookOpen className="w-4 h-4" />
+            <span className="relative z-10 flex items-center gap-1.5 sm:gap-2">
+              <BookOpen className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
               <span>{lang === "fr" ? "Articles TY Dev" : "TY Dev Articles"}</span>
             </span>
           </button>
 
           <button
             onClick={() => setActiveTab("live")}
-            className={`relative flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
+            className={`flex-1 sm:flex-initial relative flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-6 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-300 ${
               activeTab === "live"
                 ? "text-slate-950 font-bold"
                 : "text-muted-foreground hover:text-foreground"
@@ -131,8 +131,8 @@ export function Blog({ isPage = false }: { isPage?: boolean }) {
                 transition={{ type: "spring", stiffness: 450, damping: 32 }}
               />
             )}
-            <span className="relative z-10 flex items-center gap-2">
-              <Radio className={`w-4 h-4 animate-pulse ${activeTab === "live" ? "text-slate-950" : "text-cyan-400"}`} />
+            <span className="relative z-10 flex items-center gap-1.5 sm:gap-2">
+              <Radio className={`w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 animate-pulse ${activeTab === "live" ? "text-slate-950" : "text-cyan-400"}`} />
               <span>{lang === "fr" ? "Veille Tech Live" : "Live Tech Watch"}</span>
             </span>
           </button>
@@ -140,7 +140,7 @@ export function Blog({ isPage = false }: { isPage?: boolean }) {
 
         {/* Sub-Category Minimalist Filter Line (Only shown for Articles) */}
         {activeTab === "articles" && (
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-6 border-b border-border/40 pb-4 max-w-4xl w-full">
+          <div className="mt-4 sm:mt-8 flex flex-wrap items-center justify-center gap-1.5 sm:gap-6 border-b border-border/40 pb-4 max-w-4xl w-full">
             {categories.map((c) => {
               const isSelected = activeCategory === c.id;
               return (
