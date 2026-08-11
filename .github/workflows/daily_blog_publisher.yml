@@ -31,14 +31,17 @@ jobs:
           node scripts/publish_blog.mjs --publish-next
 
       - name: Commit and Push Changes to main, Raouf & ty-dev-tn
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.name "TY Dev Automated Publisher"
           git config --global user.email "bot@ty-dev.site"
+          git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
           
           git add src/data/blogPosts.ts public/sitemap.xml
           git commit -m "chore(blog): publication automatique quotidienne du blog et mise à jour du sitemap" || exit 0
           
           # Push to main, Raouf and ty-dev-tn
-          git push origin main
-          git push origin main:refs/heads/Raouf
-          git push origin main:refs/heads/ty-dev-tn
+          git push origin HEAD:main
+          git push origin HEAD:refs/heads/Raouf
+          git push origin HEAD:refs/heads/ty-dev-tn
