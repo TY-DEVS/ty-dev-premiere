@@ -29,38 +29,38 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
-    id: "monetisation-saas-integration-stripe-gestion-des-abonnements-facturation",
-    slug: "monetisation-saas-integration-stripe-gestion-des-abonnements-facturation",
+    id: "performance-frontend-code-splitting-accelerer-les-applications-react-vite",
+    slug: "performance-frontend-code-splitting-accelerer-les-applications-react-vite",
     title: {
-        fr: "Monétisation SaaS & Intégration Stripe : Gestion des Abonnements & Facturation",
-        en: "SaaS Monetization & Stripe Integration: Subscription Management & Billing"
+        fr: "Performance Frontend & Code Splitting : Accélérer les Applications React & Vite",
+        en: "Frontend Performance & Code Splitting: Speeding up React & Vite Apps"
     },
     summary: {
-        fr: "Architecture d'ingénierie financière pour intégrer Stripe, gérer la synchronisation asynchrone par Webhooks, les abonnements et le Dunning Management.",
-        en: "Financial engineering architecture for Stripe integration, asynchronous Webhook synchronization, subscriptions, and automated Dunning Management."
+        fr: "Techniques avancées d'optimisation frontend : Lazy Loading des composants, Tree-Shaking, optimisation des bundles Vite et atteinte d'un score Lighthouse de 100.",
+        en: "Advanced frontend performance techniques: Component Lazy Loading, Tree-Shaking, Vite bundle optimization, and achieving a 100 Lighthouse score."
     },
-    category: "Engineering & API",
+    category: "SEO & Web Performance",
     date: {
         fr: "11 Août 2026",
         en: "August 11, 2026"
     },
     author: {
-        name: "Mohamed Ben Khemis",
-        role: "DEVOPS ENGINEER",
-        avatar: "/team/mohamedbenkhemis.jfif"
+        name: "Mohamed Ben Yahia",
+        role: "FULL STACK DEVELOPER",
+        avatar: "/team/mohamedbenyahia.jpg"
     },
-    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
     tags: [
-        "Stripe",
-        "SaaS",
-        "Billing",
-        "Payments",
-        "Integration",
-        "Webhooks"
+        "React",
+        "Performance",
+        "Vite",
+        "JavaScript",
+        "Frontend",
+        "WebVitals"
     ],
     content: {
-        fr: "\n## L'Ingénierie Financière d'une Application SaaS\n\nLa monétisation est le moteur fondamental de toute application SaaS commerciale. La gestion des abonnements récurrents nécessite une architecture logicielle hautement sécurisée, idoine et capable de gérer des scénarios complexes (prorata, échecs de paiement, gestion des taxes).\n\n---\n\n### 1. Architecture Webhook Idempotente\n\nLes événements de paiement Stripe doivent être traités de manière asynchrone via des **Webhooks**. Pour éviter les doubles facturations lors des re-tentatives du réseau, chaque gestionnaire de webhook doit être strictement **idempotent** :\n\n```typescript\n// Exemple de serveur Webhook Express sécurisé avec validation de signature\nimport express from 'express';\nimport Stripe from 'stripe';\n\nconst stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);\nconst app = express();\n\napp.post('/api/webhooks/stripe', express.raw({ type: 'application/json' }), async (req, res) => {\n  const sig = req.headers['stripe-signature']!;\n  let event: Stripe.Event;\n\n  try {\n    event = stripe.webhooks.constructEvent(req.body, sig, process.env.STRIPE_WEBHOOK_SECRET!);\n  } catch (err: any) {\n    return res.status(400).send(`Webhook Error: ${err.message}`);\n  }\n\n  // Traitement idempotent de l'événement\n  switch (event.type) {\n    case 'invoice.payment_succeeded':\n      await handleInvoicePaid(event.data.object as Stripe.Invoice);\n      break;\n    case 'customer.subscription.deleted':\n      await handleSubscriptionCanceled(event.data.object as Stripe.Subscription);\n      break;\n  }\n\n  res.json({ received: true });\n});\n```\n\n---\n\n### 2. Gestion des Impayés (Dunning Management)\n\nUn taux d'échec de carte bancaire non géré peut générer jusqu'à **10% de churn involontaire** (cartes expirées, plafonds dépassés).\n\n- **Relances Automatisées** : Configuration des séquences de relance par e-mail via Stripe Billing.\n- **Grace Period** : Maintien temporaire de l'accès pendant 3 à 7 jours avant suspension de compte.\n- **Portail Libre-service Client** : Redirection vers le *Stripe Customer Portal* pour la mise à jour des coordonnées bancaires.\n\n---\n\n### 3. Conformité & Sécurité Financière\n\n- **PCI-DSS Compliance** : Aucune donnée de carte ne doit transiter par vos serveurs (utilisation stricte de Stripe Elements ou Checkout).\n- **Gestion des Taxes Internationales** : Activation de *Stripe Tax* pour calculer automatiquement la TVA / Sales Tax selon la géolocalisation du client.\n",
-        en: "\n## Financial Engineering for SaaS Monetization\n\nMonetization powers commercial SaaS operations. Managing recurring subscriptions requires a resilient, secure system capable of handling complex billing edge-cases (proration, failed card retries, compliance).\n\n---\n\n### 1. Idempotent Webhook Processing Architecture\n\nStripe payment updates must be ingested asynchronously via **Webhooks**. To prevent duplicate balance credits during network retries, webhook consumers must enforce strict idempotency:\n\n```typescript\n// Express Webhook server with signature verification\nimport express from 'express';\nimport Stripe from 'stripe';\n\nconst stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);\nconst app = express();\n\napp.post('/api/webhooks/stripe', express.raw({ type: 'application/json' }), async (req, res) => {\n  const sig = req.headers['stripe-signature']!;\n  let event: Stripe.Event;\n\n  try {\n    event = stripe.webhooks.constructEvent(req.body, sig, process.env.STRIPE_WEBHOOK_SECRET!);\n  } catch (err: any) {\n    return res.status(400).send(`Webhook Error: ${err.message}`);\n  }\n\n  switch (event.type) {\n    case 'invoice.payment_succeeded':\n      await handleInvoicePaid(event.data.object as Stripe.Invoice);\n      break;\n    case 'customer.subscription.deleted':\n      await handleSubscriptionCanceled(event.data.object as Stripe.Subscription);\n      break;\n  }\n\n  res.json({ received: true });\n});\n```\n\n---\n\n### 2. Dunning Management & Churn Prevention\n\nUnrecovered payment failures account for up to **10% of involuntary customer churn**:\n\n- **Automated Smart Retries**: Leveraging AI-driven retry timing via Stripe Billing.\n- **Grace Period Policy**: Granting temporary 3-to-7 day access buffers before subscription locking.\n- **Self-Service Billing Portal**: Directing users to update cards seamlessly via Stripe Customer Portal.\n\n---\n\n### 3. Compliance & Security Standards\n\n- **PCI-DSS Compliance**: Offloading card data processing entirely to Stripe Elements / Checkout.\n- **Global Tax Automation**: Using Stripe Tax for real-time VAT and sales tax collection.\n"
+        fr: "\n## Temps de Chargement & Conversion Utilisateur\n\nSur le web moderne, la vitesse de chargement d'une application conditionne directement le taux de conversion et le référencement naturel (SEO). Chaque économie de 100ms sur l'interactivité (**INP - Interaction to Next Paint**) augmente l'engagement utilisateur.\n\n---\n\n### 1. Dynamic Imports & Lazy Loading avec React & Vite\n\nAu lieu de charger l'intégralité du bundle JavaScript lors du premier affichage, le **Code Splitting** permet d'isoler les routes et composants secondaires :\n\n```tsx\nimport React, { Suspense, lazy } from 'react';\n\n// Chargement à la demande des routes lourdes\nconst AnalyticsDashboard = lazy(() => import('./pages/AnalyticsDashboard'));\nconst SettingsPanel = lazy(() => import('./pages/SettingsPanel'));\n\nexport function AppRouter() {\n  return (\n    <Suspense fallback={<div className=\"animate-pulse p-6\">Chargement du module...</div>}>\n      <Routes>\n        <Route path=\"/dashboard\" element={<AnalyticsDashboard />} />\n        <Route path=\"/settings\" element={<SettingsPanel />} />\n      </Routes>\n    </Suspense>\n  );\n}\n```\n\n---\n\n### 2. Optimisation de la Configuration Vite (`vite.config.ts`)\n\nDécoupez les dépendances tierces lourdes (`lucide-react`, `recharts`, `framer-motion`) dans des chunks séparés pour optimiser la mise en cache du navigateur :\n\n```typescript\nimport { defineConfig } from 'vite';\nimport react from '@vitejs/plugin-react';\n\nexport default defineConfig({\n  plugins: [react()],\n  build: {\n    rollupOptions: {\n      output: {\n        manualChunks: {\n          vendor: ['react', 'react-dom'],\n          ui: ['framer-motion', 'lucide-react'],\n          charts: ['recharts'],\n        },\n      },\n    },\n  },\n});\n```\n\n---\n\n### 3. Checklist Core Web Vitals 2026\n\n- **LCP (Largest Contentful Paint) < 1.2s** : Préchargement des images critiques (`fetchpriority=\"high\"`) et utilisation de formats WebP / AVIF.\n- **INP (Interaction to Next Paint) < 200ms** : Éviter le blocage du thread principal en découpant les fonctions JavaScript lourdes.\n- **CLS (Cumulative Layout Shift) < 0.05** : Définir des dimensions explicites (`width` / `height`) sur tous les éléments média.\n",
+        en: "\n## Speed Drives User Conversion & SEO\n\nIn modern web development, load performance directly dictates conversion metrics and search rankings. Every 100ms optimization in **INP (Interaction to Next Paint)** measurably improves retention.\n\n---\n\n### 1. Dynamic Imports & Lazy Loading in React & Vite\n\nRather than serving a monolithic JavaScript bundle upfront, **Code Splitting** defers non-critical modules until user navigation:\n\n```tsx\nimport React, { Suspense, lazy } from 'react';\n\n// On-demand route loading\nconst AnalyticsDashboard = lazy(() => import('./pages/AnalyticsDashboard'));\nconst SettingsPanel = lazy(() => import('./pages/SettingsPanel'));\n\nexport function AppRouter() {\n  return (\n    <Suspense fallback={<div className=\"animate-pulse p-6\">Loading module...</div>}>\n      <Routes>\n        <Route path=\"/dashboard\" element={<AnalyticsDashboard />} />\n        <Route path=\"/settings\" element={<SettingsPanel />} />\n      </Routes>\n    </Suspense>\n  );\n}\n```\n\n---\n\n### 2. Vite Chunk Splitting Strategy (`vite.config.ts`)\n\nSplit large third-party packages (`recharts`, `framer-motion`) into dedicated vendor chunks for browser caching efficiency:\n\n```typescript\nimport { defineConfig } from 'vite';\nimport react from '@vitejs/plugin-react';\n\nexport default defineConfig({\n  plugins: [react()],\n  build: {\n    rollupOptions: {\n      output: {\n        manualChunks: {\n          vendor: ['react', 'react-dom'],\n          ui: ['framer-motion', 'lucide-react'],\n          charts: ['recharts'],\n        },\n      },\n    },\n  },\n});\n```\n\n---\n\n### 3. Core Web Vitals Checklist 2026\n\n- **LCP (Largest Contentful Paint) < 1.2s**: Preloading hero assets (`fetchpriority=\"high\"`) with WebP/AVIF formatting.\n- **INP (Interaction to Next Paint) < 200ms**: Avoiding long main-thread tasks via non-blocking async execution.\n- **CLS (Cumulative Layout Shift) < 0.05**: Setting fixed aspect ratios on dynamic dynamic elements.\n"
     }
 },
   {
