@@ -10,20 +10,26 @@ import { Testimonials } from "@/components/site/Testimonials";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — TY Dev" },
+      { title: "À Propos — TY Dev | Agence Indépendante d'Ingénierie Logicielle" },
       {
         name: "description",
         content:
-          "Meet TY Dev — an independent software & AI agency engineering scalable platforms for modern businesses.",
+          "Rencontrez l'équipe TY Dev — agence indépendante spécialisée dans la création de systèmes logiciels robustes et d'applications IA pour entreprises ambitieuses.",
       },
-      { property: "og:title", content: "About — TY Dev" },
+      { name: "keywords", content: "à propos ty dev, équipe agence web, ingénieurs saas, experts ia, devops france" },
+      { property: "og:title", content: "À Propos — TY Dev | Agence Indépendante d'Ingénierie Logicielle" },
       {
         property: "og:description",
         content:
-          "Meet TY Dev — an independent software & AI agency engineering scalable platforms for modern businesses.",
+          "Rencontrez l'équipe TY Dev — agence indépendante spécialisée dans la création de systèmes logiciels et d'IA.",
       },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://ty-dev.site/about" },
+      { property: "og:image", content: "https://ty-dev.site/logo.jpg" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://ty-dev.site/logo.jpg" },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: "https://ty-dev.site/about" }],
   }),
   component: AboutPage,
 });

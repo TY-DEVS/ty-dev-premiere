@@ -8,20 +8,26 @@ import { useI18n } from "@/i18n/context";
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
     meta: [
-      { title: "Portfolio — TY Dev" },
+      { title: "Portfolio & Projets — TY Dev | Réalisations Clients" },
       {
         name: "description",
         content:
-          "Selected work from TY Dev — premium websites, SaaS platforms, and AI-driven applications shipped for clients worldwide.",
+          "Découvrez une sélection de projets livrés par TY Dev — sites d'exception, plateformes SaaS et applications propulsées par l'intelligence artificielle.",
       },
-      { property: "og:title", content: "Portfolio — TY Dev" },
+      { name: "keywords", content: "portfolio web, projets saas, études de cas ia, réalisations agence web, ty dev" },
+      { property: "og:title", content: "Portfolio & Projets — TY Dev | Réalisations Clients" },
       {
         property: "og:description",
         content:
-          "Selected work from TY Dev — premium websites, SaaS platforms, and AI-driven applications shipped for clients worldwide.",
+          "Découvrez une sélection de projets livrés par TY Dev — sites d'exception, plateformes SaaS et applications IA.",
       },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://ty-dev.site/portfolio" },
+      { property: "og:image", content: "https://ty-dev.site/logo.jpg" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://ty-dev.site/logo.jpg" },
     ],
-    links: [{ rel: "canonical", href: "/portfolio" }],
+    links: [{ rel: "canonical", href: "https://ty-dev.site/portfolio" }],
   }),
   component: PortfolioPage,
 });

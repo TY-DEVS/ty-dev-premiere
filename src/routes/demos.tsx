@@ -12,7 +12,7 @@ export const Route = createFileRoute("/demos")({
       {
         name: "description",
         content:
-          "Découvrez 39 démos interactives et maquettes de sites vitrines, plateformes SaaS, réservations en ligne et e-commerce développées sur-mesure par TY Dev.",
+          "Découvrez nos démos interactives et maquettes de sites vitrines, plateformes SaaS, réservations en ligne et e-commerce développées sur-mesure par TY Dev.",
       },
       {
         name: "keywords",
@@ -23,12 +23,15 @@ export const Route = createFileRoute("/demos")({
       {
         property: "og:description",
         content:
-          "Découvrez 39 démos interactives et maquettes de sites vitrines, plateformes SaaS, réservations en ligne et e-commerce développées sur-mesure par TY Dev.",
+          "Découvrez nos démos interactives et maquettes de sites vitrines, plateformes SaaS, réservations en ligne et e-commerce développées sur-mesure par TY Dev.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/demos" },
+      { property: "og:url", content: "https://ty-dev.site/demos" },
+      { property: "og:image", content: "https://ty-dev.site/logo.jpg" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://ty-dev.site/logo.jpg" },
     ],
-    links: [{ rel: "canonical", href: "/demos" }],
+    links: [{ rel: "canonical", href: "https://ty-dev.site/demos" }],
   }),
   component: DemosPage,
 });

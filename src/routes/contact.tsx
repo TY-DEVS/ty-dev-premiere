@@ -7,20 +7,26 @@ import { useI18n } from "@/i18n/context";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — TY Dev" },
+      { title: "Contactez-nous — TY Dev | Devis & Consultation Projet" },
       {
         name: "description",
         content:
-          "Start a project with TY Dev. Reach us at contact@ty-dev.site — replies within 24 hours.",
+          "Lancez votre projet web, SaaS ou IA avec TY Dev. Écrivez-nous à contact@ty-dev.site — réponse et analyse sous 24 heures.",
       },
-      { property: "og:title", content: "Contact — TY Dev" },
+      { name: "keywords", content: "contact ty dev, devis projet web, devis saas, devis ia, contact@ty-dev.site" },
+      { property: "og:title", content: "Contactez-nous — TY Dev | Devis & Consultation Projet" },
       {
         property: "og:description",
         content:
-          "Start a project with TY Dev. Reach us at contact@ty-dev.site — replies within 24 hours.",
+          "Lancez votre projet web, SaaS ou IA avec TY Dev. Contactez notre équipe d'ingénieurs sous 24h.",
       },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://ty-dev.site/contact" },
+      { property: "og:image", content: "https://ty-dev.site/logo.jpg" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://ty-dev.site/logo.jpg" },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: "https://ty-dev.site/contact" }],
   }),
   component: ContactPage,
 });

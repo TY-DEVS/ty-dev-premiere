@@ -1,0 +1,44 @@
+# TY Dev — Agence de Développement Web, SaaS & Agents IA
+
+> TY Dev est une agence d'ingénierie logicielle indépendante spécialisée dans le développement de plateformes SaaS sur-mesure, l'intégration d'agents IA autonomes, et les architectures web haute performance.
+
+## Informations Principales
+
+- **Site officiel** : https://ty-dev.site
+- **Contact** : contact@ty-dev.site
+- **Sitemap** : https://ty-dev.site/sitemap.xml
+- **Domaines d'expertise** : SaaS, Agents IA, React/Vite, Architecture Cloud, Microservices, DevOps, SEO & Core Web Vitals, Cybersécurité.
+
+## Services Proposés
+
+1. **Développement SaaS sur mesure** (https://ty-dev.site/services)
+   - Architectures multi-tenants, facturation Stripe, authentification OAuth/JWT, performances sub-100ms.
+2. **Intégration d'Agents IA & LLM** (https://ty-dev.site/services)
+   - Solutions RAG (Retrieval-Augmented Generation), vector databases (Pgvector), agents autonomes et workflows métiers.
+3. **Applications Web & Interfaces d'Exception** (https://ty-dev.site/services)
+   - Rendu haute vitesse React & Vite, Design Systems modernes (Glassmorphism, Tailwind), PWA et optimisations 100/100 Lighthouse.
+4. **DevOps & Infrastructure Cloud** (https://ty-dev.site/services)
+   - Pipelines CI/CD automatisés, conteneurisation Docker, monitoring et architectures Serverless.
+
+## Équipe Fondatrice & Experts
+
+- **Moutia Ben Yahia** — CEO
+- **Mohamed Yassine Ben Yaala** — Co-Founder
+- **Amine Ben Ammar** — Co-Founder
+- **Mohamed Ben Khemis** — DevOps Engineer
+- **Mohamed Ben Yahia** — Full Stack Developer
+
+## Démos & Maquettes Interactives
+
+TY Dev propose plus de 30 démos interactives prêtes à la personnalisation : https://ty-dev.site/demos
+
+## Articles & Publications Techniques (Blog)
+
+- **Performance Frontend & Code Splitting** : https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite
+- **Pipelines CI/CD & Production** : https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients
+- **PWA & Applications Mobiles Web** : https://ty-dev.site/blog/pwa-progressive-web-apps-l-avenir-du-mobile-sans-passer-par-les-stores-en-2026
+- **Architecture Microservices & Serverless** : https://ty-dev.site/blog/architecture-microservices-serverless-2026
+- **Guide SEO & Core Web Vitals** : https://ty-dev.site/blog/guide-ultime-seo-core-web-vitals-react
+- **Design Systems & UX** : https://ty-dev.site/blog/design-system-glassmorphism-ux-2026
+- **Intégration d'APIs & Workflows** : https://ty-dev.site/blog/automatisation-flux-metiers-integration-apis
+- **Sécurité Web & OWASP** : https://ty-dev.site/blog/securite-web-protection-donnees-saas

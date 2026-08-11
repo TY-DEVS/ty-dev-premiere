@@ -13,22 +13,26 @@ import { CtaStrip } from "@/components/site/CtaStrip";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "TY Dev — AI & Software Development Agency" },
+      { title: "TY Dev — Agence de Développement Web, SaaS & Agents IA" },
       {
         name: "description",
         content:
-          "Custom SaaS platforms, AI automation, and high-performance web applications. Engineered for real business growth.",
+          "Création de plateformes SaaS sur-mesure, agents et automatisations IA, applications web réactives. Une ingénierie taillée pour la croissance.",
       },
-      { property: "og:title", content: "TY Dev — AI & Software Development Agency" },
+      { name: "keywords", content: "agence web, agence ia, saas france, développement web, react, vite, devops, tanstack" },
+      { property: "og:title", content: "TY Dev — Agence de Développement Web, SaaS & Agents IA" },
       {
         property: "og:description",
         content:
-          "Custom SaaS platforms, AI automation, and high-performance web applications. Engineered for real business growth.",
+          "Création de plateformes SaaS sur-mesure, agents et automatisations IA, applications web réactives. Une ingénierie taillée pour la croissance.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: "https://ty-dev.site/" },
+      { property: "og:image", content: "https://ty-dev.site/logo.jpg" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://ty-dev.site/logo.jpg" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://ty-dev.site/" }],
   }),
   component: Index,
 });

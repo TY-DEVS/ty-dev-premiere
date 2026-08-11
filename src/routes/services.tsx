@@ -10,20 +10,26 @@ import { useI18n } from "@/i18n/context";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — TY Dev" },
+      { title: "Nos Services — TY Dev | Développement SaaS, IA & Cloud" },
       {
         name: "description",
         content:
-          "Custom SaaS, AI automation, web applications, e-commerce, integrations, and cloud infrastructure — end-to-end engineering by TY Dev.",
+          "SaaS sur-mesure, automatisations IA, applications web, e-commerce, intégrations d'APIs et infrastructure Cloud — ingénierie de bout en bout par TY Dev.",
       },
-      { property: "og:title", content: "Services — TY Dev" },
+      { name: "keywords", content: "services saas, développement ia, intégration api, architecture cloud, react vite, devops" },
+      { property: "og:title", content: "Nos Services — TY Dev | Développement SaaS, IA & Cloud" },
       {
         property: "og:description",
         content:
-          "Custom SaaS, AI automation, web applications, e-commerce, integrations, and cloud infrastructure — end-to-end engineering by TY Dev.",
+          "SaaS sur-mesure, automatisations IA, applications web, e-commerce, intégrations d'APIs et infrastructure Cloud.",
       },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://ty-dev.site/services" },
+      { property: "og:image", content: "https://ty-dev.site/logo.jpg" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://ty-dev.site/logo.jpg" },
     ],
-    links: [{ rel: "canonical", href: "/services" }],
+    links: [{ rel: "canonical", href: "https://ty-dev.site/services" }],
   }),
   component: ServicesPage,
 });
