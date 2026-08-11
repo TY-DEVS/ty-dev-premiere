@@ -43,5 +43,5 @@ jobs:
           
           # Push to main, Raouf and ty-dev-tn
           git push origin HEAD:main
-          git push origin HEAD:refs/heads/Raouf
-          git push origin HEAD:refs/heads/ty-dev-tn
+          git push --force origin HEAD:refs/heads/Raouf
+          git push --force origin HEAD:refs/heads/ty-dev-tn
