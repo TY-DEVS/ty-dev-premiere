@@ -6,8 +6,19 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.join(__dirname, '..');
 
-const domain = process.env.SITE_URL || 'https://ty-dev.site';
+let envDomain = process.env.SITE_URL;
+if (!envDomain) {
+  try {
+    const envContent = fs.readFileSync(path.join(rootDir, '.env'), 'utf-8');
+    const match = envContent.match(/SITE_URL=["']?([^"'\r\n]+)["']?/);
+    if (match) envDomain = match[1];
+  } catch (e) {
+    // Ignore error
+  }
+}
+const domain = envDomain || 'https://ty-dev.site';
 const today = new Date().toISOString().split('T')[0];
+
 
 // Static pages
 const staticPages = [
