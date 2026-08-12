@@ -35,10 +35,14 @@ async function sendMailWithFallback(mailOptions: nodemailer.SendMailOptions) {
         { host, port: envPort, secure: envPort === 465 },
         { host, port: 465, secure: true },
         { host, port: 587, secure: false },
+        { host: "mail.ty-dev.site", port: 587, secure: false },
+        { host: "mail.ty-dev.site", port: 465, secure: true },
       ]
     : [
         { host, port: 465, secure: true },
         { host, port: 587, secure: false },
+        { host: "mail.ty-dev.site", port: 587, secure: false },
+        { host: "mail.ty-dev.site", port: 465, secure: true },
       ];
 
   let lastError: any = null;
@@ -57,15 +61,15 @@ async function sendMailWithFallback(mailOptions: nodemailer.SendMailOptions) {
       });
 
       const info = await transporter.sendMail(mailOptions);
-      console.log(`[ContactForm] SUCCESS via port ${config.port}! MessageID: ${info.messageId}`);
+      console.log(`[ContactForm] SUCCESS via ${config.host}:${config.port}! MessageID: ${info.messageId}`);
       return info;
     } catch (err: any) {
-      console.warn(`[ContactForm] Warning: SMTP attempt failed on port ${config.port}: ${err?.message || err}`);
+      console.warn(`[ContactForm] Warning: SMTP attempt failed on ${config.host}:${config.port}: ${err?.message || err}`);
       lastError = err;
     }
   }
 
-  throw lastError || new Error("Tous les ports SMTP (465, 587) ont échoué.");
+  throw lastError || new Error("Tous les ports SMTP (465, 587) et hôtes ont échoué.");
 }
 
 function parseReceivers(): string[] {
@@ -84,27 +88,34 @@ function parseReceivers(): string[] {
 }
 
 export const sendContactEmailFn = createServerFn({ method: "POST" })
-  .validator((data: { name: string; email: string; phone?: string; type: string; budget: string; desc: string; source?: string }) => data)
+  .validator((data: any) => data)
   .handler(async (ctx) => {
-    const { name, email, phone, type, budget, desc, source } = ctx.data;
+    // Safely extract input fields regardless of client wrapper format
+    const rawData = ctx?.data?.data || ctx?.data || {};
+    const name = typeof rawData.name === "string" ? rawData.name : "";
+    const email = typeof rawData.email === "string" ? rawData.email : "";
+    const phone = typeof rawData.phone === "string" ? rawData.phone : "";
+    const type = typeof rawData.type === "string" ? rawData.type : "";
+    const budget = typeof rawData.budget === "string" ? rawData.budget : "";
+    const desc = typeof rawData.desc === "string" ? rawData.desc : "";
+    const source = typeof rawData.source === "string" ? rawData.source : "";
 
-    // 1. Strict email verification
-    const cleanEmail = (email || "").trim();
-    const cleanName = (name || "").trim();
-    const cleanDesc = (desc || "").trim();
-    const cleanPhone = (phone || "").trim();
+    const cleanEmail = email.trim();
+    const cleanName = name.trim();
+    const cleanDesc = desc.trim();
+    const cleanPhone = phone.trim();
 
     if (!cleanEmail || !EMAIL_REGEX.test(cleanEmail)) {
-      console.warn(`[ContactForm] Rejected invalid sender email: "${email}"`);
-      throw new Error("L'adresse e-mail saisie est invalide. Veuillez vérifier votre saisie.");
+      console.warn(`[ContactForm] Invalid sender email: "${email}"`);
+      return { success: false, error: "L'adresse e-mail saisie est invalide. Veuillez vérifier votre saisie." };
     }
 
     if (!cleanName || cleanName.length < 2) {
-      throw new Error("Veuillez renseigner un nom valide (au moins 2 caractères).");
+      return { success: false, error: "Veuillez renseigner un nom valide (au moins 2 caractères)." };
     }
 
     if (!cleanDesc || cleanDesc.length < 5) {
-      throw new Error("Veuillez décrire votre projet de manière plus détaillée.");
+      return { success: false, error: "Veuillez décrire votre projet de manière plus détaillée." };
     }
 
     try {
@@ -177,7 +188,10 @@ ${cleanDesc}
       return { success: true, messageId: info.messageId };
     } catch (error: any) {
       console.error("[ContactForm] Error sending email:", error);
-      throw new Error(`Échec de l'envoi du message: ${error?.message || "Erreur serveur SMTP"}`);
+      return {
+        success: false,
+        error: `Échec de l'envoi du message: ${error?.message || "Erreur connexion SMTP"}`,
+      };
     }
   });
 

@@ -146,12 +146,16 @@ export function Contact() {
             const loadingToastId = toast.loading("Vérification & envoi de votre message...");
 
             try {
-              await sendContactEmailFn({ data });
-              toast.success("Message envoyé avec succès ! Nous vous répondrons très vite.", { id: loadingToastId });
-              form.reset();
+              const res = await sendContactEmailFn({ data });
+              if (res && res.success === false) {
+                toast.error(res.error || "Une erreur est survenue lors de l'envoi de votre message.", { id: loadingToastId });
+              } else {
+                toast.success("Message envoyé avec succès ! Nous vous répondrons très vite.", { id: loadingToastId });
+                form.reset();
+              }
             } catch (error: any) {
               console.error("[Form Error]", error);
-              const msg = error?.message || "Une erreur est survenue lors de l'envoi de votre message. Veuillez réessayez.";
+              const msg = error?.message || "Une erreur est survenue lors de l'envoi de votre message. Veuillez réessayer.";
               toast.error(msg, { id: loadingToastId });
             } finally {
               setIsSubmitting(false);
