@@ -19,121 +19,83 @@ function getSmtpTransporter(port: number = 465) {
     secure: port === 465,
     auth: { user, pass },
     tls: { rejectUnauthorized: false },
-    connectionTimeout: 10000,
-    greetingTimeout: 8000,
+    connectionTimeout: 4000,
+    greetingTimeout: 3000,
   });
 }
 
-async function sendViaHttpApi(mailOptions: {
-  fromName: string;
-  fromEmail: string;
+async function sendMailWithFallback(mailOptions: {
+  from: string;
   to: string[];
   replyTo: string;
   subject: string;
-  html: string;
   text: string;
+  html: string;
 }) {
-  // 1. Brevo HTTP API (Recommended for Cloudflare Workers - 300 free emails/day)
-  const brevoKey = process.env.BREVO_API_KEY || process.env.VITE_BREVO_API_KEY;
-  if (brevoKey && brevoKey.trim()) {
-    console.log("[ContactForm] Sending via Brevo HTTP API...");
-    const res = await fetch("https://api.brevo.com/v3/smtp/email", {
-      method: "POST",
-      headers: {
-        "api-key": brevoKey.trim(),
-        "content-type": "application/json",
-        "accept": "application/json",
-      },
-      body: JSON.stringify({
-        sender: { name: mailOptions.fromName, email: mailOptions.fromEmail },
-        to: mailOptions.to.map((email) => ({ email })),
-        replyTo: { email: mailOptions.replyTo },
-        subject: mailOptions.subject,
-        htmlContent: mailOptions.html,
-        textContent: mailOptions.text,
-      }),
-    });
-
-    if (!res.ok) {
-      const errText = await res.text();
-      console.error(`[ContactForm] Brevo HTTP API error (${res.status}): ${errText}`);
-      throw new Error(`Erreur Brevo API (${res.status}): ${errText}`);
-    }
-
-    const data = await res.json();
-    console.log("[ContactForm] SUCCESS via Brevo HTTP API!", data);
-    return { success: true, messageId: data.messageId || "brevo-ok" };
-  }
-
-  // 2. Resend HTTP API
-  const resendKey = process.env.RESEND_API_KEY || process.env.VITE_RESEND_API_KEY;
-  if (resendKey && resendKey.trim()) {
-    console.log("[ContactForm] Sending via Resend HTTP API...");
-    const res = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${resendKey.trim()}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: `${mailOptions.fromName} <${mailOptions.fromEmail}>`,
-        to: mailOptions.to,
-        reply_to: mailOptions.replyTo,
-        subject: mailOptions.subject,
-        html: mailOptions.html,
-        text: mailOptions.text,
-      }),
-    });
-
-    if (!res.ok) {
-      const errText = await res.text();
-      console.error(`[ContactForm] Resend HTTP API error (${res.status}): ${errText}`);
-      throw new Error(`Erreur Resend API (${res.status}): ${errText}`);
-    }
-
-    const data = await res.json();
-    console.log("[ContactForm] SUCCESS via Resend HTTP API!", data);
-    return { success: true, messageId: data.id || "resend-ok" };
-  }
-
-  return null;
-}
-
-async function sendMailWithFallback(mailOptions: nodemailer.SendMailOptions) {
-  // 1. Try HTTP API first (works natively on Cloudflare Workers & Edge without raw TCP sockets)
-  try {
-    const fromStr = String(mailOptions.from || DEFAULT_USER);
-    const fromNameMatch = fromStr.match(/^"?(.*?)"?\s*<([^>]+)>/);
-    const fromName = fromNameMatch ? fromNameMatch[1] : "TY DEV Site";
-    const fromEmail = fromNameMatch ? fromNameMatch[2] : (process.env.SMTP_USER || DEFAULT_USER).trim();
-
-    const toArr = Array.isArray(mailOptions.to)
-      ? mailOptions.to.map(String)
-      : String(mailOptions.to || DEFAULT_RECEIVERS).split(",").map((e) => e.trim());
-
-    const httpResult = await sendViaHttpApi({
-      fromName,
-      fromEmail,
-      to: toArr,
-      replyTo: String(mailOptions.replyTo || fromEmail),
-      subject: String(mailOptions.subject || "Message de Contact"),
-      html: String(mailOptions.html || ""),
-      text: String(mailOptions.text || ""),
-    });
-
-    if (httpResult) {
-      return httpResult;
-    }
-  } catch (httpErr: any) {
-    console.warn("[ContactForm] HTTP API failed, trying Nodemailer TCP fallback:", httpErr?.message || httpErr);
-  }
-
-  // 2. Fallback to Nodemailer TCP sockets for Node.js environments
   const host = (process.env.SMTP_HOST || DEFAULT_HOST).trim();
   const user = (process.env.SMTP_USER || DEFAULT_USER).trim();
   const pass = (process.env.SMTP_PASS || DEFAULT_PASS).replace(/"/g, "").trim();
-  const envPort = process.env.SMTP_PORT ? Number(process.env.SMTP_PORT) : null;
 
+  // 1. Try Resend HTTPS API if RESEND_API_KEY is present
+  if (process.env.RESEND_API_KEY?.trim()) {
+    try {
+      console.log("[ContactForm] Attempting HTTPS delivery via Resend API...");
+      const res = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${process.env.RESEND_API_KEY.trim()}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          from: "TY DEV <onboarding@resend.dev>",
+          to: mailOptions.to,
+          reply_to: mailOptions.replyTo,
+          subject: mailOptions.subject,
+          html: mailOptions.html,
+          text: mailOptions.text,
+        }),
+      });
+      if (res.ok) {
+        const data: any = await res.json();
+        console.log(`[ContactForm] SUCCESS via Resend HTTPS API! ID: ${data.id}`);
+        return { messageId: data.id };
+      }
+    } catch (e: any) {
+      console.warn("[ContactForm] Resend API failed:", e?.message);
+    }
+  }
+
+  // 2. Try Brevo HTTPS API if BREVO_API_KEY is present
+  if (process.env.BREVO_API_KEY?.trim()) {
+    try {
+      console.log("[ContactForm] Attempting HTTPS delivery via Brevo API...");
+      const res = await fetch("https://api.brevo.com/v3/smtp/email", {
+        method: "POST",
+        headers: {
+          "api-key": process.env.BREVO_API_KEY.trim(),
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          sender: { name: "TY DEV Site", email: user },
+          to: mailOptions.to.map((e) => ({ email: e })),
+          replyTo: { email: mailOptions.replyTo },
+          subject: mailOptions.subject,
+          htmlContent: mailOptions.html,
+          textContent: mailOptions.text,
+        }),
+      });
+      if (res.ok) {
+        const data: any = await res.json();
+        console.log(`[ContactForm] SUCCESS via Brevo HTTPS API! MessageID: ${data.messageId}`);
+        return { messageId: data.messageId };
+      }
+    } catch (e: any) {
+      console.warn("[ContactForm] Brevo API failed:", e?.message);
+    }
+  }
+
+  // 3. Try Direct SMTP TCP Ports (465 SSL, 587 STARTTLS) with short timeout (4s)
+  const envPort = process.env.SMTP_PORT ? Number(process.env.SMTP_PORT) : null;
   const configsToTry = envPort
     ? [
         { host, port: envPort, secure: envPort === 465 },
@@ -156,20 +118,39 @@ async function sendMailWithFallback(mailOptions: nodemailer.SendMailOptions) {
         secure: config.secure,
         auth: { user, pass },
         tls: { rejectUnauthorized: false },
-        connectionTimeout: 8000,
-        greetingTimeout: 5000,
+        connectionTimeout: 4000, // 4 seconds max per port
+        greetingTimeout: 3000,
+        socketTimeout: 5000,
       });
 
       const info = await transporter.sendMail(mailOptions);
-      console.log(`[ContactForm] SUCCESS via port ${config.port}! MessageID: ${info.messageId}`);
+      console.log(`[ContactForm] SUCCESS via SMTP port ${config.port}! MessageID: ${info.messageId}`);
       return info;
     } catch (err: any) {
-      console.warn(`[ContactForm] Warning: SMTP attempt failed on port ${config.port}: ${err?.message || err}`);
+      console.warn(`[ContactForm] Warning: SMTP port ${config.port} failed on server: ${err?.message || err}`);
       lastError = err;
     }
   }
 
-  throw lastError || new Error("Tous les ports SMTP (465, 587) et API HTTP ont échoué.");
+  // 4. Send Webhook notification as ultimate safety fallback if DISCORD_WEBHOOK_URL is configured
+  if (process.env.DISCORD_WEBHOOK_URL?.trim()) {
+    try {
+      await fetch(process.env.DISCORD_WEBHOOK_URL.trim(), {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          content: `🚨 **Nouveau message de contact TY-DEV** (Backup Webhook)\nDe: ${mailOptions.replyTo}\nSujet: ${mailOptions.subject}\nContenu:\n${mailOptions.text}`,
+        }),
+      });
+    } catch (_) {}
+  }
+
+  throw (
+    lastError ||
+    new Error(
+      "Le serveur de votre hébergeur web bloque les connexions SMTP (ports 465/587). Veuillez débloquer les ports SMTP sur votre VPS ou ajouter RESEND_API_KEY."
+    )
+  );
 }
 
 function parseReceivers(): string[] {
@@ -281,7 +262,7 @@ ${cleanDesc}
       return { success: true, messageId: info.messageId };
     } catch (error: any) {
       console.error("[ContactForm] Error sending email:", error);
-      throw new Error(`Échec de l'envoi du message: ${error?.message || "Erreur serveur SMTP"}`);
+      throw new Error(error?.message || "Erreur lors de l'envoi de l'e-mail.");
     }
   });
 
