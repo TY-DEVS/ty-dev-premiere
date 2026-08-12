@@ -10,6 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import { getSiteUrl } from "@/lib/siteConfig";
 import { I18nProvider } from "@/i18n/context";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
@@ -72,6 +73,8 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
     </div>
   );
 }
+
+
 
 const organizationSchema = {
   "@context": "https://schema.org",
