@@ -11,6 +11,7 @@ import {
   Loader2,
 } from "lucide-react";
 import { toast } from "sonner";
+import { useNavigate } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
 import { Section } from "./Services";
 import { sendContactEmailFn } from "@/lib/contactFn";
@@ -46,6 +47,7 @@ function XIcon(props: React.SVGProps<SVGSVGElement>) {
 
 export function Contact() {
   const { t } = useI18n();
+  const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   return (
@@ -147,8 +149,11 @@ export function Contact() {
 
             try {
               await sendContactEmailFn({ data });
-              toast.success("Message envoyé avec succès ! Nous vous répondrons très vite.", { id: loadingToastId });
+              toast.success("Message envoyé avec succès ! Redirection vers l'accueil...", { id: loadingToastId });
               form.reset();
+              setTimeout(() => {
+                navigate({ to: "/" });
+              }, 1500);
             } catch (error: any) {
               console.error("[Form Error]", error);
               const msg = error?.message || "Une erreur est survenue lors de l'envoi de votre message. Veuillez réessayez.";

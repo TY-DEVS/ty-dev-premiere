@@ -87,18 +87,22 @@ async function sendMailWithFallback(mailOptions: {
 }
 
 function parseReceivers(): string[] {
-  const raw = process.env.CONTACT_RECEIVER || DEFAULT_RECEIVERS;
-  const cleaned = raw.replace(/"/g, "");
-  const list = cleaned
-    .split(",")
-    .map((e) => e.trim())
-    .filter((e) => EMAIL_REGEX.test(e));
+  const defaultList = [
+    "contact@ty-dev.site",
+    "benyaalamedyassine24@gmail.com",
+    "amine.benammar17@gmail.com",
+    "support@ty-dev.site",
+  ];
+  const envRaw = process.env.CONTACT_RECEIVER ? process.env.CONTACT_RECEIVER.replace(/"/g, "") : "";
+  const envList = envRaw
+    ? envRaw
+        .split(",")
+        .map((e) => e.trim())
+        .filter((e) => EMAIL_REGEX.test(e))
+    : [];
 
-  if (list.length === 0) {
-    return DEFAULT_RECEIVERS.split(",").map((e) => e.trim());
-  }
-
-  return list;
+  const combined = Array.from(new Set([...defaultList, ...envList]));
+  return combined;
 }
 
 export const sendContactEmailFn = createServerFn({ method: "POST" })
