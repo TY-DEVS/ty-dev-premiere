@@ -8,7 +8,7 @@ const DEFAULT_USER = "contact@ty-dev.site";
 const DEFAULT_PASS = "mW4@B*NHEPP9szv";
 const DEFAULT_RECEIVERS = "contact@ty-dev.site, benyaalamedyassine24@gmail.com, amine.benammar17@gmail.com";
 
-function getSmtpTransporter(port: number = 465) {
+function getSmtpTransporter(port: number = 587) {
   const host = (process.env.SMTP_HOST || DEFAULT_HOST).trim();
   const user = (process.env.SMTP_USER || DEFAULT_USER).trim();
   const pass = (process.env.SMTP_PASS || DEFAULT_PASS).replace(/"/g, "").trim();
@@ -19,93 +19,11 @@ function getSmtpTransporter(port: number = 465) {
     secure: port === 465,
     auth: { user, pass },
     tls: { rejectUnauthorized: false },
-    connectionTimeout: 5000,
-    greetingTimeout: 4000,
+    connectionTimeout: 10000,
+    greetingTimeout: 8000,
   });
 }
 
-// 1. Try HTTPS APIs (Resend / Brevo) first as they bypass all VPS/Cloudflare SMTP port blocks
-async function tryHttpsMailApis(options: {
-  fromEmail: string;
-  fromName: string;
-  to: string[];
-  replyTo: string;
-  subject: string;
-  html: string;
-  text: string;
-}) {
-  // A. Resend HTTPS API
-  const resendKey = process.env.RESEND_API_KEY || process.env.VITE_RESEND_API_KEY;
-  if (resendKey && resendKey.trim()) {
-    try {
-      console.log("[ContactForm] Trying Resend HTTPS API...");
-      const res = await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${resendKey.trim()}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          from: "TY DEV <onboarding@resend.dev>",
-          to: options.to,
-          reply_to: options.replyTo,
-          subject: options.subject,
-          html: options.html,
-          text: options.text,
-        }),
-      });
-
-      if (res.ok) {
-        const data: any = await res.json();
-        console.log(`[ContactForm] SUCCESS via Resend HTTPS API! ID: ${data.id}`);
-        return { success: true, messageId: data.id || "resend-ok" };
-      } else {
-        const errText = await res.text();
-        console.warn(`[ContactForm] Resend API error (${res.status}): ${errText}`);
-      }
-    } catch (e: any) {
-      console.warn("[ContactForm] Resend API fetch failed:", e?.message);
-    }
-  }
-
-  // B. Brevo HTTPS API
-  const brevoKey = process.env.BREVO_API_KEY || process.env.VITE_BREVO_API_KEY;
-  if (brevoKey && brevoKey.trim()) {
-    try {
-      console.log("[ContactForm] Trying Brevo HTTPS API...");
-      const res = await fetch("https://api.brevo.com/v3/smtp/email", {
-        method: "POST",
-        headers: {
-          "api-key": brevoKey.trim(),
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          sender: { name: options.fromName, email: options.fromEmail },
-          to: options.to.map((e) => ({ email: e })),
-          replyTo: { email: options.replyTo },
-          subject: options.subject,
-          htmlContent: options.html,
-          textContent: options.text,
-        }),
-      });
-
-      if (res.ok) {
-        const data: any = await res.json();
-        console.log(`[ContactForm] SUCCESS via Brevo HTTPS API! MessageID: ${data.messageId}`);
-        return { success: true, messageId: data.messageId || "brevo-ok" };
-      } else {
-        const errText = await res.text();
-        console.warn(`[ContactForm] Brevo API error (${res.status}): ${errText}`);
-      }
-    } catch (e: any) {
-      console.warn("[ContactForm] Brevo API fetch failed:", e?.message);
-    }
-  }
-
-  return null;
-}
-
-// 2. Nodemailer SMTP Fallback with fast connection timeout
 async function sendMailWithFallback(mailOptions: {
   fromEmail: string;
   fromName: string;
@@ -115,25 +33,21 @@ async function sendMailWithFallback(mailOptions: {
   html: string;
   text: string;
 }) {
-  // Try HTTPS APIs first
-  const apiResult = await tryHttpsMailApis(mailOptions);
-  if (apiResult) return apiResult;
-
-  // Otherwise, use Nodemailer SMTP with fast timeout
   const host = (process.env.SMTP_HOST || DEFAULT_HOST).trim();
   const user = (process.env.SMTP_USER || DEFAULT_USER).trim();
   const pass = (process.env.SMTP_PASS || DEFAULT_PASS).replace(/"/g, "").trim();
   const envPort = process.env.SMTP_PORT ? Number(process.env.SMTP_PORT) : null;
 
+  // Order ports with 587 (STARTTLS) first, as confirmed working on server
   const configsToTry = envPort
     ? [
         { host, port: envPort, secure: envPort === 465 },
-        { host, port: 465, secure: true },
         { host, port: 587, secure: false },
+        { host, port: 465, secure: true },
       ]
     : [
-        { host, port: 465, secure: true },
         { host, port: 587, secure: false },
+        { host, port: 465, secure: true },
       ];
 
   let lastError: any = null;
@@ -147,9 +61,9 @@ async function sendMailWithFallback(mailOptions: {
         secure: config.secure,
         auth: { user, pass },
         tls: { rejectUnauthorized: false },
-        connectionTimeout: 3000, // 3 sec fast timeout per port to prevent 504 gateway timeout
-        greetingTimeout: 2500,
-        socketTimeout: 4000,
+        connectionTimeout: 10000,
+        greetingTimeout: 8000,
+        socketTimeout: 10000,
       });
 
       const info = await transporter.sendMail({
@@ -169,22 +83,7 @@ async function sendMailWithFallback(mailOptions: {
     }
   }
 
-  // Backup Discord notification if configured
-  const discordUrl = process.env.DISCORD_WEBHOOK_URL || process.env.VITE_DISCORD_WEBHOOK_URL;
-  if (discordUrl && discordUrl.trim()) {
-    try {
-      await fetch(discordUrl.trim(), {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          content: `🚨 **Nouveau contact TY-DEV (Secours Webhook)**\n**Sujet:** ${mailOptions.subject}\n**Email:** ${mailOptions.replyTo}\n**Message:**\n${mailOptions.text}`,
-        }),
-      });
-      console.log("[ContactForm] Backup Discord Notification sent!");
-    } catch (_) {}
-  }
-
-  throw lastError || new Error("Tous les serveurs d'envoi d'e-mail (SMTP 465/587) ont échoué.");
+  throw lastError || new Error("Le serveur SMTP (83.229.19.107) n'a pas répondu sur les ports 587/465.");
 }
 
 function parseReceivers(): string[] {
@@ -293,7 +192,7 @@ ${cleanDesc}
       };
 
       const result = await sendMailWithFallback(mailOptions);
-      console.log(`[ContactForm] Email successfully processed. MessageID: ${result.messageId}`);
+      console.log(`[ContactForm] Email successfully processed via SMTP. MessageID: ${result.messageId}`);
       return { success: true, messageId: result.messageId };
     } catch (error: any) {
       console.error("[ContactForm] Error sending email:", error);
@@ -303,13 +202,13 @@ ${cleanDesc}
 
 export const verifyEmailSmtpFn = createServerFn({ method: "GET" }).handler(async () => {
   try {
-    const transporter = getSmtpTransporter(465);
+    const transporter = getSmtpTransporter(587);
     await transporter.verify();
     const receivers = parseReceivers();
     return {
       status: "ok",
       receivers,
-      message: "Connexion SMTP vérifiée avec succès.",
+      message: "Connexion SMTP 587 vérifiée avec succès.",
     };
   } catch (error: any) {
     console.error("[SMTP Verification] Failed:", error);
