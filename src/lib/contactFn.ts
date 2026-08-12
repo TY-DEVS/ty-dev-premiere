@@ -24,7 +24,111 @@ function getSmtpTransporter(port: number = 465) {
   });
 }
 
+async function sendViaHttpApi(mailOptions: {
+  fromName: string;
+  fromEmail: string;
+  to: string[];
+  replyTo: string;
+  subject: string;
+  html: string;
+  text: string;
+}) {
+  // 1. Brevo HTTP API (Recommended for Cloudflare Workers - 300 free emails/day)
+  const brevoKey = process.env.BREVO_API_KEY || process.env.VITE_BREVO_API_KEY;
+  if (brevoKey && brevoKey.trim()) {
+    console.log("[ContactForm] Sending via Brevo HTTP API...");
+    const res = await fetch("https://api.brevo.com/v3/smtp/email", {
+      method: "POST",
+      headers: {
+        "api-key": brevoKey.trim(),
+        "content-type": "application/json",
+        "accept": "application/json",
+      },
+      body: JSON.stringify({
+        sender: { name: mailOptions.fromName, email: mailOptions.fromEmail },
+        to: mailOptions.to.map((email) => ({ email })),
+        replyTo: { email: mailOptions.replyTo },
+        subject: mailOptions.subject,
+        htmlContent: mailOptions.html,
+        textContent: mailOptions.text,
+      }),
+    });
+
+    if (!res.ok) {
+      const errText = await res.text();
+      console.error(`[ContactForm] Brevo HTTP API error (${res.status}): ${errText}`);
+      throw new Error(`Erreur Brevo API (${res.status}): ${errText}`);
+    }
+
+    const data = await res.json();
+    console.log("[ContactForm] SUCCESS via Brevo HTTP API!", data);
+    return { success: true, messageId: data.messageId || "brevo-ok" };
+  }
+
+  // 2. Resend HTTP API
+  const resendKey = process.env.RESEND_API_KEY || process.env.VITE_RESEND_API_KEY;
+  if (resendKey && resendKey.trim()) {
+    console.log("[ContactForm] Sending via Resend HTTP API...");
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${resendKey.trim()}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: `${mailOptions.fromName} <${mailOptions.fromEmail}>`,
+        to: mailOptions.to,
+        reply_to: mailOptions.replyTo,
+        subject: mailOptions.subject,
+        html: mailOptions.html,
+        text: mailOptions.text,
+      }),
+    });
+
+    if (!res.ok) {
+      const errText = await res.text();
+      console.error(`[ContactForm] Resend HTTP API error (${res.status}): ${errText}`);
+      throw new Error(`Erreur Resend API (${res.status}): ${errText}`);
+    }
+
+    const data = await res.json();
+    console.log("[ContactForm] SUCCESS via Resend HTTP API!", data);
+    return { success: true, messageId: data.id || "resend-ok" };
+  }
+
+  return null;
+}
+
 async function sendMailWithFallback(mailOptions: nodemailer.SendMailOptions) {
+  // 1. Try HTTP API first (works natively on Cloudflare Workers & Edge without raw TCP sockets)
+  try {
+    const fromStr = String(mailOptions.from || DEFAULT_USER);
+    const fromNameMatch = fromStr.match(/^"?(.*?)"?\s*<([^>]+)>/);
+    const fromName = fromNameMatch ? fromNameMatch[1] : "TY DEV Site";
+    const fromEmail = fromNameMatch ? fromNameMatch[2] : (process.env.SMTP_USER || DEFAULT_USER).trim();
+
+    const toArr = Array.isArray(mailOptions.to)
+      ? mailOptions.to.map(String)
+      : String(mailOptions.to || DEFAULT_RECEIVERS).split(",").map((e) => e.trim());
+
+    const httpResult = await sendViaHttpApi({
+      fromName,
+      fromEmail,
+      to: toArr,
+      replyTo: String(mailOptions.replyTo || fromEmail),
+      subject: String(mailOptions.subject || "Message de Contact"),
+      html: String(mailOptions.html || ""),
+      text: String(mailOptions.text || ""),
+    });
+
+    if (httpResult) {
+      return httpResult;
+    }
+  } catch (httpErr: any) {
+    console.warn("[ContactForm] HTTP API failed, trying Nodemailer TCP fallback:", httpErr?.message || httpErr);
+  }
+
+  // 2. Fallback to Nodemailer TCP sockets for Node.js environments
   const host = (process.env.SMTP_HOST || DEFAULT_HOST).trim();
   const user = (process.env.SMTP_USER || DEFAULT_USER).trim();
   const pass = (process.env.SMTP_PASS || DEFAULT_PASS).replace(/"/g, "").trim();
@@ -35,14 +139,10 @@ async function sendMailWithFallback(mailOptions: nodemailer.SendMailOptions) {
         { host, port: envPort, secure: envPort === 465 },
         { host, port: 465, secure: true },
         { host, port: 587, secure: false },
-        { host: "mail.ty-dev.site", port: 587, secure: false },
-        { host: "mail.ty-dev.site", port: 465, secure: true },
       ]
     : [
         { host, port: 465, secure: true },
         { host, port: 587, secure: false },
-        { host: "mail.ty-dev.site", port: 587, secure: false },
-        { host: "mail.ty-dev.site", port: 465, secure: true },
       ];
 
   let lastError: any = null;
@@ -61,15 +161,15 @@ async function sendMailWithFallback(mailOptions: nodemailer.SendMailOptions) {
       });
 
       const info = await transporter.sendMail(mailOptions);
-      console.log(`[ContactForm] SUCCESS via ${config.host}:${config.port}! MessageID: ${info.messageId}`);
+      console.log(`[ContactForm] SUCCESS via port ${config.port}! MessageID: ${info.messageId}`);
       return info;
     } catch (err: any) {
-      console.warn(`[ContactForm] Warning: SMTP attempt failed on ${config.host}:${config.port}: ${err?.message || err}`);
+      console.warn(`[ContactForm] Warning: SMTP attempt failed on port ${config.port}: ${err?.message || err}`);
       lastError = err;
     }
   }
 
-  throw lastError || new Error("Tous les ports SMTP (465, 587) et hôtes ont échoué.");
+  throw lastError || new Error("Tous les ports SMTP (465, 587) et API HTTP ont échoué.");
 }
 
 function parseReceivers(): string[] {
@@ -88,34 +188,27 @@ function parseReceivers(): string[] {
 }
 
 export const sendContactEmailFn = createServerFn({ method: "POST" })
-  .validator((data: any) => data)
+  .validator((data: { name: string; email: string; phone?: string; type: string; budget: string; desc: string; source?: string }) => data)
   .handler(async (ctx) => {
-    // Safely extract input fields regardless of client wrapper format
-    const rawData = ctx?.data?.data || ctx?.data || {};
-    const name = typeof rawData.name === "string" ? rawData.name : "";
-    const email = typeof rawData.email === "string" ? rawData.email : "";
-    const phone = typeof rawData.phone === "string" ? rawData.phone : "";
-    const type = typeof rawData.type === "string" ? rawData.type : "";
-    const budget = typeof rawData.budget === "string" ? rawData.budget : "";
-    const desc = typeof rawData.desc === "string" ? rawData.desc : "";
-    const source = typeof rawData.source === "string" ? rawData.source : "";
+    const { name, email, phone, type, budget, desc, source } = ctx.data;
 
-    const cleanEmail = email.trim();
-    const cleanName = name.trim();
-    const cleanDesc = desc.trim();
-    const cleanPhone = phone.trim();
+    // 1. Strict email verification
+    const cleanEmail = (email || "").trim();
+    const cleanName = (name || "").trim();
+    const cleanDesc = (desc || "").trim();
+    const cleanPhone = (phone || "").trim();
 
     if (!cleanEmail || !EMAIL_REGEX.test(cleanEmail)) {
-      console.warn(`[ContactForm] Invalid sender email: "${email}"`);
-      return { success: false, error: "L'adresse e-mail saisie est invalide. Veuillez vérifier votre saisie." };
+      console.warn(`[ContactForm] Rejected invalid sender email: "${email}"`);
+      throw new Error("L'adresse e-mail saisie est invalide. Veuillez vérifier votre saisie.");
     }
 
     if (!cleanName || cleanName.length < 2) {
-      return { success: false, error: "Veuillez renseigner un nom valide (au moins 2 caractères)." };
+      throw new Error("Veuillez renseigner un nom valide (au moins 2 caractères).");
     }
 
     if (!cleanDesc || cleanDesc.length < 5) {
-      return { success: false, error: "Veuillez décrire votre projet de manière plus détaillée." };
+      throw new Error("Veuillez décrire votre projet de manière plus détaillée.");
     }
 
     try {
@@ -188,10 +281,7 @@ ${cleanDesc}
       return { success: true, messageId: info.messageId };
     } catch (error: any) {
       console.error("[ContactForm] Error sending email:", error);
-      return {
-        success: false,
-        error: `Échec de l'envoi du message: ${error?.message || "Erreur connexion SMTP"}`,
-      };
+      throw new Error(`Échec de l'envoi du message: ${error?.message || "Erreur serveur SMTP"}`);
     }
   });
 
