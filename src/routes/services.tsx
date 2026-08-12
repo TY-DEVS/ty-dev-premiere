@@ -10,25 +10,26 @@ import { useI18n } from "@/i18n/context";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services Web & IA — TY Dev Tunisie | Djerba, Tunis" },
+      { title: "Nos Services — TY Dev | Développement SaaS, IA & Cloud" },
       {
         name: "description",
         content:
-          "Services de développement web en Tunisie : création sites internet, applications web, e-commerce, automatisation IA. Agence digitale à Djerba, Tunis. Devis gratuit.",
+          "SaaS sur-mesure, automatisations IA, applications web, e-commerce, intégrations d'APIs et infrastructure Cloud — ingénierie de bout en bout par TY Dev.",
       },
-      {
-        name: "keywords",
-        content: "services web tunisie, création site internet djerba, développement web tunis, agence digitale tunisie, e-commerce tunisie, application web tunisie, automatisation ia tunisie",
-      },
-      { property: "og:title", content: "Services Développement Web — TY Dev Tunisie" },
+      { name: "keywords", content: "services saas, développement ia, intégration api, architecture cloud, react vite, devops" },
+      { property: "og:title", content: "Nos Services — TY Dev | Développement SaaS, IA & Cloud" },
       {
         property: "og:description",
         content:
-          "Solutions web complètes en Tunisie : sites vitrine, e-commerce, applications SaaS et automatisation IA. Contact: +216 52 949 272",
+          "SaaS sur-mesure, automatisations IA, applications web, e-commerce, intégrations d'APIs et infrastructure Cloud.",
       },
-      { property: "og:url", content: "https://ty-dev.tech/services" },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://ty-dev.site/services" },
+      { property: "og:image", content: "https://ty-dev.site/logo.jpg" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://ty-dev.site/logo.jpg" },
     ],
-    links: [{ rel: "canonical", href: "/services" }],
+    links: [{ rel: "canonical", href: "https://ty-dev.site/services" }],
   }),
   component: ServicesPage,
 });

@@ -10,25 +10,26 @@ import { Testimonials } from "@/components/site/Testimonials";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "À Propos — TY Dev | Agence Web Tunisie, Djerba, Tunis" },
+      { title: "À Propos — TY Dev | Agence Indépendante d'Ingénierie Logicielle" },
       {
         name: "description",
         content:
-          "TY Dev, votre agence de développement web et IA en Tunisie. Basés à Djerba, nous accompagnons entreprises tunisiennes dans leur transformation digitale.",
+          "Rencontrez l'équipe TY Dev — agence indépendante spécialisée dans la création de systèmes logiciels robustes et d'applications IA pour entreprises ambitieuses.",
       },
-      {
-        name: "keywords",
-        content: "agence web tunisie, développement web djerba, agence digitale tunis, transformation digitale tunisie, équipe web tunisie",
-      },
-      { property: "og:title", content: "À Propos de TY Dev — Agence Web Tunisie" },
+      { name: "keywords", content: "à propos ty dev, équipe agence web, ingénieurs saas, experts ia, devops france" },
+      { property: "og:title", content: "À Propos — TY Dev | Agence Indépendante d'Ingénierie Logicielle" },
       {
         property: "og:description",
         content:
-          "Agence tunisienne spécialisée en développement web et solutions digitales. Présents à Djerba et Tunis.",
+          "Rencontrez l'équipe TY Dev — agence indépendante spécialisée dans la création de systèmes logiciels et d'IA.",
       },
-      { property: "og:url", content: "https://ty-dev.tech/about" },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://ty-dev.site/about" },
+      { property: "og:image", content: "https://ty-dev.site/logo.jpg" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://ty-dev.site/logo.jpg" },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: "https://ty-dev.site/about" }],
   }),
   component: AboutPage,
 });

@@ -10,7 +10,7 @@ type Ctx = {
 const I18nContext = createContext<Ctx | null>(null);
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Lang>("fr");
+  const [lang, setLang] = useState<Lang>("en");
   return (
     <I18nContext.Provider value={{ lang, setLang, t: translations[lang] }}>
       {children}

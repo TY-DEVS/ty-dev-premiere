@@ -8,25 +8,26 @@ import { useI18n } from "@/i18n/context";
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
     meta: [
-      { title: "Portfolio — TY Dev | Réalisations Web Tunisie, Djerba, Tunis" },
+      { title: "Portfolio & Projets — TY Dev | Réalisations Clients" },
       {
         name: "description",
         content:
-          "Découvrez nos réalisations web en Tunisie : sites vitrine, e-commerce, applications SaaS. Projets livrés pour clients à Djerba, Tunis et internationaux. Agence web tunisienne.",
+          "Découvrez une sélection de projets livrés par TY Dev — sites d'exception, plateformes SaaS et applications propulsées par l'intelligence artificielle.",
       },
-      {
-        name: "keywords",
-        content: "portfolio web tunisie, réalisations sites web djerba, projets web tunis, exemples sites internet tunisie, agence web portfolio tunisie",
-      },
-      { property: "og:title", content: "Portfolio TY Dev — Projets Web Tunisie" },
+      { name: "keywords", content: "portfolio web, projets saas, études de cas ia, réalisations agence web, ty dev" },
+      { property: "og:title", content: "Portfolio & Projets — TY Dev | Réalisations Clients" },
       {
         property: "og:description",
         content:
-          "Nos réalisations web pour clients en Tunisie et à l'international. Sites professionnels, e-commerce et applications.",
+          "Découvrez une sélection de projets livrés par TY Dev — sites d'exception, plateformes SaaS et applications IA.",
       },
-      { property: "og:url", content: "https://ty-dev.tech/portfolio" },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://ty-dev.site/portfolio" },
+      { property: "og:image", content: "https://ty-dev.site/logo.jpg" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://ty-dev.site/logo.jpg" },
     ],
-    links: [{ rel: "canonical", href: "/portfolio" }],
+    links: [{ rel: "canonical", href: "https://ty-dev.site/portfolio" }],
   }),
   component: PortfolioPage,
 });

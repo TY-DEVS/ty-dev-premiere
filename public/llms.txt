@@ -11,13 +11,13 @@
 
 ## Services Proposés
 
-1. **Développement SaaS sur mesure** (https://ty-dev.site/services/saas-sur-mesure)
+1. **Développement SaaS sur mesure** (https://ty-dev.site/services)
    - Architectures multi-tenants, facturation Stripe, authentification OAuth/JWT, performances sub-100ms.
-2. **Intégration d'Agents IA & LLM** (https://ty-dev.site/services/integration-ia-llm)
+2. **Intégration d'Agents IA & LLM** (https://ty-dev.site/services)
    - Solutions RAG (Retrieval-Augmented Generation), vector databases (Pgvector), agents autonomes et workflows métiers.
-3. **Applications Web & PWA Haute Performance** (https://ty-dev.site/services/applications-web-pwa)
-   - Rendu haute vitesse React & Vite, Design Systems modernes, PWA et optimisations 100/100 Lighthouse.
-4. **DevOps & Infrastructure Cloud** (https://ty-dev.site/services/devops-cloud-infrastructure)
+3. **Applications Web & Interfaces d'Exception** (https://ty-dev.site/services)
+   - Rendu haute vitesse React & Vite, Design Systems modernes (Glassmorphism, Tailwind), PWA et optimisations 100/100 Lighthouse.
+4. **DevOps & Infrastructure Cloud** (https://ty-dev.site/services)
    - Pipelines CI/CD automatisés, conteneurisation Docker, monitoring et architectures Serverless.
 
 ## Équipe Fondatrice & Experts
