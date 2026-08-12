@@ -27,7 +27,7 @@ export function WhatsAppButton() {
       {/* WhatsApp Button */}
       <div className="relative">
         <motion.a
-          href="https://wa.me/21652949272"
+          href="https://wa.me/33759440105"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Contactez-nous sur WhatsApp"

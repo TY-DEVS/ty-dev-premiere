@@ -72,13 +72,8 @@ export function Contact() {
             <ContactRow Icon={Mail} text="contact@ty-dev.tech" href="mailto:contact@ty-dev.tech" />
             <ContactRow
               Icon={MessageCircle}
-              text="WhatsApp (FR): +33 7 59 44 01 05"
+              text="WhatsApp: +33 7 59 44 01 05"
               href="https://wa.me/33759440105"
-            />
-            <ContactRow
-              Icon={MessageCircle}
-              text="WhatsApp (TN): +216 52 949 272"
-              href="https://wa.me/21652949272"
             />
             <ContactRow
               Icon={Instagram}
