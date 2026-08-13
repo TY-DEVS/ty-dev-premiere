@@ -6,7 +6,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
-import { Share2, Copy, Check, ExternalLink } from "lucide-react";
+import { Share2, Copy, Check, ExternalLink, Download, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 
 interface ShareArticleModalProps {
@@ -43,6 +43,7 @@ const FacebookIcon = () => (
 
 export function ShareArticleModal({ isOpen, onClose, post, lang }: ShareArticleModalProps) {
   const [copiedLink, setCopiedLink] = useState(false);
+  const [isGeneratingStory, setIsGeneratingStory] = useState(false);
 
   const getArticleUrl = () => {
     if (typeof window !== "undefined") {
@@ -76,6 +77,136 @@ export function ShareArticleModal({ isOpen, onClose, post, lang }: ShareArticleM
     );
   };
 
+  // 📸 Generate & Download Instagram Story Graphic (1080x1920)
+  const downloadStoryGraphic = async () => {
+    setIsGeneratingStory(true);
+    try {
+      const canvas = document.createElement("canvas");
+      canvas.width = 1080;
+      canvas.height = 1920;
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return;
+
+      // 1. Dark Luxury Background Gradient
+      const bgGrad = ctx.createLinearGradient(0, 0, 1080, 1920);
+      bgGrad.addColorStop(0, "#030712");
+      bgGrad.addColorStop(0.5, "#0f172a");
+      bgGrad.addColorStop(1, "#030712");
+      ctx.fillStyle = bgGrad;
+      ctx.fillRect(0, 0, 1080, 1920);
+
+      // Radial Glow
+      const glow = ctx.createRadialGradient(540, 600, 50, 540, 600, 700);
+      glow.addColorStop(0, "rgba(6, 182, 212, 0.35)");
+      glow.addColorStop(1, "transparent");
+      ctx.fillStyle = glow;
+      ctx.fillRect(0, 0, 1080, 1920);
+
+      // 2. Main Card Container
+      const cardX = 80;
+      const cardY = 280;
+      const cardW = 920;
+      const cardH = 1360;
+
+      ctx.fillStyle = "rgba(15, 23, 42, 0.92)";
+      ctx.strokeStyle = "rgba(6, 182, 212, 0.4)";
+      ctx.lineWidth = 4;
+      ctx.beginPath();
+      ctx.roundRect(cardX, cardY, cardW, cardH, 48);
+      ctx.fill();
+      ctx.stroke();
+
+      // 3. Header Branding in Story Card
+      ctx.fillStyle = "#67e8f9";
+      ctx.font = "bold 26px sans-serif";
+      ctx.fillText("TY DEV — ENGINEERING & TECH BLOG", cardX + 50, cardY + 80);
+
+      // 4. Image inside Card
+      const img = new Image();
+      img.crossOrigin = "anonymous";
+      img.src = post.image;
+      await new Promise((resolve) => {
+        img.onload = resolve;
+        img.onerror = resolve;
+      });
+
+      const imgY = cardY + 120;
+      const imgH = 480;
+      ctx.save();
+      ctx.beginPath();
+      ctx.roundRect(cardX + 40, imgY, cardW - 80, imgH, 32);
+      ctx.clip();
+      if (img.complete && img.naturalWidth > 0) {
+        ctx.drawImage(img, cardX + 40, imgY, cardW - 80, imgH);
+      } else {
+        ctx.fillStyle = "#1e293b";
+        ctx.fillRect(cardX + 40, imgY, cardW - 80, imgH);
+      }
+      ctx.restore();
+
+      // 5. Category Badge Pill
+      const catY = imgY + imgH + 40;
+      ctx.fillStyle = "rgba(6, 182, 212, 0.2)";
+      ctx.strokeStyle = "rgba(6, 182, 212, 0.6)";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.roundRect(cardX + 40, catY, 340, 52, 26);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = "#67e8f9";
+      ctx.font = "bold 22px sans-serif";
+      ctx.fillText(post.category.toUpperCase(), cardX + 65, catY + 34);
+
+      // 6. Title (Multi-line)
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "bold 44px sans-serif";
+      const words = titleText.split(" ");
+      let line = "";
+      let lineY = catY + 120;
+      for (let n = 0; n < words.length; n++) {
+        const testLine = line + words[n] + " ";
+        const metrics = ctx.measureText(testLine);
+        if (metrics.width > cardW - 100 && n > 0) {
+          ctx.fillText(line, cardX + 40, lineY);
+          line = words[n] + " ";
+          lineY += 60;
+        } else {
+          line = testLine;
+        }
+      }
+      ctx.fillText(line, cardX + 40, lineY);
+
+      // 7. Footer Sticker Callout
+      const stickerY = cardY + cardH - 140;
+      ctx.fillStyle = "#06b6d4";
+      ctx.beginPath();
+      ctx.roundRect(cardX + 40, stickerY, cardW - 80, 80, 24);
+      ctx.fill();
+
+      ctx.fillStyle = "#030712";
+      ctx.font = "bold 28px sans-serif";
+      ctx.fillText("🔗 LIEN EN BIO / TY-DEV.SITE", cardX + 80, stickerY + 50);
+
+      // 8. Download PNG
+      const dataUrl = canvas.toDataURL("image/png");
+      const a = document.createElement("a");
+      a.download = `story-badge-tydev-${post.slug}.png`;
+      a.href = dataUrl;
+      a.click();
+
+      toast.success(
+        lang === "fr"
+          ? "🖼️ Visuel de Story téléchargé ! Publiez-le dans votre Story Instagram."
+          : "🖼️ Story graphic downloaded! Post it into your Instagram Story."
+      );
+    } catch (err) {
+      console.error("Story image download error:", err);
+    } finally {
+      setIsGeneratingStory(false);
+    }
+  };
+
   // Share Handlers
   const shareLinkedIn = () => {
     const url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
@@ -99,19 +230,18 @@ export function ShareArticleModal({ isOpen, onClose, post, lang }: ShareArticleM
     openShareWindow(url);
   };
 
-  const shareInstagram = () => {
-    const hashtags = post.tags.map((t) => `#${t.replace(/\s+/g, "")}`).join(" ");
-    const caption = `✨ ${titleText}\n\n📌 ${summaryText}\n\n🔗 ${articleUrl}\n\n${hashtags} #TYDev`;
-    navigator.clipboard.writeText(caption);
-    toast.success(
-      lang === "fr"
-        ? "📸 Légende copiée ! Ouverture de la création de Story Instagram..."
-        : "📸 Caption copied! Opening Instagram Story creation..."
-    );
+  const shareInstagram = async () => {
+    // 1. Download visual story badge
+    await downloadStoryGraphic();
+
+    // 2. Copy short story sticker link
+    const shortStoryText = `🔥 Nouvel article TY Dev :\n"${titleText}"\n\n🔗 ${articleUrl}`;
+    navigator.clipboard.writeText(shortStoryText);
+
+    // 3. Open Instagram Story camera
     setTimeout(() => {
-      // Instagram Story creation URL (opens story camera on mobile/desktop web app)
       window.open("https://www.instagram.com/create/story/", "_blank");
-    }, 400);
+    }, 500);
   };
 
   return (
@@ -154,8 +284,8 @@ export function ShareArticleModal({ isOpen, onClose, post, lang }: ShareArticleM
           </div>
         </div>
 
-        {/* 4 Premium Network Cards Grid: LinkedIn, X (Twitter), Instagram, Facebook */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3.5 mb-6 w-full min-w-0">
+        {/* 4 Premium Network Cards Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3.5 mb-5 w-full min-w-0">
           {/* LinkedIn */}
           <button
             onClick={shareLinkedIn}
@@ -200,7 +330,7 @@ export function ShareArticleModal({ isOpen, onClose, post, lang }: ShareArticleM
               Instagram
             </span>
             <span className="text-[9px] text-muted-foreground mt-0.5 font-mono truncate max-w-full hidden sm:block">
-              Story & Post
+              Story & Badge
             </span>
           </button>
 
@@ -217,6 +347,26 @@ export function ShareArticleModal({ isOpen, onClose, post, lang }: ShareArticleM
             </span>
             <span className="text-[9px] text-muted-foreground mt-0.5 font-mono truncate max-w-full hidden sm:block">
               Feed Post
+            </span>
+          </button>
+        </div>
+
+        {/* Story Graphic Instant Download Button */}
+        <div className="mb-5">
+          <button
+            onClick={downloadStoryGraphic}
+            disabled={isGeneratingStory}
+            className="w-full py-2.5 px-4 rounded-2xl bg-gradient-to-r from-pink-500/20 via-purple-500/20 to-cyan-500/20 border border-pink-500/40 text-pink-300 hover:text-white hover:border-pink-400 hover:bg-pink-500/30 transition-all duration-300 font-semibold text-xs flex items-center justify-center gap-2 shadow-md"
+          >
+            <Download className="w-4 h-4 text-pink-400" />
+            <span>
+              {isGeneratingStory
+                ? lang === "fr"
+                  ? "Génération du Visuel..."
+                  : "Generating Story Graphic..."
+                : lang === "fr"
+                ? "Télécharger le Visuel de l'Article (Format Story 9:16)"
+                : "Download Story Visual Badge (9:16 Format)"}
             </span>
           </button>
         </div>
