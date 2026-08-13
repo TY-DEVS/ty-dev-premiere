@@ -199,18 +199,26 @@ export function Blog({ isPage = false }: { isPage?: boolean }) {
                   </span>
 
                   {/* Share Icon Button for Featured Article */}
-                  <button
-                    type="button"
+                  <span
+                    role="button"
+                    tabIndex={0}
                     onClick={(e) => {
                       e.preventDefault();
                       e.stopPropagation();
                       setSelectedSharePost(featuredPost);
                     }}
-                    className="absolute top-4 right-4 p-2.5 rounded-full bg-slate-950/80 border border-cyan-500/40 text-cyan-300 hover:bg-cyan-500 hover:text-slate-950 transition-all duration-300 shadow-xl backdrop-blur-md hover:scale-110 z-10"
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setSelectedSharePost(featuredPost);
+                      }
+                    }}
+                    className="absolute top-4 right-4 p-2.5 rounded-full bg-slate-950/80 border border-cyan-500/40 text-cyan-300 hover:bg-cyan-500 hover:text-slate-950 transition-all duration-300 shadow-xl backdrop-blur-md hover:scale-110 z-10 cursor-pointer"
                     title={lang === "fr" ? "Partager l'article" : "Share Article"}
                   >
                     <Share2 className="w-4 h-4" />
-                  </button>
+                  </span>
                 </div>
 
                 {/* Content Area */}
@@ -292,18 +300,26 @@ export function Blog({ isPage = false }: { isPage?: boolean }) {
                       <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.06_0.02_250)] via-transparent to-transparent opacity-85" />
                       
                       {/* Share Icon Button for Grid Article */}
-                      <button
-                        type="button"
+                      <span
+                        role="button"
+                        tabIndex={0}
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
                           setSelectedSharePost(post);
                         }}
-                        className="absolute top-3 right-3 p-2 rounded-full bg-slate-950/80 border border-cyan-500/30 text-cyan-300 hover:bg-cyan-500 hover:text-slate-950 transition-all duration-300 shadow-lg backdrop-blur-md hover:scale-110 z-10"
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            setSelectedSharePost(post);
+                          }
+                        }}
+                        className="absolute top-3 right-3 p-2 rounded-full bg-slate-950/80 border border-cyan-500/30 text-cyan-300 hover:bg-cyan-500 hover:text-slate-950 transition-all duration-300 shadow-lg backdrop-blur-md hover:scale-110 z-10 cursor-pointer"
                         title={lang === "fr" ? "Partager l'article" : "Share Article"}
                       >
                         <Share2 className="w-3.5 h-3.5" />
-                      </button>
+                      </span>
                     </div>
 
                     {/* Content Area */}

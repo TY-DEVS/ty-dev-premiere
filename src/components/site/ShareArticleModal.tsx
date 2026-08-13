@@ -29,12 +29,6 @@ const XIcon = () => (
   </svg>
 );
 
-const InstagramIcon = () => (
-  <svg className="w-5 h-5 sm:w-6 sm:h-6 fill-current" viewBox="0 0 24 24">
-    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-  </svg>
-);
-
 const FacebookIcon = () => (
   <svg className="w-5 h-5 sm:w-6 sm:h-6 fill-current" viewBox="0 0 24 24">
     <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H7.5v-3H10V9.5C10 7.01 11.49 5.65 13.75 5.65c1.08 0 2.2.19 2.2.19v2.42h-1.24c-1.23 0-1.62.77-1.62 1.56V12h2.73l-.44 3h-2.29v6.8c4.56-.93 8-4.96 8-9.8z" />
@@ -44,9 +38,10 @@ const FacebookIcon = () => (
 export function ShareArticleModal({ isOpen, onClose, post, lang }: ShareArticleModalProps) {
   const [copiedLink, setCopiedLink] = useState(false);
 
+  // Always build exact canonical link to the specific post slug
   const getArticleUrl = () => {
     if (typeof window !== "undefined") {
-      return window.location.href;
+      return `${window.location.origin}/blog/${post.slug}`;
     }
     return `https://ty-dev.site/blog/${post.slug}`;
   };
@@ -99,21 +94,6 @@ export function ShareArticleModal({ isOpen, onClose, post, lang }: ShareArticleM
     openShareWindow(url);
   };
 
-  // Direct Instagram Story Launch (No files downloaded)
-  const shareInstagram = () => {
-    const storyText = `💡 ${titleText}\n🔗 ${articleUrl}`;
-    navigator.clipboard.writeText(storyText);
-    toast.success(
-      lang === "fr"
-        ? "Lien copié ! Ouverture d'Instagram Story..."
-        : "Link copied! Opening Instagram Story..."
-    );
-    setTimeout(() => {
-      // Direct opening of Instagram Story camera
-      window.open("https://www.instagram.com/create/story/", "_blank");
-    }, 200);
-  };
-
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="!max-w-xl !w-[94vw] p-5 sm:p-7 flex flex-col gap-0 bg-[oklch(0.08_0.03_250)] border border-cyan-500/30 backdrop-blur-2xl shadow-[0_25px_100px_-15px_oklch(0.75_0.18_200/0.4)] rounded-3xl text-foreground overflow-hidden">
@@ -154,8 +134,8 @@ export function ShareArticleModal({ isOpen, onClose, post, lang }: ShareArticleM
           </div>
         </div>
 
-        {/* 4 Premium Network Cards Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3.5 mb-6 w-full min-w-0">
+        {/* 3 Premium Network Cards Grid: LinkedIn, X (Twitter), Facebook */}
+        <div className="grid grid-cols-3 gap-2.5 sm:gap-4 mb-6 w-full min-w-0">
           {/* LinkedIn */}
           <button
             onClick={shareLinkedIn}
@@ -181,26 +161,10 @@ export function ShareArticleModal({ isOpen, onClose, post, lang }: ShareArticleM
               <XIcon />
             </div>
             <span className="font-display font-bold text-xs text-foreground group-hover:text-white transition-colors truncate max-w-full">
-              X (Twitter)
+              X
             </span>
             <span className="text-[9px] text-muted-foreground mt-0.5 font-mono truncate max-w-full hidden sm:block">
               Instant Tweet
-            </span>
-          </button>
-
-          {/* Instagram */}
-          <button
-            onClick={shareInstagram}
-            className="group relative flex flex-col items-center justify-center p-3.5 sm:p-4 rounded-2xl bg-surface/40 border border-border/60 hover:border-pink-500 hover:bg-pink-500/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(236,72,153,0.3)] min-w-0"
-          >
-            <div className="p-3 sm:p-3.5 rounded-2xl bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white transition-all duration-300 mb-2 shadow-md group-hover:scale-110">
-              <InstagramIcon />
-            </div>
-            <span className="font-display font-bold text-xs text-foreground group-hover:text-pink-400 transition-colors truncate max-w-full">
-              Instagram
-            </span>
-            <span className="text-[9px] text-muted-foreground mt-0.5 font-mono truncate max-w-full hidden sm:block">
-              Story Direct
             </span>
           </button>
 
