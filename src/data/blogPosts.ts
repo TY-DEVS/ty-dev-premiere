@@ -67,6 +67,41 @@ export const baseBlogPosts: BlogPost[] = [
     },
     category: "SEO & Web Performance",
     date: {
+        fr: "13 Août 2026",
+        en: "August 13, 2026"
+    },
+    author: {
+        name: "Mohamed Ben Yahia",
+        role: "FULL STACK DEVELOPER",
+        avatar: "/team/mohamedbenyahia.jpg"
+    },
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+    tags: [
+        "React",
+        "Performance",
+        "Vite",
+        "JavaScript",
+        "Frontend",
+        "WebVitals"
+    ],
+    content: {
+        fr: "\n## Temps de Chargement & Conversion Utilisateur\n\nSur le web moderne, la vitesse de chargement d'une application conditionne directement le taux de conversion et le référencement naturel (SEO). Chaque économie de 100ms sur l'interactivité (**INP - Interaction to Next Paint**) augmente l'engagement utilisateur.\n\n---\n\n### 1. Dynamic Imports & Lazy Loading avec React & Vite\n\nAu lieu de charger l'intégralité du bundle JavaScript lors du premier affichage, le **Code Splitting** permet d'isoler les routes et composants secondaires :\n\n```tsx\nimport React, { Suspense, lazy } from 'react';\n\n// Chargement à la demande des routes lourdes\nconst AnalyticsDashboard = lazy(() => import('./pages/AnalyticsDashboard'));\nconst SettingsPanel = lazy(() => import('./pages/SettingsPanel'));\n\nexport function AppRouter() {\n  return (\n    <Suspense fallback={<div className=\"animate-pulse p-6\">Chargement du module...</div>}>\n      <Routes>\n        <Route path=\"/dashboard\" element={<AnalyticsDashboard />} />\n        <Route path=\"/settings\" element={<SettingsPanel />} />\n      </Routes>\n    </Suspense>\n  );\n}\n```\n\n---\n\n### 2. Optimisation de la Configuration Vite (`vite.config.ts`)\n\nDécoupez les dépendances tierces lourdes (`lucide-react`, `recharts`, `framer-motion`) dans des chunks séparés pour optimiser la mise en cache du navigateur :\n\n```typescript\nimport { defineConfig } from 'vite';\nimport react from '@vitejs/plugin-react';\n\nexport default defineConfig({\n  plugins: [react()],\n  build: {\n    rollupOptions: {\n      output: {\n        manualChunks: {\n          vendor: ['react', 'react-dom'],\n          ui: ['framer-motion', 'lucide-react'],\n          charts: ['recharts'],\n        },\n      },\n    },\n  },\n});\n```\n\n---\n\n### 3. Checklist Core Web Vitals 2026\n\n- **LCP (Largest Contentful Paint) < 1.2s** : Préchargement des images critiques (`fetchpriority=\"high\"`) et utilisation de formats WebP / AVIF.\n- **INP (Interaction to Next Paint) < 200ms** : Éviter le blocage du thread principal en découpant les fonctions JavaScript lourdes.\n- **CLS (Cumulative Layout Shift) < 0.05** : Définir des dimensions explicites (`width` / `height`) sur tous les éléments média.\n",
+        en: "\n## Speed Drives User Conversion & SEO\n\nIn modern web development, load performance directly dictates conversion metrics and search rankings. Every 100ms optimization in **INP (Interaction to Next Paint)** measurably improves retention.\n\n---\n\n### 1. Dynamic Imports & Lazy Loading in React & Vite\n\nRather than serving a monolithic JavaScript bundle upfront, **Code Splitting** defers non-critical modules until user navigation:\n\n```tsx\nimport React, { Suspense, lazy } from 'react';\n\n// On-demand route loading\nconst AnalyticsDashboard = lazy(() => import('./pages/AnalyticsDashboard'));\nconst SettingsPanel = lazy(() => import('./pages/SettingsPanel'));\n\nexport function AppRouter() {\n  return (\n    <Suspense fallback={<div className=\"animate-pulse p-6\">Loading module...</div>}>\n      <Routes>\n        <Route path=\"/dashboard\" element={<AnalyticsDashboard />} />\n        <Route path=\"/settings\" element={<SettingsPanel />} />\n      </Routes>\n    </Suspense>\n  );\n}\n```\n\n---\n\n### 2. Vite Chunk Splitting Strategy (`vite.config.ts`)\n\nSplit large third-party packages (`recharts`, `framer-motion`) into dedicated vendor chunks for browser caching efficiency:\n\n```typescript\nimport { defineConfig } from 'vite';\nimport react from '@vitejs/plugin-react';\n\nexport default defineConfig({\n  plugins: [react()],\n  build: {\n    rollupOptions: {\n      output: {\n        manualChunks: {\n          vendor: ['react', 'react-dom'],\n          ui: ['framer-motion', 'lucide-react'],\n          charts: ['recharts'],\n        },\n      },\n    },\n  },\n});\n```\n\n---\n\n### 3. Core Web Vitals Checklist 2026\n\n- **LCP (Largest Contentful Paint) < 1.2s**: Preloading hero assets (`fetchpriority=\"high\"`) with WebP/AVIF formatting.\n- **INP (Interaction to Next Paint) < 200ms**: Avoiding long main-thread tasks via non-blocking async execution.\n- **CLS (Cumulative Layout Shift) < 0.05**: Setting fixed aspect ratios on dynamic dynamic elements.\n"
+    }
+},
+  {
+    id: "performance-frontend-code-splitting-accelerer-les-applications-react-vite",
+    slug: "performance-frontend-code-splitting-accelerer-les-applications-react-vite",
+    title: {
+        fr: "Performance Frontend & Code Splitting : Accélérer les Applications React & Vite",
+        en: "Frontend Performance & Code Splitting: Speeding up React & Vite Apps"
+    },
+    summary: {
+        fr: "Techniques avancées d'optimisation frontend : Lazy Loading des composants, Tree-Shaking, optimisation des bundles Vite et atteinte d'un score Lighthouse de 100.",
+        en: "Advanced frontend performance techniques: Component Lazy Loading, Tree-Shaking, Vite bundle optimization, and achieving a 100 Lighthouse score."
+    },
+    category: "SEO & Web Performance",
+    date: {
         fr: "12 Août 2026",
         en: "August 12, 2026"
     },
