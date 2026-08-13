@@ -1,11 +1,11 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
-import { blogPosts } from "@/data/blogPosts";
+import { getDynamicBlogPosts } from "@/data/blogPosts";
 import { BlogArticleDetail } from "@/components/site/BlogArticleDetail";
 import { CtaStrip } from "@/components/site/CtaStrip";
 
 export const Route = createFileRoute("/blog_/$slug")({
   loader: ({ params }) => {
-    const post = blogPosts.find((p) => p.slug === params.slug);
+    const post = getDynamicBlogPosts().find((p) => p.slug === params.slug);
     if (!post) {
       throw notFound();
     }

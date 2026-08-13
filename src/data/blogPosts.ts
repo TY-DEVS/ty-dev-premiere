@@ -13,6 +13,7 @@ export interface BlogPost {
   date: {
     fr: string;
     en: string;
+    iso?: string;
   };
   author: {
     name: string;
@@ -27,7 +28,32 @@ export interface BlogPost {
   };
 }
 
-export const blogPosts: BlogPost[] = [
+export function formatDate(date: Date) {
+  const day = date.getDate();
+  const monthNamesFr = [
+    "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
+    "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
+  ];
+  const monthNamesEn = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+
+  const monthFr = monthNamesFr[date.getMonth()];
+  const monthEn = monthNamesEn[date.getMonth()];
+  const year = date.getFullYear();
+  const dayStr = day < 10 ? `0${day}` : `${day}`;
+  const monthNum = date.getMonth() + 1;
+  const monthStr = monthNum < 10 ? `0${monthNum}` : `${monthNum}`;
+
+  return {
+    fr: `${dayStr} ${monthFr} ${year}`,
+    en: `${monthEn} ${dayStr}, ${year}`,
+    iso: `${year}-${monthStr}-${dayStr}`,
+  };
+}
+
+export const baseBlogPosts: BlogPost[] = [
   {
     id: "performance-frontend-code-splitting-accelerer-les-applications-react-vite",
     slug: "performance-frontend-code-splitting-accelerer-les-applications-react-vite",
@@ -556,3 +582,36 @@ Cybersecurity must be embedded into application architecture from day one. Prote
     },
   },
 ];
+
+/**
+ * Dynamically rotates blog posts based on today's date, ensuring:
+ * 1. Every day at 00:00, a BRAND NEW article becomes the featured article of the day (index 0).
+ * 2. Publication dates are dynamically calculated relative to today (today, yesterday, 2 days ago...).
+ */
+export function getDynamicBlogPosts(): BlogPost[] {
+  const now = new Date();
+  const epoch = Date.UTC(2026, 0, 1);
+  const todayUtc = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+  const dayOffset = Math.floor((todayUtc - epoch) / (1000 * 60 * 60 * 24));
+
+  const count = baseBlogPosts.length;
+  if (count === 0) return [];
+
+  const shift = ((dayOffset % count) + count) % count;
+
+  const rotated = [
+    ...baseBlogPosts.slice(shift),
+    ...baseBlogPosts.slice(0, shift),
+  ];
+
+  return rotated.map((post, index) => {
+    const postDate = new Date(now.getFullYear(), now.getMonth(), now.getDate() - index);
+    return {
+      ...post,
+      date: formatDate(postDate),
+    };
+  });
+}
+
+export const blogPosts: BlogPost[] = getDynamicBlogPosts();
+

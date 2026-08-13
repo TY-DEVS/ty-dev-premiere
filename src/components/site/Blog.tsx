@@ -4,7 +4,7 @@ import { ArrowRight, Calendar, BookOpen, Radio, ChevronLeft, ChevronRight } from
 import { Link } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
 import { Section, SectionHeader } from "./Services";
-import { blogPosts } from "@/data/blogPosts";
+import { getDynamicBlogPosts } from "@/data/blogPosts";
 import { TechWatchFeed } from "./TechWatchFeed";
 
 const POSTS_PER_PAGE = 6;
@@ -15,17 +15,20 @@ export function Blog({ isPage = false }: { isPage?: boolean }) {
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [currentPage, setCurrentPage] = useState<number>(1);
 
+  // Dynamically rotated posts for today
+  const blogPosts = useMemo(() => getDynamicBlogPosts(), []);
+
   const categories = useMemo(() => {
     const cats = Array.from(new Set(blogPosts.map((p) => p.category)));
     return lang === "fr"
       ? [{ id: "all", label: "Tous les sujets" }, ...cats.map((c) => ({ id: c, label: c }))]
       : [{ id: "all", label: "All Topics" }, ...cats.map((c) => ({ id: c, label: c }))];
-  }, [lang]);
+  }, [lang, blogPosts]);
 
   const filteredPosts = useMemo(() => {
     if (activeCategory === "all") return blogPosts;
     return blogPosts.filter((p) => p.category === activeCategory);
-  }, [activeCategory]);
+  }, [activeCategory, blogPosts]);
 
   // Reset to page 1 on category/tab change
   useEffect(() => {
@@ -53,7 +56,7 @@ export function Blog({ isPage = false }: { isPage?: boolean }) {
       "@type": "BlogPosting",
       "headline": post.title[lang],
       "description": post.summary[lang],
-      "datePublished": "2026-02-10",
+      "datePublished": post.date.iso || "2026-08-13",
       "author": {
         "@type": "Person",
         "name": post.author.name,
@@ -189,7 +192,8 @@ export function Blog({ isPage = false }: { isPage?: boolean }) {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.06_0.02_250)] via-transparent to-transparent opacity-80" />
                   <span className="absolute top-4 left-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500 text-slate-950 text-xs font-mono font-bold uppercase tracking-wider shadow-lg">
-                    <span>{lang === "fr" ? "Article à la Une" : "Featured Article"}</span>
+                    <span className="w-2 h-2 rounded-full bg-slate-950 animate-pulse" />
+                    <span>{lang === "fr" ? "Publication du jour" : "Article of the Day"}</span>
                   </span>
                 </div>
 

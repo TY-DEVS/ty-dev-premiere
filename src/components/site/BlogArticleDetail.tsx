@@ -25,8 +25,8 @@ export function BlogArticleDetail({ post }: { post: BlogPost }) {
     "headline": post.title[lang],
     "description": post.summary[lang],
     "image": post.image,
-    "datePublished": "2026-02-10",
-    "dateModified": "2026-02-10",
+    "datePublished": post.date.iso || "2026-08-13",
+    "dateModified": post.date.iso || "2026-08-13",
     "author": {
       "@type": "Person",
       "name": post.author.name,
