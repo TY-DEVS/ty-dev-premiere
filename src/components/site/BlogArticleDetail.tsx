@@ -1,22 +1,15 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, Calendar, Share2, Tag, Check } from "lucide-react";
+import { ArrowLeft, Calendar, Share2, Tag } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
 import { type BlogPost } from "@/data/blogPosts";
 import { Section } from "./Services";
 import { useState } from "react";
+import { ShareArticleModal } from "./ShareArticleModal";
 
 export function BlogArticleDetail({ post }: { post: BlogPost }) {
   const { lang } = useI18n();
-  const [copied, setCopied] = useState(false);
-
-  const handleShare = () => {
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(window.location.href);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2500);
-    }
-  };
+  const [isShareOpen, setIsShareOpen] = useState(false);
 
   // Structured Data JSON-LD for single article
   const articleJsonLd = {
@@ -52,6 +45,14 @@ export function BlogArticleDetail({ post }: { post: BlogPost }) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+
+      {/* Share Modal Component */}
+      <ShareArticleModal
+        isOpen={isShareOpen}
+        onClose={() => setIsShareOpen(false)}
+        post={post}
+        lang={lang}
       />
 
       {/* Navigation Top Bar */}
@@ -105,18 +106,12 @@ export function BlogArticleDetail({ post }: { post: BlogPost }) {
             </div>
 
             <button
-              onClick={handleShare}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-semibold hover:bg-cyan-500 hover:text-slate-950 transition-all duration-300"
+              onClick={() => setIsShareOpen(true)}
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-semibold hover:bg-cyan-500 hover:text-slate-950 hover:scale-105 transition-all duration-300 shadow-md"
             >
-              {copied ? <Check className="w-3.5 h-3.5" /> : <Share2 className="w-3.5 h-3.5" />}
+              <Share2 className="w-4 h-4" />
               <span>
-                {copied
-                  ? lang === "fr"
-                    ? "Lien copié !"
-                    : "Link Copied!"
-                  : lang === "fr"
-                  ? "Partager l'article"
-                  : "Share Article"}
+                {lang === "fr" ? "Partager l'article" : "Share Article"}
               </span>
             </button>
           </div>
@@ -205,20 +200,32 @@ export function BlogArticleDetail({ post }: { post: BlogPost }) {
             })}
           </div>
 
-          {/* Article Footer Tags */}
-          <div className="mt-12 pt-6 border-t border-border/40 flex flex-wrap items-center gap-2">
-            <span className="text-xs font-mono text-muted-foreground flex items-center gap-1 mr-2">
-              <Tag className="w-3.5 h-3.5 text-cyan-400" />
-              Tags:
-            </span>
-            {post.tags.map((t) => (
-              <span
-                key={t}
-                className="font-mono text-[11px] px-3 py-1 rounded-full bg-surface/60 border border-border/50 text-muted-foreground"
-              >
-                #{t}
+          {/* Article Footer Tags & Share Banner */}
+          <div className="mt-12 pt-6 border-t border-border/40 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-xs font-mono text-muted-foreground flex items-center gap-1 mr-2">
+                <Tag className="w-3.5 h-3.5 text-cyan-400" />
+                Tags:
               </span>
-            ))}
+              {post.tags.map((t) => (
+                <span
+                  key={t}
+                  className="font-mono text-[11px] px-3 py-1 rounded-full bg-surface/60 border border-border/50 text-muted-foreground"
+                >
+                  #{t}
+                </span>
+              ))}
+            </div>
+
+            <button
+              onClick={() => setIsShareOpen(true)}
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-cyan-500 text-slate-950 text-xs font-bold hover:bg-cyan-400 transition-all duration-300 shadow-[0_0_20px_oklch(0.75_0.18_200/0.3)] hover:scale-105"
+            >
+              <Share2 className="w-4 h-4" />
+              <span>
+                {lang === "fr" ? "Partager cet article" : "Share this Article"}
+              </span>
+            </button>
           </div>
         </div>
       </article>
