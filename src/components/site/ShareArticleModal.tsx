@@ -101,15 +101,16 @@ export function ShareArticleModal({ isOpen, onClose, post, lang }: ShareArticleM
 
   const shareInstagram = () => {
     const hashtags = post.tags.map((t) => `#${t.replace(/\s+/g, "")}`).join(" ");
-    const caption = `${titleText}\n\n${summaryText}\n\n${articleUrl}\n\n${hashtags}`;
+    const caption = `✨ ${titleText}\n\n📌 ${summaryText}\n\n🔗 ${articleUrl}\n\n${hashtags} #TYDev`;
     navigator.clipboard.writeText(caption);
     toast.success(
       lang === "fr"
-        ? "Lien et texte copiés ! Redirection vers Instagram..."
-        : "Link & text copied! Opening Instagram..."
+        ? "📸 Légende copiée ! Ouverture de la création de Story Instagram..."
+        : "📸 Caption copied! Opening Instagram Story creation..."
     );
     setTimeout(() => {
-      window.open("https://www.instagram.com/", "_blank");
+      // Instagram Story creation URL (opens story camera on mobile/desktop web app)
+      window.open("https://www.instagram.com/create/story/", "_blank");
     }, 400);
   };
 

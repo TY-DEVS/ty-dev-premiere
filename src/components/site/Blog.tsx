@@ -1,11 +1,12 @@
 import { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Calendar, BookOpen, Radio, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, Calendar, BookOpen, Radio, ChevronLeft, ChevronRight, Share2 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
 import { Section, SectionHeader } from "./Services";
-import { getDynamicBlogPosts } from "@/data/blogPosts";
+import { getDynamicBlogPosts, type BlogPost } from "@/data/blogPosts";
 import { TechWatchFeed } from "./TechWatchFeed";
+import { ShareArticleModal } from "./ShareArticleModal";
 
 const POSTS_PER_PAGE = 6;
 
@@ -14,6 +15,7 @@ export function Blog({ isPage = false }: { isPage?: boolean }) {
   const [activeTab, setActiveTab] = useState<"articles" | "live">("articles");
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [selectedSharePost, setSelectedSharePost] = useState<BlogPost | null>(null);
 
   // Dynamically rotated posts for today
   const blogPosts = useMemo(() => getDynamicBlogPosts(), []);
@@ -195,6 +197,20 @@ export function Blog({ isPage = false }: { isPage?: boolean }) {
                     <span className="w-2 h-2 rounded-full bg-slate-950 animate-pulse" />
                     <span>{lang === "fr" ? "Publication du jour" : "Article of the Day"}</span>
                   </span>
+
+                  {/* Share Icon Button for Featured Article */}
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setSelectedSharePost(featuredPost);
+                    }}
+                    className="absolute top-4 right-4 p-2.5 rounded-full bg-slate-950/80 border border-cyan-500/40 text-cyan-300 hover:bg-cyan-500 hover:text-slate-950 transition-all duration-300 shadow-xl backdrop-blur-md hover:scale-110 z-10"
+                    title={lang === "fr" ? "Partager l'article" : "Share Article"}
+                  >
+                    <Share2 className="w-4 h-4" />
+                  </button>
                 </div>
 
                 {/* Content Area */}
@@ -274,6 +290,20 @@ export function Blog({ isPage = false }: { isPage?: boolean }) {
                         decoding="async"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.06_0.02_250)] via-transparent to-transparent opacity-85" />
+                      
+                      {/* Share Icon Button for Grid Article */}
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          setSelectedSharePost(post);
+                        }}
+                        className="absolute top-3 right-3 p-2 rounded-full bg-slate-950/80 border border-cyan-500/30 text-cyan-300 hover:bg-cyan-500 hover:text-slate-950 transition-all duration-300 shadow-lg backdrop-blur-md hover:scale-110 z-10"
+                        title={lang === "fr" ? "Partager l'article" : "Share Article"}
+                      >
+                        <Share2 className="w-3.5 h-3.5" />
+                      </button>
                     </div>
 
                     {/* Content Area */}
@@ -381,6 +411,16 @@ export function Blog({ isPage = false }: { isPage?: boolean }) {
             <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </div>
+      )}
+
+      {/* Share Article Modal Integration */}
+      {selectedSharePost && (
+        <ShareArticleModal
+          isOpen={!!selectedSharePost}
+          onClose={() => setSelectedSharePost(null)}
+          post={selectedSharePost}
+          lang={lang}
+        />
       )}
     </Section>
   );
