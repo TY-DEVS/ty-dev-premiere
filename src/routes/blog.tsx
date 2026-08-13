@@ -40,7 +40,7 @@ function BlogListPage() {
   return (
     <>
       <PageHeader
-        eyebrow="// 05 — BLOG & TECH INSIGHTS"
+        eyebrow="// 06 — BLOG & TECH INSIGHTS"
         crumb={(t.nav as any).blog || "Blog"}
         title={lang === "fr" ? "Expertise technique &" : "Technical expertise &"}
         accent={lang === "fr" ? "analyses d'ingénierie." : "engineering insights."}

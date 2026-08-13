@@ -36,7 +36,7 @@ function ContactPage() {
   return (
     <>
       <PageHeader
-        eyebrow="// 06 — CONTACT"
+        eyebrow="// 07 — CONTACT"
         crumb={t.nav.contact}
         title={lang === "fr" ? "Parlons de votre" : "Let's talk about your"}
         accent={lang === "fr" ? "prochain projet." : "next project."}

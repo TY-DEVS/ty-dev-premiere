@@ -5,7 +5,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
 import { TyDevLogo } from "./TyDevLogo";
 
-type NavItem = { to: "/" | "/about" | "/services" | "/portfolio" | "/demos" | "/blog" | "/contact"; label: string };
+type NavItem = { to: "/" | "/about" | "/services" | "/portfolio" | "/demos" | "/faq" | "/blog" | "/contact"; label: string };
 
 export function Navbar() {
   const { lang, setLang, t } = useI18n();
@@ -41,6 +41,7 @@ export function Navbar() {
     { to: "/services", label: t.nav.services },
     { to: "/portfolio", label: t.nav.portfolio },
     { to: "/demos", label: (t.nav as any).demos || "Démos" },
+    { to: "/faq", label: (t.nav as any).faq || "FAQ" },
     { to: "/blog", label: (t.nav as any).blog || "Blog" },
     { to: "/contact", label: t.nav.contact },
   ];

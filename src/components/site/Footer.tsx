@@ -138,6 +138,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link to="/faq" className="hover:text-brand transition-colors">
+                  {(t.nav as any).faq || "FAQ"}
+                </Link>
+              </li>
+              <li>
                 <Link to="/blog" className="hover:text-brand transition-colors">
                   {t.nav.blog}
                 </Link>
