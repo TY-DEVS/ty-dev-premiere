@@ -79,7 +79,7 @@ function getFormattedDates(date = new Date()) {
 }
 
 // Published Article Generator / Inserter
-export function publishArticle({ titleFr, titleEn, summaryFr, summaryEn, category, image, tags, contentFr, contentEn, token }) {
+export function publishArticle({ titleFr, titleEn, summaryFr, summaryEn, category, image, tags, contentFr, contentEn, token, author: customAuthor }) {
   if (token && token !== secretToken) {
     throw new Error('❌ Invalid authentication token. Permission denied.');
   }
@@ -92,7 +92,7 @@ export function publishArticle({ titleFr, titleEn, summaryFr, summaryEn, categor
   const existingCount = postMatches.length;
 
   // Determine rotated author and image
-  const author = teamAuthors[existingCount % teamAuthors.length];
+  const author = customAuthor || teamAuthors[existingCount % teamAuthors.length];
   const selectedImage = image || imagePool[existingCount % imagePool.length];
 
   const slug = titleFr
