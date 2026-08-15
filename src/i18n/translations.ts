@@ -250,6 +250,14 @@ const en = {
         url: "https://glazone.ty-dev.site/",
       },
       {
+        category: "Custom Jewellery & Luxury",
+        title: "GNS — Custom Jewellery London",
+        service: "High Jewellery & Grillz Showcase",
+        image: "/portfolio/gns-jewel-showcase.ty-dev.site_.webp",
+        desc: "Bespoke luxury showcase platform for a London custom jeweller specializing in handcrafted grillz and unique high jewellery creations.",
+        url: "https://gns-jewel-showcase.ty-dev.site/",
+      },
+      {
         category: "Local Services SaaS Platform",
         title: "WIM — Local Services Marketplace",
         service: "On-Demand Services SaaS",
@@ -999,6 +1007,14 @@ const fr: typeof en = {
         image: "/portfolio/glazone.ty-dev.site_.webp",
         desc: "Centre spécialisé dans le remplacement de pare-brise, pose de vitres teintées anti-UV et rénovation esthétique avec devis en ligne.",
         url: "https://glazone.ty-dev.site/",
+      },
+      {
+        category: "Joaillerie sur Mesure & Luxe",
+        title: "GNS — Custom Jewellery London",
+        service: "Vitrine Haute Joaillerie & Grillz",
+        image: "/portfolio/gns-jewel-showcase.ty-dev.site_.webp",
+        desc: "Plateforme vitrine d'exception pour un joaillier de luxe londonien spécialisé dans les grillz sur-mesure et pièces uniques faites main.",
+        url: "https://gns-jewel-showcase.ty-dev.site/",
       },
       {
         category: "Plateforme SaaS Services de Proximité",

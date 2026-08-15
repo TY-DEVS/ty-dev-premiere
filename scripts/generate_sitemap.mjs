@@ -19,7 +19,6 @@ if (!envDomain) {
 const domain = envDomain || 'https://ty-dev.site';
 const today = new Date().toISOString().split('T')[0];
 
-
 // Static pages
 const staticPages = [
   { url: '/', priority: '1.0', changefreq: 'daily' },
@@ -47,9 +46,22 @@ async function generateSitemap() {
   const blogPostsFile = path.join(rootDir, 'src', 'data', 'blogPosts.ts');
   const content = fs.readFileSync(blogPostsFile, 'utf-8');
 
-  // Extract slugs using regex
-  const slugMatches = [...content.matchAll(/slug:\s*["']([^"']+)["']/g)].map(m => m[1]);
-  const uniqueSlugs = Array.from(new Set(slugMatches));
+  // Extract blog posts array with exact publication dates (Jour J)
+  let blogPosts = [];
+  try {
+    const marker = 'export const blogPosts: BlogPost[] = ';
+    const startIdx = content.indexOf(marker);
+    if (startIdx !== -1) {
+      const arrayStart = startIdx + marker.length;
+      const arrayEnd = content.lastIndexOf('];');
+      if (arrayStart !== -1 && arrayEnd !== -1) {
+        const jsonText = content.slice(arrayStart, arrayEnd + 1);
+        blogPosts = JSON.parse(jsonText.trim());
+      }
+    }
+  } catch (err) {
+    console.warn('Fallback parsing for blogPosts in sitemap generator:', err.message);
+  }
 
   let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
   xml += `<urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9"\n`;
@@ -76,11 +88,12 @@ async function generateSitemap() {
     xml += `  </url>\n`;
   }
 
-  // Add blog posts
-  for (const slug of uniqueSlugs) {
+  // Add blog posts with their EXACT publication date (Jour J de publication)
+  for (const post of blogPosts) {
+    const postLastMod = post.date?.iso || today;
     xml += `  <url>\n`;
-    xml += `    <loc>${domain}/blog/${slug}</loc>\n`;
-    xml += `    <lastmod>${today}</lastmod>\n`;
+    xml += `    <loc>${domain}/blog/${post.slug}</loc>\n`;
+    xml += `    <lastmod>${postLastMod}</lastmod>\n`;
     xml += `    <changefreq>daily</changefreq>\n`;
     xml += `    <priority>0.85</priority>\n`;
     xml += `  </url>\n`;
@@ -90,7 +103,8 @@ async function generateSitemap() {
 
   const outputPath = path.join(rootDir, 'public', 'sitemap.xml');
   fs.writeFileSync(outputPath, xml, 'utf-8');
-  console.log(`✅ Sitemap.xml generated successfully with ${staticPages.length + serviceSlugs.length + uniqueSlugs.length} URLs at ${outputPath}`);
+  console.log(`✅ Sitemap.xml generated successfully with ${staticPages.length + serviceSlugs.length + blogPosts.length} URLs at ${outputPath}`);
 }
 
 generateSitemap().catch(console.error);
+

@@ -1,11 +1,222 @@
-import { motion } from "framer-motion";
-import { ArrowLeft, Calendar, Share2, Tag } from "lucide-react";
+import { useState } from "react";
+import { ArrowLeft, Calendar, Share2, Tag, Check, Copy, Terminal, Info } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
 import { type BlogPost } from "@/data/blogPosts";
 import { Section } from "./Services";
-import { useState } from "react";
 import { ShareArticleModal } from "./ShareArticleModal";
+
+function CodeBlock({ code, language }: { code: string; language: string }) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <div className="my-8 rounded-2xl overflow-hidden border border-cyan-500/30 bg-[#080d1a] shadow-[0_15px_40px_-15px_rgba(0,0,0,0.8)] font-mono text-xs text-left">
+      {/* IDE Code Box Header */}
+      <div className="flex items-center justify-between px-4 py-2.5 bg-[oklch(0.12_0.03_250)] border-b border-cyan-500/20 select-none">
+        <div className="flex items-center gap-2">
+          <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block" />
+          <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block" />
+          <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block" />
+          <div className="flex items-center gap-1.5 ml-2">
+            <Terminal className="w-3.5 h-3.5 text-cyan-400" />
+            <span className="text-[10px] font-bold tracking-widest text-cyan-300 uppercase bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">
+              {language || "code"}
+            </span>
+          </div>
+        </div>
+
+        <button
+          onClick={handleCopy}
+          className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-surface/80 hover:bg-cyan-500 hover:text-slate-950 text-cyan-300 text-[11px] font-semibold transition-all duration-200 border border-cyan-500/20 hover:border-cyan-400"
+          title="Copier le code"
+        >
+          {copied ? (
+            <>
+              <Check className="w-3.5 h-3.5 text-emerald-400" />
+              <span className="text-emerald-400 font-bold">Copié !</span>
+            </>
+          ) : (
+            <>
+              <Copy className="w-3.5 h-3.5" />
+              <span>Copier</span>
+            </>
+          )}
+        </button>
+      </div>
+
+      {/* Code Body */}
+      <div className="p-5 overflow-x-auto text-cyan-100/90 leading-relaxed font-mono text-xs sm:text-sm bg-gradient-to-b from-[#080d1a] to-[#050811]">
+        <pre className="m-0 p-0 bg-transparent border-0 font-mono">
+          <code>{code.trim()}</code>
+        </pre>
+      </div>
+    </div>
+  );
+}
+
+function RenderMarkdownContent({ content }: { content: string }) {
+  // Split content into code block segments and text segments
+  const parts = content.split(/(```[\s\S]*?```)/g);
+
+  const renderInline = (text: string) => {
+    const subParts = text.split(/(\*\*.*?\*\*|`.*?`)/g);
+    return subParts.map((part, pIdx) => {
+      if (part.startsWith("**") && part.endsWith("**")) {
+        return (
+          <strong key={pIdx} className="text-foreground font-semibold">
+            {part.slice(2, -2)}
+          </strong>
+        );
+      }
+      if (part.startsWith("`") && part.endsWith("`")) {
+        return (
+          <code key={pIdx} className="text-cyan-300 bg-cyan-950/60 border border-cyan-500/30 px-1.5 py-0.5 rounded font-mono text-xs">
+            {part.slice(1, -1)}
+          </code>
+        );
+      }
+      return part;
+    });
+  };
+
+  const renderTable = (lines: string[], keyPrefix: string) => {
+    const headerLine = lines[0];
+    const bodyLines = lines.slice(2);
+
+    const parseRow = (line: string) =>
+      line
+        .split("|")
+        .map((cell) => cell.trim())
+        .filter((cell, idx, arr) => idx > 0 && idx < arr.length - 1);
+
+    const headers = parseRow(headerLine);
+
+    return (
+      <div key={keyPrefix} className="my-8 overflow-x-auto rounded-2xl border border-cyan-500/30 bg-surface/40 backdrop-blur-md shadow-xl">
+        <table className="w-full text-left border-collapse text-xs sm:text-sm">
+          <thead>
+            <tr className="border-b border-cyan-500/30 bg-cyan-500/10">
+              {headers.map((h, i) => (
+                <th key={i} className="p-3.5 sm:p-4 font-mono font-bold text-cyan-300 uppercase tracking-wider text-xs">
+                  {renderInline(h)}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-border/40">
+            {bodyLines.map((rowLine, rIdx) => {
+              const cells = parseRow(rowLine);
+              return (
+                <tr key={rIdx} className="hover:bg-cyan-500/5 transition-colors">
+                  {cells.map((cell, cIdx) => (
+                    <td key={cIdx} className="p-3.5 sm:p-4 text-muted-foreground/90 font-medium">
+                      {renderInline(cell)}
+                    </td>
+                  ))}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    );
+  };
+
+  return (
+    <div className="prose prose-invert prose-cyan max-w-none">
+      {parts.map((segment, sIdx) => {
+        if (segment.startsWith("```") && segment.endsWith("```")) {
+          const rawCode = segment.slice(3, -3);
+          const firstNewLine = rawCode.indexOf("\n");
+          const language = firstNewLine !== -1 ? rawCode.slice(0, firstNewLine).trim() : "";
+          const code = firstNewLine !== -1 ? rawCode.slice(firstNewLine + 1) : rawCode;
+          return <CodeBlock key={sIdx} code={code} language={language || "code"} />;
+        }
+
+        // Process text segment
+        const lines = segment.split("\n");
+        const elements: React.ReactNode[] = [];
+        let tableBuffer: string[] = [];
+
+        const flushTable = () => {
+          if (tableBuffer.length >= 3) {
+            elements.push(renderTable(tableBuffer, `table-${sIdx}-${elements.length}`));
+          }
+          tableBuffer = [];
+        };
+
+        lines.forEach((line, lIdx) => {
+          const trimmed = line.trim();
+
+          // Table line detection
+          if (trimmed.startsWith("|") && trimmed.endsWith("|")) {
+            tableBuffer.push(trimmed);
+            return;
+          } else if (tableBuffer.length > 0) {
+            flushTable();
+          }
+
+          if (trimmed.startsWith("## ")) {
+            elements.push(
+              <h2 key={`${sIdx}-${lIdx}`} className="font-display font-bold text-2xl sm:text-3xl text-cyan-300 mt-10 mb-5 pb-2 border-b border-cyan-500/20">
+                {trimmed.replace("## ", "")}
+              </h2>
+            );
+          } else if (trimmed.startsWith("### ")) {
+            elements.push(
+              <h3 key={`${sIdx}-${lIdx}`} className="font-display font-semibold text-xl sm:text-2xl text-foreground mt-8 mb-4">
+                {trimmed.replace("### ", "")}
+              </h3>
+            );
+          } else if (trimmed.startsWith("#### ")) {
+            elements.push(
+              <h4 key={`${sIdx}-${lIdx}`} className="font-display font-medium text-lg text-cyan-200 mt-6 mb-3">
+                {trimmed.replace("#### ", "")}
+              </h4>
+            );
+          } else if (trimmed.startsWith("- ")) {
+            elements.push(
+              <li key={`${sIdx}-${lIdx}`} className="text-muted-foreground/90 text-sm sm:text-base leading-relaxed ml-4 list-disc mb-2">
+                {renderInline(trimmed.replace("- ", ""))}
+              </li>
+            );
+          } else if (/^\d+\.\s*/.test(trimmed)) {
+            elements.push(
+              <li key={`${sIdx}-${lIdx}`} className="text-muted-foreground/90 text-sm sm:text-base leading-relaxed ml-4 list-decimal mb-2">
+                {renderInline(trimmed.replace(/^\d+\.\s*/, ""))}
+              </li>
+            );
+          } else if (trimmed.startsWith("> ")) {
+            elements.push(
+              <div key={`${sIdx}-${lIdx}`} className="my-6 p-4 rounded-2xl bg-cyan-500/10 border-l-4 border-cyan-400 text-cyan-200 text-sm flex items-start gap-3">
+                <Info className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
+                <div>{renderInline(trimmed.replace("> ", ""))}</div>
+              </div>
+            );
+          } else if (trimmed === "---") {
+            elements.push(<hr key={`${sIdx}-${lIdx}`} className="my-8 border-cyan-500/20" />);
+          } else if (trimmed !== "") {
+            elements.push(
+              <p key={`${sIdx}-${lIdx}`} className="text-muted-foreground/90 text-sm sm:text-base leading-relaxed mb-5">
+                {renderInline(trimmed)}
+              </p>
+            );
+          }
+        });
+
+        flushTable();
+
+        return <div key={sIdx}>{elements}</div>;
+      })}
+    </div>
+  );
+}
 
 export function BlogArticleDetail({ post }: { post: BlogPost }) {
   const { lang } = useI18n();
@@ -15,25 +226,25 @@ export function BlogArticleDetail({ post }: { post: BlogPost }) {
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": post.title[lang],
-    "description": post.summary[lang],
-    "image": post.image,
-    "datePublished": post.date.iso || "2026-08-13",
-    "dateModified": post.date.iso || "2026-08-13",
-    "author": {
+    headline: post.title[lang],
+    description: post.summary[lang],
+    image: post.image,
+    datePublished: post.date.iso || "2026-08-15",
+    dateModified: post.date.iso || "2026-08-15",
+    author: {
       "@type": "Person",
-      "name": post.author.name,
-      "jobTitle": post.author.role,
+      name: post.author.name,
+      jobTitle: post.author.role,
     },
-    "publisher": {
+    publisher: {
       "@type": "Organization",
-      "name": "TY Dev",
-      "logo": {
+      name: "TY Dev",
+      logo: {
         "@type": "ImageObject",
-        "url": "https://ty-dev.site/tydev-logo.svg",
+        url: "https://ty-dev.site/logo.jpg",
       },
     },
-    "mainEntityOfPage": {
+    mainEntityOfPage: {
       "@type": "WebPage",
       "@id": `https://ty-dev.site/blog/${post.slug}`,
     },
@@ -128,77 +339,7 @@ export function BlogArticleDetail({ post }: { post: BlogPost }) {
 
         {/* Article Body */}
         <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[oklch(0.09_0.03_250)] to-[oklch(0.06_0.02_250)] border border-cyan-500/20 backdrop-blur-md shadow-2xl">
-          <div className="prose prose-invert prose-cyan max-w-none prose-headings:font-display prose-headings:font-bold prose-h2:text-2xl prose-h2:text-cyan-300 prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-xl prose-h3:text-foreground prose-p:text-muted-foreground/90 prose-p:leading-relaxed prose-li:text-muted-foreground/90 prose-strong:text-foreground prose-code:text-cyan-300 prose-code:bg-surface/80 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded">
-            {post.content[lang].split("\n").map((paragraph, idx) => {
-              const renderInline = (text: string) => {
-                const parts = text.split(/(\*\*.*?\*\*|`.*?`)/g);
-                return parts.map((part, pIdx) => {
-                  if (part.startsWith("**") && part.endsWith("**")) {
-                    return (
-                      <strong key={pIdx} className="text-foreground font-semibold">
-                        {part.slice(2, -2)}
-                      </strong>
-                    );
-                  }
-                  if (part.startsWith("`") && part.endsWith("`")) {
-                    return (
-                      <code key={pIdx} className="text-cyan-300 bg-cyan-950/40 border border-cyan-500/20 px-1.5 py-0.5 rounded font-mono text-xs">
-                        {part.slice(1, -1)}
-                      </code>
-                    );
-                  }
-                  return part;
-                });
-              };
-
-              if (paragraph.startsWith("## ")) {
-                return (
-                  <h2 key={idx} className="font-display font-bold text-2xl text-cyan-300 mt-8 mb-4">
-                    {paragraph.replace("## ", "")}
-                  </h2>
-                );
-              }
-              if (paragraph.startsWith("### ")) {
-                return (
-                  <h3 key={idx} className="font-display font-semibold text-xl text-foreground mt-6 mb-3">
-                    {paragraph.replace("### ", "")}
-                  </h3>
-                );
-              }
-              if (paragraph.startsWith("#### ")) {
-                return (
-                  <h4 key={idx} className="font-display font-medium text-lg text-cyan-200 mt-4 mb-2">
-                    {paragraph.replace("#### ", "")}
-                  </h4>
-                );
-              }
-              if (paragraph.startsWith("- ")) {
-                return (
-                  <li key={idx} className="text-muted-foreground/90 text-sm sm:text-base leading-relaxed ml-4 list-disc mb-1">
-                    {renderInline(paragraph.replace("- ", ""))}
-                  </li>
-                );
-              }
-              if (paragraph.startsWith("1. ") || paragraph.startsWith("2. ") || paragraph.startsWith("3. ") || paragraph.startsWith("4. ")) {
-                return (
-                  <li key={idx} className="text-muted-foreground/90 text-sm sm:text-base leading-relaxed ml-4 list-decimal mb-1">
-                    {renderInline(paragraph.replace(/^\d+\.\s*/, ""))}
-                  </li>
-                );
-              }
-              if (paragraph.trim() === "---") {
-                return <hr key={idx} className="my-8 border-cyan-500/20" />;
-              }
-              if (paragraph.trim() !== "") {
-                return (
-                  <p key={idx} className="text-muted-foreground/90 text-sm sm:text-base leading-relaxed mb-4">
-                    {renderInline(paragraph)}
-                  </p>
-                );
-              }
-              return null;
-            })}
-          </div>
+          <RenderMarkdownContent content={post.content[lang]} />
 
           {/* Article Footer Tags & Share Banner */}
           <div className="mt-12 pt-6 border-t border-border/40 flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -232,3 +373,4 @@ export function BlogArticleDetail({ post }: { post: BlogPost }) {
     </Section>
   );
 }
+
