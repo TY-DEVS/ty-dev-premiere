@@ -70,11 +70,13 @@ function getFormattedDates(date = new Date()) {
   
   const day = String(date.getDate()).padStart(2, '0');
   const monthIdx = date.getMonth();
+  const monthNum = String(monthIdx + 1).padStart(2, '0');
   const year = date.getFullYear();
 
   return {
     fr: `${day} ${monthsFr[monthIdx]} ${year}`,
     en: `${monthsEn[monthIdx]} ${day}, ${year}`,
+    iso: `${year}-${monthNum}-${day}`,
   };
 }
 
