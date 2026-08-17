@@ -155,11 +155,12 @@ const en = {
         url: "https://www.ecconcierge.uk",
       },
       {
-        category: "Scrap Vehicle Removal",
-        title: "Les Épavistes Parisiens",
-        service: "Fast Showcase Site",
-        desc: "Specialist for fast and safe scrap vehicle removal in the Île-de-France region.",
-        url: "https://les-epavistes-parisiens.fr",
+        category: "Interactive Map · Spot Discovery",
+        title: "YS SPOTS",
+        service: "Custom Web Application",
+        image: "/portfolio/ys-spots.ty-dev.site_.webp",
+        desc: "Interactive web platform for discovering secret photo and video spots across Paris with interactive mapping and filters.",
+        url: "https://ys-spots.ty-dev.site/",
       },
       {
         category: "Automotive Cleaning",
@@ -168,13 +169,6 @@ const en = {
         image: "/portfolio/cleanautoservices.fr_.webp",
         desc: "Specialist in high-quality automotive maintenance and cleaning services.",
         url: "https://cleanautoservices.fr",
-      },
-      {
-        category: "Cleaning Services",
-        title: "Palermo’s Cleaning",
-        service: "Showcase Website",
-        desc: "Family-owned cleaning company based in Austin, Texas — delivering spotless results with honesty, quality, and trust.",
-        url: "https://www.PalermosCleaning.com",
       },
       {
         category: "Multimedia & Detailing",
@@ -914,11 +908,12 @@ const fr: typeof en = {
         url: "https://www.ecconcierge.uk",
       },
       {
-        category: "Enlèvement d'épaves",
-        title: "Les Épavistes Parisiens",
-        service: "Site Vitrine Rapide",
-        desc: "Spécialiste pour l’enlèvement d’épaves rapidement et en toute sécurité en Île-de-France.",
-        url: "https://les-epavistes-parisiens.fr",
+        category: "Carte Interactive · Spot Discovery",
+        title: "YS SPOTS",
+        service: "Application Web Sur-Mesure",
+        image: "/portfolio/ys-spots.ty-dev.site_.webp",
+        desc: "Plateforme interactive de découverte des meilleurs spots photos, vidéos et lieux secrets à Paris avec carte interactive et filtres.",
+        url: "https://ys-spots.ty-dev.site/",
       },
       {
         category: "Entretien Automobile",
@@ -927,13 +922,6 @@ const fr: typeof en = {
         image: "/portfolio/cleanautoservices.fr_.webp",
         desc: "Spécialiste pour l’entretien et le nettoyage automobile de qualité.",
         url: "https://cleanautoservices.fr",
-      },
-      {
-        category: "Services de Nettoyage",
-        title: "Palermo’s Cleaning",
-        service: "Site Vitrine",
-        desc: "Entreprise familiale de nettoyage basée à Austin, Texas — offrant des résultats impeccables avec honnêteté, qualité et confiance.",
-        url: "https://www.PalermosCleaning.com",
       },
       {
         category: "Installation Multimédia",
