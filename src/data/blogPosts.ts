@@ -55,6 +55,42 @@ export function formatDate(date: Date) {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "continuous-integration-deployment-ci-cd-pipelines-de-production-resilients",
+    slug: "continuous-integration-deployment-ci-cd-pipelines-de-production-resilients",
+    title: {
+        fr: "Continuous Integration & Deployment (CI/CD) : Pipelines de Production Résilients",
+        en: "Continuous Integration & Deployment (CI/CD): Automating Production Pipelines"
+    },
+    summary: {
+        fr: "Mettre en place des pipelines GitHub Actions automatisés avec tests unitaires, vérification de types TypeScript, audit de sécurité et déploiement continu.",
+        en: "Building resilient GitHub Actions workflows with automated testing, TypeScript typechecking, security audits, and continuous deployment."
+    },
+    category: "Engineering & API",
+    date: {
+        fr: "18 Août 2026",
+        en: "August 18, 2026",
+        iso: "2026-08-18"
+    },
+    author: {
+        name: "Amine Ben Ammar",
+        role: "CO-FOUNDER",
+        avatar: "/team/aminebenamamr.jpg"
+    },
+    image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80",
+    tags: [
+        "CI/CD",
+        "GitHub Actions",
+        "DevOps",
+        "Automation",
+        "Testing",
+        "Docker"
+    ],
+    content: {
+        fr: "\n## L'Automatisation au Service de la Qualité Logicielle\n\nDans un environnement de développement moderne, le déploiement manuel de code est une source majeure de régressions et de pannes. Un pipeline CI/CD robuste élimine le facteur d'erreur humaine et garantit la stabilité de vos plateformes.\n\n---\n\n### 1. Les 4 Étapes d'un Pipeline CI/CD Performant\n\n1. **Statical Analysis & Typecheck** : Validation stricte des types TypeScript (`tsc --noEmit`) et linting (`eslint`).\n2. **Automated Testing Suite** : Exécution des tests unitaires (Vitest / Jest) et des tests d'intégration.\n3. **Containerization & Build** : Compilation du bundle de production et construction de l'image Docker optimisée.\n4. **Zero-Downtime Deployment** : Déploiement progressif (Canary / Blue-Green) vers les serveurs de production.\n\n---\n\n### 2. Exemple de Workflow GitHub Actions Professionnel\n\n```yaml\nname: Production CI/CD Pipeline\n\non:\n  push:\n    branches: [main]\n  pull_request:\n    branches: [main]\n\njobs:\n  validate-and-deploy:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n        with:\n          node-version: 20\n          cache: 'npm'\n\n      - name: Install Dependencies\n        run: npm ci\n\n      - name: TypeCheck & Lint\n        run: |\n          npx tsc --noEmit\n          npm run lint\n\n      - name: Run Unit Tests\n        run: npm test -- --run\n\n      - name: Build Production Bundle\n        run: npm run build\n```\n\n---\n\n### 3. Les Métriques DORA pour Évaluer la Maturité DevOps\n\nPour mesurer l'efficacité de vos déploiements, suivez les 4 métriques DORA incontournables :\n\n- **Deployment Frequency** : Nombre de mises en production par jour.\n- **Lead Time for Changes** : Délai entre le commit de code et sa livraison en production.\n- **Change Failure Rate** : Pourcentage de déploiements provoquant une panne.\n- **Time to Restore Service (MTTR)** : Temps moyen nécessaire pour résoudre un incident en production.\n",
+        en: "\n## Automation for Engineering Excellence\n\nManual code deployments in modern web development invite regressions and service downtime. A battle-tested CI/CD pipeline mitigates risk and ensures every release meets high reliability standards.\n\n---\n\n### 1. Core Pillars of a Production CI/CD Pipeline\n\n1. **Static Code Analysis**: Strict TypeScript compilation checks (`tsc --noEmit`) and ESLint rules.\n2. **Automated Test Suites**: Running fast unit and integration tests (Vitest / Jest / Playwright).\n3. **Container Building**: Producing multi-stage Docker artifacts with zero vulnerability leaks.\n4. **Zero-Downtime Releases**: Employing Blue/Green or Canary deployment strategies.\n\n---\n\n### 2. Production-Ready GitHub Actions Workflow\n\n```yaml\nname: Production CI/CD Pipeline\n\non:\n  push:\n    branches: [main]\n\njobs:\n  build-and-test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/setup-node@v4\n        with:\n          node-version: 20\n          cache: 'npm'\n\n      - name: Install Dependencies\n        run: npm ci\n\n      - name: TypeCheck & Lint\n        run: |\n          npx tsc --noEmit\n          npm run lint\n\n      - name: Run Test Suite\n        run: npm test -- --run\n\n      - name: Build Bundle\n        run: npm run build\n```\n\n---\n\n### 3. Tracking DevOps Performance via DORA Metrics\n\nElevate software delivery by measuring key DORA metrics:\n\n- **Deployment Frequency**: How often code is shipped to production.\n- **Lead Time for Changes**: Time elapsed from commit to live deployment.\n- **Change Failure Rate**: Percentage of releases requiring immediate rollback.\n- **Mean Time to Recovery (MTTR)**: Speed of incident resolution.\n"
+    }
+},
+  {
     id: "bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026",
     slug: "bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026",
     title: {
