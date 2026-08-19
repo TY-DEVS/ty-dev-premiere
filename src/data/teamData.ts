@@ -37,6 +37,7 @@ export interface TeamMemberProfile {
   image: string;
   imagePosition?: string;
   linkedin?: string;
+  github?: string;
   email?: string;
   location?: string;
   educationLevel?: { fr: string; en: string };
@@ -67,6 +68,7 @@ export const teamMembersData: Record<string, TeamMemberProfile> = {
     },
     image: "/team/mohamedyassinbenyaala.jfif",
     linkedin: "https://www.linkedin.com/in/mohamed-yassine-ben-yaala-508539209/",
+    github: "https://github.com/tydev24",
     email: "benyaalamedyassine24@gmail.com",
     location: "Tunisie / France",
     educationLevel: {
@@ -187,6 +189,7 @@ export const teamMembersData: Record<string, TeamMemberProfile> = {
     },
     image: "/team/moutiabenyahia.png",
     linkedin: "https://www.linkedin.com/in/moutia-ben-yahia/?locale=fr",
+    github: "https://github.com/Moutia-Ben-Yahia",
     email: "benyahia.moutie@gmail.com",
     location: "Djerba, Tunisie",
     educationLevel: {
@@ -350,7 +353,7 @@ export const teamMembersData: Record<string, TeamMemberProfile> = {
     },
     image: "/team/aminebenamamr.jpg",
     imagePosition: "object-[50%_15%]",
-    linkedin: "https://www.linkedin.com/",
+    github: "https://github.com/Aminetwiti",
     email: "amine.benammar17@gmail.com",
     location: "Djerba, Tunisie",
     educationLevel: {
@@ -449,6 +452,7 @@ export const teamMembersData: Record<string, TeamMemberProfile> = {
     },
     image: "/team/mohamedbenkhemis.jfif",
     linkedin: "https://www.linkedin.com/in/benkhemis/?locale=fr",
+    github: "https://github.com/Mohamed-ben-khemis",
     email: "khemis.mb@gmail.com",
     location: "Paris, France",
     educationLevel: {
@@ -590,6 +594,7 @@ export const teamMembersData: Record<string, TeamMemberProfile> = {
     },
     image: "/team/mohamedbenyahia.jpg",
     linkedin: "https://www.linkedin.com/in/mohamd-ben-yahia-4685ab207/",
+    github: "https://github.com/mohamdben-yahia",
     email: "benyahiamohamd@gmail.com",
     location: "Djerba, Tunisie",
     educationLevel: {

@@ -674,6 +674,7 @@ const en = {
         role: "CEO",
         image: "/team/moutiabenyahia.png",
         linkedin: "https://www.linkedin.com/in/moutia-ben-yahia/?locale=fr",
+        github: "https://github.com/Moutia-Ben-Yahia",
       },
       {
         slug: "yassine-ben-yaala",
@@ -682,6 +683,7 @@ const en = {
         role: "CO-FOUNDER",
         image: "/team/mohamedyassinbenyaala.jfif",
         linkedin: "https://www.linkedin.com/in/mohamed-yassine-ben-yaala-508539209/",
+        github: "https://github.com/tydev24",
       },
       {
         slug: "amine-ben-ammar",
@@ -690,7 +692,7 @@ const en = {
         role: "CO-FOUNDER",
         image: "/team/aminebenamamr.jpg",
         imagePosition: "object-[50%_15%]",
-        linkedin: "",
+        github: "https://github.com/Aminetwiti",
       },
       {
         slug: "mohamed-ben-khemis",
@@ -699,6 +701,7 @@ const en = {
         role: "DEVOPS ENGINEER",
         image: "/team/mohamedbenkhemis.jfif",
         linkedin: "https://www.linkedin.com/in/benkhemis/?locale=fr",
+        github: "https://github.com/Mohamed-ben-khemis",
       },
       {
         slug: "mohamed-ben-yahia",
@@ -707,6 +710,7 @@ const en = {
         role: "FULL STACK DEVELOPER",
         image: "/team/mohamedbenyahia.jpg",
         linkedin: "https://www.linkedin.com/in/mohamd-ben-yahia-4685ab207/",
+        github: "https://github.com/mohamdben-yahia",
       }
     ],
   },
@@ -1433,6 +1437,7 @@ const fr: typeof en = {
         role: "CEO",
         image: "/team/moutiabenyahia.png",
         linkedin: "https://www.linkedin.com/in/moutia-ben-yahia/?locale=fr",
+        github: "https://github.com/Moutia-Ben-Yahia",
       },
       {
         slug: "yassine-ben-yaala",
@@ -1441,6 +1446,7 @@ const fr: typeof en = {
         role: "CO-FONDATEUR",
         image: "/team/mohamedyassinbenyaala.jfif",
         linkedin: "https://www.linkedin.com/in/mohamed-yassine-ben-yaala-508539209/",
+        github: "https://github.com/tydev24",
       },
       {
         slug: "amine-ben-ammar",
@@ -1449,7 +1455,7 @@ const fr: typeof en = {
         role: "CO-FONDATEUR",
         image: "/team/aminebenamamr.jpg",
         imagePosition: "object-[50%_15%]",
-        linkedin: "",
+        github: "https://github.com/Aminetwiti",
       },
       {
         slug: "mohamed-ben-khemis",
@@ -1458,6 +1464,7 @@ const fr: typeof en = {
         role: "INGÉNIEUR DEVOPS",
         image: "/team/mohamedbenkhemis.jfif",
         linkedin: "https://www.linkedin.com/in/benkhemis/?locale=fr",
+        github: "https://github.com/Mohamed-ben-khemis",
       },
       {
         slug: "mohamed-ben-yahia",
@@ -1466,6 +1473,7 @@ const fr: typeof en = {
         role: "DÉVELOPPEUR FULL STACK",
         image: "/team/mohamedbenyahia.jpg",
         linkedin: "https://www.linkedin.com/in/mohamd-ben-yahia-4685ab207/",
+        github: "https://github.com/mohamdben-yahia",
       }
     ],
   },
