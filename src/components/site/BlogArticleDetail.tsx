@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { ArrowLeft, Calendar, Share2, Tag, Check, Copy, Terminal, Info } from "lucide-react";
+import { ArrowLeft, Calendar, Share2, Tag, Check, Copy, Terminal, Info, User, ArrowRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
-import { type BlogPost } from "@/data/blogPosts";
+import { type BlogPost, getAuthorSlug } from "@/data/blogPosts";
 import { Section } from "./Services";
 import { ShareArticleModal } from "./ShareArticleModal";
 
@@ -298,34 +298,64 @@ export function BlogArticleDetail({ post }: { post: BlogPost }) {
             {post.summary[lang]}
           </p>
 
-          {/* Author Card & Share Button */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 p-6 rounded-3xl bg-surface/40 border border-border/60 backdrop-blur-md">
-            <div className="flex items-center gap-4">
-              <img
-                src={post.author.avatar}
-                alt={post.author.name}
-                className="w-12 h-12 rounded-full border-2 border-cyan-500/40 object-cover"
-              />
-              <div>
-                <h4 className="font-display font-semibold text-foreground text-sm">
-                  {post.author.name}
-                </h4>
-                <p className="text-xs text-cyan-300 font-mono font-semibold tracking-wider uppercase">
-                  {post.author.role}
-                </p>
-              </div>
-            </div>
+          {/* Author Card & Action Buttons */}
+          {(() => {
+            const authorSlug = post.author.slug || getAuthorSlug(post.author.name);
+            return (
+              <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-surface/40 border border-border/60 backdrop-blur-md">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  {/* Author Avatar + Details */}
+                  <div className="flex items-center gap-3.5 sm:gap-4">
+                    <Link
+                      to="/team/$slug"
+                      params={{ slug: authorSlug }}
+                      className="block relative group shrink-0"
+                      title={`${lang === "fr" ? "Voir le profil de" : "View profile of"} ${post.author.name}`}
+                    >
+                      <img
+                        src={post.author.avatar}
+                        alt={post.author.name}
+                        className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-cyan-500/40 object-cover group-hover:border-cyan-400 group-hover:scale-105 transition-all duration-300 shadow-md"
+                      />
+                    </Link>
+                    <div className="min-w-0">
+                      <Link
+                        to="/team/$slug"
+                        params={{ slug: authorSlug }}
+                        className="font-display font-semibold text-foreground text-sm sm:text-base hover:text-cyan-300 transition-colors block truncate"
+                      >
+                        {post.author.name}
+                      </Link>
+                      <p className="text-[11px] sm:text-xs text-cyan-300/90 font-mono font-semibold tracking-wider uppercase mt-0.5">
+                        {post.author.role}
+                      </p>
+                    </div>
+                  </div>
 
-            <button
-              onClick={() => setIsShareOpen(true)}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-semibold hover:bg-cyan-500 hover:text-slate-950 hover:scale-105 transition-all duration-300 shadow-md"
-            >
-              <Share2 className="w-4 h-4" />
-              <span>
-                {lang === "fr" ? "Partager l'article" : "Share Article"}
-              </span>
-            </button>
-          </div>
+                  {/* Action Buttons: 2-columns grid on mobile, row on desktop */}
+                  <div className="grid grid-cols-2 sm:flex sm:items-center gap-2.5 w-full sm:w-auto pt-3 sm:pt-0 border-t sm:border-t-0 border-border/30">
+                    <Link
+                      to="/team/$slug"
+                      params={{ slug: authorSlug }}
+                      className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl sm:rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-semibold hover:bg-cyan-500 hover:text-slate-950 transition-all duration-300 shadow-sm active:scale-95 text-center group"
+                    >
+                      <User className="w-3.5 h-3.5 shrink-0 text-cyan-400 group-hover:text-slate-950" />
+                      <span>{lang === "fr" ? "Voir le profil" : "View Profile"}</span>
+                      <ArrowRight className="w-3.5 h-3.5 shrink-0 hidden sm:inline group-hover:translate-x-0.5 transition-transform" />
+                    </Link>
+
+                    <button
+                      onClick={() => setIsShareOpen(true)}
+                      className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl sm:rounded-full bg-surface/80 border border-border/70 text-foreground text-xs font-semibold hover:bg-cyan-500 hover:text-slate-950 hover:border-cyan-400 transition-all duration-300 shadow-sm active:scale-95 text-center"
+                    >
+                      <Share2 className="w-3.5 h-3.5 shrink-0 text-cyan-400" />
+                      <span>{lang === "fr" ? "Partager" : "Share"}</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            );
+          })()}
         </header>
 
         {/* Hero Cover Image */}

@@ -5,7 +5,11 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
 import { TyDevLogo } from "./TyDevLogo";
 
-type NavItem = { to: "/" | "/about" | "/services" | "/portfolio" | "/demos" | "/faq" | "/blog" | "/contact"; label: string };
+type NavItem = { 
+  to: "/" | "/about" | "/services" | "/portfolio" | "/demos" | "/faq" | "/blog" | "/contact"; 
+  label: string;
+  num: string;
+};
 
 export function Navbar() {
   const { lang, setLang, t } = useI18n();
@@ -36,14 +40,14 @@ export function Navbar() {
   }, [pathname]);
 
   const navItems: NavItem[] = [
-    { to: "/", label: t.nav.home },
-    { to: "/about", label: t.nav.about },
-    { to: "/services", label: t.nav.services },
-    { to: "/portfolio", label: t.nav.portfolio },
-    { to: "/demos", label: (t.nav as any).demos || "Démos" },
-    { to: "/faq", label: (t.nav as any).faq || "FAQ" },
-    { to: "/blog", label: (t.nav as any).blog || "Blog" },
-    { to: "/contact", label: t.nav.contact },
+    { to: "/", label: t.nav.home, num: "00" },
+    { to: "/about", label: t.nav.about, num: "01" },
+    { to: "/services", label: t.nav.services, num: "02" },
+    { to: "/portfolio", label: t.nav.portfolio, num: "03" },
+    { to: "/demos", label: (t.nav as any).demos || "Démos", num: "04" },
+    { to: "/faq", label: (t.nav as any).faq || "FAQ", num: "05" },
+    { to: "/blog", label: (t.nav as any).blog || "Blog", num: "06" },
+    { to: "/contact", label: t.nav.contact, num: "07" },
   ];
 
   return (
@@ -187,7 +191,7 @@ function MobileDrawer({
                     >
                       <span className="flex items-center gap-3">
                         <span className="font-mono text-[11px] text-muted-foreground/60 w-6">
-                          0{i + 1}
+                          {item.num}
                         </span>
                         <span className="font-display text-lg text-foreground group-hover:text-brand transition-colors group-data-[status=active]:text-brand">
                           {item.label}

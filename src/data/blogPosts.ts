@@ -19,6 +19,7 @@ export interface BlogPost {
     name: string;
     role: string;
     avatar: string;
+    slug?: string;
   };
   image: string;
   tags: string[];
@@ -26,6 +27,16 @@ export interface BlogPost {
     fr: string;
     en: string;
   };
+}
+
+export function getAuthorSlug(authorName: string): string {
+  const normalized = authorName.toLowerCase().trim();
+  if (normalized.includes("yassine")) return "yassine-ben-yaala";
+  if (normalized.includes("moutia") || normalized.includes("moutie")) return "moutia-ben-yahia";
+  if (normalized.includes("khemis")) return "mohamed-ben-khemis";
+  if (normalized.includes("ammar")) return "amine-ben-ammar";
+  if (normalized.includes("mohamed ben yahia") || normalized.includes("mohamd ben yahia")) return "mohamed-ben-yahia";
+  return "yassine-ben-yaala";
 }
 
 export function formatDate(date: Date) {
