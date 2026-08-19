@@ -668,6 +668,7 @@ const en = {
     subtitle: "The experts engineering your digital success.",
     members: [
       {
+        slug: "moutia-ben-yahia",
         firstName: "Moutia",
         lastName: "Ben Yahia",
         role: "CEO",
@@ -675,6 +676,7 @@ const en = {
         linkedin: "https://www.linkedin.com/in/moutia-ben-yahia/?locale=fr",
       },
       {
+        slug: "yassine-ben-yaala",
         firstName: "Mohamed Yassine",
         lastName: "Ben Yaala",
         role: "CO-FOUNDER",
@@ -682,6 +684,7 @@ const en = {
         linkedin: "https://www.linkedin.com/in/mohamed-yassine-ben-yaala-508539209/",
       },
       {
+        slug: "amine-ben-ammar",
         firstName: "Amine",
         lastName: "Ben Ammar",
         role: "CO-FOUNDER",
@@ -690,6 +693,7 @@ const en = {
         linkedin: "",
       },
       {
+        slug: "mohamed-ben-khemis",
         firstName: "Mohamed",
         lastName: "Ben Khemis",
         role: "DEVOPS ENGINEER",
@@ -697,6 +701,7 @@ const en = {
         linkedin: "https://www.linkedin.com/in/benkhemis/?locale=fr",
       },
       {
+        slug: "mohamed-ben-yahia",
         firstName: "Mohamed",
         lastName: "Ben Yahia",
         role: "FULL STACK DEVELOPER",
@@ -1422,6 +1427,7 @@ const fr: typeof en = {
     subtitle: "Les experts derrière votre réussite numérique.",
     members: [
       {
+        slug: "moutia-ben-yahia",
         firstName: "Moutia",
         lastName: "Ben Yahia",
         role: "CEO",
@@ -1429,6 +1435,7 @@ const fr: typeof en = {
         linkedin: "https://www.linkedin.com/in/moutia-ben-yahia/?locale=fr",
       },
       {
+        slug: "yassine-ben-yaala",
         firstName: "Mohamed Yassine",
         lastName: "Ben Yaala",
         role: "CO-FONDATEUR",
@@ -1436,6 +1443,7 @@ const fr: typeof en = {
         linkedin: "https://www.linkedin.com/in/mohamed-yassine-ben-yaala-508539209/",
       },
       {
+        slug: "amine-ben-ammar",
         firstName: "Amine",
         lastName: "Ben Ammar",
         role: "CO-FONDATEUR",
@@ -1444,6 +1452,7 @@ const fr: typeof en = {
         linkedin: "",
       },
       {
+        slug: "mohamed-ben-khemis",
         firstName: "Mohamed",
         lastName: "Ben Khemis",
         role: "INGÉNIEUR DEVOPS",
@@ -1451,6 +1460,7 @@ const fr: typeof en = {
         linkedin: "https://www.linkedin.com/in/benkhemis/?locale=fr",
       },
       {
+        slug: "mohamed-ben-yahia",
         firstName: "Mohamed",
         lastName: "Ben Yahia",
         role: "DÉVELOPPEUR FULL STACK",

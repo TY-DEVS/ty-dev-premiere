@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/site/PageHeader";
 import { About } from "@/components/site/About";
@@ -36,6 +37,18 @@ export const Route = createFileRoute("/about")({
 
 function AboutPage() {
   const { t, lang } = useI18n();
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash === "#team") {
+      setTimeout(() => {
+        const teamEl = document.getElementById("team");
+        if (teamEl) {
+          teamEl.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 100);
+    }
+  }, []);
+
   return (
     <>
       <PageHeader
