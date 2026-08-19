@@ -22,11 +22,11 @@
 
 ## Équipe Fondatrice & Experts
 
-- **Moutia Ben Yahia** — CEO
-- **Mohamed Yassine Ben Yaala** — Co-Founder
-- **Amine Ben Ammar** — Co-Founder
-- **Mohamed Ben Khemis** — DevOps Engineer
-- **Mohamed Ben Yahia** — Full Stack Developer
+- **Moutia Ben Yahia** — Fondateur & CEO | Ingénieur Full Stack & IA (https://ty-dev.site/team/moutia-ben-yahia)
+- **Mohamed Yassine Ben Yaala** — CEO & Développeur Full Stack (https://ty-dev.site/team/yassine-ben-yaala)
+- **Amine Ben Ammar** — Co-Fondateur | Développeur Full Stack (https://ty-dev.site/team/amine-ben-ammar)
+- **Mohamed Ben Khemis** — Site Reliability Engineer | Cloud Platform Engineer (https://ty-dev.site/team/mohamed-ben-khemis)
+- **Mohamed Ben Yahia** — Développeur Full Stack & Web Mobile (https://ty-dev.site/team/mohamed-ben-yahia)
 
 ## Démos & Maquettes Interactives
 
