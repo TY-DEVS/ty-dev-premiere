@@ -125,12 +125,6 @@ export function TeamMemberProfileView({ member }: TeamMemberProfileProps) {
                     <User className="w-3.5 h-3.5" />
                     <span>{roleText}</span>
                   </div>
-                  {member.educationLevel && (
-                    <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-400 text-xs font-semibold font-mono tracking-wide shadow-sm">
-                      <GraduationCap className="w-3.5 h-3.5 text-blue-400" />
-                      <span>{isFr ? member.educationLevel.fr : member.educationLevel.en}</span>
-                    </div>
-                  )}
                 </div>
                 <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground">
                   {member.firstName} <span className="text-brand">{member.lastName}</span>
