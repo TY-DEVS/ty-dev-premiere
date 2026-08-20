@@ -93,6 +93,12 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation</loc>
     <lastmod>2026-08-19</lastmod>
     <changefreq>weekly</changefreq>
