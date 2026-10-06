@@ -518,6 +518,9 @@ const en = {
     ],
   },
   spotlight: {
+    sectionEyebrow: "// LIVE IN PRODUCTION · CASE STUDY",
+    sectionTitle: "Flagship Project in Production",
+    sectionSubtitle: "Discover NaviCab: a high-resilience SaaS platform engineered and deployed with TY Dev, operating 24/7 across Île-de-France.",
     title: "NaviCab",
     subtitle: "The Real-Time Taxi Booking & Dispatch SaaS Infrastructure in Île-de-France",
     description: "Architected and engineered in technical partnership with TY Dev: a high-resilience SaaS platform connecting passengers, official Parisian taxi fleets, and B2B corporate partners with sub-second radar dispatch and end-to-end automated billing.",
@@ -1357,6 +1360,9 @@ const fr: typeof en = {
     ],
   },
   spotlight: {
+    sectionEyebrow: "// EN PRODUCTION · ÉTUDE DE CAS",
+    sectionTitle: "Projet Phare en Production",
+    sectionSubtitle: "Découvrez NaviCab : une plateforme SaaS haute résilience conçue et déployée par TY Dev, active 24/7 en Île-de-France.",
     title: "NaviCab",
     subtitle: "L'Infrastructure SaaS de Dispatch & Réservation Taxi en Île-de-France",
     description: "Conçue et développée en synergie technique avec TY Dev : une plateforme SaaS d'envergure reliant passagers, flottes de taxis parisiens et partenaires B2B grâce à un dispatch radar instantané et une automatisation financière de bout en bout.",

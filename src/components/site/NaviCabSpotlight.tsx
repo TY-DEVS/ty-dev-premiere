@@ -2,17 +2,24 @@ import { motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, Globe } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
-import { Section } from "./Services";
+import { Section, SectionHeader } from "./Services";
 
 export function NaviCabSpotlight() {
   const { t } = useI18n();
 
   return (
-    <Section id="spotlight" className="relative py-14 md:py-20 overflow-hidden scroll-mt-28">
+    <Section id="spotlight" className="relative py-16 md:py-24 overflow-hidden scroll-mt-28">
       {/* Ambient background glow */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-brand/5 rounded-full blur-[140px] pointer-events-none"
         aria-hidden
+      />
+
+      {/* Section Header above the card */}
+      <SectionHeader
+        eyebrow={t.spotlight.sectionEyebrow}
+        title={t.spotlight.sectionTitle}
+        subtitle={t.spotlight.sectionSubtitle}
       />
 
       <motion.div
@@ -20,7 +27,7 @@ export function NaviCabSpotlight() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.6 }}
-        className="relative overflow-hidden rounded-3xl md:rounded-[36px] bg-gradient-to-br from-[oklch(0.085_0.025_260)] via-[oklch(0.065_0.02_260)] to-[oklch(0.05_0.015_260)] border border-border/70 shadow-[0_20px_80px_-20px_oklch(0.6_0.22_265/0.2)] transition-all duration-500 hover:border-brand/40"
+        className="relative mt-12 md:mt-16 overflow-hidden rounded-3xl md:rounded-[36px] bg-gradient-to-br from-[oklch(0.085_0.025_260)] via-[oklch(0.065_0.02_260)] to-[oklch(0.05_0.015_260)] border border-border/70 shadow-[0_20px_80px_-20px_oklch(0.6_0.22_265/0.2)] transition-all duration-500 hover:border-brand/40"
       >
         {/* Subtle grid pattern overlay */}
         <div
