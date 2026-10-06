@@ -59,14 +59,6 @@ const en = {
     more: "More projects coming soon — we're always building.",
     items: [
       {
-        category: "Mobility & Official Taxis",
-        title: "NaviCab",
-        service: "Enterprise SaaS & Radar Dispatch",
-        image: "/portfolio/navicab.fr_.webp",
-        desc: "SaaS booking and dispatch platform for official and CPAM-approved taxis across Île-de-France: 5 dedicated web portals, real-time radar dispatch, automated Factur-X invoicing, and LeTaxi compliance.",
-        url: "https://navicab.fr",
-      },
-      {
         category: "Luxury Car Rental",
         title: "Prestigia Cars",
         service: "Booking Platform",
@@ -828,14 +820,6 @@ const fr: typeof en = {
     viewAll: "Voir tous les projets",
     more: "D'autres projets arrivent — nous créons en permanence.",
     items: [
-      {
-        category: "Mobilité & Taxis Officiels",
-        title: "NaviCab",
-        service: "Plateforme SaaS & Dispatch Radar",
-        image: "/portfolio/navicab.fr_.webp",
-        desc: "Plateforme SaaS de réservation et dispatch de taxis parisiens officiels et conventionnés CPAM : 5 portails web & mobiles, dispatch radar temps réel, facturation Factur-X et homologation LeTaxi.",
-        url: "https://navicab.fr",
-      },
       {
         category: "Location de Véhicules de Luxe",
         title: "Prestigia Cars",
