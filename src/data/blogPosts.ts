@@ -66,6 +66,114 @@ export function formatDate(date: Date) {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "deepseek-r1-llms-open-source-en-entreprise-deploiement-local-vllm-souverainete",
+    slug: "deepseek-r1-llms-open-source-en-entreprise-deploiement-local-vllm-souverainete",
+    title: {
+        fr: "DeepSeek-R1 & LLMs Open Source en Entreprise : Déploiement Local, vLLM & Souveraineté",
+        en: "DeepSeek-R1 & Enterprise Open Source LLMs: Local Deployment, vLLM & Sovereignty"
+    },
+    summary: {
+        fr: "Guide pratique pour héberger et exécuter des modèles de raisonnement open source sur serveurs privés, optimiser l'inférence avec vLLM et garantir la conformité RGPD.",
+        en: "Hands-on guide to deploying open-source reasoning models on private clusters with vLLM, maximizing throughput, and achieving strict GDPR data sovereignty."
+    },
+    category: "IA & Automatisation",
+    date: {
+        fr: "06 Octobre 2026",
+        en: "October 06, 2026",
+        iso: "2026-10-06"
+    },
+    author: {
+        name: "Mohamed Ben Yahia",
+        role: "FULL STACK DEVELOPER",
+        avatar: "/team/mohamedbenyahia.jpg"
+    },
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80",
+    tags: [
+        "DeepSeek",
+        "LLM",
+        "OpenSource",
+        "vLLM",
+        "Souverainete",
+        "DevOps"
+    ],
+    content: {
+        fr: "\n## La Révolution des Modèles de Raisonnement Open Source\n\nL'apparition de modèles ouverts ultra-performants tels que **DeepSeek-R1** et **Llama 3.3** bouleverse l'économie de l'Intelligence Artificielle. Les entreprises ne sont plus contraintes d'envoyer leurs données financières, médicales ou stratégiques vers des API propriétaires fermées.\n\nDans le cadre de nos offres d'[intégration d'agents IA](/services/integration-ia-llm) et d'[infrastructure cloud et DevOps](/services/devops-cloud-infrastructure), nous accompagnons les organisations dans le déploiement sécurisé de modèles d'IA sur leurs propres infrastructures.\n\n---\n\n### 1. Pourquoi le Déploiement Local Devient Incontournable en 2026\n\n- **Souveraineté des Données & Conformité RGPD** : Aucune donnée client ne transite par des serveurs tiers situés hors de l'Union Européenne.\n- **Contrôle Total des Coûts (FinOps)** : Remplacement de factures d'API tokens exponentielles par des coûts de GPU dédiés prédictibles.\n- **Latence Constante & Zéro Rate-Limiting** : Priorité absolue donnée aux requêtes internes de votre entreprise.\n\n---\n\n### 2. Stack Technique de Déploiement avec vLLM & Docker\n\nLe moteur d'inférence **vLLM** est la référence industrielle grâce à sa gestion révolutionnaire de la mémoire via l'algorithme *PagedAttention* :\n\n```yaml\n# Exemple de docker-compose pour déployer DeepSeek-R1 avec vLLM\nversion: '3.8'\n\nservices:\n  vllm-engine:\n    image: vllm/vllm-openai:latest\n    runtime: nvidia\n    environment:\n      - HUGGING_FACE_HUB_TOKEN=${HF_TOKEN}\n    command: >\n      --model deepseek-ai/DeepSeek-R1-Distill-Qwen-32B\n      --tensor-parallel-size 2\n      --gpu-memory-utilization 0.90\n      --max-model-len 16384\n      --enforce-eager\n    ports:\n      - \"8000:8000\"\n    volumes:\n      - /data/models:/root/.cache/huggingface\n```\n\n---\n\n### Conclusion\n\nLe déploiement de modèles de raisonnement open source offre aux entreprises un avantage concurrentiel décisif. [Prenez contact avec nos spécialistes en infrastructure](/contact) pour auditer vos besoins et déployer votre propre cluster IA souverain.\n",
+        en: "\n## The Open-Source Reasoning Revolution\n\nWith high-performing open weights like **DeepSeek-R1**, enterprises are taking back control of their AI workloads without relying on proprietary, opaque third-party APIs.\n\nAt TY Dev, we help companies build sovereign AI clusters through our [AI & LLM Services](/services/integration-ia-llm) and [DevOps & Cloud Infrastructure](/services/devops-cloud-infrastructure).\n\n---\n\n### Highlights\n- **100% Data Sovereignty**: Compliant with European GDPR standards.\n- **Predictable FinOps Costs**: Fixed GPU reservations replace unpredictable API token invoices.\n- **High Throughput**: vLLM PagedAttention maximizes concurrent batching efficiency.\n\n[Reach out to our cloud engineers](/contact) to architect your self-hosted AI pipeline.\n"
+    }
+},
+  {
+    id: "tanstack-start-vs-next-js-15-pourquoi-l-ecosysteme-fullstack-evolue-vers-vite-en-2026",
+    slug: "tanstack-start-vs-next-js-15-pourquoi-l-ecosysteme-fullstack-evolue-vers-vite-en-2026",
+    title: {
+        fr: "TanStack Start vs Next.js 15 : Pourquoi l'Écosystème Fullstack Évolue vers Vite en 2026",
+        en: "TanStack Start vs Next.js 15: Why the Fullstack Ecosystem is Moving to Vite in 2026"
+    },
+    summary: {
+        fr: "Analyse comparative d'architecture : gestion des Server Functions, typage TypeScript de bout en bout, temps de build et autonomie d'hébergement sans vendor lock-in.",
+        en: "Comparative architectural benchmark: typesafe Server Functions, end-to-end TypeScript safety, compilation speed, and host-agnostic deployments without vendor lock-in."
+    },
+    category: "Software Architecture",
+    date: {
+        fr: "06 Octobre 2026",
+        en: "October 06, 2026",
+        iso: "2026-10-06"
+    },
+    author: {
+        name: "Mohamed Ben Khemis",
+        role: "DEVOPS ENGINEER",
+        avatar: "/team/mohamedbenkhemis.jfif"
+    },
+    image: "https://images.unsplash.com/photo-1526374870839-e155464bb9b2?auto=format&fit=crop&w=1200&q=80",
+    tags: [
+        "TanStack Start",
+        "Next.js",
+        "React 19",
+        "Vite",
+        "SSR",
+        "Performance"
+    ],
+    content: {
+        fr: "\n## La Mutation du Paysage Fullstack React\n\nPendant plusieurs années, Next.js s'est imposé comme le choix par défaut pour développer des applications web React. Cependant, en 2026, l'introduction de **TanStack Start** propulsé par **Vite** et **Nitro** redéfinit les attentes des équipes d'ingénierie en quête de performance, de simplicité et de liberté d'infrastructure.\n\nPour notre agence spécialisée dans les [applications web et PWA haute performance](/services/applications-web-pwa), ce changement d'architecture offre des gains concrets en vitesse de développement et en fiabilité de production.\n\n---\n\n### 1. Pourquoi Vite & TanStack Router Transforment l'Expérience Développeur\n\nLa force de TanStack Start repose sur la synergie entre trois briques majeures :\n\n1. **Vite en Moteur de Build Unique** : Élimination des conflits de bundling entre client et serveur grâce à l'écosystème Rollup/Esbuild ultra-rapide.\n2. **Typage Strict et Autocomplétion Totale** : Grâce à `@tanstack/react-router`, chaque paramètre d'URL, query search et loader bénéficie d'un typage TypeScript inféré à 100%. Aucune faute de frappe n'est possible au runtime.\n3. **Moteur Serveur Nitro Universel** : L'application peut être déployée en un clic sur Node.js, Cloudflare Workers, AWS Lambda ou Docker sans modifier une seule ligne de code.\n\n```typescript\n// Exemple de Server Function TanStack Start 100% typesafe\nimport { createServerFn } from \"@tanstack/react-start\";\nimport { z } from \"zod\";\n\nexport const getOrganizationMetrics = createServerFn({ method: \"GET\" })\n  .validator(z.object({ orgId: z.string().uuid() }))\n  .handler(async ({ data }) => {\n    // Exécution exclusive côté serveur avec accès direct à la base de données\n    const metrics = await db.organizations.findMetrics(data.orgId);\n    return metrics;\n  });\n```\n\n---\n\n### 2. Comparatif de Performance & Déploiement\n\n| Critère | TanStack Start (Vite + Nitro) | Next.js 15 (Turbopack) |\n|---|---|---|\n| **Temps de démarrage Dev** | < 300 ms (HMR instantané) | 1.8 s - 4.2 s |\n| **Poids du runtime client** | Minimal (~45 KB) | Plus volumineux (~90 KB) |\n| **Portabilité d'hébergement** | 100% Agnostique (Nitro) | Fortement orienté Vercel |\n| **Sécurité des routes** | Typage statique compile-time | Validation manuelle ou middleware |\n\n---\n\n### Conclusion pour vos Projets d'Entreprise\n\nPour concevoir des logiciels [SaaS sur-mesure](/services/saas-sur-mesure) ou des tableaux de bord interactifs complexes, TanStack Start apporte une robustesse inégalée. Découvrez notre savoir-faire d'architecture ou [échangez avec nos experts TY Dev](/contact) pour migrer vos applications existantes.\n",
+        en: "\n## The Shifting Fullstack React Paradigm\n\nNext.js has long dominated React server-side rendering. However, in 2026, **TanStack Start**—powered by **Vite** and **Nitro**—is becoming the preferred choice for performance-critical SaaS architectures.\n\nAt TY Dev, our focus on [High-Performance Web Apps & PWAs](/services/applications-web-pwa) drives us to leverage Vite's sub-millisecond HMR and strictly typesafe routing.\n\n---\n\n### Key Advantages of TanStack Start\n- **100% Typesafe Routing**: Route params and search schemas are checked at compile time.\n- **Universal Deployment**: Run natively across Node.js, Cloudflare Workers, or AWS Lambda via Nitro.\n- **Zero Vendor Lock-in**: Independent from proprietary hosting cloud platforms.\n\nDiscover our [Custom SaaS Development](/services/saas-sur-mesure) services or [contact our technical team](/contact) to discuss your software architecture.\n"
+    }
+},
+  {
+    id: "model-context-protocol-mcp-agents-ia-standardiser-l-architecture-d-outils-en-2026",
+    slug: "model-context-protocol-mcp-agents-ia-standardiser-l-architecture-d-outils-en-2026",
+    title: {
+        fr: "Model Context Protocol (MCP) & Agents IA : Standardiser l'Architecture d'Outils en 2026",
+        en: "Model Context Protocol (MCP) & AI Agents: Standardizing Enterprise Tool Architecture in 2026"
+    },
+    summary: {
+        fr: "Comment le standard ouvert MCP révolutionne l'intégration d'agents autonomes dans vos logiciels en remplaçant les connecteurs propriétaires par un protocole JSON-RPC unifié.",
+        en: "How the open-standard MCP revolutionizes autonomous AI agents integration by replacing bespoke API connectors with unified JSON-RPC protocols."
+    },
+    category: "IA & Automatisation",
+    date: {
+        fr: "06 Octobre 2026",
+        en: "October 06, 2026",
+        iso: "2026-10-06"
+    },
+    author: {
+        name: "Amine Ben Ammar",
+        role: "CO-FOUNDER",
+        avatar: "/team/aminebenamamr.jpg"
+    },
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
+    tags: [
+        "MCP",
+        "IA",
+        "Agents Autonomes",
+        "LLM",
+        "API",
+        "SaaS"
+    ],
+    content: {
+        fr: "\n## L'Avènement du Standard Model Context Protocol (MCP)\n\nJusqu'à récemment, connecter un Large Language Model (LLM) aux données internes d'une entreprise nécessitait de développer des adaptateurs d'API sur-mesure pour chaque outil (bases de données, CRM, dépôts Git, serveurs de fichiers). Avec l'émergence du **Model Context Protocol (MCP)**, l'industrie logicielle adopte enfin une interface unifiée.\n\nPour notre agence spécialisée en [intégration d'agents IA et LLM](/services/integration-ia-llm), MCP représente une avancée majeure pour concevoir des systèmes intelligents modulaires, sécurisés et maintenables.\n\n---\n\n### 1. Pourquoi MCP Remplace le Function Calling Isolé\n\nLe Function Calling traditionnel oblige chaque modèle à connaître la spécification de chaque API cliente. Le protocole MCP inverse cette dépendance grâce à une architecture client-serveur standardisée :\n\n- **Protocole Transport Neutre** : Communication bidirectionnelle via JSON-RPC 2.0 (stdio pour les outils locaux, SSE / WebSockets pour les services cloud distants).\n- **Primitives Découplées** :\n  - *Resources* : Documents et états contextuels en lecture seule.\n  - *Tools* : Fonctions exécutables par le modèle avec confirmation de permissions.\n  - *Prompts* : Modèles de requêtes préconfigurés partagés entre agents.\n- **Sécurité et Isolation** : Chaque serveur MCP opère dans son propre périmètre de privilèges (RBAC), éliminant les risques de compromission globale du système.\n\n```typescript\n// Exemple de serveur MCP minimal en TypeScript pour exposer un outil de requête sécurisée\nimport { Server } from \"@modelcontextprotocol/sdk/server/index.js\";\nimport { StdioServerTransport } from \"@modelcontextprotocol/sdk/server/stdio.js\";\nimport { CallToolRequestSchema, ListToolsRequestSchema } from \"@modelcontextprotocol/sdk/types.js\";\n\nconst server = new Server({\n  name: \"tydev-data-mcp\",\n  version: \"1.0.0\",\n}, { capabilities: { tools: {} } });\n\nserver.setRequestHandler(ListToolsRequestSchema, async () => ({\n  tools: [{\n    name: \"query_business_kpis\",\n    description: \"Récupère les métriques de revenus et conversions SaaS\",\n    inputSchema: {\n      type: \"object\",\n      properties: { period: { type: \"string\", enum: [\"7d\", \"30d\", \"90d\"] } },\n      required: [\"period\"]\n    }\n  }]\n}));\n\nconst transport = new StdioServerTransport();\nawait server.connect(transport);\n```\n\n---\n\n### 2. Intégration dans les Applications SaaS Multi-Tenants\n\nDans le cadre du [développement SaaS sur-mesure](/services/saas-sur-mesure), l'intégration de serveurs MCP permet aux utilisateurs finaux de brancher leurs propres agents IA sur leurs données d'entreprise sans exposer les clés d'API sensibles ni risquer des fuites multi-tenants.\n\n1. **Isolation par Organisation** : Chaque requête MCP passe par un middleware validant le tenant ID et le token d'accès.\n2. **Audit & Traçabilité** : Chaque appel d'outil par l'agent est journalisé avec ses paramètres d'entrée et sa latence.\n3. **Mise en Cache Sémantique** : Les réponses fréquentes sont mises en cache sur Redis pour réduire les coûts d'inférence.\n\n---\n\n### Conclusion & Prochaines Étapes\n\nLe Model Context Protocol s'impose comme le socle des architectures logicielles pilotées par l'IA. Si vous souhaitez intégrer des agents autonomes et des workflows MCP dans vos applications, [contactez notre équipe d'ingénieurs TY Dev](/contact) pour une étude d'architecture personnalisée.\n",
+        en: "\n## The Rise of the Model Context Protocol (MCP)\n\nUntil recently, connecting a Large Language Model to proprietary enterprise data required bespoke API integrations for every tool. With the arrival of **Model Context Protocol (MCP)**, the software industry finally benefits from a unified, open protocol.\n\nAt TY Dev, our team specializing in [AI & LLM Integration](/services/integration-ia-llm) leverages MCP to deliver modular, secure, and production-ready agentic architectures.\n\n---\n\n### 1. Why MCP Surpasses Isolated Function Calling\n\nTraditional function calling tightly couples prompts with external API shapes. MCP decouples tool execution via JSON-RPC 2.0 over standard transports (stdio, SSE, WebSockets):\n\n- **Neutral Transports**: Standardized bi-directional RPC communications.\n- **Composable Primitives**: Dedicated abstractions for Resources, Tools, and System Prompts.\n- **Strict Sandboxing**: Granular RBAC scopes ensuring sensitive credentials never leak into prompt contexts.\n\n---\n\n### Conclusion\n\nMCP is setting the baseline for the agentic software era. Learn how we can empower your platforms with autonomous agents by checking our [Custom SaaS Engineering](/services/saas-sur-mesure) solutions or [reaching out to our engineers](/contact).\n"
+    }
+},
+  {
     id: "integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026",
     slug: "integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026",
     title: {

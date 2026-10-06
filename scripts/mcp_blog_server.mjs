@@ -2,7 +2,7 @@ import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { publishArticle, dailyArticlesLibrary } from './publish_blog.mjs';
+import { publishArticle, dailyArticlesLibrary, generateSlug } from './publish_blog.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -38,9 +38,19 @@ function checkAndRunDailyScheduler() {
       // Trigger next publication
       const blogPostsFile = path.join(rootDir, 'src', 'data', 'blogPosts.ts');
       const fileContent = fs.readFileSync(blogPostsFile, 'utf-8');
-      const postMatches = [...fileContent.matchAll(/id:\s*["']([^"']+)["']/g)];
-      
-      console.log(`ℹ️ [MCP Scheduler] Total existing posts: ${postMatches.length}`);
+      const existingSlugs = new Set([...fileContent.matchAll(/(?:"slug"|slug)\s*:\s*["']([^"']+)["']/g)].map(m => m[1]));
+      const available = dailyArticlesLibrary.filter(item => !existingSlugs.has(generateSlug(item.titleFr)));
+
+      if (available.length > 0) {
+        const nextArticle = available[0];
+        console.log(`🚀 [MCP Scheduler] Publishing daily article: "${nextArticle.titleFr}"`);
+        publishArticle({
+          ...nextArticle,
+          token: SECRET_TOKEN,
+        });
+      } else {
+        console.warn('⚠️ [MCP Scheduler] All pre-configured articles published. Please configure AI API key in .env for infinite daily posts.');
+      }
       lastAutoPublishDay = todayStr;
     } catch (err) {
       console.error('❌ [MCP Scheduler] Daily publication error:', err);
@@ -115,9 +125,9 @@ const server = http.createServer((req, res) => {
 
         const blogPostsFile = path.join(rootDir, 'src', 'data', 'blogPosts.ts');
         const fileContent = fs.readFileSync(blogPostsFile, 'utf-8');
-        const postMatches = [...fileContent.matchAll(/id:\s*["']([^"']+)["']/g)];
-        const libraryIndex = postMatches.length % dailyArticlesLibrary.length;
-        const defaultArticle = dailyArticlesLibrary[libraryIndex];
+        const existingSlugs = new Set([...fileContent.matchAll(/(?:"slug"|slug)\s*:\s*["']([^"']+)["']/g)].map(m => m[1]));
+        const available = dailyArticlesLibrary.filter(item => !existingSlugs.has(generateSlug(item.titleFr)));
+        const defaultArticle = available.length > 0 ? available[0] : dailyArticlesLibrary[0];
 
         const publishedPost = publishArticle({
           titleFr: payload.titleFr || defaultArticle.titleFr,

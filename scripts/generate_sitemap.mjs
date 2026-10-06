@@ -52,7 +52,7 @@ function extractBlogPosts(fileContent) {
   for (const match of matches) {
     const slug = match[1];
     const startIndex = match.index;
-    const chunk = fileContent.slice(startIndex, startIndex + 800);
+    const chunk = fileContent.slice(startIndex, startIndex + 2000);
     const isoMatch = chunk.match(/["']?iso["']?\s*:\s*["']([^"']+)["']/);
 
     posts.push({

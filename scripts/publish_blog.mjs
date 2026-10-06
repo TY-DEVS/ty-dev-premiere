@@ -30,7 +30,7 @@ const teamAuthors = [
   { name: 'Mohamed Ben Yahia', role: 'FULL STACK DEVELOPER', avatar: '/team/mohamedbenyahia.jpg' },
 ];
 
-// 2. High-Quality Royalty-Free Technical Image Pool (30 Unique Images - NO AI IMAGES)
+// 2. High-Quality Royalty-Free Technical Image Pool (Unsplash Tech/Engineering)
 const imagePool = [
   'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80',
   'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
@@ -80,6 +80,17 @@ function getFormattedDates(date = new Date()) {
   };
 }
 
+// Generate a clean SEO-friendly slug
+export function generateSlug(title) {
+  return title
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\uFFFD/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+}
+
 // Published Article Generator / Inserter
 export function publishArticle({ titleFr, titleEn, summaryFr, summaryEn, category, image, tags, contentFr, contentEn, token, author: customAuthor }) {
   if (token && token !== secretToken) {
@@ -89,22 +100,23 @@ export function publishArticle({ titleFr, titleEn, summaryFr, summaryEn, categor
   const blogPostsFile = path.join(rootDir, 'src', 'data', 'blogPosts.ts');
   let fileContent = fs.readFileSync(blogPostsFile, 'utf-8');
 
-  // Count existing posts to calculate rotation indices
-  const postMatches = [...fileContent.matchAll(/id:\s*["']([^"']+)["']/g)];
+  // Accurately count all existing posts (both "id": and id:)
+  const postMatches = [...fileContent.matchAll(/(?:"id"|id)\s*:\s*["']([^"']+)["']/g)];
   const existingCount = postMatches.length;
+
+  // Extract all existing slugs to prevent duplicates
+  const existingSlugs = new Set([...fileContent.matchAll(/(?:"slug"|slug)\s*:\s*["']([^"']+)["']/g)].map(m => m[1]));
+
+  const slug = generateSlug(titleFr);
+
+  if (existingSlugs.has(slug)) {
+    console.warn(`⚠️ Article with slug "${slug}" already exists! Skipping to protect SEO rankings.`);
+    return null;
+  }
 
   // Determine rotated author and image
   const author = customAuthor || teamAuthors[existingCount % teamAuthors.length];
   const selectedImage = image || imagePool[existingCount % imagePool.length];
-
-  const slug = titleFr
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/\uFFFD/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)/g, '');
-
   const dates = getFormattedDates();
 
   const newPost = {
@@ -145,647 +157,754 @@ export function publishArticle({ titleFr, titleEn, summaryFr, summaryEn, categor
   return newPost;
 }
 
-// Pre-configured High-Value Daily Article Library for Automated Publishing
+// 3. Pre-configured Library of 10 Distinct Cutting-Edge Tech Topics for 2026
+// Optimized for agency topical authority, internal linking, and search intent.
 export const dailyArticlesLibrary = [
   {
-    titleFr: "Intégration d'Agents IA & LLM dans les SaaS : Automatiser les Workflows Métiers en 2026",
-    titleEn: "Integrating AI Agents & LLMs in SaaS: Automating Business Workflows in 2026",
-    summaryFr: "Guide d'architecture complet pour connecter vos bases de données aux modèles LLM (RAG, Function Calling, Pgvector) et automatiser vos processus métiers sans compromettre la sécurité.",
-    summaryEn: "Comprehensive architecture guide for connecting enterprise databases to LLMs (RAG, Function Calling, Pgvector) to automate business workflows securely.",
+    titleFr: "Model Context Protocol (MCP) & Agents IA : Standardiser l'Architecture d'Outils en 2026",
+    titleEn: "Model Context Protocol (MCP) & AI Agents: Standardizing Enterprise Tool Architecture in 2026",
+    summaryFr: "Comment le standard ouvert MCP révolutionne l'intégration d'agents autonomes dans vos logiciels en remplaçant les connecteurs propriétaires par un protocole JSON-RPC unifié.",
+    summaryEn: "How the open-standard MCP revolutionizes autonomous AI agents integration by replacing bespoke API connectors with unified JSON-RPC protocols.",
     category: "IA & Automatisation",
-    tags: ["IA", "LLM", "SaaS", "Automation", "RAG", "Pgvector"],
+    tags: ["MCP", "IA", "Agents Autonomes", "LLM", "API", "SaaS"],
     contentFr: `
-## L'IA Générative au Cœur de l'Architecture SaaS
+## L'Avènement du Standard Model Context Protocol (MCP)
 
-En 2026, l'intégration de capacités d'Intelligence Artificielle au sein des applications SaaS ne se limite plus à un simple widget de chat générique. Les entreprises exigent des **Agents IA autonomes** capables d'interagir directement avec le contexte métier, d'exécuter des requêtes sur les bases de données et d'automatiser des tâches complexes en temps réel.
+Jusqu'à récemment, connecter un Large Language Model (LLM) aux données internes d'une entreprise nécessitait de développer des adaptateurs d'API sur-mesure pour chaque outil (bases de données, CRM, dépôts Git, serveurs de fichiers). Avec l'émergence du **Model Context Protocol (MCP)**, l'industrie logicielle adopte enfin une interface unifiée.
+
+Pour notre agence spécialisée en [intégration d'agents IA et LLM](/services/integration-ia-llm), MCP représente une avancée majeure pour concevoir des systèmes intelligents modulaires, sécurisés et maintenables.
 
 ---
 
-### 1. Architecture RAG (Retrieval-Augmented Generation)
+### 1. Pourquoi MCP Remplace le Function Calling Isolé
 
-La méthode RAG reste la référence pour fournir aux LLM (Large Language Models) des données contextuelles à jour sans ré-entraîner les modèles :
+Le Function Calling traditionnel oblige chaque modèle à connaître la spécification de chaque API cliente. Le protocole MCP inverse cette dépendance grâce à une architecture client-serveur standardisée :
 
-- **Vectorisation des Données** : Indexation des documents et enregistrements clients via des modèles d'embeddings de haute dimension.
-- **Stockage Vectoriel** : Utilisation de **Pgvector** (extension PostgreSQL) ou **Pinecone** pour des recherches de similitude cosinus sub-10ms.
-- **Context Injection** : Injection dynamique des fragments de texte pertinents dans le prompt système avant la génération.
+- **Protocole Transport Neutre** : Communication bidirectionnelle via JSON-RPC 2.0 (stdio pour les outils locaux, SSE / WebSockets pour les services cloud distants).
+- **Primitives Découplées** :
+  - *Resources* : Documents et états contextuels en lecture seule.
+  - *Tools* : Fonctions exécutables par le modèle avec confirmation de permissions.
+  - *Prompts* : Modèles de requêtes préconfigurés partagés entre agents.
+- **Sécurité et Isolation** : Chaque serveur MCP opère dans son propre périmètre de privilèges (RBAC), éliminant les risques de compromission globale du système.
 
 \`\`\`typescript
-// Exemple d'interrogation vectorielle sécurisée avec Pgvector
-import { db } from './db';
+// Exemple de serveur MCP minimal en TypeScript pour exposer un outil de requête sécurisée
+import { Server } from "@modelcontextprotocol/sdk/server/index.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { CallToolRequestSchema, ListToolsRequestSchema } from "@modelcontextprotocol/sdk/types.js";
 
-export async function searchContext(queryEmbedding: number[], tenantId: string) {
-  return await db.query(\`
-    SELECT content, similarity
-    FROM document_embeddings
-    WHERE tenant_id = $1
-    ORDER BY embedding <=> $2::vector
-    LIMIT 5
-  \`, [tenantId, JSON.stringify(queryEmbedding)]);
-}
+const server = new Server({
+  name: "tydev-data-mcp",
+  version: "1.0.0",
+}, { capabilities: { tools: {} } });
+
+server.setRequestHandler(ListToolsRequestSchema, async () => ({
+  tools: [{
+    name: "query_business_kpis",
+    description: "Récupère les métriques de revenus et conversions SaaS",
+    inputSchema: {
+      type: "object",
+      properties: { period: { type: "string", enum: ["7d", "30d", "90d"] } },
+      required: ["period"]
+    }
+  }]
+}));
+
+const transport = new StdioServerTransport();
+await server.connect(transport);
 \`\`\`
 
 ---
 
-### 2. Orchestration & Function Calling
+### 2. Intégration dans les Applications SaaS Multi-Tenants
 
-Les modèles modernes (GPT-4o, Claude 3.5 Sonnet, Gemini Pro) excellent dans l'exécution d'actions via le **Function Calling**. L'agent IA analyse l'intention de l'utilisateur, choisit l'outil approprié et renvoie une réponse structurée :
+Dans le cadre du [développement SaaS sur-mesure](/services/saas-sur-mesure), l'intégration de serveurs MCP permet aux utilisateurs finaux de brancher leurs propres agents IA sur leurs données d'entreprise sans exposer les clés d'API sensibles ni risquer des fuites multi-tenants.
 
-1. **Parsing d'Intention** : Identification de l'action utilisateur (ex: *Créer une facture pour Client X*).
-2. **Validation des Schémas** : Strict respect des schémas JSON Schema / Zod pour chaque outil mis à disposition.
-3. **Exécution Sécurisée** : Exécution du code dans un environnement contrôlé avec isolation des droits par utilisateur.
-
----
-
-### 3. Recommandations de Sécurité & Conformité (DevSecOps)
-
-- **Sanitisation des Prompts** : Protection contre les attaques par *Prompt Injection* via des filtres d'entrée stricts.
-- **Confidentialité Multi-tenant** : Isolation stricte des données de chaque client au niveau du stockage vectoriel.
-- **Rate Limiting & Coûts** : Plafonnement des requêtes par utilisateur pour éviter les dérives de consommation API.
+1. **Isolation par Organisation** : Chaque requête MCP passe par un middleware validant le tenant ID et le token d'accès.
+2. **Audit & Traçabilité** : Chaque appel d'outil par l'agent est journalisé avec ses paramètres d'entrée et sa latence.
+3. **Mise en Cache Sémantique** : Les réponses fréquentes sont mises en cache sur Redis pour réduire les coûts d'inférence.
 
 ---
 
-### Conclusion & Impact Métier
+### Conclusion & Prochaines Étapes
 
-L'adoption des agents IA dans vos produits SaaS permet de réduire le temps de traitement des tickets de support de **40% à 70%** tout en offrant des fonctionnalités d'analyse décisionnelle inédites pour vos utilisateurs.
+Le Model Context Protocol s'impose comme le socle des architectures logicielles pilotées par l'IA. Si vous souhaitez intégrer des agents autonomes et des workflows MCP dans vos applications, [contactez notre équipe d'ingénieurs TY Dev](/contact) pour une étude d'architecture personnalisée.
 `,
     contentEn: `
-## Embedded Generative AI in Modern SaaS Platforms
+## The Rise of the Model Context Protocol (MCP)
 
-In 2026, integrating Artificial Intelligence into SaaS products extends far beyond basic conversational chatbots. Modern enterprises demand **autonomous AI Agents** capable of operating directly on business contexts, querying databases, and executing complex workflows in real time.
+Until recently, connecting a Large Language Model to proprietary enterprise data required bespoke API integrations for every tool. With the arrival of **Model Context Protocol (MCP)**, the software industry finally benefits from a unified, open protocol.
 
----
-
-### 1. RAG (Retrieval-Augmented Generation) Architecture
-
-RAG remains the industry benchmark for injecting real-time business context into Large Language Models without costly model fine-tuning:
-
-- **Data Embedding**: Indexing client records using high-dimensional vector embeddings.
-- **Vector Storage**: Utilizing **Pgvector** (PostgreSQL extension) or **Pinecone** for sub-10ms similarity queries.
-- **Dynamic Context Injection**: Injecting top-k relevant fragments directly into system prompts.
-
-\`\`\`typescript
-// Secure vector similarity lookup with Pgvector
-import { db } from './db';
-
-export async function searchContext(queryEmbedding: number[], tenantId: string) {
-  return await db.query(\`
-    SELECT content, similarity
-    FROM document_embeddings
-    WHERE tenant_id = $1
-    ORDER BY embedding <=> $2::vector
-    LIMIT 5
-  \`, [tenantId, JSON.stringify(queryEmbedding)]);
-}
-\`\`\`
+At TY Dev, our team specializing in [AI & LLM Integration](/services/integration-ia-llm) leverages MCP to deliver modular, secure, and production-ready agentic architectures.
 
 ---
 
-### 2. Agent Orchestration & Function Calling
+### 1. Why MCP Surpasses Isolated Function Calling
 
-Leading foundation models execute structured actions via **Function Calling**. The AI agent evaluates intent, triggers API tools, and returns validated output:
+Traditional function calling tightly couples prompts with external API shapes. MCP decouples tool execution via JSON-RPC 2.0 over standard transports (stdio, SSE, WebSockets):
 
-1. **Intent Parsing**: Identifying user goals (e.g., *Generate quarterly revenue report*).
-2. **Schema Enforcement**: Validating function inputs with Zod and JSON Schema.
-3. **Sandboxed Execution**: Executing API handlers under strict RBAC scope.
-
----
-
-### 3. Security & Compliance Best Practices
-
-- **Prompt Injection Defense**: Sanitizing user input to prevent adversarial instruction overrides.
-- **Multi-Tenant Data Isolation**: Scoping vector queries strictly by organization ID.
-- **Cost & Quota Governance**: Implementing token limits per billing tier.
+- **Neutral Transports**: Standardized bi-directional RPC communications.
+- **Composable Primitives**: Dedicated abstractions for Resources, Tools, and System Prompts.
+- **Strict Sandboxing**: Granular RBAC scopes ensuring sensitive credentials never leak into prompt contexts.
 
 ---
 
 ### Conclusion
 
-Deploying context-aware AI agents inside SaaS platforms drives a **40% to 70% reduction** in manual ops while elevating customer experience.
-`,
+MCP is setting the baseline for the agentic software era. Learn how we can empower your platforms with autonomous agents by checking our [Custom SaaS Engineering](/services/saas-sur-mesure) solutions or [reaching out to our engineers](/contact).
+`
   },
   {
-    titleFr: "Bases de Données Relationnelles vs NoSQL : PostgreSQL, Redis & MongoDB en 2026",
-    titleEn: "Relational vs NoSQL Databases: PostgreSQL, Redis & MongoDB in 2026",
-    summaryFr: "Guide technique d'architecture pour sélectionner le bon moteur de stockage, optimiser les index et concevoir une stratégie multi-base performante.",
-    summaryEn: "Technical architecture guide for selecting storage engines, optimizing indexes, and building scalable multi-database systems.",
+    titleFr: "TanStack Start vs Next.js 15 : Pourquoi l'Écosystème Fullstack Évolue vers Vite en 2026",
+    titleEn: "TanStack Start vs Next.js 15: Why the Fullstack Ecosystem is Moving to Vite in 2026",
+    summaryFr: "Analyse comparative d'architecture : gestion des Server Functions, typage TypeScript de bout en bout, temps de build et autonomie d'hébergement sans vendor lock-in.",
+    summaryEn: "Comparative architectural benchmark: typesafe Server Functions, end-to-end TypeScript safety, compilation speed, and host-agnostic deployments without vendor lock-in.",
     category: "Software Architecture",
-    tags: ["PostgreSQL", "Database", "Redis", "MongoDB", "Backend", "SQL"],
+    tags: ["TanStack Start", "Next.js", "React 19", "Vite", "SSR", "Performance"],
     contentFr: `
-## Choisir le Bon Moteur de Données pour la Scalabilité
+## La Mutation du Paysage Fullstack React
 
-Le choix de la couche de stockage est l'une des décisions d'architecture les plus critiques lors du développement d'une application SaaS. En 2026, l'approche dominante n'est pas le choix d'un moteur unique, mais l'adoption d'une **Architecture de Persistence Polyglotte**.
+Pendant plusieurs années, Next.js s'est imposé comme le choix par défaut pour développer des applications web React. Cependant, en 2026, l'introduction de **TanStack Start** propulsé par **Vite** et **Nitro** redéfinit les attentes des équipes d'ingénierie en quête de performance, de simplicité et de liberté d'infrastructure.
 
----
-
-### 1. PostgreSQL : La Source Unique de Vérité (SSOT)
-
-PostgreSQL est devenu le moteur relationnel incontournable grâce à sa robustesse et sa grande polyvalence :
-
-- **Garanties ACID** : Transactions atomiques et cohérence absolue des données financières et comptes utilisateurs.
-- **Fonctionnalités Avancées** : Support natif du format JSONB, recherche plein texte et extensions géospatiales (PostGIS) ou vectorielles (Pgvector).
-- **Indexation Performante** : Utilisation des index B-Tree, BRIN, GIN et Partial Indexes pour des requêtes optimisées.
-
-\`\`\`sql
--- Index partiel pour optimiser les requêtes sur les utilisateurs actifs
-CREATE INDEX idx_active_users ON users (email) WHERE status = 'active';
-\`\`\`
+Pour notre agence spécialisée dans les [applications web et PWA haute performance](/services/applications-web-pwa), ce changement d'architecture offre des gains concrets en vitesse de développement et en fiabilité de production.
 
 ---
 
-### 2. Redis : In-Memory Caching & Distributed Locks
+### 1. Pourquoi Vite & TanStack Router Transforment l'Expérience Développeur
 
-Redis complète la base relationnelle en gérant la couche de haute performance en mémoire :
+La force de TanStack Start repose sur la synergie entre trois briques majeures :
 
-- **Cache de Session & Token JWT** : Accès ultra-rapide (< 2ms) aux données de session.
-- **Rate Limiting** : Algorithme Token Bucket pour protéger les routes API contre les abus.
-- **Verrous Distribués (Redlock)** : Protection contre les conditions de concurrence lors des paiements.
-
----
-
-### 3. MongoDB : Documents Flexibles & Analytique
-
-MongoDB excelle dans la gestion de schémas hautement dynamiques et variables :
-
-- **Logs & Audit Trails** : Stockage de journaux d'événements sans schéma rigide préalable.
-- **Pipeline d'Agrégation** : Traitement analytique rapide de grands volumes de métriques.
-
----
-
-### Recommandations & Matrice de Choix
-
-| Besoin Métier | Moteur Recommandé | Raison Technique |
-| :--- | :--- | :--- |
-| Utilisateurs, Facturation, Abonnements | **PostgreSQL** | Transactions ACID & Intégrité Référentielle |
-| Cache, Sessions, Rate Limits | **Redis** | Latence sub-milliseconde & In-Memory |
-| Logs d'activité, Analytics non-structurés | **MongoDB** | Schéma flexible & Agrégations rapides |
-`,
-    contentEn: `
-## Choosing the Optimal Data Layer for High-Scale Apps
-
-Database selection is one of the most critical architectural decisions for SaaS platforms. In 2026, leading engineering teams leverage a **Polyglot Persistence Architecture** to maximize performance and reliability.
-
----
-
-### 1. PostgreSQL: The Single Source of Truth (SSOT)
-
-PostgreSQL is the gold standard relational engine for core data storage:
-
-- **ACID Guarantees**: Strict transactional integrity for billing, user accounts, and critical data.
-- **Advanced Capabilities**: Native JSONB query engine, full-text search, and Pgvector embeddings.
-- **Index Optimization**: B-Tree, BRIN, GIN, and Partial Indexing strategies.
-
-\`\`\`sql
--- Partial index to speed up active user lookups
-CREATE INDEX idx_active_users ON users (email) WHERE status = 'active';
-\`\`\`
-
----
-
-### 2. Redis: Sub-Millisecond In-Memory Caching
-
-Redis acts as the high-throughput caching and synchronization layer:
-
-- **Session & JWT Storage**: Fast sub-2ms key-value retrieval.
-- **API Rate Limiting**: Protecting critical endpoints via Token Bucket patterns.
-- **Distributed Locking**: Preventing race conditions in payment workflows.
-
----
-
-### 3. MongoDB: Flexible Document Store
-
-MongoDB excels at handling dynamic, evolving document schemas:
-
-- **Activity Audit Logs**: Storing unstructured telemetry and event streams.
-- **Aggregation Pipelines**: Real-time analytical rollups across high-volume datasets.
-
----
-
-### Architecture Decision Matrix
-
-| Data Workload | Target Engine | Engineering Rationale |
-| :--- | :--- | :--- |
-| Core SaaS Data & Billing | **PostgreSQL** | ACID Compliance & Foreign Keys |
-| Session State & Caching | **Redis** | In-Memory Performance & TTLs |
-| Telemetry & Audit Logs | **MongoDB** | Dynamic Schema & Aggregation |
-`,
-  },
-  {
-    titleFr: "Continuous Integration & Deployment (CI/CD) : Pipelines de Production Résilients",
-    titleEn: "Continuous Integration & Deployment (CI/CD): Automating Production Pipelines",
-    summaryFr: "Mettre en place des pipelines GitHub Actions automatisés avec tests unitaires, vérification de types TypeScript, audit de sécurité et déploiement continu.",
-    summaryEn: "Building resilient GitHub Actions workflows with automated testing, TypeScript typechecking, security audits, and continuous deployment.",
-    category: "Engineering & API",
-    tags: ["CI/CD", "GitHub Actions", "DevOps", "Automation", "Testing", "Docker"],
-    contentFr: `
-## L'Automatisation au Service de la Qualité Logicielle
-
-Dans un environnement de développement moderne, le déploiement manuel de code est une source majeure de régressions et de pannes. Un pipeline CI/CD robuste élimine le facteur d'erreur humaine et garantit la stabilité de vos plateformes.
-
----
-
-### 1. Les 4 Étapes d'un Pipeline CI/CD Performant
-
-1. **Statical Analysis & Typecheck** : Validation stricte des types TypeScript (\`tsc --noEmit\`) et linting (\`eslint\`).
-2. **Automated Testing Suite** : Exécution des tests unitaires (Vitest / Jest) et des tests d'intégration.
-3. **Containerization & Build** : Compilation du bundle de production et construction de l'image Docker optimisée.
-4. **Zero-Downtime Deployment** : Déploiement progressif (Canary / Blue-Green) vers les serveurs de production.
-
----
-
-### 2. Exemple de Workflow GitHub Actions Professionnel
-
-\`\`\`yaml
-name: Production CI/CD Pipeline
-
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-
-jobs:
-  validate-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'npm'
-
-      - name: Install Dependencies
-        run: npm ci
-
-      - name: TypeCheck & Lint
-        run: |
-          npx tsc --noEmit
-          npm run lint
-
-      - name: Run Unit Tests
-        run: npm test -- --run
-
-      - name: Build Production Bundle
-        run: npm run build
-\`\`\`
-
----
-
-### 3. Les Métriques DORA pour Évaluer la Maturité DevOps
-
-Pour mesurer l'efficacité de vos déploiements, suivez les 4 métriques DORA incontournables :
-
-- **Deployment Frequency** : Nombre de mises en production par jour.
-- **Lead Time for Changes** : Délai entre le commit de code et sa livraison en production.
-- **Change Failure Rate** : Pourcentage de déploiements provoquant une panne.
-- **Time to Restore Service (MTTR)** : Temps moyen nécessaire pour résoudre un incident en production.
-`,
-    contentEn: `
-## Automation for Engineering Excellence
-
-Manual code deployments in modern web development invite regressions and service downtime. A battle-tested CI/CD pipeline mitigates risk and ensures every release meets high reliability standards.
-
----
-
-### 1. Core Pillars of a Production CI/CD Pipeline
-
-1. **Static Code Analysis**: Strict TypeScript compilation checks (\`tsc --noEmit\`) and ESLint rules.
-2. **Automated Test Suites**: Running fast unit and integration tests (Vitest / Jest / Playwright).
-3. **Container Building**: Producing multi-stage Docker artifacts with zero vulnerability leaks.
-4. **Zero-Downtime Releases**: Employing Blue/Green or Canary deployment strategies.
-
----
-
-### 2. Production-Ready GitHub Actions Workflow
-
-\`\`\`yaml
-name: Production CI/CD Pipeline
-
-on:
-  push:
-    branches: [main]
-
-jobs:
-  build-and-test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'npm'
-
-      - name: Install Dependencies
-        run: npm ci
-
-      - name: TypeCheck & Lint
-        run: |
-          npx tsc --noEmit
-          npm run lint
-
-      - name: Run Test Suite
-        run: npm test -- --run
-
-      - name: Build Bundle
-        run: npm run build
-\`\`\`
-
----
-
-### 3. Tracking DevOps Performance via DORA Metrics
-
-Elevate software delivery by measuring key DORA metrics:
-
-- **Deployment Frequency**: How often code is shipped to production.
-- **Lead Time for Changes**: Time elapsed from commit to live deployment.
-- **Change Failure Rate**: Percentage of releases requiring immediate rollback.
-- **Mean Time to Recovery (MTTR)**: Speed of incident resolution.
-`,
-  },
-  {
-    titleFr: "Monétisation SaaS & Intégration Stripe : Gestion des Abonnements & Facturation",
-    titleEn: "SaaS Monetization & Stripe Integration: Subscription Management & Billing",
-    summaryFr: "Architecture d'ingénierie financière pour intégrer Stripe, gérer la synchronisation asynchrone par Webhooks, les abonnements et le Dunning Management.",
-    summaryEn: "Financial engineering architecture for Stripe integration, asynchronous Webhook synchronization, subscriptions, and automated Dunning Management.",
-    category: "Engineering & API",
-    tags: ["Stripe", "SaaS", "Billing", "Payments", "Integration", "Webhooks"],
-    contentFr: `
-## L'Ingénierie Financière d'une Application SaaS
-
-La monétisation est le moteur fondamental de toute application SaaS commerciale. La gestion des abonnements récurrents nécessite une architecture logicielle hautement sécurisée, idoine et capable de gérer des scénarios complexes (prorata, échecs de paiement, gestion des taxes).
-
----
-
-### 1. Architecture Webhook Idempotente
-
-Les événements de paiement Stripe doivent être traités de manière asynchrone via des **Webhooks**. Pour éviter les doubles facturations lors des re-tentatives du réseau, chaque gestionnaire de webhook doit être strictement **idempotent** :
+1. **Vite en Moteur de Build Unique** : Élimination des conflits de bundling entre client et serveur grâce à l'écosystème Rollup/Esbuild ultra-rapide.
+2. **Typage Strict et Autocomplétion Totale** : Grâce à \`@tanstack/react-router\`, chaque paramètre d'URL, query search et loader bénéficie d'un typage TypeScript inféré à 100%. Aucune faute de frappe n'est possible au runtime.
+3. **Moteur Serveur Nitro Universel** : L'application peut être déployée en un clic sur Node.js, Cloudflare Workers, AWS Lambda ou Docker sans modifier une seule ligne de code.
 
 \`\`\`typescript
-// Exemple de serveur Webhook Express sécurisé avec validation de signature
-import express from 'express';
-import Stripe from 'stripe';
+// Exemple de Server Function TanStack Start 100% typesafe
+import { createServerFn } from "@tanstack/react-start";
+import { z } from "zod";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
-const app = express();
-
-app.post('/api/webhooks/stripe', express.raw({ type: 'application/json' }), async (req, res) => {
-  const sig = req.headers['stripe-signature']!;
-  let event: Stripe.Event;
-
-  try {
-    event = stripe.webhooks.constructEvent(req.body, sig, process.env.STRIPE_WEBHOOK_SECRET!);
-  } catch (err: any) {
-    return res.status(400).send(\`Webhook Error: \${err.message}\`);
-  }
-
-  // Traitement idempotent de l'événement
-  switch (event.type) {
-    case 'invoice.payment_succeeded':
-      await handleInvoicePaid(event.data.object as Stripe.Invoice);
-      break;
-    case 'customer.subscription.deleted':
-      await handleSubscriptionCanceled(event.data.object as Stripe.Subscription);
-      break;
-  }
-
-  res.json({ received: true });
-});
+export const getOrganizationMetrics = createServerFn({ method: "GET" })
+  .validator(z.object({ orgId: z.string().uuid() }))
+  .handler(async ({ data }) => {
+    // Exécution exclusive côté serveur avec accès direct à la base de données
+    const metrics = await db.organizations.findMetrics(data.orgId);
+    return metrics;
+  });
 \`\`\`
 
 ---
 
-### 2. Gestion des Impayés (Dunning Management)
+### 2. Comparatif de Performance & Déploiement
 
-Un taux d'échec de carte bancaire non géré peut générer jusqu'à **10% de churn involontaire** (cartes expirées, plafonds dépassés).
-
-- **Relances Automatisées** : Configuration des séquences de relance par e-mail via Stripe Billing.
-- **Grace Period** : Maintien temporaire de l'accès pendant 3 à 7 jours avant suspension de compte.
-- **Portail Libre-service Client** : Redirection vers le *Stripe Customer Portal* pour la mise à jour des coordonnées bancaires.
+| Critère | TanStack Start (Vite + Nitro) | Next.js 15 (Turbopack) |
+|---|---|---|
+| **Temps de démarrage Dev** | < 300 ms (HMR instantané) | 1.8 s - 4.2 s |
+| **Poids du runtime client** | Minimal (~45 KB) | Plus volumineux (~90 KB) |
+| **Portabilité d'hébergement** | 100% Agnostique (Nitro) | Fortement orienté Vercel |
+| **Sécurité des routes** | Typage statique compile-time | Validation manuelle ou middleware |
 
 ---
 
-### 3. Conformité & Sécurité Financière
+### Conclusion pour vos Projets d'Entreprise
 
-- **PCI-DSS Compliance** : Aucune donnée de carte ne doit transiter par vos serveurs (utilisation stricte de Stripe Elements ou Checkout).
-- **Gestion des Taxes Internationales** : Activation de *Stripe Tax* pour calculer automatiquement la TVA / Sales Tax selon la géolocalisation du client.
+Pour concevoir des logiciels [SaaS sur-mesure](/services/saas-sur-mesure) ou des tableaux de bord interactifs complexes, TanStack Start apporte une robustesse inégalée. Découvrez notre savoir-faire d'architecture ou [échangez avec nos experts TY Dev](/contact) pour migrer vos applications existantes.
 `,
     contentEn: `
-## Financial Engineering for SaaS Monetization
+## The Shifting Fullstack React Paradigm
 
-Monetization powers commercial SaaS operations. Managing recurring subscriptions requires a resilient, secure system capable of handling complex billing edge-cases (proration, failed card retries, compliance).
+Next.js has long dominated React server-side rendering. However, in 2026, **TanStack Start**—powered by **Vite** and **Nitro**—is becoming the preferred choice for performance-critical SaaS architectures.
+
+At TY Dev, our focus on [High-Performance Web Apps & PWAs](/services/applications-web-pwa) drives us to leverage Vite's sub-millisecond HMR and strictly typesafe routing.
 
 ---
 
-### 1. Idempotent Webhook Processing Architecture
+### Key Advantages of TanStack Start
+- **100% Typesafe Routing**: Route params and search schemas are checked at compile time.
+- **Universal Deployment**: Run natively across Node.js, Cloudflare Workers, or AWS Lambda via Nitro.
+- **Zero Vendor Lock-in**: Independent from proprietary hosting cloud platforms.
 
-Stripe payment updates must be ingested asynchronously via **Webhooks**. To prevent duplicate balance credits during network retries, webhook consumers must enforce strict idempotency:
+Discover our [Custom SaaS Development](/services/saas-sur-mesure) services or [contact our technical team](/contact) to discuss your software architecture.
+`
+  },
+  {
+    titleFr: "DeepSeek-R1 & LLMs Open Source en Entreprise : Déploiement Local, vLLM & Souveraineté",
+    titleEn: "DeepSeek-R1 & Enterprise Open Source LLMs: Local Deployment, vLLM & Sovereignty",
+    summaryFr: "Guide pratique pour héberger et exécuter des modèles de raisonnement open source sur serveurs privés, optimiser l'inférence avec vLLM et garantir la conformité RGPD.",
+    summaryEn: "Hands-on guide to deploying open-source reasoning models on private clusters with vLLM, maximizing throughput, and achieving strict GDPR data sovereignty.",
+    category: "IA & Automatisation",
+    tags: ["DeepSeek", "LLM", "OpenSource", "vLLM", "Souverainete", "DevOps"],
+    contentFr: `
+## La Révolution des Modèles de Raisonnement Open Source
 
-\`\`\`typescript
-// Express Webhook server with signature verification
-import express from 'express';
-import Stripe from 'stripe';
+L'apparition de modèles ouverts ultra-performants tels que **DeepSeek-R1** et **Llama 3.3** bouleverse l'économie de l'Intelligence Artificielle. Les entreprises ne sont plus contraintes d'envoyer leurs données financières, médicales ou stratégiques vers des API propriétaires fermées.
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
-const app = express();
+Dans le cadre de nos offres d'[intégration d'agents IA](/services/integration-ia-llm) et d'[infrastructure cloud et DevOps](/services/devops-cloud-infrastructure), nous accompagnons les organisations dans le déploiement sécurisé de modèles d'IA sur leurs propres infrastructures.
 
-app.post('/api/webhooks/stripe', express.raw({ type: 'application/json' }), async (req, res) => {
-  const sig = req.headers['stripe-signature']!;
-  let event: Stripe.Event;
+---
 
-  try {
-    event = stripe.webhooks.constructEvent(req.body, sig, process.env.STRIPE_WEBHOOK_SECRET!);
-  } catch (err: any) {
-    return res.status(400).send(\`Webhook Error: \${err.message}\`);
-  }
+### 1. Pourquoi le Déploiement Local Devient Incontournable en 2026
 
-  switch (event.type) {
-    case 'invoice.payment_succeeded':
-      await handleInvoicePaid(event.data.object as Stripe.Invoice);
-      break;
-    case 'customer.subscription.deleted':
-      await handleSubscriptionCanceled(event.data.object as Stripe.Subscription);
-      break;
-  }
+- **Souveraineté des Données & Conformité RGPD** : Aucune donnée client ne transite par des serveurs tiers situés hors de l'Union Européenne.
+- **Contrôle Total des Coûts (FinOps)** : Remplacement de factures d'API tokens exponentielles par des coûts de GPU dédiés prédictibles.
+- **Latence Constante & Zéro Rate-Limiting** : Priorité absolue donnée aux requêtes internes de votre entreprise.
 
-  res.json({ received: true });
-});
+---
+
+### 2. Stack Technique de Déploiement avec vLLM & Docker
+
+Le moteur d'inférence **vLLM** est la référence industrielle grâce à sa gestion révolutionnaire de la mémoire via l'algorithme *PagedAttention* :
+
+\`\`\`yaml
+# Exemple de docker-compose pour déployer DeepSeek-R1 avec vLLM
+version: '3.8'
+
+services:
+  vllm-engine:
+    image: vllm/vllm-openai:latest
+    runtime: nvidia
+    environment:
+      - HUGGING_FACE_HUB_TOKEN=\${HF_TOKEN}
+    command: >
+      --model deepseek-ai/DeepSeek-R1-Distill-Qwen-32B
+      --tensor-parallel-size 2
+      --gpu-memory-utilization 0.90
+      --max-model-len 16384
+      --enforce-eager
+    ports:
+      - "8000:8000"
+    volumes:
+      - /data/models:/root/.cache/huggingface
 \`\`\`
 
 ---
 
-### 2. Dunning Management & Churn Prevention
+### Conclusion
 
-Unrecovered payment failures account for up to **10% of involuntary customer churn**:
+Le déploiement de modèles de raisonnement open source offre aux entreprises un avantage concurrentiel décisif. [Prenez contact avec nos spécialistes en infrastructure](/contact) pour auditer vos besoins et déployer votre propre cluster IA souverain.
+`,
+    contentEn: `
+## The Open-Source Reasoning Revolution
 
-- **Automated Smart Retries**: Leveraging AI-driven retry timing via Stripe Billing.
-- **Grace Period Policy**: Granting temporary 3-to-7 day access buffers before subscription locking.
-- **Self-Service Billing Portal**: Directing users to update cards seamlessly via Stripe Customer Portal.
+With high-performing open weights like **DeepSeek-R1**, enterprises are taking back control of their AI workloads without relying on proprietary, opaque third-party APIs.
+
+At TY Dev, we help companies build sovereign AI clusters through our [AI & LLM Services](/services/integration-ia-llm) and [DevOps & Cloud Infrastructure](/services/devops-cloud-infrastructure).
 
 ---
 
-### 3. Compliance & Security Standards
+### Highlights
+- **100% Data Sovereignty**: Compliant with European GDPR standards.
+- **Predictable FinOps Costs**: Fixed GPU reservations replace unpredictable API token invoices.
+- **High Throughput**: vLLM PagedAttention maximizes concurrent batching efficiency.
 
-- **PCI-DSS Compliance**: Offloading card data processing entirely to Stripe Elements / Checkout.
-- **Global Tax Automation**: Using Stripe Tax for real-time VAT and sales tax collection.
-`,
+[Reach out to our cloud engineers](/contact) to architect your self-hosted AI pipeline.
+`
   },
   {
-    titleFr: "Performance Frontend & Code Splitting : Accélérer les Applications React & Vite",
-    titleEn: "Frontend Performance & Code Splitting: Speeding up React & Vite Apps",
-    summaryFr: "Techniques avancées d'optimisation frontend : Lazy Loading des composants, Tree-Shaking, optimisation des bundles Vite et atteinte d'un score Lighthouse de 100.",
-    summaryEn: "Advanced frontend performance techniques: Component Lazy Loading, Tree-Shaking, Vite bundle optimization, and achieving a 100 Lighthouse score.",
-    category: "SEO & Web Performance",
-    tags: ["React", "Performance", "Vite", "JavaScript", "Frontend", "WebVitals"],
+    titleFr: "Edge Computing & Cloudflare Workers : Exécuter des SaaS au Plus Près des Utilisateurs",
+    titleEn: "Edge Computing & Cloudflare Workers: Running SaaS at Sub-10ms Latency",
+    summaryFr: "Comment décentraliser vos API et vos bases de données relationnelles sur le réseau Edge pour diviser vos temps de réponse par cinq à l'échelle mondiale.",
+    summaryEn: "How to decentralize SaaS APIs and relational databases across global edge networks, cutting latency by 5x worldwide.",
+    category: "DevOps & Cloud",
+    tags: ["Edge Computing", "Cloudflare Workers", "D1", "Serverless", "Performance"],
     contentFr: `
-## Temps de Chargement & Conversion Utilisateur
+## L'Évolution du Serverless vers le Réseau Edge
 
-Sur le web moderne, la vitesse de chargement d'une application conditionne directement le taux de conversion et le référencement naturel (SEO). Chaque économie de 100ms sur l'interactivité (**INP - Interaction to Next Paint**) augmente l'engagement utilisateur.
+Les architectures cloud traditionnelles concentrent la logique métier dans des centres de données centralisés (par exemple Paris, Francfort ou Virginie). Pour un utilisateur situé sur un autre continent, le trajet réseau (Round-Trip Time) engendre des dizaines de millisecondes de latence incompressible.
+
+L'**Edge Computing** via **Cloudflare Workers**, **Fastly** ou **Vercel Edge** résout ce goulot d'étranglement en exécutant votre code sur des centaines de points de présence (PoP) situés à moins de 20 millisecondes de chaque internaute.
+
+Chez TY Dev, nous concevons des [infrastructures cloud résilientes](/services/devops-cloud-infrastructure) pour propulser vos services au niveau des standards mondiaux.
 
 ---
 
-### 1. Dynamic Imports & Lazy Loading avec React & Vite
+### 1. V8 Isolates vs Conteneurs Docker Traditionnels
 
-Au lieu de charger l'intégralité du bundle JavaScript lors du premier affichage, le **Code Splitting** permet d'isoler les routes et composants secondaires :
+Contrairement aux conteneurs ou aux fonctions AWS Lambda nécessitant des cold-starts de 200ms à 2s, les Edge Workers s'exécutent au sein d'**Isolats V8** :
 
-\`\`\`tsx
-import React, { Suspense, lazy } from 'react';
+- **Démarrage à Froid Nul (< 5ms)** : Disponibilité instantanée de l'environnement de calcul.
+- **Empreinte Mémoire Réduite** : Des milliers d'isolats partagent le même processus système en toute étanchéité.
+- **Bases de Données Edge-Native** : Connexion directe avec des bases distribuées comme **Cloudflare D1** (SQLite global répliqué) ou **Turso**.
 
-// Chargement à la demande des routes lourdes
-const AnalyticsDashboard = lazy(() => import('./pages/AnalyticsDashboard'));
-const SettingsPanel = lazy(() => import('./pages/SettingsPanel'));
+---
 
-export function AppRouter() {
-  return (
-    <Suspense fallback={<div className="animate-pulse p-6">Chargement du module...</div>}>
-      <Routes>
-        <Route path="/dashboard" element={<AnalyticsDashboard />} />
-        <Route path="/settings" element={<SettingsPanel />} />
-      </Routes>
-    </Suspense>
-  );
+### 2. Exemple de Middleware d'Authentification Edge
+
+\`\`\`typescript
+export default {
+  async fetch(request: Request, env: Env): Promise<Response> {
+    const url = new URL(request.url);
+    const authHeader = request.headers.get("Authorization");
+
+    if (!authHeader?.startsWith("Bearer ")) {
+      return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401 });
+    }
+
+    // Validation du token JWT au niveau de l'Edge sans appel serveur central
+    const token = authHeader.substring(7);
+    const isValid = await verifyJwtAtEdge(token, env.JWT_SECRET);
+
+    if (!isValid) {
+      return new Response(JSON.stringify({ error: "Invalid Token" }), { status: 403 });
+    }
+
+    return fetch(request);
+  }
+};
+\`\`\`
+
+---
+
+### Conclusion
+
+L'Edge Computing est l'arme absolue pour garantir une réactivité sub-seconde sur vos produits SaaS internationaux. Explorez nos services d'[intégration d'API et webhooks](/services/integration-apis-webhooks) ou [contactez notre équipe](/contact) pour accélérer vos plateformes.
+`,
+    contentEn: `
+## Moving from Serverless to Global Edge Networks
+
+Traditional data centers concentrate computation in a few regions, creating geographic latency bottlenecks. **Edge Computing** executes lightweight server functions across hundreds of global PoPs, delivering sub-10ms user experiences.
+
+At TY Dev, we architect modern platforms using our [Cloud & DevOps Services](/services/devops-cloud-infrastructure) and [API Integration Expertise](/services/integration-apis-webhooks).
+
+---
+
+### Edge Highlights
+- **Zero Cold Starts**: V8 isolates boot in under 5 milliseconds.
+- **Distributed Edge Databases**: Query global SQLite clusters via Cloudflare D1 and Turso.
+- **Worldwide CDN Integration**: Edge caching eliminates redundant backend queries.
+
+[Contact our engineers](/contact) to design your edge-native architecture.
+`
+  },
+  {
+    titleFr: "Bases Vectorielles à Grande Échelle : Qdrant, Pgvector ou Milvus pour le RAG Entreprise ?",
+    titleEn: "Vector Databases at Scale: Qdrant, Pgvector or Milvus for Enterprise RAG?",
+    summaryFr: "Benchmark comparatif d'indexation vectorielle : latence HNSW, filtrage multi-tenant, passage à l'échelle sur 10M+ embeddings et recommandations d'ingénierie.",
+    summaryEn: "Comparative vector indexing benchmark: HNSW latency, multi-tenant payload filtering, scaling past 10M+ embeddings, and production architecture guidance.",
+    category: "Bases de Données",
+    tags: ["VectorDB", "Qdrant", "Pgvector", "Milvus", "RAG", "IA"],
+    contentFr: `
+## Le Défi de la Recherche Vectorielle à Haute Fréquence
+
+Dans une architecture RAG (Retrieval-Augmented Generation), la vitesse de réponse dépend directement de la capacité de la base de données vectorielle à exécuter des recherches de similarité cosinus ou distance euclidienne sur des millions de vecteurs de grande dimension (ex: 1536 ou 3072 dimensions).
+
+Choisir la mauvaise technologie peut dégrader les temps de réponse de plusieurs secondes. Notre équipe d'[intégration IA & LLM](/services/integration-ia-llm) vous aide à faire le bon choix technologique.
+
+---
+
+### 1. Benchmark des Trois Géants du Vector Search
+
+1. **Pgvector (Extension PostgreSQL)** :
+   - *Forces* : Évite d'ajouter une nouvelle brique d'infrastructure ; permet de joindre des données relationnelles classiques et vectorielles dans une seule requête SQL transactionnelle.
+   - *Limites* : Performances moindres au-delà de 2 millions d'embeddings lors de fortes concurrences.
+2. **Qdrant (Moteur Vectoriel Écrit en Rust)** :
+   - *Forces* : Vitesse d'exécution exceptionnelle, filtrage par payload (mots-clés, tenant_id) intégré nativement dans l'index HNSW.
+   - *Idéal pour* : Les SaaS multi-tenants avec des millions d'utilisateurs.
+3. **Milvus (Architecture Distribuée Découplée)** :
+   - *Forces* : Conçu pour les volumes colossaux (100M+ vecteurs) avec scalabilité horizontale indépendante des nœuds de calcul et de stockage.
+
+---
+
+### 2. Exemple d'Interrogation Filtrée avec Qdrant en TypeScript
+
+\`\`\`typescript
+import { QdrantClient } from "@qdrant/js-client-rest";
+
+const client = new QdrantClient({ url: process.env.QDRANT_URL, apiKey: process.env.QDRANT_KEY });
+
+export async function searchEnterpriseDocs(vector: number[], tenantId: string) {
+  return await client.search("enterprise_knowledge", {
+    vector,
+    limit: 5,
+    filter: {
+      must: [
+        { key: "tenant_id", match: { value: tenantId } },
+        { key: "access_level", match: { value: "confidential" } }
+      ]
+    }
+  });
 }
 \`\`\`
 
 ---
 
-### 2. Optimisation de la Configuration Vite (\`vite.config.ts\`)
+### Conclusion
 
-Découpez les dépendances tierces lourdes (\`lucide-react\`, \`recharts\`, \`framer-motion\`) dans des chunks séparés pour optimiser la mise en cache du navigateur :
-
-\`\`\`typescript
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-
-export default defineConfig({
-  plugins: [react()],
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom'],
-          ui: ['framer-motion', 'lucide-react'],
-          charts: ['recharts'],
-        },
-      },
-    },
-  },
-});
-\`\`\`
-
----
-
-### 3. Checklist Core Web Vitals 2026
-
-- **LCP (Largest Contentful Paint) < 1.2s** : Préchargement des images critiques (\`fetchpriority="high"\`) et utilisation de formats WebP / AVIF.
-- **INP (Interaction to Next Paint) < 200ms** : Éviter le blocage du thread principal en découpant les fonctions JavaScript lourdes.
-- **CLS (Cumulative Layout Shift) < 0.05** : Définir des dimensions explicites (\`width\` / \`height\`) sur tous les éléments média.
+Pour débuter avec simplicité, **Pgvector** est parfait. Pour une application SaaS à grande échelle exigeant une latence sub-10ms, **Qdrant** est notre recommandation numéro un. [Découvrez nos offres SaaS sur-mesure](/services/saas-sur-mesure) ou [parlez-en directement à nos développeurs](/contact).
 `,
     contentEn: `
-## Speed Drives User Conversion & SEO
+## Scaling High-Frequency Vector Retrieval
 
-In modern web development, load performance directly dictates conversion metrics and search rankings. Every 100ms optimization in **INP (Interaction to Next Paint)** measurably improves retention.
+Fast, reliable RAG systems demand dedicated vector indexing capable of querying multi-dimensional embeddings with minimal latency.
+
+Our team at TY Dev delivers robust vector search pipelines through our [AI & LLM Services](/services/integration-ia-llm) and [Custom SaaS Engineering](/services/saas-sur-mesure).
 
 ---
 
-### 1. Dynamic Imports & Lazy Loading in React & Vite
+### Comparison Summary
+- **Pgvector**: Perfect for combining relational data and embeddings in a single ACID store.
+- **Qdrant**: Blazing-fast Rust engine with first-class payload filtering for multi-tenant SaaS.
+- **Milvus**: Distributed infrastructure tailored for hundreds of millions of embeddings.
 
-Rather than serving a monolithic JavaScript bundle upfront, **Code Splitting** defers non-critical modules until user navigation:
+[Get in touch with our team](/contact) to evaluate your vector storage architecture.
+`
+  },
+  {
+    titleFr: "Passkeys & WebAuthn en TypeScript : Supprimer les Mots de Passe dans vos Applications SaaS",
+    titleEn: "Passkeys & WebAuthn in TypeScript: Eliminating Passwords in Modern SaaS Applications",
+    summaryFr: "Implémentation complète de l'authentification FIDO2 passwordless : cryptographie asymétrique, support biométrique (Touch ID, Face ID) et réduction de l'abandon utilisateur.",
+    summaryEn: "Complete FIDO2 passwordless auth implementation: asymmetric cryptography, biometric validation (Face ID, Touch ID), and drastically lower onboarding drop-off.",
+    category: "Sécurité & Auth",
+    tags: ["Cybersécurité", "Passkeys", "WebAuthn", "TypeScript", "SaaS", "Authentification"],
+    contentFr: `
+## La Fin de l'Ère des Mots de Passe
 
-\`\`\`tsx
-import React, { Suspense, lazy } from 'react';
+Plus de 80% des failles de sécurité proviennent d'identifiants volés ou réutilisés. En 2026, l'adoption des **Passkeys** fondées sur le standard ouvert **WebAuthn / FIDO2** s'impose comme la référence absolue en matière de sécurité logicielle et de confort utilisateur.
 
-// On-demand route loading
-const AnalyticsDashboard = lazy(() => import('./pages/AnalyticsDashboard'));
-const SettingsPanel = lazy(() => import('./pages/SettingsPanel'));
+Dans nos développements de [plateformes SaaS sécurisées](/services/saas-sur-mesure), le support des Passkeys permet une connexion instantanée en une seconde via biométrie sans aucun mot de passe à mémoriser.
 
-export function AppRouter() {
-  return (
-    <Suspense fallback={<div className="animate-pulse p-6">Loading module...</div>}>
-      <Routes>
-        <Route path="/dashboard" element={<AnalyticsDashboard />} />
-        <Route path="/settings" element={<SettingsPanel />} />
-      </Routes>
-    </Suspense>
-  );
+---
+
+### 1. Fonctionnement Cryptographique de WebAuthn
+
+Le mécanisme repose sur une paire de clés asymétriques :
+- **Clé Privée** : Générée et stockée de manière inviolable dans l'enclave sécurisée de l'appareil de l'utilisateur (Secure Enclave Apple, TPM Windows, puce Titan Android). Elle ne quitte jamais l'appareil.
+- **Clé Publique** : Envoyée et enregistrée sur le serveur de votre application SaaS.
+- **Zéro Phishing Possible** : La signature cryptographique inclut le domaine d'origine du site web, rendant les faux sites clones totalement inopérants.
+
+---
+
+### 2. Exemple de Flux Backend avec \`@simplewebauthn\`
+
+\`\`\`typescript
+import { generateRegistrationOptions, verifyRegistrationResponse } from "@simplewebauthn/server";
+
+// 1. Émission du challenge cryptographique
+export async function createPasskeyOptions(user: User) {
+  return generateRegistrationOptions({
+    rpName: "TY Dev SaaS Platform",
+    rpID: "ty-dev.site",
+    userID: user.id,
+    userName: user.email,
+    attestationType: "none",
+    authenticatorSelection: {
+      residentKey: "required",
+      userVerification: "preferred",
+    },
+  });
 }
 \`\`\`
 
 ---
 
-### 2. Vite Chunk Splitting Strategy (\`vite.config.ts\`)
+### Conclusion
 
-Split large third-party packages (\`recharts\`, \`framer-motion\`) into dedicated vendor chunks for browser caching efficiency:
+Intégrer les Passkeys augmente la conversion à l'inscription de plus de **25%** tout en éliminant les coûts de réinitialisation de mots de passe. Pour sécuriser vos systèmes, consultez nos services d'[intégration d'API](/services/integration-apis-webhooks) ou [échangez avec nos experts TY Dev](/contact).
+`,
+    contentEn: `
+## Retiring Passwords with WebAuthn
+
+Over 80% of data breaches involve compromised credentials. Modern SaaS platforms adopt **Passkeys (FIDO2 / WebAuthn)** for frictionless biometric authentication.
+
+Through our [Secure SaaS Development](/services/saas-sur-mesure) and [API Integration Capabilities](/services/integration-apis-webhooks), TY Dev implements passwordless flows that boost registration conversions.
+
+---
+
+### Key Architectural Benefits
+- **Zero Phishing Vulnerabilities**: Private keys remain sealed inside device Secure Enclaves.
+- **Instant Biometric Sign-in**: Face ID or fingerprint replaces SMS 2FA codes.
+- **Frictionless Onboarding**: Drastically reduced support tickets for forgotten passwords.
+
+[Contact our engineers](/contact) to implement WebAuthn into your products.
+`
+  },
+  {
+    titleFr: "Architectures Événementielles Résilientes : RabbitMQ, Redis Streams & BullMQ pour Traitements Asynchrones",
+    titleEn: "Resilient Event-Driven Architectures: RabbitMQ, Redis Streams & BullMQ for Async Jobs",
+    summaryFr: "Comment découpler les requêtes HTTP, gérer les pics de charge soudains et garantir la livraison de messages avec retries exponentiels et Dead Letter Queues.",
+    summaryEn: "How to decouple synchronous HTTP endpoints, absorb traffic spikes, and guarantee zero message loss using exponential backoff retries and DLQs.",
+    category: "Software Architecture",
+    tags: ["Event-Driven", "RabbitMQ", "Redis Streams", "BullMQ", "Microservices", "Queues"],
+    contentFr: `
+## Découpler le Traitement Synchrone du Flux Utilisateur
+
+Dans une application web de production, bloquer un utilisateur pendant l'envoi d'e-mails, la génération de PDF lourds ou l'appel à des API tierces est une erreur critique d'architecture. Si l'un des services externes ralentit ou tombe en panne, toute votre plateforme subit un effet domino d'indisponibilité.
+
+Pour remédier à cela, l'**architecture événementielle (Event-Driven)** permet de différer les calculs en arrière-plan via des files d'attente (Queues) résilientes.
+
+C'est une spécialité centrale de nos offres d'[intégration d'API & webhooks](/services/integration-apis-webhooks) et d'[automatisation de processus métiers](/services/automatisation-processus-metiers).
+
+---
+
+### 1. Quand Choisir BullMQ vs RabbitMQ vs Apache Kafka ?
+
+- **BullMQ + Redis** : Parfait pour les applications Node.js / TypeScript. Léger, facile à déployer, supporte le monitoring en temps réel, les tâches planifiées (cron) et les priorités.
+- **RabbitMQ (AMQP)** : La référence pour le routage complexe multi-langages avec des topologies d'échange avancées (Direct, Topic, Fanout).
+- **Apache Kafka** : Indispensable uniquement pour le streaming d'événements à très haut volume (des dizaines de milliers d'événements par seconde).
+
+---
+
+### 2. Exemple de Worker Résilient avec BullMQ
 
 \`\`\`typescript
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { Worker, Queue } from "bullmq";
 
-export default defineConfig({
-  plugins: [react()],
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom'],
-          ui: ['framer-motion', 'lucide-react'],
-          charts: ['recharts'],
-        },
-      },
-    },
-  },
+const redisConnection = { host: "localhost", port: 6379 };
+export const emailQueue = new Queue("emailProcessing", { connection: redisConnection });
+
+const worker = new Worker("emailProcessing", async (job) => {
+  console.log(\`Traitement de la tâche \${job.id} : envoi d'email à \${job.data.to}\`);
+  await sendTransactionEmail(job.data);
+}, {
+  connection: redisConnection,
+  concurrency: 5,
+  limiter: { max: 50, duration: 1000 }, // Protection contre le rate-limiting
+});
+
+worker.on("failed", (job, err) => {
+  console.error(\`Échec tâche \${job?.id} après tentatives : \${err.message}\`);
 });
 \`\`\`
 
 ---
 
-### 3. Core Web Vitals Checklist 2026
+### Conclusion
 
-- **LCP (Largest Contentful Paint) < 1.2s**: Preloading hero assets (\`fetchpriority="high"\`) with WebP/AVIF formatting.
-- **INP (Interaction to Next Paint) < 200ms**: Avoiding long main-thread tasks via non-blocking async execution.
-- **CLS (Cumulative Layout Shift) < 0.05**: Setting fixed aspect ratios on dynamic dynamic elements.
+Une architecture événementielle bien orchestrée garantit un temps de réponse HTTP inférieur à 100ms et une tolérance totale aux pannes. Découvrez nos [services SaaS sur-mesure](/services/saas-sur-mesure) ou [prenez contact avec l'équipe TY Dev](/contact) pour concevoir vos pipelines asynchrones.
 `,
+    contentEn: `
+## Decoupling Heavy Processing with Event Queues
+
+Blocking client HTTP requests for background jobs such as email dispatches or document exports introduces serious scalability bottlenecks.
+
+Through our [API Integration & Webhooks](/services/integration-apis-webhooks) and [Business Workflow Automation](/services/automatisation-processus-metiers), TY Dev implements resilient background queues with zero data loss.
+
+---
+
+### Queue Selection Matrix
+- **BullMQ / Redis**: Ideal for TypeScript backends requiring job priorities and scheduled crons.
+- **RabbitMQ**: Enterprise standard for complex routing exchanges and multi-language services.
+- **Kafka**: Purpose-built for massive event-streaming throughput.
+
+[Reach out to our engineering team](/contact) to scale your async processing.
+`
   },
+  {
+    titleFr: "Révolution de l'Outillage Web : Pourquoi Rust, Biome et Oxlint Remplacent ESLint et Prettier",
+    titleEn: "Web Tooling Revolution: Why Rust, Biome and Oxlint are Replacing ESLint and Prettier",
+    summaryFr: "Analyse de la transition vers les outils d'ingénierie compilés en Rust : temps de CI/CD divisés par dix, configuration unifiée et suppression de la dette technique.",
+    summaryEn: "Analysis of the shift towards Rust-powered web toolchains: 10x faster CI/CD pipelines, single unified configuration, and eliminated tooling technical debt.",
+    category: "DevOps & Cloud",
+    tags: ["Tooling", "Rust", "Biome", "Oxlint", "TypeScript", "Performance"],
+    contentFr: `
+## La Fin de la Lenteur dans les Toolchains JavaScript
+
+Depuis plus d'une décennie, les développeurs web composent avec un empilement complexe d'outils Node.js : ESLint pour le linting, Prettier pour le formatage, Babel pour la transpilation. Sur de grands monorepos, exécuter une simple passe de vérification de code pouvait paralyser les machines pendant plusieurs minutes.
+
+En 2026, l'arrivée d'outils natifs écrits en **Rust** comme **Biome** et **Oxlint** transforme radicalement la productivité des équipes d'ingénierie.
+
+Pour notre agence axée sur les [pipelines DevOps et CI/CD](/services/devops-cloud-infrastructure), ces outils représentent une réduction massive de l'empreinte carbone et du temps d'attente des développeurs.
+
+---
+
+### 1. Pourquoi Biome s'Impose face au Couple ESLint + Prettier
+
+- **Vitesse Époustouflante (x25 à x40 plus rapide)** : Capable de vérifier et formater des milliers de fichiers en moins de 300 millisecondes.
+- **Unification Parfaite** : Un seul binaire, un seul fichier de configuration (\`biome.json\`), zéro conflit de règles entre le formateur et le linter.
+- **Zéro Dépendance Node.js** : Évite d'installer des centaines de sous-dépendances \`npm\` vulnérables aux attaques de chaîne d'approvisionnement (Supply Chain Attacks).
+
+\`\`\`json
+// Exemple de configuration épurée biome.json
+{
+  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "lineWidth": 100
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "correctness": { "noUnusedVariables": "error" }
+    }
+  }
+}
+\`\`\`
+
+---
+
+### Conclusion
+
+Moderniser son outillage de développement est le moyen le plus rapide d'accélérer les livraisons en production. Découvrez comment nous optimisons vos [applications web et PWA](/services/applications-web-pwa) ou [contactez notre équipe technique](/contact).
+`,
+    contentEn: `
+## Upgrading Web Toolchains with Native Rust Speed
+
+Traditional Node.js linting stacks struggle on large codebases. Modern Rust tools like **Biome** and **Oxlint** offer 25x faster execution and unified formatting without dependency bloat.
+
+Through our [DevOps & Cloud Pipelines](/services/devops-cloud-infrastructure) and [Web App Optimization](/services/applications-web-pwa), TY Dev builds lightning-fast development pipelines.
+
+---
+
+### Highlights
+- **Sub-Second Linting**: Format and lint thousands of files in under 300ms.
+- **Unified Configuration**: Single \`biome.json\` eliminates conflicting rules.
+- **Zero Supply-Chain Risk**: Standalone native binary without hundreds of unvetted packages.
+
+[Talk with our developers](/contact) to modernize your continuous integration workflow.
+`
+  },
+  {
+    titleFr: "FinOps SaaS : Réduire de 50% la Facture AWS et GCP sans Risque de Disponibilité",
+    titleEn: "SaaS FinOps: Slashing AWS & GCP Cloud Invoices by 50% Without Availability Risks",
+    summaryFr: "Stratégies d'ingénierie financière cloud : instances Spot, autoscaling prédictif, compression des flux réseau et élimination des ressources dormantes.",
+    summaryEn: "Cloud financial engineering tactics: Spot instances, predictive autoscaling, network traffic compression, and eliminating idle cloud assets.",
+    category: "DevOps & Cloud",
+    tags: ["FinOps", "AWS", "GCP", "Kubernetes", "CostOptimization", "Cloud"],
+    contentFr: `
+## Maîtriser l'Explosion des Coûts Cloud en Phase de Croissance
+
+Lorsqu'un produit SaaS gagne en traction, la facture d'hébergement cloud a tendance à croître plus vite que le chiffre d'affaires si aucune gouvernance n'est instaurée. Surprovisionnement de mémoire, bases de données non dimensionnées, transferts de données inter-régions inutiles : le gaspillage financier moyen est estimé à **35%** chez les éditeurs logiciels.
+
+La discipline du **FinOps (Financial Operations)** allie ingénierie logicielle et gestion financière pour maximiser chaque euro investi dans le cloud.
+
+C'est l'un des piliers de notre accompagnement en [gestion d'infrastructure cloud](/services/devops-cloud-infrastructure).
+
+---
+
+### 1. Leviers Techniques d'Économie Immédiate
+
+1. **Adoption Stratégique des Instances Spot avec Graceful Shutdown** : Réduction jusqu'à 80% du coût des nœuds de calcul Kubernetes pour les traitements asynchrones tolérants aux pannes.
+2. **Optimisation des Transferts Egress & Compression HTTP** : Activation systématique de Zstandard / Brotli pour diviser la bande passante par deux.
+3. **Autoscaling Prédictif avec KEDA** : Ajustement automatique du nombre de pods en fonction du nombre de messages en attente plutôt que de l'utilisation CPU brute.
+
+---
+
+### Conclusion
+
+Le FinOps ne consiste pas à brider les performances, mais à éliminer le gaspillage pour réinvestir dans l'innovation. Pour réaliser un audit complet de vos infrastructures, explorez nos services de [développement SaaS sur-mesure](/services/saas-sur-mesure) ou [planifiez un audit avec TY Dev](/contact).
+`,
+    contentEn: `
+## Taming Cloud Costs for High-Growth SaaS
+
+Without strict FinOps practices, cloud infrastructure costs quickly outpace revenue growth. Over-provisioned databases, uncompressed egress bandwidth, and idle staging clusters cause massive financial waste.
+
+At TY Dev, our [Cloud Infrastructure & DevOps Team](/services/devops-cloud-infrastructure) helps SaaS businesses slash cloud bills while enhancing system availability.
+
+---
+
+### Strategic Tactics
+- **Kubernetes Spot Instances**: Up to 80% discount for fault-tolerant workers.
+- **Brotli / Zstandard Compression**: Drastically cuts outgoing network transfer costs.
+- **Predictive KEDA Autoscaling**: Scales containers based on business events rather than reactive CPU thresholds.
+
+[Schedule a cloud optimization review with our team](/contact).
+`
+  },
+  {
+    titleFr: "WebAssembly (Wasm) dans le Navigateur : Exécuter des Traitements Lourds Côté Client sans Serveur",
+    titleEn: "In-Browser WebAssembly (Wasm): Running Heavy Compute Tasks Client-Side Zero Server Cost",
+    summaryFr: "Comment déporter le traitement d'images, de vidéos et de cryptographie directement sur la machine de l'utilisateur avec Rust et WebAssembly.",
+    summaryEn: "How to offload image processing, video rendering, and heavy cryptography to the client browser using Rust and WebAssembly.",
+    category: "Software Architecture",
+    tags: ["WebAssembly", "Wasm", "Rust", "Frontend", "Performance", "Web"],
+    contentFr: `
+## Transformer le Navigateur en Moteur de Calcul Haute Performance
+
+Traditionnellement, lorsqu'une application web doit traiter un fichier volumineux (redimensionnement d'images 4K, parsing de fichiers PDF de 500 pages, compression ZIP), le fichier est envoyé sur un serveur backend, traité, puis renvoyé au client. Ce flux génère d'importants coûts de bande passante, de serveurs de calcul et introduit des délais d'attente pour l'utilisateur.
+
+Avec **WebAssembly (Wasm)**, les langages compilés tels que **Rust** ou **C++** s'exécutent directement dans le moteur du navigateur à une vitesse proche du code natif.
+
+Dans nos créations d'[applications web et PWA innovantes](/services/applications-web-pwa), cette approche offre une réactivité instantanée et une confidentialité totale des données.
+
+---
+
+### 1. Avantages Stratégiques du Calcul Côté Client
+
+- **Coût Serveur Zéro pour l'Éditeur** : La puissance de calcul de l'ordinateur ou du smartphone de l'utilisateur est exploitée gratuitement.
+- **Confidentialité Totale (Zero-Knowledge)** : Les fichiers sensibles ne quittent jamais le navigateur, garantissant une conformité réglementaire absolue.
+- **Fonctionnement Hors-Ligne (Offline-First)** : L'application continue de fonctionner même en cas de coupure de connexion internet.
+
+\`\`\`rust
+// Exemple de fonction Rust compilée en WebAssembly pour le traitement rapide d'image
+use wasm_bindgen::prelude::*;
+
+#[wasm_bindgen]
+pub fn apply_grayscale(pixels: &mut [u8]) {
+    for chunk in pixels.chunks_exact_mut(4) {
+        let r = chunk[0] as u32;
+        let g = chunk[1] as u32;
+        let b = chunk[2] as u32;
+        let gray = ((r * 77 + g * 150 + b * 29) >> 8) as u8;
+        chunk[0] = gray;
+        chunk[1] = gray;
+        chunk[2] = gray;
+    }
+}
+\`\`\`
+
+---
+
+### Conclusion
+
+WebAssembly ouvre des opportunités inédites pour bâtir des logiciels SaaS puissants, économiques et ultra-réactifs. Venez découvrir nos réalisations ou [contactez les ingénieurs TY Dev](/contact) pour intégrer WebAssembly dans vos plateformes.
+`,
+    contentEn: `
+## Supercharging Client-Side Compute with WebAssembly
+
+Sending heavy compute tasks (video transcoding, large document indexing, image parsing) to backend servers incurs significant bandwidth and compute bills. **WebAssembly (Wasm)** executes compiled Rust or C++ code directly inside the user's browser at near-native speeds.
+
+Through our [Modern Web Apps & PWAs](/services/applications-web-pwa), TY Dev designs zero-server-cost architectures with instant responsiveness.
+
+---
+
+### Core Strengths
+- **Zero Server Compute Costs**: Offloads CPU-intensive tasks to end-user hardware.
+- **Absolute Privacy**: Sensitive documents never leave the client device.
+- **Offline Reliability**: Native-grade execution even without internet connectivity.
+
+[Connect with our engineering team](/contact) to explore WebAssembly for your platform.
+`
+  }
 ];
 
-// AI-Powered Article Generator (OpenAI, Gemini, Groq, OpenRouter)
-async function generateAIArticle() {
+// 4. AI-Powered Dynamic Generator with Explicit Anti-Repetition Prompting
+async function generateAIArticle(existingTitles = []) {
   const apiKey = process.env.OPENAI_API_KEY || process.env.GEMINI_API_KEY || process.env.GROQ_API_KEY || process.env.OPENROUTER_API_KEY;
   if (!apiKey) return null;
 
-  console.log('🤖 AI API Key detected! Generating brand new AI technical article...');
+  console.log('🤖 AI API Key detected! Generating brand new AI technical article with anti-repetition filter...');
 
-  const prompt = `You are a Principal Software Architect writing a top-tier technical engineering blog post for TY-DEV agency (specializing in SaaS, AI Agents, Cloud, DevOps, React, Vite).
-Generate a brand new, highly informative, modern technical article on a fresh trending engineering topic (e.g. AI Agents, Serverless DBs, Web Vitals, Kubernetes, Microfrontends, Stripe billing, Edge Computing, TypeScript patterns).
+  const excludedTopics = existingTitles.slice(0, 25).map(t => `- "${t}"`).join('\n');
 
-Respond strictly in valid JSON format with no markdown wrappers outside JSON:
+  const prompt = `You are a Principal Software Architect at TY-DEV agency (specializing in SaaS, AI Agents, Cloud, DevOps, React, Vite, TanStack, Web Performance).
+Your mission is to generate a brand-new, cutting-edge technical engineering article focusing strictly on NEW 2026 TECHNOLOGY TRENDS.
+
+CRITICAL ANTI-REPETITION RULE:
+The following topics have ALREADY been published. You are STRICTLY FORBIDDEN from repeating or duplicating any of them:
+${excludedTopics}
+
+Choose a fresh, advanced, and trending 2026 software engineering topic that hasn't been covered yet (e.g. Bun 2.0 vs Node 24 runtime benchmarks, Passkeys WebAuthn passwordless auth, Kubernetes GitOps with ArgoCD, Edge AI with ONNX Web in browser, GraphQL Federation vs tRPC microservices, Serverless Postgres with Neon branching, Playwright E2E testing strategies, DevSecOps OWASP API Top 10, Vector search Qdrant vs pgvector).
+
+IMPORTANT FOR AGENCY SEO & INTERNAL LINKING:
+In the French content ("contentFr"), naturally incorporate at least 2 markdown links pointing to TY Dev service pages:
+- [développement SaaS sur-mesure](/services/saas-sur-mesure)
+- [intégration d'agents IA et LLM](/services/integration-ia-llm)
+- [infrastructure cloud et DevOps](/services/devops-cloud-infrastructure)
+- [applications web et PWA](/services/applications-web-pwa)
+- [optimisation SEO et performance web](/services/seo-et-marketing-digital)
+- [contactez notre équipe TY Dev](/contact)
+
+Respond strictly in valid JSON format with NO markdown wrapper outside the JSON object:
 {
-  "titleFr": "Titre captivant et professionnel en français",
+  "titleFr": "Titre professionnel et captivant en français",
   "titleEn": "Engaging professional title in English",
   "summaryFr": "Résumé concis de 2 phrases en français",
   "summaryEn": "Concise 2-sentence summary in English",
-  "category": "Engineering & API",
-  "tags": ["AI", "SaaS", "Cloud", "Architecture"],
-  "contentFr": "Contenu complet au format Markdown avec titres (##), sous-titres (###), exemples de code et conseils d'ingénierie en français",
-  "contentEn": "Full content in Markdown format with headers (##), subheaders (###), code examples and engineering advice in English"
+  "category": "Software Architecture",
+  "tags": ["Tech", "Engineering", "Web"],
+  "contentFr": "Contenu complet au format Markdown avec sections (##), sous-sections (###), exemples de code et liens internes",
+  "contentEn": "Full content in Markdown format in English with headers (##), subheaders (###), code snippets and architectural advice"
 }`;
 
   try {
@@ -816,19 +935,29 @@ Respond strictly in valid JSON format with no markdown wrappers outside JSON:
       const rawText = data.choices?.[0]?.message?.content;
       if (rawText) jsonResult = JSON.parse(rawText);
     } else if (process.env.GEMINI_API_KEY) {
-      const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`;
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: { responseMimeType: 'application/json' }
-        }),
-      });
-
-      const data = await response.json();
-      const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text;
-      if (rawText) jsonResult = JSON.parse(rawText);
+      const geminiModels = ['gemini-2.5-flash', 'gemini-2.5-pro'];
+      for (const model of geminiModels) {
+        try {
+          const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${process.env.GEMINI_API_KEY}`;
+          const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              contents: [{ parts: [{ text: prompt }] }],
+              generationConfig: { responseMimeType: 'application/json' }
+            }),
+          });
+          const data = await response.json();
+          const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+          if (rawText) {
+            jsonResult = JSON.parse(rawText);
+            console.log(`🤖 Successfully generated article using ${model}`);
+            break;
+          }
+        } catch (e) {
+          console.warn(`Model ${model} issue: ${e.message}, trying next...`);
+        }
+      }
     }
 
     if (jsonResult && jsonResult.titleFr && jsonResult.contentFr) {
@@ -836,12 +965,12 @@ Respond strictly in valid JSON format with no markdown wrappers outside JSON:
       return jsonResult;
     }
   } catch (err) {
-    console.warn('⚠️ AI generation encountered an issue, falling back to library:', err.message);
+    console.warn('⚠️ AI generation issue, falling back to curated library:', err.message);
   }
   return null;
 }
 
-// Command Line Interface Execution
+// 5. Command Line Interface Execution
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const args = process.argv.slice(2);
   const tokenArg = args.find(a => a.startsWith('--token='))?.split('=')[1];
@@ -850,12 +979,33 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     (async () => {
       const blogPostsFile = path.join(rootDir, 'src', 'data', 'blogPosts.ts');
       const fileContent = fs.readFileSync(blogPostsFile, 'utf-8');
-      const postMatches = [...fileContent.matchAll(/id:\s*["']([^"']+)["']/g)];
-      const libraryIndex = postMatches.length % dailyArticlesLibrary.length;
+      
+      // Robust slug and title extraction
+      const existingSlugs = new Set([...fileContent.matchAll(/(?:"slug"|slug)\s*:\s*["']([^"']+)["']/g)].map(m => m[1]));
+      const existingTitles = [...fileContent.matchAll(/(?:"title"|title)\s*:\s*\{\s*[\r\n\s]*(?:"fr"|fr)\s*:\s*["']([^"'\r\n]+)["']/g)].map(m => m[1]);
 
-      // Attempt AI Generation if API key is provided, else fallback to pre-written library
-      const aiArticle = await generateAIArticle();
-      const articleToPublish = aiArticle || dailyArticlesLibrary[libraryIndex];
+      console.log(`📊 Found ${existingSlugs.size} existing published articles. Checking for non-duplicate topics...`);
+
+      // Attempt AI Generation if API key is provided
+      const aiArticle = await generateAIArticle(existingTitles);
+
+      let articleToPublish = aiArticle;
+
+      if (!articleToPublish) {
+        // Filter out ANY article that has already been published
+        const available = dailyArticlesLibrary.filter(item => {
+          const slugCandidate = generateSlug(item.titleFr);
+          return !existingSlugs.has(slugCandidate);
+        });
+
+        if (available.length === 0) {
+          console.warn('⚠️ All 10 pre-configured library articles have been published! Please add an AI API key (GEMINI_API_KEY, GROQ_API_KEY, OPENAI_API_KEY) in .env to generate new topics dynamically without limit.');
+          process.exit(0);
+        }
+
+        console.log(`🎯 Found ${available.length} available novel topics in library. Selecting next topic: "${available[0].titleFr}"`);
+        articleToPublish = available[0];
+      }
 
       publishArticle({
         ...articleToPublish,
@@ -866,5 +1016,3 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     console.log(`ℹ️ Usage: node scripts/publish_blog.mjs --publish-next [--token=${secretToken}]`);
   }
 }
-
-
