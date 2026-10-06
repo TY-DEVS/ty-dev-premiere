@@ -518,10 +518,9 @@ const en = {
     ],
   },
   spotlight: {
-    sectionEyebrow: "// SAAS CO-DEVELOPMENT · LIVE IN PRODUCTION",
+    sectionEyebrow: "// SAAS CO-DEVELOPMENT",
     sectionTitle: "TY Dev & NaviCab Partnership",
     sectionSubtitle: "In technical partnership with the taxi company NaviCab, TY Dev engineered and deployed their full-stack SaaS dispatch and booking infrastructure, operating 24/7 across Île-de-France.",
-    badgeStatus: "Live in Production",
     title: "NaviCab",
     description: "Born from a close collaboration combining NaviCab's taxi industry expertise and TY Dev's software engineering: a custom high-resilience SaaS platform connecting passengers, drivers, and B2B corporate accounts with real-time radar dispatch and automated billing.",
     caseStudyBtn: "Read Full Case Study",
@@ -1360,10 +1359,9 @@ const fr: typeof en = {
     ],
   },
   spotlight: {
-    sectionEyebrow: "// CO-RÉALISATION SAAS · EN PRODUCTION",
+    sectionEyebrow: "// CO-RÉALISATION SAAS",
     sectionTitle: "Partenariat TY Dev & Société NaviCab",
     sectionSubtitle: "En collaboration étroite avec la société de taxis NaviCab, TY Dev a conçu et développé l'ensemble de leur infrastructure logicielle SaaS, active 24/7 en Île-de-France.",
-    badgeStatus: "En production",
     title: "NaviCab",
     description: "Fruit d'une collaboration étroite entre l'expertise métier de la société de taxis NaviCab et l'ingénierie logicielle de TY Dev : une plateforme SaaS haute résilience connectant passagers, chauffeurs et partenaires B2B avec dispatch radar en temps réel et facturation automatisée.",
     caseStudyBtn: "Découvrir l'étude de cas complète",
