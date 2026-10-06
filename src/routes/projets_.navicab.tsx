@@ -189,14 +189,47 @@ function NaviCabCaseStudyPage() {
           />
         </motion.div>
 
-        {/* Project Overview */}
-        <div className="max-w-4xl mx-auto my-20 p-8 sm:p-12 rounded-3xl bg-surface/30 border border-border/60 space-y-4">
+        {/* Project Overview & Partnership Breakdown */}
+        <div className="max-w-4xl mx-auto my-20 p-8 sm:p-12 rounded-3xl bg-surface/30 border border-border/60 space-y-6">
           <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground tracking-tight">
             {c.overview.title}
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground/90 leading-relaxed">
             {c.overview.description}
           </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-border/40">
+            <div className="p-4 rounded-2xl bg-surface/60 border border-border/50">
+              <span className="font-mono text-[11px] uppercase tracking-wider text-brand font-semibold block mb-1">
+                {lang === "fr" ? "Société Partenaire" : "Partner Company"}
+              </span>
+              <p className="text-xs sm:text-sm font-medium text-foreground">
+                {lang === "fr"
+                  ? "NaviCab — Société de taxis officiels et conventionnés CPAM"
+                  : "NaviCab — Official taxi fleet & CPAM medical transport"}
+              </p>
+            </div>
+            <div className="p-4 rounded-2xl bg-surface/60 border border-border/50">
+              <span className="font-mono text-[11px] uppercase tracking-wider text-brand font-semibold block mb-1">
+                {lang === "fr" ? "Ingénierie TY Dev" : "TY Dev Engineering"}
+              </span>
+              <p className="text-xs sm:text-sm font-medium text-foreground">
+                {lang === "fr"
+                  ? "Architecture SaaS, 5 portails web/mobiles, dispatch radar et API"
+                  : "SaaS architecture, 5 portals/apps, radar dispatch & billing"}
+              </p>
+            </div>
+            <div className="p-4 rounded-2xl bg-surface/60 border border-border/50">
+              <span className="font-mono text-[11px] uppercase tracking-wider text-brand font-semibold block mb-1">
+                {lang === "fr" ? "Statut Opérationnel" : "Operational Status"}
+              </span>
+              <p className="text-xs sm:text-sm font-medium text-foreground">
+                {lang === "fr"
+                  ? "En production 24/7 sur navicab.fr (Île-de-France & Aéroports)"
+                  : "Live 24/7 on navicab.fr (Paris Area & Airports)"}
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Mobile-First Section with real mobile captures */}
