@@ -51,39 +51,6 @@ const en = {
       { title: "AI Automation", desc: "Intelligent systems that streamline your operations" },
     ],
   },
-  navicabShowcase: {
-    eyebrow: "// CO-RÉALISATION PHARE — SAAS ENTERPRISE",
-    badge: "Plateforme en Production · navicab.fr",
-    title: "NaviCab — L'Écosystème SaaS de Dispatch Taxi en Île-de-France",
-    subtitle: "Conçue et développée en collaboration technique avec TY Dev : une plateforme SaaS haute résilience connectant passagers, chauffeurs et partenaires B2B en temps réel.",
-    liveSite: "Visiter la plateforme NaviCab",
-    features: [
-      {
-        title: "5 Portails Web & Mobile Dédiés",
-        desc: "Espaces interconnectés pour passagers, chauffeurs, flottes, partenaires B2B (hôtels & entreprises) et administration centrale.",
-      },
-      {
-        title: "Dispatch Radar & Suivi GPS en Direct",
-        desc: "Moteur d'estimation de course instantané, algorithme de dispatch radar prioritaire et double cartographie avec basculement automatique.",
-      },
-      {
-        title: "Automatisation Financière Complète",
-        desc: "Paiements sécurisés en ligne, calcul dynamique des commissions chauffeurs, virements SEPA automatisés et facturation Factur-X.",
-      },
-      {
-        title: "Conformité CPAM & Registre LeTaxi",
-        desc: "Prise en charge réglementaire des taxis conventionnés, tarification officielle préfectorale et forfaits aéroports garantis.",
-      },
-    ],
-    techTags: [
-      "SaaS Multi-Portails",
-      "Dispatch Radar PostGIS",
-      "Double Cartographie GPS",
-      "Factur-X & Virements SEPA",
-      "Agréé CPAM & LeTaxi",
-    ],
-    statusLive: "Plateforme active en production",
-  },
   portfolio: {
     title: "Our Work",
     subtitle: "Real projects. Real results.",
@@ -853,39 +820,6 @@ const fr: typeof en = {
       },
       { title: "Automatisation IA", desc: "Systèmes intelligents qui optimisent vos opérations" },
     ],
-  },
-  navicabShowcase: {
-    eyebrow: "// CO-RÉALISATION PHARE — SAAS ENTERPRISE",
-    badge: "Plateforme en Production · navicab.fr",
-    title: "NaviCab — L'Écosystème SaaS de Dispatch Taxi en Île-de-France",
-    subtitle: "Conçue et développée en collaboration technique avec TY Dev : une plateforme SaaS haute résilience connectant passagers, chauffeurs et partenaires B2B en temps réel.",
-    liveSite: "Visiter la plateforme NaviCab",
-    features: [
-      {
-        title: "5 Portails Web & Mobile Dédiés",
-        desc: "Espaces interconnectés pour passagers, chauffeurs, flottes, partenaires B2B (hôtels & entreprises) et administration centrale.",
-      },
-      {
-        title: "Dispatch Radar & Suivi GPS en Direct",
-        desc: "Moteur d'estimation de course instantané, algorithme de dispatch radar prioritaire et double cartographie avec basculement automatique.",
-      },
-      {
-        title: "Automatisation Financière Complète",
-        desc: "Paiements sécurisés en ligne, calcul dynamique des commissions chauffeurs, virements SEPA automatisés et facturation Factur-X.",
-      },
-      {
-        title: "Conformité CPAM & Registre LeTaxi",
-        desc: "Prise en charge réglementaire des taxis conventionnés, tarification officielle préfectorale et forfaits aéroports garantis.",
-      },
-    ],
-    techTags: [
-      "SaaS Multi-Portails",
-      "Dispatch Radar PostGIS",
-      "Double Cartographie GPS",
-      "Factur-X & Virements SEPA",
-      "Agréé CPAM & LeTaxi",
-    ],
-    statusLive: "Plateforme active en production",
   },
   portfolio: {
     title: "Nos Réalisations",
