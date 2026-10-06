@@ -533,12 +533,6 @@ const en = {
     tagline: "The Taxi Booking & Dispatch SaaS Ecosystem in Île-de-France",
     summary:
       "Built through a close technical partnership between taxi company NaviCab and TY Dev: an end-to-end mission-critical SaaS connecting passengers, drivers, fleets, and B2B partners in real time.",
-    stats: [
-      { value: "5", label: "Dedicated Portals & Apps" },
-      { value: "< 2s", label: "Radar Dispatch Matching" },
-      { value: "100%", label: "Factur-X & CPAM Invoicing" },
-      { value: "24/7", label: "High Resilience in Production" },
-    ],
     overview: {
       title: "Project Overview & TY Dev × NaviCab Collaboration",
       description:
@@ -1389,12 +1383,6 @@ const fr: typeof en = {
     tagline: "L'Écosystème SaaS de Dispatch Taxi & Mobilité en Île-de-France",
     summary:
       "Réalisée en collaboration étroite entre la société de taxis NaviCab et l'agence TY Dev : une infrastructure SaaS complète connectant en direct passagers, chauffeurs, flottes et partenaires B2B (hôtels & entreprises).",
-    stats: [
-      { value: "5", label: "Portails & Applications Dédiés" },
-      { value: "< 2s", label: "Temps de Dispatch Radar" },
-      { value: "100%", label: "Facturation & Agrément CPAM" },
-      { value: "24/7", label: "Haute Résilience en Production" },
-    ],
     overview: {
       title: "Présentation & Collaboration TY Dev × NaviCab",
       description:

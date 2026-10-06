@@ -137,34 +137,13 @@ function NaviCabCaseStudyPage() {
           </div>
         </motion.div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5 my-14">
-          {c.stats.map((s, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: idx * 0.06 }}
-              className="p-5 sm:p-6 rounded-2xl bg-surface/35 border border-border/60 hover:border-brand/35 transition-colors"
-            >
-              <div className="font-display text-3xl sm:text-4xl font-bold text-foreground">
-                {s.value}
-              </div>
-              <div className="text-xs sm:text-sm text-muted-foreground/80 mt-1.5 font-medium leading-snug">
-                {s.label}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
         {/* Desktop Showcase Window */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative rounded-2xl md:rounded-3xl overflow-hidden border border-border/70 bg-[oklch(0.08_0.02_260)] shadow-[0_25px_70px_-20px_rgba(0,0,0,0.6)] my-14"
+          className="relative rounded-2xl md:rounded-3xl overflow-hidden border border-border/70 bg-[oklch(0.08_0.02_260)] shadow-[0_25px_70px_-20px_rgba(0,0,0,0.6)] mt-12 md:mt-16 mb-20"
         >
           {/* Mac-style browser bar */}
           <div className="flex items-center justify-between px-4 sm:px-5 py-3 bg-[oklch(0.06_0.02_260)] border-b border-border/60">
