@@ -520,24 +520,95 @@ const en = {
   spotlight: {
     badge: "Flagship Co-Development · Enterprise SaaS",
     liveStatus: "Live in Production · navicab.fr",
-    title: "NaviCab — Taxi Dispatch & Mobility SaaS Infrastructure",
-    subtitle: "A mission-critical real-time dispatch ecosystem connecting passengers, official Parisian taxi fleets, and B2B corporate partners.",
-    description: "Architected and engineered in technical partnership with TY Dev: an end-to-end SaaS platform delivering sub-second radar dispatch, high-frequency GPS telemetry, and full financial automation.",
-    pillars: [
-      {
-        title: "Real-Time Radar Dispatch",
-        desc: "Instant ride assignment in under 2s, dynamic route estimation, and live GPS map telemetry across Île-de-France.",
-      },
-      {
-        title: "5 Interconnected Portals & Apps",
-        desc: "Dedicated interfaces for passengers, drivers, fleet supervisors, corporate accounts (hotels & enterprises), and master admin.",
-      },
-      {
-        title: "Automated Billing & CPAM Compliance",
-        desc: "Automated Factur-X invoicing, SEPA driver payouts, and regulatory compliance for official taxis (CPAM & LeTaxi registry).",
-      },
+    title: "NaviCab",
+    subtitle: "The Real-Time Taxi Booking & Dispatch SaaS Infrastructure in Île-de-France",
+    description: "Architected and engineered in technical partnership with TY Dev: a high-resilience SaaS platform connecting passengers, official Parisian taxi fleets, and B2B corporate partners with sub-second radar dispatch and end-to-end automated billing.",
+    caseStudyBtn: "Read Full Case Study",
+    visitBtn: "Visit navicab.fr",
+    tags: [
+      "Real-Time WebSocket",
+      "Radar Dispatch <2s",
+      "5 Portals & Apps",
+      "CPAM & LeTaxi Certified",
     ],
-    cta: "Explore navicab.fr Platform",
+  },
+  navicabCaseStudy: {
+    backToHome: "Back to Home",
+    backToPortfolio: "View All Projects",
+    badge: "Case Study · Enterprise SaaS & Complex Engineering",
+    title: "NaviCab",
+    tagline: "The Taxi Booking & Dispatch SaaS Ecosystem in Île-de-France",
+    summary:
+      "Architected and engineered in technical partnership with TY Dev: a high-resilience SaaS platform connecting passengers, drivers, fleets, and B2B corporate partners in real time.",
+    stats: [
+      { value: "5", label: "Dedicated Portals & Apps" },
+      { value: "< 2s", label: "Radar Dispatch Matching" },
+      { value: "100%", label: "Factur-X & CPAM Invoicing" },
+      { value: "24/7", label: "High Resilience in Production" },
+    ],
+    overview: {
+      title: "Project Overview & Vision",
+      description:
+        "NaviCab is an end-to-end taxi reservation and real-time dispatch infrastructure operating across the Paris metropolitan area (Île-de-France). The challenge: replace legacy dispatch setups with an ultra-responsive, real-time ecosystem capable of handling high-volume traffic surges during airport peaks and rush hours.",
+    },
+    portals: {
+      title: "A 5-Portal Interconnected Architecture",
+      subtitle: "Every actor in the mobility ecosystem benefits from a tailored workflow interface:",
+      items: [
+        {
+          title: "1. Passenger Portal (Web & Mobile PWA)",
+          desc: "Instant and advance bookings, instant fare calculation matching official prefecture rates, flat airport fares, secure online payment, and live approaching driver GPS tracking.",
+        },
+        {
+          title: "2. Driver Application",
+          desc: "Priority ride reception via radar dispatch, integrated turn-by-turn navigation, real-time availability toggle, transparent live commission tracking, and accounting exports.",
+        },
+        {
+          title: "3. Fleet Supervisor Portal",
+          desc: "Live multi-vehicle tracking on interactive maps, automated driver assignment, dispatch health metrics, and revenue splitting per vehicle owner.",
+        },
+        {
+          title: "4. B2B Corporate & Hotel Concierge Portal",
+          desc: "A streamlined concierge dashboard allowing Parisian luxury hotels and enterprises to hail and schedule official taxis for guests with unified monthly billing.",
+        },
+        {
+          title: "5. Central Master Admin Console",
+          desc: "Real-time telemetry, transaction audit logs, pricing zone configuration, regulatory reporting, and algorithmic dispatch priority fine-tuning.",
+        },
+      ],
+    },
+    techPillars: {
+      title: "Engineering & Technical Milestones Delivered by TY Dev",
+      subtitle: "Modern architectural decisions engineered for mission-critical reliability:",
+      items: [
+        {
+          title: "Sub-Second Radar Dispatch Engine",
+          desc: "Intelligent matching algorithm assigning rides to the most optimal nearby driver in under 2 seconds using bidirectional WebSockets and PostGIS geospatial indexing.",
+        },
+        {
+          title: "Dual Map Fallback & High-Frequency GPS Tracking",
+          desc: "Coupled Mapbox and OpenStreetMap engines with automated failover ensuring 99.99% telemetry uptime without signal interruption.",
+        },
+        {
+          title: "End-to-End Financial Automation",
+          desc: "Automated generation of Factur-X compliant e-invoices, dynamic driver commission payouts, and automated SEPA banking transfers.",
+        },
+        {
+          title: "CPAM Compliance & LeTaxi National Registry",
+          desc: "Full support for medical transport reimbursement rules and live compliance synchronization with France's official LeTaxi registry.",
+        },
+      ],
+    },
+    mobileSection: {
+      title: "Optimized Mobile-First Experience",
+      subtitle: "Fluid ergonomics designed for on-the-go speed, empowering both drivers behind the wheel and passengers traveling across Paris.",
+    },
+    cta: {
+      title: "Planning an Ambitious SaaS or AI Platform?",
+      subtitle: "Leverage TY Dev's technical leadership and engineering excellence to bring your vision to life.",
+      button: "Discuss Your Project With TY Dev",
+      visitSite: "Visit navicab.fr Platform",
+    },
   },
   testimonials: {
     title: "Client Reviews",
@@ -1296,24 +1367,95 @@ const fr: typeof en = {
   spotlight: {
     badge: "Co-réalisation Majeure · SaaS Enterprise",
     liveStatus: "Plateforme en production · navicab.fr",
-    title: "NaviCab — L'Infrastructure SaaS de Dispatch & Mobilité Taxi",
-    subtitle: "Un écosystème de dispatch haute résilience connectant passagers, flottes de taxis parisiens et partenaires B2B en temps réel.",
-    description: "Conçue et développée en synergie technique avec TY Dev : une plateforme SaaS d'envergure alliant dispatch radar instantané, télémétrie GPS en direct et automatisation financière intégrale.",
-    pillars: [
-      {
-        title: "Dispatch Radar & Temps Réel",
-        desc: "Attribution de course en moins de 2s, calcul d'itinéraires dynamique et télémétrie GPS cartographique en direct.",
-      },
-      {
-        title: "5 Portails & Applications Dédiés",
-        desc: "Interfaces sur-mesure pour passagers, chauffeurs, gestionnaires de flotte, comptes pros (hôtels/entreprises) et administration centrale.",
-      },
-      {
-        title: "Facturation & Agrément Réglementaire",
-        desc: "Facturation Factur-X automatisée, virements SEPA chauffeurs et pleine conformité LeTaxi (Ministère) & CPAM.",
-      },
+    title: "NaviCab",
+    subtitle: "L'Infrastructure SaaS de Dispatch & Réservation Taxi en Île-de-France",
+    description: "Conçue et développée en synergie technique avec TY Dev : une plateforme SaaS d'envergure reliant passagers, flottes de taxis parisiens et partenaires B2B grâce à un dispatch radar instantané et une automatisation financière de bout en bout.",
+    caseStudyBtn: "Découvrir l'étude de cas complète",
+    visitBtn: "Visiter navicab.fr",
+    tags: [
+      "Temps Réel WebSocket",
+      "Dispatch Radar <2s",
+      "5 Portails & Apps",
+      "Agréé CPAM & LeTaxi",
     ],
-    cta: "Accéder à la plateforme navicab.fr",
+  },
+  navicabCaseStudy: {
+    backToHome: "Retour à l'accueil",
+    backToPortfolio: "Voir toutes les réalisations",
+    badge: "Étude de Cas · SaaS & Ingénierie Complexe",
+    title: "NaviCab",
+    tagline: "L'Écosystème SaaS de Dispatch Taxi & Mobilité en Île-de-France",
+    summary:
+      "Conçue et développée en collaboration technique avec TY Dev : une plateforme SaaS haute résilience connectant en temps réel passagers, chauffeurs, flottes de taxis et partenaires B2B (hôtels & entreprises).",
+    stats: [
+      { value: "5", label: "Portails & Applications Dédiés" },
+      { value: "< 2s", label: "Temps de Dispatch Radar" },
+      { value: "100%", label: "Facturation & Agrément CPAM" },
+      { value: "24/7", label: "Haute Résilience en Production" },
+    ],
+    overview: {
+      title: "Présentation & Vision du Projet",
+      description:
+        "NaviCab est une infrastructure technologique complète de réservation et de répartition (dispatching) de taxis officiels et conventionnés en Île-de-France. Le défi : remplacer les anciens systèmes rigides par un écosystème réactif en temps réel, capable d'encaisser des pics de charge importants lors des arrivées aéroportuaires et des heures de pointe parisiennes.",
+    },
+    portals: {
+      title: "Une Architecture à 5 Portails Interconnectés",
+      subtitle: "Chaque acteur de la chaîne de mobilité dispose d'un espace conçu sur-mesure pour son flux de travail spécifique :",
+      items: [
+        {
+          title: "1. Portail Passagers (Web & PWA Mobile)",
+          desc: "Réservation instantanée ou à l'avance, estimation de tarif en direct selon la réglementation préfectorale, forfaits aéroports fixes, paiement sécurisé en ligne et suivi GPS du chauffeur à l'approche.",
+        },
+        {
+          title: "2. Application Chauffeurs",
+          desc: "Réception prioritaire des courses via dispatch radar, navigation GPS intégrée, basculement de statut (libre/occupé/pause), suivi des commissions en direct et exports comptables.",
+        },
+        {
+          title: "3. Portail Flottes & Groupements",
+          desc: "Supervision globale de parcs de taxis, affectation de véhicules, suivi de la télémétrie en temps réel sur carte interactive et répartition des gains par exploitant.",
+        },
+        {
+          title: "4. Portail Partenaires B2B (Hôtels & Entreprises)",
+          desc: "Espace conciergerie permettant aux hôtels parisiens et aux entreprises de réserver des taxis pour leurs clients VIP en 1 clic, avec facturation groupée en fin de mois.",
+        },
+        {
+          title: "5. Console d'Administration Centrale",
+          desc: "Monitoring temps réel des transactions, gestion des zones tarifaires, audit des courses, logs de sécurité et configuration des règles de dispatch algorithmique.",
+        },
+      ],
+    },
+    techPillars: {
+      title: "Ingénierie & Défis Techniques Relevés par TY Dev",
+      subtitle: "Des choix d'architecture modernes pensés pour la haute performance :",
+      items: [
+        {
+          title: "Algorithme de Dispatch Radar Prioritaire",
+          desc: "Attribution intelligente de la course au chauffeur le plus proche et le plus adapté en moins de 2 secondes via WebSockets bidirectionnels et PostGIS géospatial.",
+        },
+        {
+          title: "Double Cartographie & Suivi GPS en Direct",
+          desc: "Couplage Mapbox / OpenStreetMap avec système de basculement automatique pour garantir une continuité de service 99.99% sans rupture de signal.",
+        },
+        {
+          title: "Automatisation Financière de Bout en Bout",
+          desc: "Génération automatique des factures au format Factur-X, gestion des commissions chauffeurs et déclenchement des virements bancaires automatisés via SEPA.",
+        },
+        {
+          title: "Conformité CPAM & Registre Officiel LeTaxi",
+          desc: "Intégration des règles de prise en charge des transports médicaux conventionnés CPAM et synchronisation avec le registre national LeTaxi du Ministère de l'Économie.",
+        },
+      ],
+    },
+    mobileSection: {
+      title: "Expérience Mobile-First Optimisée",
+      subtitle: "Une ergonomie fluide pensée pour une utilisation rapide sur le terrain, aussi bien pour les chauffeurs au volant que pour les passagers en mobilité.",
+    },
+    cta: {
+      title: "Vous avez un projet SaaS d'envergure à développer ?",
+      subtitle: "Bénéficiez de la même expertise technique et de notre engagement pour concevoir votre plateforme sur-mesure.",
+      button: "Discuter de votre projet avec TY Dev",
+      visitSite: "Visiter le site navicab.fr",
+    },
   },
   testimonials: {
     title: "Avis Clients",

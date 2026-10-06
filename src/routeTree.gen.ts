@@ -22,6 +22,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TeamSlugRouteImport } from './routes/team_.$slug'
 import { Route as ServicesSlugRouteImport } from './routes/services_.$slug'
+import { Route as ProjetsNavicabRouteImport } from './routes/projets_.navicab'
 import { Route as BlogSlugRouteImport } from './routes/blog_.$slug'
 
 const ServicesRoute = ServicesRouteImport.update({
@@ -89,6 +90,11 @@ const ServicesSlugRoute = ServicesSlugRouteImport.update({
   path: '/services/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjetsNavicabRoute = ProjetsNavicabRouteImport.update({
+  id: '/projets_/navicab',
+  path: '/projets/navicab',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
   id: '/blog_/$slug',
   path: '/blog/$slug',
@@ -108,6 +114,7 @@ export interface FileRoutesByFullPath {
   '/portfolio': typeof PortfolioRoute
   '/services': typeof ServicesRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/projets/navicab': typeof ProjetsNavicabRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/team/$slug': typeof TeamSlugRoute
 }
@@ -124,6 +131,7 @@ export interface FileRoutesByTo {
   '/portfolio': typeof PortfolioRoute
   '/services': typeof ServicesRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/projets/navicab': typeof ProjetsNavicabRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/team/$slug': typeof TeamSlugRoute
 }
@@ -141,6 +149,7 @@ export interface FileRoutesById {
   '/portfolio': typeof PortfolioRoute
   '/services': typeof ServicesRoute
   '/blog_/$slug': typeof BlogSlugRoute
+  '/projets_/navicab': typeof ProjetsNavicabRoute
   '/services_/$slug': typeof ServicesSlugRoute
   '/team_/$slug': typeof TeamSlugRoute
 }
@@ -159,6 +168,7 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/services'
     | '/blog/$slug'
+    | '/projets/navicab'
     | '/services/$slug'
     | '/team/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -175,6 +185,7 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/services'
     | '/blog/$slug'
+    | '/projets/navicab'
     | '/services/$slug'
     | '/team/$slug'
   id:
@@ -191,6 +202,7 @@ export interface FileRouteTypes {
     | '/portfolio'
     | '/services'
     | '/blog_/$slug'
+    | '/projets_/navicab'
     | '/services_/$slug'
     | '/team_/$slug'
   fileRoutesById: FileRoutesById
@@ -208,6 +220,7 @@ export interface RootRouteChildren {
   PortfolioRoute: typeof PortfolioRoute
   ServicesRoute: typeof ServicesRoute
   BlogSlugRoute: typeof BlogSlugRoute
+  ProjetsNavicabRoute: typeof ProjetsNavicabRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
   TeamSlugRoute: typeof TeamSlugRoute
 }
@@ -305,6 +318,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projets_/navicab': {
+      id: '/projets_/navicab'
+      path: '/projets/navicab'
+      fullPath: '/projets/navicab'
+      preLoaderRoute: typeof ProjetsNavicabRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog_/$slug': {
       id: '/blog_/$slug'
       path: '/blog/$slug'
@@ -328,6 +348,7 @@ const rootRouteChildren: RootRouteChildren = {
   PortfolioRoute: PortfolioRoute,
   ServicesRoute: ServicesRoute,
   BlogSlugRoute: BlogSlugRoute,
+  ProjetsNavicabRoute: ProjetsNavicabRoute,
   ServicesSlugRoute: ServicesSlugRoute,
   TeamSlugRoute: TeamSlugRoute,
 }
