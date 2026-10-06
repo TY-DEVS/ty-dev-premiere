@@ -519,16 +519,25 @@ const en = {
   },
   spotlight: {
     badge: "Flagship Co-Development · Enterprise SaaS",
-    title: "NaviCab",
-    tagline: "Real-Time Taxi Dispatch & Booking SaaS Platform",
-    description: "Engineered in technical collaboration with TY Dev, NaviCab connects passengers, drivers, and B2B corporate partners across Île-de-France through intelligent radar dispatch and automated billing.",
-    tags: [
-      "Real-Time Radar & GPS Dispatch",
-      "5 Dedicated Portals & Apps",
-      "Automated Invoicing & SEPA Payouts",
+    liveStatus: "Live in Production · navicab.fr",
+    title: "NaviCab — Taxi Dispatch & Mobility SaaS Infrastructure",
+    subtitle: "A mission-critical real-time dispatch ecosystem connecting passengers, official Parisian taxi fleets, and B2B corporate partners.",
+    description: "Architected and engineered in technical partnership with TY Dev: an end-to-end SaaS platform delivering sub-second radar dispatch, high-frequency GPS telemetry, and full financial automation.",
+    pillars: [
+      {
+        title: "Real-Time Radar Dispatch",
+        desc: "Instant ride assignment in under 2s, dynamic route estimation, and live GPS map telemetry across Île-de-France.",
+      },
+      {
+        title: "5 Interconnected Portals & Apps",
+        desc: "Dedicated interfaces for passengers, drivers, fleet supervisors, corporate accounts (hotels & enterprises), and master admin.",
+      },
+      {
+        title: "Automated Billing & CPAM Compliance",
+        desc: "Automated Factur-X invoicing, SEPA driver payouts, and regulatory compliance for official taxis (CPAM & LeTaxi registry).",
+      },
     ],
-    liveStatus: "Live in Production",
-    cta: "Explore Platform",
+    cta: "Explore navicab.fr Platform",
   },
   testimonials: {
     title: "Client Reviews",
@@ -1285,17 +1294,26 @@ const fr: typeof en = {
     ],
   },
   spotlight: {
-    badge: "Co-réalisation Phare · SaaS Enterprise",
-    title: "NaviCab",
-    tagline: "L'Écosystème SaaS de Dispatch & Réservation Taxi en Direct",
-    description: "Conçue et développée en collaboration technique avec TY Dev, NaviCab relie passagers, chauffeurs et partenaires B2B en temps réel grâce à un algorithme de dispatch radar instantané et une gestion financière automatisée.",
-    tags: [
-      "Dispatch Radar & GPS en direct",
-      "5 Portails Dédiés Web & Mobile",
-      "Facturation & Automatisation Financière",
+    badge: "Co-réalisation Majeure · SaaS Enterprise",
+    liveStatus: "Plateforme en production · navicab.fr",
+    title: "NaviCab — L'Infrastructure SaaS de Dispatch & Mobilité Taxi",
+    subtitle: "Un écosystème de dispatch haute résilience connectant passagers, flottes de taxis parisiens et partenaires B2B en temps réel.",
+    description: "Conçue et développée en synergie technique avec TY Dev : une plateforme SaaS d'envergure alliant dispatch radar instantané, télémétrie GPS en direct et automatisation financière intégrale.",
+    pillars: [
+      {
+        title: "Dispatch Radar & Temps Réel",
+        desc: "Attribution de course en moins de 2s, calcul d'itinéraires dynamique et télémétrie GPS cartographique en direct.",
+      },
+      {
+        title: "5 Portails & Applications Dédiés",
+        desc: "Interfaces sur-mesure pour passagers, chauffeurs, gestionnaires de flotte, comptes pros (hôtels/entreprises) et administration centrale.",
+      },
+      {
+        title: "Facturation & Agrément Réglementaire",
+        desc: "Facturation Factur-X automatisée, virements SEPA chauffeurs et pleine conformité LeTaxi (Ministère) & CPAM.",
+      },
     ],
-    liveStatus: "Plateforme en production",
-    cta: "Découvrir la plateforme",
+    cta: "Accéder à la plateforme navicab.fr",
   },
   testimonials: {
     title: "Avis Clients",
