@@ -94,77 +94,96 @@ function NaviCabCaseStudyPage() {
           </span>
         </div>
 
-        {/* Hero Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="space-y-6 max-w-4xl"
-        >
-          <div className="space-y-3">
-            <span className="inline-block text-xs font-mono uppercase tracking-widest text-brand font-semibold">
-              {lang === "fr" ? "// ÉTUDE DE CAS SAAS" : "// SAAS CASE STUDY"}
-            </span>
-            <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground leading-none">
-              {c.title}
-            </h1>
-            <p className="text-xl sm:text-2xl md:text-3xl text-foreground/85 font-medium tracking-tight leading-snug">
-              {c.tagline}
+        {/* Hero Section: 2 Columns (Text on Left, Browser Mockup on Right) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center mb-16 md:mb-24">
+          {/* Left Column: Text & Actions */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-6 space-y-6"
+          >
+            <div className="space-y-3">
+              <span className="inline-block text-xs font-mono uppercase tracking-widest text-brand font-semibold">
+                {lang === "fr" ? "// ÉTUDE DE CAS SAAS" : "// SAAS CASE STUDY"}
+              </span>
+              <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.05]">
+                {c.title}
+              </h1>
+              <p className="text-lg sm:text-xl md:text-2xl text-foreground/85 font-medium tracking-tight leading-snug">
+                {c.tagline}
+              </p>
+            </div>
+
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground/85 leading-relaxed">
+              {c.summary}
             </p>
-          </div>
 
-          <p className="text-base sm:text-lg text-muted-foreground/80 leading-relaxed max-w-2xl pt-1">
-            {c.summary}
-          </p>
-
-          {/* Quick Action Links */}
-          <div className="flex flex-wrap items-center gap-4 pt-3">
-            <a
-              href="https://navicab.fr"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-brand text-primary-foreground font-semibold shadow-lg shadow-brand/20 hover:bg-brand/90 transition-all duration-300 hover:-translate-y-0.5"
-            >
-              <span>{c.cta.visitSite}</span>
-              <ArrowUpRight size={17} />
-            </a>
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-surface/70 border border-border/70 text-foreground font-semibold hover:border-brand/40 hover:bg-surface transition-all duration-300 hover:-translate-y-0.5"
-            >
-              <span>{c.cta.button}</span>
-            </Link>
-          </div>
-        </motion.div>
-
-        {/* Desktop Showcase Window */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="relative rounded-2xl md:rounded-3xl overflow-hidden border border-border/70 bg-[oklch(0.08_0.02_260)] shadow-[0_25px_70px_-20px_rgba(0,0,0,0.6)] mt-12 md:mt-16 mb-20"
-        >
-          {/* Mac-style browser bar */}
-          <div className="flex items-center justify-between px-4 sm:px-5 py-3 bg-[oklch(0.06_0.02_260)] border-b border-border/60">
-            <div className="flex items-center gap-1.5 sm:gap-2">
-              <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/70" />
-              <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-amber-500/70" />
-              <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-emerald-500/70" />
+            {/* Quick Action Links */}
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <a
+                href="https://navicab.fr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-brand text-primary-foreground font-semibold shadow-lg shadow-brand/20 hover:bg-brand/90 transition-all duration-300 hover:-translate-y-0.5"
+              >
+                <span>{c.cta.visitSite}</span>
+                <ArrowUpRight size={17} />
+              </a>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-surface/70 border border-border/70 text-foreground font-semibold hover:border-brand/40 hover:bg-surface transition-all duration-300 hover:-translate-y-0.5"
+              >
+                <span>{c.cta.button}</span>
+              </Link>
             </div>
-            <div className="flex items-center gap-2 px-3 sm:px-4 py-1 rounded-md bg-surface/80 border border-border/50 text-[11px] sm:text-xs font-mono text-muted-foreground">
-              <Globe size={11} className="text-brand" />
-              <span className="text-foreground/90 font-medium">https://navicab.fr</span>
+          </motion.div>
+
+          {/* Right Column: Desktop Showcase Window Mockup */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="lg:col-span-6"
+          >
+            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden border border-border/75 bg-[oklch(0.08_0.02_260)] shadow-[0_25px_80px_-20px_rgba(0,0,0,0.7)] group hover:border-brand/40 transition-colors duration-300">
+              {/* Mac-style browser bar */}
+              <div className="flex items-center justify-between px-4 sm:px-5 py-3 bg-[oklch(0.06_0.02_260)] border-b border-border/60">
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/70" />
+                  <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-amber-500/70" />
+                  <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-emerald-500/70" />
+                </div>
+                <div className="flex items-center gap-2 px-3 sm:px-4 py-1 rounded-md bg-surface/80 border border-border/50 text-[11px] sm:text-xs font-mono text-muted-foreground">
+                  <Globe size={11} className="text-brand" />
+                  <span className="text-foreground/90 font-medium">https://navicab.fr</span>
+                </div>
+                <div className="w-8 sm:w-12" />
+              </div>
+
+              {/* Real desktop screenshot */}
+              <a
+                href="https://navicab.fr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block relative overflow-hidden group select-none"
+              >
+                <img
+                  src="/portfolio/navicab-hero.webp"
+                  alt="Interface officielle de la plateforme SaaS NaviCab"
+                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                  loading="eager"
+                />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
+                  <span className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand text-primary-foreground text-xs font-semibold shadow-xl">
+                    <span>{c.cta.visitSite}</span>
+                    <ArrowUpRight size={14} />
+                  </span>
+                </div>
+              </a>
             </div>
-            <div className="w-8 sm:w-12" />
-          </div>
-          <img
-            src="/portfolio/navicab-hero.webp"
-            alt="Interface officielle de la plateforme SaaS NaviCab"
-            className="w-full h-auto object-cover"
-            loading="lazy"
-          />
-        </motion.div>
+          </motion.div>
+        </div>
 
         {/* Project Overview & Partnership Breakdown */}
         <div className="max-w-5xl mx-auto my-20 p-8 sm:p-12 rounded-3xl bg-surface/40 border border-border/70 backdrop-blur-sm space-y-8">
