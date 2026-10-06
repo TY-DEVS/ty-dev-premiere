@@ -609,8 +609,8 @@ const en = {
     cta: {
       title: "Planning an Ambitious SaaS or AI Platform?",
       subtitle: "Leverage TY Dev's technical leadership and engineering excellence to bring your vision to life.",
-      button: "Discuss Your Project With TY Dev",
-      visitSite: "Visit navicab.fr Platform",
+      button: "Discuss Your Project",
+      visitSite: "Visit navicab.fr",
     },
   },
   testimonials: {
@@ -1459,8 +1459,8 @@ const fr: typeof en = {
     cta: {
       title: "Vous avez un projet SaaS d'envergure à développer ?",
       subtitle: "Bénéficiez de la même expertise technique et de notre engagement pour concevoir votre plateforme sur-mesure.",
-      button: "Discuter de votre projet avec TY Dev",
-      visitSite: "Visiter le site navicab.fr",
+      button: "Discuter de votre projet",
+      visitSite: "Visiter navicab.fr",
     },
   },
   testimonials: {

@@ -95,44 +95,45 @@ function NaviCabCaseStudyPage() {
         </div>
 
         {/* Hero Section: 2 Columns (Text on Left, Browser Mockup on Right) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center mb-16 md:mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-center mb-16 md:mb-24">
           {/* Left Column: Text & Actions */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-6 space-y-6"
+            className="lg:col-span-6 flex flex-col justify-center space-y-5 sm:space-y-6"
           >
             <div className="space-y-3">
-              <span className="inline-block text-xs font-mono uppercase tracking-widest text-brand font-semibold">
-                {lang === "fr" ? "// ÉTUDE DE CAS SAAS" : "// SAAS CASE STUDY"}
-              </span>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand/10 border border-brand/20 text-brand text-xs font-mono font-medium tracking-wide w-fit">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand animate-pulse" />
+                <span>{lang === "fr" ? "Étude de Cas · Architecture SaaS" : "Case Study · SaaS Architecture"}</span>
+              </div>
               <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.05]">
                 {c.title}
               </h1>
-              <p className="text-lg sm:text-xl md:text-2xl text-foreground/85 font-medium tracking-tight leading-snug">
+              <p className="text-lg sm:text-xl lg:text-2xl text-foreground/80 font-medium tracking-tight leading-snug">
                 {c.tagline}
               </p>
             </div>
 
-            <p className="text-sm sm:text-base md:text-lg text-muted-foreground/85 leading-relaxed">
+            <p className="text-sm sm:text-base text-muted-foreground/85 leading-relaxed max-w-xl">
               {c.summary}
             </p>
 
-            {/* Quick Action Links */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            {/* Quick Action Links: 100% Fully Responsive */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
               <a
                 href="https://navicab.fr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-brand text-primary-foreground font-semibold shadow-lg shadow-brand/20 hover:bg-brand/90 transition-all duration-300 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-brand text-primary-foreground text-sm font-semibold shadow-lg shadow-brand/25 hover:bg-brand/90 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
               >
                 <span>{c.cta.visitSite}</span>
-                <ArrowUpRight size={17} />
+                <ArrowUpRight size={16} />
               </a>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-surface/70 border border-border/70 text-foreground font-semibold hover:border-brand/40 hover:bg-surface transition-all duration-300 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-surface/80 border border-border/80 text-foreground text-sm font-semibold hover:border-brand/40 hover:bg-surface transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
               >
                 <span>{c.cta.button}</span>
               </Link>
@@ -144,21 +145,21 @@ function NaviCabCaseStudyPage() {
             initial={{ opacity: 0, scale: 0.96, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="lg:col-span-6"
+            className="lg:col-span-6 w-full flex justify-center"
           >
-            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden border border-border/75 bg-[oklch(0.08_0.02_260)] shadow-[0_25px_80px_-20px_rgba(0,0,0,0.7)] group hover:border-brand/40 transition-colors duration-300">
-              {/* Mac-style browser bar */}
-              <div className="flex items-center justify-between px-4 sm:px-5 py-3 bg-[oklch(0.06_0.02_260)] border-b border-border/60">
-                <div className="flex items-center gap-1.5 sm:gap-2">
-                  <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/70" />
-                  <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-amber-500/70" />
-                  <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-emerald-500/70" />
+            <div className="relative w-full max-w-xl lg:max-w-none rounded-2xl md:rounded-3xl overflow-hidden border border-border/80 bg-[oklch(0.08_0.02_260)] shadow-[0_25px_80px_-20px_rgba(0,0,0,0.7)] group hover:border-brand/40 transition-all duration-500">
+              {/* Mac-style browser bar with centered navicab.fr */}
+              <div className="flex items-center justify-between px-4 sm:px-5 py-3 bg-[oklch(0.06_0.02_260)] border-b border-border/60 select-none">
+                <div className="flex items-center gap-1.5 sm:gap-2 w-14">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-amber-500/70" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/70" />
                 </div>
-                <div className="flex items-center gap-2 px-3 sm:px-4 py-1 rounded-md bg-surface/80 border border-border/50 text-[11px] sm:text-xs font-mono text-muted-foreground">
+                <div className="flex items-center gap-2 px-3.5 py-1 rounded-md bg-surface/90 border border-border/60 text-[11px] sm:text-xs font-mono text-muted-foreground/90">
                   <Globe size={11} className="text-brand" />
-                  <span className="text-foreground/90 font-medium">https://navicab.fr</span>
+                  <span className="text-foreground/90 font-medium">navicab.fr</span>
                 </div>
-                <div className="w-8 sm:w-12" />
+                <div className="w-14" />
               </div>
 
               {/* Real desktop screenshot */}
@@ -166,17 +167,17 @@ function NaviCabCaseStudyPage() {
                 href="https://navicab.fr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block relative overflow-hidden group select-none"
+                className="block relative overflow-hidden group select-none aspect-[16/10] bg-surface"
               >
                 <img
                   src="/portfolio/navicab-hero.webp"
-                  alt="Interface officielle de la plateforme SaaS NaviCab"
-                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                  alt="Interface officielle de la plateforme SaaS NaviCab sur navicab.fr"
+                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
                   loading="eager"
                 />
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/45 backdrop-blur-[2px]">
                   <span className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand text-primary-foreground text-xs font-semibold shadow-xl">
-                    <span>{c.cta.visitSite}</span>
+                    <span>{lang === "fr" ? "Visiter navicab.fr" : "Visit navicab.fr"}</span>
                     <ArrowUpRight size={14} />
                   </span>
                 </div>
