@@ -34,20 +34,26 @@ export function NaviCabSpotlight() {
           className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(var(--foreground)_1px,transparent_1px)] [background-size:16px_16px]"
           aria-hidden
         />
+        {/* Subtle interior glow */}
+        <div
+          className="absolute -top-32 -right-32 w-80 h-80 bg-brand/10 rounded-full blur-[90px] pointer-events-none"
+          aria-hidden
+        />
 
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center p-8 sm:p-10 md:p-12 lg:p-14">
           {/* Left: Pure & direct narrative */}
           <div className="lg:col-span-7 flex flex-col justify-center space-y-6">
-            <div>
+            <div className="space-y-3">
+              <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 w-fit">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span>{t.spotlight.badgeStatus}</span>
+              </div>
               <h3 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">
                 {t.spotlight.title}
               </h3>
-              <p className="text-base sm:text-lg font-medium text-brand/90 mt-2 leading-snug">
-                {t.spotlight.subtitle}
-              </p>
             </div>
 
-            <p className="text-sm sm:text-base text-muted-foreground/85 leading-relaxed max-w-xl">
+            <p className="text-base sm:text-lg text-muted-foreground/90 leading-relaxed max-w-xl">
               {t.spotlight.description}
             </p>
 
