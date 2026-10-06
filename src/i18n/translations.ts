@@ -517,6 +517,19 @@ const en = {
       },
     ],
   },
+  spotlight: {
+    badge: "Flagship Co-Development · Enterprise SaaS",
+    title: "NaviCab",
+    tagline: "Real-Time Taxi Dispatch & Booking SaaS Platform",
+    description: "Engineered in technical collaboration with TY Dev, NaviCab connects passengers, drivers, and B2B corporate partners across Île-de-France through intelligent radar dispatch and automated billing.",
+    tags: [
+      "Real-Time Radar & GPS Dispatch",
+      "5 Dedicated Portals & Apps",
+      "Automated Invoicing & SEPA Payouts",
+    ],
+    liveStatus: "Live in Production",
+    cta: "Explore Platform",
+  },
   testimonials: {
     title: "Client Reviews",
     subtitle: "Real feedback from our clients published on our Instagram page.",
@@ -1270,6 +1283,19 @@ const fr: typeof en = {
         url: "https://sylvester-mobile-detailing.ty-dev.site/",
       },
     ],
+  },
+  spotlight: {
+    badge: "Co-réalisation Phare · SaaS Enterprise",
+    title: "NaviCab",
+    tagline: "L'Écosystème SaaS de Dispatch & Réservation Taxi en Direct",
+    description: "Conçue et développée en collaboration technique avec TY Dev, NaviCab relie passagers, chauffeurs et partenaires B2B en temps réel grâce à un algorithme de dispatch radar instantané et une gestion financière automatisée.",
+    tags: [
+      "Dispatch Radar & GPS en direct",
+      "5 Portails Dédiés Web & Mobile",
+      "Facturation & Automatisation Financière",
+    ],
+    liveStatus: "Plateforme en production",
+    cta: "Découvrir la plateforme",
   },
   testimonials: {
     title: "Avis Clients",
