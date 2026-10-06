@@ -518,19 +518,11 @@ const en = {
     ],
   },
   spotlight: {
-    badge: "Flagship Co-Development · Enterprise SaaS",
-    liveStatus: "Live in Production · navicab.fr",
     title: "NaviCab",
     subtitle: "The Real-Time Taxi Booking & Dispatch SaaS Infrastructure in Île-de-France",
     description: "Architected and engineered in technical partnership with TY Dev: a high-resilience SaaS platform connecting passengers, official Parisian taxi fleets, and B2B corporate partners with sub-second radar dispatch and end-to-end automated billing.",
     caseStudyBtn: "Read Full Case Study",
     visitBtn: "Visit navicab.fr",
-    tags: [
-      "Real-Time WebSocket",
-      "Radar Dispatch <2s",
-      "5 Portals & Apps",
-      "CPAM & LeTaxi Certified",
-    ],
   },
   navicabCaseStudy: {
     backToHome: "Back to Home",
@@ -1365,19 +1357,11 @@ const fr: typeof en = {
     ],
   },
   spotlight: {
-    badge: "Co-réalisation Majeure · SaaS Enterprise",
-    liveStatus: "Plateforme en production · navicab.fr",
     title: "NaviCab",
     subtitle: "L'Infrastructure SaaS de Dispatch & Réservation Taxi en Île-de-France",
     description: "Conçue et développée en synergie technique avec TY Dev : une plateforme SaaS d'envergure reliant passagers, flottes de taxis parisiens et partenaires B2B grâce à un dispatch radar instantané et une automatisation financière de bout en bout.",
     caseStudyBtn: "Découvrir l'étude de cas complète",
     visitBtn: "Visiter navicab.fr",
-    tags: [
-      "Temps Réel WebSocket",
-      "Dispatch Radar <2s",
-      "5 Portails & Apps",
-      "Agréé CPAM & LeTaxi",
-    ],
   },
   navicabCaseStudy: {
     backToHome: "Retour à l'accueil",

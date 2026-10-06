@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight, CheckCircle2, Globe, Sparkles } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Globe } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
 import { Section } from "./Services";
@@ -8,7 +8,7 @@ export function NaviCabSpotlight() {
   const { t } = useI18n();
 
   return (
-    <Section id="spotlight" className="relative py-16 md:py-24 overflow-hidden scroll-mt-28">
+    <Section id="spotlight" className="relative py-14 md:py-20 overflow-hidden scroll-mt-28">
       {/* Ambient background glow */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-brand/5 rounded-full blur-[140px] pointer-events-none"
@@ -29,27 +29,13 @@ export function NaviCabSpotlight() {
         />
 
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center p-8 sm:p-10 md:p-12 lg:p-14">
-          {/* Left: Direct & concise information */}
+          {/* Left: Pure & direct narrative */}
           <div className="lg:col-span-7 flex flex-col justify-center space-y-6">
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand/10 border border-brand/25 text-brand font-mono text-[11px] uppercase tracking-wider font-semibold">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-brand" />
-                </span>
-                {t.spotlight.badge}
-              </span>
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono text-[11px] tracking-wide">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                {t.spotlight.liveStatus}
-              </span>
-            </div>
-
             <div>
               <h3 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">
                 {t.spotlight.title}
               </h3>
-              <p className="text-base sm:text-lg font-medium text-brand/90 mt-2">
+              <p className="text-base sm:text-lg font-medium text-brand/90 mt-2 leading-snug">
                 {t.spotlight.subtitle}
               </p>
             </div>
@@ -58,24 +44,11 @@ export function NaviCabSpotlight() {
               {t.spotlight.description}
             </p>
 
-            {/* Clean tags */}
-            <div className="flex flex-wrap gap-2.5 pt-1">
-              {t.spotlight.tags.map((tag, idx) => (
-                <div
-                  key={idx}
-                  className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-surface/70 border border-border/60 text-xs sm:text-sm text-foreground/80 font-mono backdrop-blur-sm"
-                >
-                  <CheckCircle2 size={14} className="text-brand shrink-0" />
-                  <span>{tag}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Action buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-3">
+            {/* Action buttons: Prominent case study CTA */}
+            <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link
                 to="/projets/navicab"
-                className="group inline-flex items-center gap-3 px-6 sm:px-7 py-3.5 rounded-2xl bg-brand text-primary-foreground font-semibold shadow-[0_10px_35px_-10px_oklch(0.6_0.22_265/0.4)] hover:bg-brand/90 hover:shadow-[0_15px_45px_-10px_oklch(0.6_0.22_265/0.6)] transition-all duration-300 hover:-translate-y-0.5"
+                className="group inline-flex items-center gap-3 px-7 py-3.5 rounded-2xl bg-brand text-primary-foreground font-semibold shadow-[0_10px_35px_-10px_oklch(0.6_0.22_265/0.4)] hover:bg-brand/90 hover:shadow-[0_15px_45px_-10px_oklch(0.6_0.22_265/0.6)] transition-all duration-300 hover:-translate-y-0.5"
               >
                 <span>{t.spotlight.caseStudyBtn}</span>
                 <ArrowRight
