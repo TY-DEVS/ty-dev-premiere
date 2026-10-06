@@ -95,23 +95,19 @@ function NaviCabCaseStudyPage() {
         </div>
 
         {/* Hero Section: 2 Columns (Text on Left, Browser Mockup on Right) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 items-center mb-16 md:mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center mb-16 md:mb-24">
           {/* Left Column: Text & Actions */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-6 flex flex-col justify-center space-y-5 sm:space-y-6"
+            className="lg:col-span-6 xl:col-span-5 flex flex-col justify-center space-y-5 sm:space-y-6"
           >
             <div className="space-y-3">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand/10 border border-brand/20 text-brand text-xs font-mono font-medium tracking-wide w-fit">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand animate-pulse" />
-                <span>{lang === "fr" ? "Étude de Cas · Architecture SaaS" : "Case Study · SaaS Architecture"}</span>
-              </div>
               <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.05]">
                 {c.title}
               </h1>
-              <p className="text-lg sm:text-xl lg:text-2xl text-foreground/80 font-medium tracking-tight leading-snug">
+              <p className="text-lg sm:text-xl lg:text-2xl text-foreground/85 font-medium tracking-tight leading-snug">
                 {c.tagline}
               </p>
             </div>
@@ -140,14 +136,14 @@ function NaviCabCaseStudyPage() {
             </div>
           </motion.div>
 
-          {/* Right Column: Desktop Showcase Window Mockup */}
+          {/* Right Column: Desktop Showcase Window Mockup - Full natural proportions, NO crop */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.96, y: 20 }}
+            initial={{ opacity: 0, scale: 0.98, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="lg:col-span-6 w-full flex justify-center"
+            className="lg:col-span-6 xl:col-span-7 w-full flex justify-center"
           >
-            <div className="relative w-full max-w-xl lg:max-w-none rounded-2xl md:rounded-3xl overflow-hidden border border-border/80 bg-[oklch(0.08_0.02_260)] shadow-[0_25px_80px_-20px_rgba(0,0,0,0.7)] group hover:border-brand/40 transition-all duration-500">
+            <div className="relative w-full rounded-2xl md:rounded-3xl overflow-hidden border border-border/80 bg-[oklch(0.08_0.02_260)] shadow-[0_25px_80px_-20px_rgba(0,0,0,0.7)] group hover:border-brand/40 transition-all duration-500">
               {/* Mac-style browser bar with centered navicab.fr */}
               <div className="flex items-center justify-between px-4 sm:px-5 py-3 bg-[oklch(0.06_0.02_260)] border-b border-border/60 select-none">
                 <div className="flex items-center gap-1.5 sm:gap-2 w-14">
@@ -162,20 +158,20 @@ function NaviCabCaseStudyPage() {
                 <div className="w-14" />
               </div>
 
-              {/* Real desktop screenshot */}
+              {/* Real desktop screenshot - Full width & auto height, completely uncropped */}
               <a
                 href="https://navicab.fr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block relative overflow-hidden group select-none aspect-[16/10] bg-surface"
+                className="block relative overflow-hidden group select-none bg-black"
               >
                 <img
                   src="/portfolio/navicab-hero.webp"
                   alt="Interface officielle de la plateforme SaaS NaviCab sur navicab.fr"
-                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
+                  className="w-full h-auto block transition-transform duration-700 group-hover:scale-[1.01]"
                   loading="eager"
                 />
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/45 backdrop-blur-[2px]">
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
                   <span className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand text-primary-foreground text-xs font-semibold shadow-xl">
                     <span>{lang === "fr" ? "Visiter navicab.fr" : "Visit navicab.fr"}</span>
                     <ArrowUpRight size={14} />
