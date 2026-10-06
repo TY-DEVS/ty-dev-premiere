@@ -529,7 +529,6 @@ const en = {
   navicabCaseStudy: {
     backToHome: "Back to Home",
     backToPortfolio: "View All Projects",
-    badge: "Case Study · TY Dev & NaviCab SaaS Partnership",
     title: "NaviCab",
     tagline: "The Taxi Booking & Dispatch SaaS Ecosystem in Île-de-France",
     summary:
@@ -593,9 +592,25 @@ const en = {
         },
       ],
     },
-    mobileSection: {
-      title: "Optimized Mobile-First Experience",
-      subtitle: "Fluid ergonomics designed for on-the-go speed, empowering both drivers behind the wheel and passengers traveling across Paris.",
+    responsiveSection: {
+      eyebrow: "// MULTI-DEVICE ARCHITECTURE",
+      title: "100% Fully Responsive Platform",
+      subtitle:
+        "The entire NaviCab SaaS ecosystem is natively responsive, engineered to deliver lightning-fast speed and effortless ergonomics across all screen sizes and form factors.",
+      features: [
+        {
+          title: "Mobile & Smartphones",
+          desc: "Touch-optimized booking flow for on-the-go passengers and quick trip acceptances for taxi drivers.",
+        },
+        {
+          title: "In-Car Navigation Tablets",
+          desc: "Clear telemetry dashboard with daytime and night vision modes for in-vehicle mounting.",
+        },
+        {
+          title: "Desktop Dispatch Desks",
+          desc: "High-density multi-screen map radar and operational controls for central fleet dispatchers.",
+        },
+      ],
     },
     cta: {
       title: "Planning an Ambitious SaaS or AI Platform?",
@@ -1370,7 +1385,6 @@ const fr: typeof en = {
   navicabCaseStudy: {
     backToHome: "Retour à l'accueil",
     backToPortfolio: "Voir toutes les réalisations",
-    badge: "Étude de Cas · Partenariat SaaS TY Dev & NaviCab",
     title: "NaviCab",
     tagline: "L'Écosystème SaaS de Dispatch Taxi & Mobilité en Île-de-France",
     summary:
@@ -1434,9 +1448,25 @@ const fr: typeof en = {
         },
       ],
     },
-    mobileSection: {
-      title: "Expérience Mobile-First Optimisée",
-      subtitle: "Une ergonomie fluide pensée pour une utilisation rapide sur le terrain, aussi bien pour les chauffeurs au volant que pour les passagers en mobilité.",
+    responsiveSection: {
+      eyebrow: "// ARCHITECTURE FULLY RESPONSIVE",
+      title: "Application 100% Fully Responsive",
+      subtitle:
+        "L'ensemble de l'écosystème SaaS NaviCab est nativement responsive, conçu pour offrir une fluidité absolue et une ergonomie irréprochable sur l'ensemble des écrans et appareils.",
+      features: [
+        {
+          title: "Smartphones & Mobiles",
+          desc: "Réservation tactile ultra-rapide pour les passagers et prise de course instantanée pour les chauffeurs en déplacement.",
+        },
+        {
+          title: "Tablettes Embarquées",
+          desc: "Affichage télémétrique clair avec mode nuit automatique pour une utilisation sécurisée au volant.",
+        },
+        {
+          title: "Postes Dispatch & Bureau",
+          desc: "Tableau de bord multi-écrans haute densité et radar cartographique pour les superviseurs de flotte.",
+        },
+      ],
     },
     cta: {
       title: "Vous avez un projet SaaS d'envergure à développer ?",

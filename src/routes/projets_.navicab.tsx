@@ -12,8 +12,15 @@ import {
   Radio,
   ShieldCheck,
   Smartphone,
-  Sparkles,
+  Tablet,
+  Monitor,
   Zap,
+  Car,
+  Code2,
+  Activity,
+  Users,
+  Building2,
+  Sliders,
 } from "lucide-react";
 import { useI18n } from "@/i18n/context";
 import { CtaStrip } from "@/components/site/CtaStrip";
@@ -73,7 +80,7 @@ function NaviCabCaseStudyPage() {
       <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
         
         {/* Navigation Breadcrumb */}
-        <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-muted-foreground mb-8">
+        <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground mb-8">
           <Link
             to="/"
             className="hover:text-brand transition-colors inline-flex items-center gap-1.5"
@@ -81,40 +88,31 @@ function NaviCabCaseStudyPage() {
             <ArrowLeft size={13} />
             <span>{c.backToHome}</span>
           </Link>
-          <span>/</span>
+          <span className="text-border">/</span>
           <Link to="/portfolio" className="hover:text-brand transition-colors">
             {c.backToPortfolio}
           </Link>
-          <span>/</span>
-          <span className="text-foreground font-semibold">NaviCab</span>
+          <span className="text-border">/</span>
+          <span className="text-foreground font-semibold px-2 py-0.5 rounded-md bg-surface border border-border/60">
+            NaviCab
+          </span>
         </div>
 
         {/* Hero Header */}
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="space-y-6 max-w-4xl"
         >
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand/10 border border-brand/25 text-brand font-mono text-xs uppercase tracking-wider font-semibold">
-              <Sparkles size={13} />
-              {c.badge}
-            </span>
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono text-xs tracking-wide">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              navicab.fr · Live
-            </span>
-          </div>
-
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05]">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.06]">
             {c.title} —{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand via-purple-300 to-indigo-200">
               {c.tagline}
             </span>
           </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl">
+          <p className="text-lg md:text-xl text-muted-foreground/90 leading-relaxed max-w-3xl">
             {c.summary}
           </p>
 
@@ -124,7 +122,7 @@ function NaviCabCaseStudyPage() {
               href="https://navicab.fr"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl bg-brand text-primary-foreground font-semibold shadow-lg shadow-brand/25 hover:bg-brand/90 hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-2xl bg-brand text-primary-foreground font-semibold shadow-[0_10px_35px_-10px_oklch(0.6_0.22_265/0.4)] hover:bg-brand/90 hover:shadow-[0_15px_45px_-10px_oklch(0.6_0.22_265/0.6)] transition-all duration-300 hover:-translate-y-0.5"
             >
               <span>{c.cta.visitSite}</span>
               <ArrowUpRight size={17} />
@@ -146,11 +144,11 @@ function NaviCabCaseStudyPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="p-6 rounded-3xl bg-surface/40 border border-border/60 backdrop-blur-sm shadow-sm hover:border-brand/30 transition-colors"
+              transition={{ duration: 0.5, delay: idx * 0.08 }}
+              className="p-6 sm:p-7 rounded-3xl bg-surface/50 border border-border/70 backdrop-blur-md shadow-lg shadow-black/10 hover:border-brand/40 hover:-translate-y-0.5 transition-all"
             >
-              <div className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand to-indigo-300">
+              <div className="font-display text-3xl sm:text-4xl md:text-5xl font-bold">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand via-purple-300 to-indigo-200">
                   {s.value}
                 </span>
               </div>
@@ -167,7 +165,7 @@ function NaviCabCaseStudyPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative rounded-3xl overflow-hidden border border-border/80 bg-surface/90 shadow-2xl my-16 group"
+          className="relative rounded-3xl overflow-hidden border border-border/80 bg-surface/90 shadow-[0_25px_80px_-20px_oklch(0.6_0.22_265/0.25)] my-16 group"
         >
           {/* Mac-style browser bar */}
           <div className="flex items-center justify-between px-5 py-3.5 bg-[oklch(0.06_0.02_260)] border-b border-border/60">
@@ -186,121 +184,107 @@ function NaviCabCaseStudyPage() {
             src="/portfolio/navicab-hero.webp"
             alt="Interface officielle de la plateforme SaaS NaviCab"
             className="w-full h-auto object-cover"
+            loading="lazy"
           />
         </motion.div>
 
         {/* Project Overview & Partnership Breakdown */}
-        <div className="max-w-4xl mx-auto my-20 p-8 sm:p-12 rounded-3xl bg-surface/30 border border-border/60 space-y-6">
-          <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground tracking-tight">
-            {c.overview.title}
-          </h2>
-          <p className="text-base sm:text-lg text-muted-foreground/90 leading-relaxed">
-            {c.overview.description}
-          </p>
+        <div className="max-w-5xl mx-auto my-20 p-8 sm:p-12 rounded-3xl bg-surface/40 border border-border/70 backdrop-blur-sm space-y-8">
+          <div className="space-y-3">
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-foreground tracking-tight">
+              {c.overview.title}
+            </h2>
+            <p className="text-base sm:text-lg text-muted-foreground/90 leading-relaxed">
+              {c.overview.description}
+            </p>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-border/40">
-            <div className="p-4 rounded-2xl bg-surface/60 border border-border/50">
-              <span className="font-mono text-[11px] uppercase tracking-wider text-brand font-semibold block mb-1">
-                {lang === "fr" ? "Société Partenaire" : "Partner Company"}
-              </span>
-              <p className="text-xs sm:text-sm font-medium text-foreground">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-4 border-t border-border/40">
+            <div className="p-5 rounded-2xl bg-surface/70 border border-border/60 hover:border-brand/30 transition-colors">
+              <div className="flex items-center gap-2.5 text-brand mb-2">
+                <Car size={18} />
+                <span className="font-mono text-xs uppercase tracking-wider font-semibold">
+                  {lang === "fr" ? "Société Partenaire" : "Partner Company"}
+                </span>
+              </div>
+              <p className="text-sm font-medium text-foreground leading-snug">
                 {lang === "fr"
-                  ? "NaviCab — Société de taxis officiels et conventionnés CPAM"
-                  : "NaviCab — Official taxi fleet & CPAM medical transport"}
+                  ? "NaviCab — Société de taxis officiels et conventionnés CPAM en Île-de-France."
+                  : "NaviCab — Official taxi fleet & CPAM medical transport operator."}
               </p>
             </div>
-            <div className="p-4 rounded-2xl bg-surface/60 border border-border/50">
-              <span className="font-mono text-[11px] uppercase tracking-wider text-brand font-semibold block mb-1">
-                {lang === "fr" ? "Ingénierie TY Dev" : "TY Dev Engineering"}
-              </span>
-              <p className="text-xs sm:text-sm font-medium text-foreground">
+            <div className="p-5 rounded-2xl bg-surface/70 border border-border/60 hover:border-brand/30 transition-colors">
+              <div className="flex items-center gap-2.5 text-brand mb-2">
+                <Code2 size={18} />
+                <span className="font-mono text-xs uppercase tracking-wider font-semibold">
+                  {lang === "fr" ? "Ingénierie TY Dev" : "TY Dev Engineering"}
+                </span>
+              </div>
+              <p className="text-sm font-medium text-foreground leading-snug">
                 {lang === "fr"
-                  ? "Architecture SaaS, 5 portails web/mobiles, dispatch radar et API"
-                  : "SaaS architecture, 5 portals/apps, radar dispatch & billing"}
+                  ? "Architecture SaaS, 5 portails web/mobiles, dispatch radar et facturation automatisée."
+                  : "SaaS architecture, 5 portals/apps, sub-2s radar dispatch & automated billing."}
               </p>
             </div>
-            <div className="p-4 rounded-2xl bg-surface/60 border border-border/50">
-              <span className="font-mono text-[11px] uppercase tracking-wider text-brand font-semibold block mb-1">
-                {lang === "fr" ? "Statut Opérationnel" : "Operational Status"}
-              </span>
-              <p className="text-xs sm:text-sm font-medium text-foreground">
+            <div className="p-5 rounded-2xl bg-surface/70 border border-border/60 hover:border-brand/30 transition-colors">
+              <div className="flex items-center gap-2.5 text-brand mb-2">
+                <Activity size={18} />
+                <span className="font-mono text-xs uppercase tracking-wider font-semibold">
+                  {lang === "fr" ? "Déploiement Opérationnel" : "Operational Status"}
+                </span>
+              </div>
+              <p className="text-sm font-medium text-foreground leading-snug">
                 {lang === "fr"
-                  ? "En production 24/7 sur navicab.fr (Île-de-France & Aéroports)"
-                  : "Live 24/7 on navicab.fr (Paris Area & Airports)"}
+                  ? "En production continue 24/7 sur navicab.fr (Île-de-France & Aéroports)."
+                  : "Live 24/7 on navicab.fr across Île-de-France and Paris airports."}
               </p>
             </div>
           </div>
         </div>
 
-        {/* Mobile-First Section with real mobile captures */}
+        {/* Fully Responsive Architecture Section (Replaces heavy images) */}
         <section className="my-24">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand/10 border border-brand/25 text-brand font-mono text-xs uppercase tracking-wider font-semibold">
-              <Smartphone size={13} />
-              <span>Mobile-First Experience</span>
+          <div className="p-8 sm:p-12 md:p-14 rounded-3xl bg-gradient-to-br from-surface/70 via-surface/40 to-surface/60 border border-border/70 shadow-xl relative overflow-hidden">
+            <div
+              className="absolute -top-24 -right-24 w-80 h-80 bg-brand/10 rounded-full blur-[100px] pointer-events-none"
+              aria-hidden
+            />
+            <div className="relative z-10 max-w-3xl mb-12 space-y-3">
+              <span className="font-mono text-xs text-brand font-semibold tracking-wider uppercase">
+                {c.responsiveSection.eyebrow}
+              </span>
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground">
+                {c.responsiveSection.title}
+              </h2>
+              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
+                {c.responsiveSection.subtitle}
+              </p>
             </div>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
-              {c.mobileSection.title}
-            </h2>
-            <p className="text-muted-foreground text-base sm:text-lg">
-              {c.mobileSection.subtitle}
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto items-center">
-            {/* Phone Mockup 1: Booking Flow */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="flex flex-col items-center"
-            >
-              <div className="relative w-full max-w-[340px] rounded-[48px] p-3.5 bg-gradient-to-b from-border/80 via-border/40 to-border/80 border border-border shadow-[0_25px_80px_-20px_oklch(0.6_0.22_265/0.25)]">
-                {/* Dynamic island / notch */}
-                <div className="absolute top-6 left-1/2 -translate-x-1/2 w-24 h-4 bg-black rounded-full z-20" />
-                <div className="overflow-hidden rounded-[38px] bg-black border border-white/10 aspect-[390/844]">
-                  <img
-                    src="/portfolio/navicab-mobile-hero.webp"
-                    alt="Application mobile NaviCab - Réservation et estimation en direct"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-              <p className="font-mono text-xs text-muted-foreground mt-4 text-center">
-                {lang === "fr"
-                  ? "Réservation instantanée & estimation de tarif"
-                  : "Instant booking flow & real-time rate calculator"}
-              </p>
-            </motion.div>
-
-            {/* Phone Mockup 2: Fleet & Vehicle selection */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.15 }}
-              className="flex flex-col items-center"
-            >
-              <div className="relative w-full max-w-[340px] rounded-[48px] p-3.5 bg-gradient-to-b from-border/80 via-border/40 to-border/80 border border-border shadow-[0_25px_80px_-20px_oklch(0.6_0.22_265/0.25)]">
-                {/* Dynamic island / notch */}
-                <div className="absolute top-6 left-1/2 -translate-x-1/2 w-24 h-4 bg-black rounded-full z-20" />
-                <div className="overflow-hidden rounded-[38px] bg-black border border-white/10 aspect-[390/844]">
-                  <img
-                    src="/portfolio/navicab-mobile-fleet.webp"
-                    alt="Application mobile NaviCab - Flotte de taxis et sélection de véhicule"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-              <p className="font-mono text-xs text-muted-foreground mt-4 text-center">
-                {lang === "fr"
-                  ? "Sélection de gamme & berlines écologiques"
-                  : "Eco-friendly fleet & vehicle class selection"}
-              </p>
-            </motion.div>
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+              {c.responsiveSection.features.map((feat, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className="p-6 sm:p-7 rounded-2xl bg-surface/60 border border-border/60 hover:border-brand/40 transition-all hover:bg-surface/80"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-brand/10 border border-brand/20 flex items-center justify-center text-brand mb-4">
+                    {idx === 0 && <Smartphone size={20} />}
+                    {idx === 1 && <Tablet size={20} />}
+                    {idx === 2 && <Monitor size={20} />}
+                  </div>
+                  <h3 className="font-display text-lg font-bold text-foreground mb-2">
+                    {feat.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {feat.desc}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -330,9 +314,16 @@ function NaviCabCaseStudyPage() {
                 className="p-8 rounded-3xl bg-gradient-to-br from-surface/80 to-surface/30 border border-border/70 hover:border-brand/40 transition-all hover:shadow-[0_15px_50px_-15px_oklch(0.6_0.22_265/0.2)] flex flex-col justify-between"
               >
                 <div>
-                  <div className="font-display text-lg font-bold text-foreground mb-3 flex items-center justify-between">
-                    <span>{item.title}</span>
+                  <div className="w-10 h-10 rounded-xl bg-brand/10 border border-brand/20 flex items-center justify-center text-brand mb-4">
+                    {idx === 0 && <Users size={19} />}
+                    {idx === 1 && <Car size={19} />}
+                    {idx === 2 && <Radio size={19} />}
+                    {idx === 3 && <Building2 size={19} />}
+                    {idx === 4 && <Sliders size={19} />}
                   </div>
+                  <h3 className="font-display text-lg font-bold text-foreground mb-3">
+                    {item.title}
+                  </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {item.desc}
                   </p>
