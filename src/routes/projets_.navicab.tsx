@@ -67,33 +67,29 @@ function NaviCabCaseStudyPage() {
 
   return (
     <div className="relative min-h-screen bg-background text-foreground pt-28 md:pt-36 pb-24 overflow-hidden">
-      {/* Ambient background gradients */}
+      {/* Ambient background glow — single subtle brand tint */}
       <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[1100px] h-[550px] bg-brand/10 rounded-full blur-[180px] pointer-events-none"
-        aria-hidden
-      />
-      <div
-        className="absolute top-1/3 -right-40 w-[600px] h-[600px] bg-emerald-500/5 rounded-full blur-[160px] pointer-events-none"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand/8 rounded-full blur-[160px] pointer-events-none"
         aria-hidden
       />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
         
         {/* Navigation Breadcrumb */}
-        <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground mb-8">
+        <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground mb-10">
           <Link
             to="/"
-            className="hover:text-brand transition-colors inline-flex items-center gap-1.5"
+            className="hover:text-foreground transition-colors inline-flex items-center gap-1.5"
           >
             <ArrowLeft size={13} />
             <span>{c.backToHome}</span>
           </Link>
           <span className="text-border">/</span>
-          <Link to="/portfolio" className="hover:text-brand transition-colors">
+          <Link to="/portfolio" className="hover:text-foreground transition-colors">
             {c.backToPortfolio}
           </Link>
           <span className="text-border">/</span>
-          <span className="text-foreground font-semibold px-2 py-0.5 rounded-md bg-surface border border-border/60">
+          <span className="text-foreground font-semibold px-2 py-0.5 rounded-md bg-surface/80 border border-border/60">
             NaviCab
           </span>
         </div>
@@ -105,31 +101,36 @@ function NaviCabCaseStudyPage() {
           transition={{ duration: 0.6 }}
           className="space-y-6 max-w-4xl"
         >
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.06]">
-            {c.title} —{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand via-purple-300 to-indigo-200">
-              {c.tagline}
+          <div className="space-y-3">
+            <span className="inline-block text-xs font-mono uppercase tracking-widest text-brand font-semibold">
+              {lang === "fr" ? "// ÉTUDE DE CAS SAAS" : "// SAAS CASE STUDY"}
             </span>
-          </h1>
+            <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground leading-none">
+              {c.title}
+            </h1>
+            <p className="text-xl sm:text-2xl md:text-3xl text-foreground/85 font-medium tracking-tight leading-snug">
+              {c.tagline}
+            </p>
+          </div>
 
-          <p className="text-lg md:text-xl text-muted-foreground/90 leading-relaxed max-w-3xl">
+          <p className="text-base sm:text-lg text-muted-foreground/80 leading-relaxed max-w-2xl pt-1">
             {c.summary}
           </p>
 
           {/* Quick Action Links */}
-          <div className="flex flex-wrap items-center gap-4 pt-2">
+          <div className="flex flex-wrap items-center gap-4 pt-3">
             <a
               href="https://navicab.fr"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-2xl bg-brand text-primary-foreground font-semibold shadow-[0_10px_35px_-10px_oklch(0.6_0.22_265/0.4)] hover:bg-brand/90 hover:shadow-[0_15px_45px_-10px_oklch(0.6_0.22_265/0.6)] transition-all duration-300 hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-brand text-primary-foreground font-semibold shadow-lg shadow-brand/20 hover:bg-brand/90 transition-all duration-300 hover:-translate-y-0.5"
             >
               <span>{c.cta.visitSite}</span>
               <ArrowUpRight size={17} />
             </a>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-surface/80 border border-border/70 text-foreground font-semibold hover:border-brand/40 hover:bg-surface transition-all duration-300 hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-surface/70 border border-border/70 text-foreground font-semibold hover:border-brand/40 hover:bg-surface transition-all duration-300 hover:-translate-y-0.5"
             >
               <span>{c.cta.button}</span>
             </Link>
@@ -137,22 +138,20 @@ function NaviCabCaseStudyPage() {
         </motion.div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 my-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5 my-14">
           {c.stats.map((s, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.08 }}
-              className="p-6 sm:p-7 rounded-3xl bg-surface/50 border border-border/70 backdrop-blur-md shadow-lg shadow-black/10 hover:border-brand/40 hover:-translate-y-0.5 transition-all"
+              transition={{ duration: 0.4, delay: idx * 0.06 }}
+              className="p-5 sm:p-6 rounded-2xl bg-surface/35 border border-border/60 hover:border-brand/35 transition-colors"
             >
-              <div className="font-display text-3xl sm:text-4xl md:text-5xl font-bold">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand via-purple-300 to-indigo-200">
-                  {s.value}
-                </span>
+              <div className="font-display text-3xl sm:text-4xl font-bold text-foreground">
+                {s.value}
               </div>
-              <div className="font-mono text-xs sm:text-sm text-muted-foreground mt-2 font-medium">
+              <div className="text-xs sm:text-sm text-muted-foreground/80 mt-1.5 font-medium leading-snug">
                 {s.label}
               </div>
             </motion.div>
@@ -161,24 +160,24 @@ function NaviCabCaseStudyPage() {
 
         {/* Desktop Showcase Window */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative rounded-3xl overflow-hidden border border-border/80 bg-surface/90 shadow-[0_25px_80px_-20px_oklch(0.6_0.22_265/0.25)] my-16 group"
+          className="relative rounded-2xl md:rounded-3xl overflow-hidden border border-border/70 bg-[oklch(0.08_0.02_260)] shadow-[0_25px_70px_-20px_rgba(0,0,0,0.6)] my-14"
         >
           {/* Mac-style browser bar */}
-          <div className="flex items-center justify-between px-5 py-3.5 bg-[oklch(0.06_0.02_260)] border-b border-border/60">
-            <div className="flex items-center gap-2">
-              <span className="w-3 h-3 rounded-full bg-red-500/80" />
-              <span className="w-3 h-3 rounded-full bg-amber-500/80" />
-              <span className="w-3 h-3 rounded-full bg-emerald-500/80" />
+          <div className="flex items-center justify-between px-4 sm:px-5 py-3 bg-[oklch(0.06_0.02_260)] border-b border-border/60">
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/70" />
+              <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-amber-500/70" />
+              <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-emerald-500/70" />
             </div>
-            <div className="flex items-center gap-2 px-4 py-1 rounded-md bg-surface border border-border/50 text-xs font-mono text-muted-foreground">
-              <Globe size={12} className="text-brand" />
+            <div className="flex items-center gap-2 px-3 sm:px-4 py-1 rounded-md bg-surface/80 border border-border/50 text-[11px] sm:text-xs font-mono text-muted-foreground">
+              <Globe size={11} className="text-brand" />
               <span className="text-foreground/90 font-medium">https://navicab.fr</span>
             </div>
-            <div className="w-12" />
+            <div className="w-8 sm:w-12" />
           </div>
           <img
             src="/portfolio/navicab-hero.webp"
