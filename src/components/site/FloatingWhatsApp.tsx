@@ -1,4 +1,9 @@
+import { useRouterState } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
+import {
+  getContextualWhatsAppConfig,
+  buildContextualWhatsAppUrl,
+} from "@/lib/whatsappContext";
 
 function WhatsAppIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -10,25 +15,27 @@ function WhatsAppIcon(props: React.SVGProps<SVGSVGElement>) {
 
 export function FloatingWhatsApp() {
   const { lang } = useI18n();
+  const pathname = useRouterState({
+    select: (state) => state.location.pathname,
+  });
 
-  const prefilledMessage =
-    lang === "fr"
-      ? "Bonjour TY Dev, j'aimerais échanger avec vous concernant un projet."
-      : "Hello TY Dev, I would like to discuss a project with you.";
-
-  const whatsappUrl = `https://wa.me/33759440105?text=${encodeURIComponent(prefilledMessage)}`;
+  const config = getContextualWhatsAppConfig(pathname, lang);
+  const whatsappUrl = buildContextualWhatsAppUrl(pathname, lang);
 
   return (
     <div className="fixed bottom-5 left-5 sm:bottom-6 sm:left-6 z-50 group flex flex-col items-start gap-2">
-      {/* Floating Tooltip (Hidden on small mobile screens to prevent clutter) */}
-      <div className="hidden sm:flex opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out bg-surface/95 backdrop-blur-md border border-border/70 text-foreground text-xs font-semibold px-4 py-2 rounded-2xl shadow-2xl items-center gap-2 max-w-[calc(100vw-3rem)] whitespace-nowrap">
+      {/* Floating Tooltip with Dynamic Context */}
+      <div className="hidden sm:flex opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out bg-surface/95 backdrop-blur-md border border-border/70 text-foreground text-xs font-semibold px-4 py-2.5 rounded-2xl shadow-2xl items-center gap-2.5 max-w-[calc(100vw-3rem)] whitespace-nowrap">
         <span className="relative flex h-2 w-2">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
           <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
         </span>
-        <span>
-          {lang === "fr" ? "Discutons de votre projet (WhatsApp)" : "Let's chat about your project"}
-        </span>
+        <span className="text-foreground font-medium">{config.tooltip}</span>
+        {config.badge && (
+          <span className="px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[10px] font-mono uppercase tracking-wider font-bold">
+            {config.badge}
+          </span>
+        )}
       </div>
 
       {/* Button & Pulse */}
@@ -36,7 +43,7 @@ export function FloatingWhatsApp() {
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={lang === "fr" ? "Contactez-nous sur WhatsApp" : "Contact us on WhatsApp"}
+        aria-label={config.ariaLabel}
         className="relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-[1.25rem] bg-[#25D366] text-white shadow-[0_10px_30px_-5px_rgba(37,211,102,0.5)] hover:shadow-[0_15px_40px_-5px_rgba(37,211,102,0.7)] hover:-translate-y-1 transition-all duration-300"
       >
         {/* Pulsating ring */}
@@ -44,6 +51,13 @@ export function FloatingWhatsApp() {
 
         {/* Official WhatsApp Icon */}
         <WhatsAppIcon className="w-7 h-7 sm:w-8 sm:h-8 relative z-10 drop-shadow-md transition-transform duration-300 group-hover:scale-110" />
+
+        {/* Small subtle mobile badge when on high-intent pages */}
+        {config.badge && (
+          <span className="sm:hidden absolute -top-1.5 -right-1.5 px-1.5 py-0.5 rounded-full bg-emerald-400 text-slate-950 font-mono text-[9px] font-bold shadow-md">
+            ●
+          </span>
+        )}
       </a>
     </div>
   );
