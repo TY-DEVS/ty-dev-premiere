@@ -103,7 +103,7 @@ export function Hero() {
                 transition={{ duration: 0.9, delay: 0.2, ease }}
               />
               <span className="text-brand">TY/DEV</span>
-              <span className="opacity-50">— EST. 2025</span>
+              <span className="opacity-80 text-muted-foreground">— EST. 2025</span>
             </motion.div>
 
             <h1 className="font-display font-bold text-[2.6rem] sm:text-6xl lg:text-7xl xl:text-[5.25rem] tracking-tight leading-[1.02] mb-6">

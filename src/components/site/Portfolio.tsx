@@ -37,6 +37,8 @@ export function Portfolio({ isPage = false }: { isPage?: boolean }) {
                   <img
                     src={(p as any).image}
                     alt={p.title}
+                    width={800}
+                    height={500}
                     className="w-full h-full object-cover object-top opacity-90 transition-opacity duration-1000 group-hover:opacity-100 select-none pointer-events-none"
                     draggable={false}
                     onContextMenu={(e) => e.preventDefault()}

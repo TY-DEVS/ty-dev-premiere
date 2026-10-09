@@ -79,6 +79,8 @@ export function Demos({ isPage = false }: { isPage?: boolean }) {
                     <img
                       src={p.image}
                       alt={`Démo interactive ${p.title} - ${p.category} développée par TY Dev`}
+                      width={800}
+                      height={500}
                       className="w-full h-full object-cover object-top opacity-90 transition-transform duration-1000 group-hover:scale-105 group-hover:opacity-100 select-none pointer-events-none"
                       draggable={false}
                       onContextMenu={(e) => e.preventDefault()}

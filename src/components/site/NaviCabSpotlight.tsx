@@ -108,6 +108,8 @@ export function NaviCabSpotlight() {
                 <img
                   src="/portfolio/navicab-hero.webp"
                   alt="NaviCab - Plateforme SaaS de Dispatch Taxi"
+                  width={800}
+                  height={450}
                   className="w-full h-auto object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
                   loading="lazy"
                   decoding="async"

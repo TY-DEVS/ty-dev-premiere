@@ -89,7 +89,7 @@ export function Testimonials() {
                 <div className="pt-5 border-t border-border/50 flex items-center justify-between mt-auto relative z-10">
                   <div>
                     <div className="flex items-center gap-1.5 mb-0.5">
-                      <h4 className="font-semibold text-foreground text-xs sm:text-sm tracking-wide">{item.author}</h4>
+                      <p className="font-semibold text-foreground text-xs sm:text-sm tracking-wide">{item.author}</p>
                       <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 fill-cyan-400/20" />
                     </div>
                     <a
