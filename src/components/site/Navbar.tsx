@@ -40,7 +40,7 @@ export function Navbar() {
     setOpen(false);
   }, [pathname]);
 
-  const desktopNavItems: NavItem[] = [
+  const navItems: NavItem[] = [
     { to: "/", label: t.nav.home, num: "00" },
     { to: "/about", label: t.nav.about, num: "01" },
     { to: "/services", label: t.nav.services, num: "02" },
@@ -49,23 +49,6 @@ export function Navbar() {
     { to: "/faq", label: (t.nav as any).faq || "FAQ", num: "05" },
     { to: "/blog", label: (t.nav as any).blog || "Blog", num: "06" },
     { to: "/contact", label: t.nav.contact, num: "07" },
-  ];
-
-  const mobileNavItems: NavItem[] = [
-    { to: "/", label: t.nav.home, num: "00" },
-    { to: "/about", label: t.nav.about, num: "01" },
-    { to: "/services", label: t.nav.services, num: "02" },
-    { to: "/portfolio", label: t.nav.portfolio, num: "03" },
-    { 
-      to: "/simulateur", 
-      label: lang === "fr" ? "Simulateur" : "Simulator", 
-      badge: lang === "fr" ? "Devis" : "Quote", 
-      num: "04" 
-    },
-    { to: "/demos", label: (t.nav as any).demos || "Démos", num: "05" },
-    { to: "/faq", label: (t.nav as any).faq || "FAQ", num: "06" },
-    { to: "/blog", label: (t.nav as any).blog || "Blog", num: "07" },
-    { to: "/contact", label: t.nav.contact, num: "08" },
   ];
 
   return (
@@ -86,7 +69,7 @@ export function Navbar() {
           </Link>
 
           <nav className="hidden lg:flex items-center gap-1 rounded-full border border-border/60 bg-surface/30 backdrop-blur-md px-2 py-1.5">
-            {desktopNavItems.map((item) => (
+            {navItems.map((item) => (
               <Link
                 key={item.to}
                 to={item.to}
@@ -122,7 +105,7 @@ export function Navbar() {
       <MobileDrawer
         open={open}
         onClose={() => setOpen(false)}
-        navItems={mobileNavItems}
+        navItems={navItems}
         lang={lang}
         setLang={setLang}
         cta={t.nav.cta}
@@ -242,10 +225,30 @@ function MobileDrawer({
                 <Link
                   to="/simulateur"
                   onClick={onClose}
-                  className="flex items-center justify-center gap-2 w-full px-5 py-3.5 rounded-full bg-cyan-500/15 border border-cyan-500/35 text-cyan-300 font-semibold text-sm hover:bg-cyan-500 hover:text-slate-950 transition-all shadow-[0_0_25px_-5px_oklch(0.6_0.22_200/0.3)]"
+                  className="group relative flex items-center justify-between gap-3 w-full p-3.5 rounded-2xl bg-gradient-to-r from-cyan-950/40 via-cyan-900/25 to-slate-900/40 border border-cyan-500/35 hover:border-cyan-400 text-foreground transition-all shadow-[0_0_25px_-5px_rgba(6,182,212,0.25)] hover:shadow-[0_0_35px_-2px_rgba(6,182,212,0.45)] active:scale-[0.99]"
                 >
-                  <Calculator size={16} />
-                  <span>{lang === "fr" ? "Simulateur de Devis (2 min)" : "Instant Quote Simulator (2 min)"}</span>
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="w-10 h-10 rounded-xl bg-cyan-500/15 border border-cyan-400/35 flex items-center justify-center text-cyan-300 group-hover:scale-105 group-hover:bg-cyan-500/25 group-hover:text-cyan-200 transition-all shrink-0">
+                      <Calculator size={18} />
+                    </div>
+                    <div className="text-left min-w-0">
+                      <div className="flex items-center gap-2">
+                        <span className="font-display font-semibold text-sm text-foreground group-hover:text-cyan-300 transition-colors">
+                          {lang === "fr" ? "Simulateur de Devis" : "Instant Quote Simulator"}
+                        </span>
+                        <span className="px-1.5 py-0.5 rounded-full text-[9px] font-mono font-bold uppercase bg-cyan-500/20 text-cyan-300 border border-cyan-400/30 shrink-0">
+                          {lang === "fr" ? "2 min" : "2 min"}
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-muted-foreground/80 group-hover:text-muted-foreground truncate">
+                        {lang === "fr" ? "Estimation tarifaire en direct & gratuite" : "Free & instant project cost estimate"}
+                      </p>
+                    </div>
+                  </div>
+                  <ArrowUpRight
+                    size={18}
+                    className="text-cyan-400/70 group-hover:text-cyan-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0"
+                  />
                 </Link>
 
                 <Link

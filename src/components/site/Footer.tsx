@@ -113,15 +113,6 @@ export function Footer() {
           <div>
             <FooterColTitle>{t.footer.services}</FooterColTitle>
             <ul className="space-y-4 text-sm">
-              <li>
-                <Link
-                  to="/simulateur"
-                  className="inline-flex items-center gap-1.5 text-cyan-400 font-medium hover:text-cyan-300 transition-colors"
-                >
-                  <Calculator size={14} />
-                  <span>{lang === "fr" ? "Simulateur de Devis (2 min)" : "Quote Simulator (2 min)"}</span>
-                </Link>
-              </li>
               {t.services.items.slice(0, 5).map((s) => (
                 <li key={s.title}>
                   <Link to="/services" className="hover:text-brand transition-colors">
@@ -149,15 +140,6 @@ export function Footer() {
               <li>
                 <Link to="/portfolio" className="hover:text-brand transition-colors">
                   {t.nav.portfolio}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/simulateur"
-                  className="inline-flex items-center gap-1 text-cyan-400 font-medium hover:text-cyan-300 transition-colors"
-                >
-                  <Calculator size={13} />
-                  <span>{lang === "fr" ? "Simulateur de Devis" : "Quote Simulator"}</span>
                 </Link>
               </li>
               <li>
@@ -227,10 +209,6 @@ export function Footer() {
             <span className="hidden sm:inline text-border">•</span>
             <Link to="/faq" className="hover:text-foreground transition-colors">
               FAQ
-            </Link>
-            <span className="hidden sm:inline text-border">•</span>
-            <Link to="/simulateur" className="text-cyan-400 hover:text-cyan-300 transition-colors">
-              {lang === "fr" ? "Simulateur Devis" : "Quote Simulator"}
             </Link>
           </div>
 
