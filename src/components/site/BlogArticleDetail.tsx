@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowLeft, Calendar, Share2, Tag, Check, Copy, Terminal, Info, User, ArrowRight } from "lucide-react";
+import { ArrowLeft, Calendar, Share2, Tag, Check, Copy, Terminal, Info, User, ArrowRight, MessageCircle, Code2, Clock, ShieldCheck } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
 import { type BlogPost, getAuthorSlug } from "@/data/blogPosts";
@@ -370,6 +370,70 @@ export function BlogArticleDetail({ post }: { post: BlogPost }) {
         {/* Article Body */}
         <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[oklch(0.09_0.03_250)] to-[oklch(0.06_0.02_250)] border border-cyan-500/20 backdrop-blur-md shadow-2xl">
           <RenderMarkdownContent content={post.content[lang]} />
+
+          {/* In-Article Conversion Card (Lead Capture / CRO) */}
+          <div className="mt-12 p-6 sm:p-10 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-brand/15 via-surface/80 to-surface/40 border border-brand/40 shadow-[0_20px_50px_-15px_oklch(0.6_0.22_265/0.25)] relative overflow-hidden">
+            <div className="absolute top-0 right-0 -mt-10 -mr-10 w-48 h-48 rounded-full bg-brand/20 blur-3xl pointer-events-none" />
+
+            <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+              <div className="max-w-xl">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand/20 border border-brand/30 text-brand text-xs font-mono font-semibold mb-3">
+                  <Code2 className="w-3.5 h-3.5" />
+                  {lang === "fr" ? "Projet SaaS, Web & Sur-Mesure" : "Custom SaaS, Web & Software Engineering"}
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold font-display text-foreground tracking-tight">
+                  {lang === "fr"
+                    ? "Vous souhaitez concrétiser cette technologie dans votre projet ?"
+                    : "Looking to implement this technology in your business?"}
+                </h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                  {lang === "fr"
+                    ? "Nos ingénieurs TY Dev conçoivent votre architecture sur-mesure et vous transmettent un cadrage technique et une estimation de devis gratuite sous 24 heures."
+                    : "Our engineering team designs your bespoke architecture and delivers a comprehensive technical estimate under 24 hours."}
+                </p>
+
+                {/* Trust Guarantees */}
+                <div className="mt-4 flex flex-wrap items-center gap-3 sm:gap-4 text-xs text-muted-foreground/90 font-medium">
+                  <span className="inline-flex items-center gap-1.5 text-emerald-400">
+                    <Clock className="w-3.5 h-3.5" />
+                    {lang === "fr" ? "Réponse sous 24h" : "Reply under 24h"}
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 text-cyan-400">
+                    <ShieldCheck className="w-3.5 h-3.5" />
+                    {lang === "fr" ? "Confidentialité garantie" : "Strict NDA"}
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 text-brand">
+                    <Check className="w-3.5 h-3.5" />
+                    {lang === "fr" ? "Audit technique offert" : "Free technical review"}
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0 w-full lg:w-auto">
+                <a
+                  href={`https://wa.me/33759440105?text=${encodeURIComponent(
+                    lang === "fr"
+                      ? "Bonjour TY Dev, j'ai lu votre article de blog et j'aimerais échanger sur mon projet."
+                      : "Hello TY Dev, I read your blog article and would like to discuss my project."
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#25D366] text-white font-semibold text-xs sm:text-sm shadow-[0_10px_25px_-5px_rgba(37,211,102,0.4)] hover:shadow-[0_15px_35px_-5px_rgba(37,211,102,0.6)] hover:-translate-y-0.5 transition-all duration-300 text-center"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>{lang === "fr" ? "Échanger sur WhatsApp" : "Chat on WhatsApp"}</span>
+                </a>
+
+                <Link
+                  to="/contact"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-brand text-primary-foreground font-semibold text-xs sm:text-sm shadow-[0_10px_25px_-5px_oklch(0.6_0.22_265/0.4)] hover:shadow-[0_15px_35px_-5px_oklch(0.6_0.22_265/0.6)] hover:-translate-y-0.5 transition-all duration-300 text-center"
+                >
+                  <span>{lang === "fr" ? "Demander un devis gratuit" : "Request Free Quote"}</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+          </div>
 
           {/* Article Footer Tags & Share Banner */}
           <div className="mt-12 pt-6 border-t border-border/40 flex flex-col sm:flex-row items-center justify-between gap-4">

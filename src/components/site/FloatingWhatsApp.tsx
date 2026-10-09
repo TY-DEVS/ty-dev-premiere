@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useI18n } from "@/i18n/context";
 
 function WhatsAppIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -9,35 +9,41 @@ function WhatsAppIcon(props: React.SVGProps<SVGSVGElement>) {
 }
 
 export function FloatingWhatsApp() {
-  const [isVisible, setIsVisible] = useState(false);
+  const { lang } = useI18n();
 
-  useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 500);
-    return () => clearTimeout(timer);
-  }, []);
+  const prefilledMessage =
+    lang === "fr"
+      ? "Bonjour TY Dev, j'aimerais échanger avec vous concernant un projet."
+      : "Hello TY Dev, I would like to discuss a project with you.";
 
-  if (!isVisible) return null;
+  const whatsappUrl = `https://wa.me/33759440105?text=${encodeURIComponent(prefilledMessage)}`;
 
   return (
-    <div className="fixed bottom-6 left-6 z-50 group flex flex-col items-start gap-2">
-      {/* Tooltip */}
-      <div className="opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out bg-surface/95 backdrop-blur-sm border border-border/50 text-foreground text-sm font-medium px-4 py-2 rounded-2xl shadow-xl">
-        Discutons de votre projet
+    <div className="fixed bottom-5 left-5 sm:bottom-6 sm:left-6 z-50 group flex flex-col items-start gap-2">
+      {/* Floating Tooltip (Hidden on small mobile screens to prevent clutter) */}
+      <div className="hidden sm:flex opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out bg-surface/95 backdrop-blur-md border border-border/70 text-foreground text-xs font-semibold px-4 py-2 rounded-2xl shadow-2xl items-center gap-2 max-w-[calc(100vw-3rem)] whitespace-nowrap">
+        <span className="relative flex h-2 w-2">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+        </span>
+        <span>
+          {lang === "fr" ? "Discutons de votre projet (WhatsApp)" : "Let's chat about your project"}
+        </span>
       </div>
-      
+
       {/* Button & Pulse */}
       <a
-        href="https://wa.me/33768474745"
+        href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Contact us on WhatsApp"
-        className="relative flex items-center justify-center w-16 h-16 rounded-[1.25rem] bg-brand text-primary-foreground shadow-[0_10px_30px_-10px_oklch(0.6_0.22_265/0.5)] hover:shadow-[0_15px_40px_-10px_oklch(0.6_0.22_265/0.7)] hover:-translate-y-1 transition-all duration-300"
+        aria-label={lang === "fr" ? "Contactez-nous sur WhatsApp" : "Contact us on WhatsApp"}
+        className="relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-[1.25rem] bg-[#25D366] text-white shadow-[0_10px_30px_-5px_rgba(37,211,102,0.5)] hover:shadow-[0_15px_40px_-5px_rgba(37,211,102,0.7)] hover:-translate-y-1 transition-all duration-300"
       >
-        {/* Pulsating rings */}
-        <span className="absolute inset-0 rounded-[1.25rem] bg-brand animate-ping opacity-30 duration-[2000ms]" />
-        
-        {/* Official Icon */}
-        <WhatsAppIcon className="w-8 h-8 relative z-10 drop-shadow-md transition-transform duration-300 group-hover:scale-110" />
+        {/* Pulsating ring */}
+        <span className="absolute inset-0 rounded-[1.25rem] bg-[#25D366] animate-ping opacity-25 duration-[2500ms]" />
+
+        {/* Official WhatsApp Icon */}
+        <WhatsAppIcon className="w-7 h-7 sm:w-8 sm:h-8 relative z-10 drop-shadow-md transition-transform duration-300 group-hover:scale-110" />
       </a>
     </div>
   );

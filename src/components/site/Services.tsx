@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Code2, Globe, Megaphone, Cog, ShoppingCart, Link2, Cloud, Bot, ArrowUpRight } from "lucide-react";
+import { Code2, Globe, Megaphone, Cog, ShoppingCart, Link2, Cloud, Bot, ArrowUpRight, Truck, Building2, Store, ArrowRight } from "lucide-react";
 import { useI18n } from "@/i18n/context";
 
 const icons = [Code2, Globe, Megaphone, Cog, ShoppingCart, Link2, Cloud, Bot];
@@ -13,6 +13,51 @@ const serviceSlugs = [
   "integration-apis-webhooks",
   "devops-cloud-infrastructure",
   "integration-ia-llm",
+];
+
+const verticalSolutions = [
+  {
+    slug: "saas-transport-logistique",
+    Icon: Truck,
+    badge: { fr: "Transport & Mobilité", en: "Transport & Mobility" },
+    title: {
+      fr: "SaaS Transport, Logistique & Dispatching VTC",
+      en: "Logistics & Fleet Dispatching SaaS",
+    },
+    desc: {
+      fr: "Télémétrie GPS en temps réel, assignation automatisée des courses, application chauffeur réactive et portail B2B donneurs d'ordres.",
+      en: "Real-time GPS tracking, algorithmic driver dispatch, mobile web apps, and enterprise corporate accounts.",
+    },
+    metric: { value: "< 50ms", label: { fr: "Latence GPS", en: "GPS Latency" } },
+  },
+  {
+    slug: "saas-immobilier-conciergerie",
+    Icon: Building2,
+    badge: { fr: "PropTech & Conciergerie", en: "PropTech & Concierge" },
+    title: {
+      fr: "SaaS Immobilier, Conciergerie & Services Terrain",
+      en: "Real Estate & Concierge SaaS",
+    },
+    desc: {
+      fr: "Synchronisation multi-plateformes iCal, planning des prestataires d'entretien, états des lieux numériques et encaissements Stripe.",
+      en: "Two-way iCal calendar sync, maintenance dispatching, mobile check-in reports, and automated deposit management.",
+    },
+    metric: { value: "-75%", label: { fr: "Temps admin", en: "Admin Time" } },
+  },
+  {
+    slug: "saas-e-commerce-b2b",
+    Icon: Store,
+    badge: { fr: "Wholesale & B2B", en: "Wholesale & B2B" },
+    title: {
+      fr: "Plateforme SaaS E-Commerce B2B & Grossistes",
+      en: "B2B E-Commerce & Wholesale Portals",
+    },
+    desc: {
+      fr: "Portails de commande grossistes, grilles tarifaires négociées par client, paiements différés et synchronisation ERP temps réel.",
+      en: "Private client ordering, contracted tiered pricing, net payment terms, and live two-way ERP stock synchronization.",
+    },
+    metric: { value: "x4", label: { fr: "Rapidité commandes", en: "Order Speed" } },
+  },
 ];
 
 export function Services() {
@@ -85,6 +130,88 @@ export function Services() {
             </motion.div>
           );
         })}
+      </div>
+
+      {/* Vertical Industry Solutions Section (Programmatic / Vertical SEO) */}
+      <div className="mt-28 md:mt-36 pt-16 border-t border-border/40 relative z-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div>
+            <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">
+              {lang === "fr" ? (
+                <>
+                  Architectures SaaS conçues pour{" "}
+                  <span className="text-gradient-brand">votre industrie</span>.
+                </>
+              ) : (
+                <>
+                  Vertical SaaS engineered for{" "}
+                  <span className="text-gradient-brand">your industry</span>.
+                </>
+              )}
+            </h3>
+          </div>
+          <p className="text-sm text-muted-foreground max-w-md">
+            {lang === "fr"
+              ? "Des plateformes spécialisées, pensées pour les contraintes métiers réelles et inspirées de nos réalisations en production."
+              : "Specialized platforms designed for real-world operational workflows and proven by our live production case studies."}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {verticalSolutions.map((vert, idx) => {
+            const VertIcon = vert.Icon;
+            return (
+              <motion.div
+                key={vert.slug}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+              >
+                <Link
+                  to="/services/$slug"
+                  params={{ slug: vert.slug }}
+                  className="group relative p-8 rounded-[28px] bg-gradient-to-b from-surface/40 to-surface/10 border border-brand/20 hover:border-brand/60 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_-15px_oklch(0.6_0.22_265/0.25)] flex flex-col justify-between h-full overflow-hidden"
+                >
+                  <div>
+                    <div className="flex items-center justify-between gap-3 mb-6">
+                      <div className="w-12 h-12 rounded-2xl bg-brand/10 border border-brand/30 flex items-center justify-center text-brand group-hover:scale-110 group-hover:bg-brand group-hover:text-white transition-all duration-300">
+                        <VertIcon size={22} />
+                      </div>
+                      <span className="font-mono text-[10px] tracking-wider uppercase px-2.5 py-1 rounded-full bg-brand/15 text-brand border border-brand/25 font-semibold">
+                        {vert.badge[lang]}
+                      </span>
+                    </div>
+
+                    <h4 className="font-display font-bold text-lg mb-2 text-foreground group-hover:text-brand transition-colors">
+                      {vert.title[lang]}
+                    </h4>
+
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-6">
+                      {vert.desc[lang]}
+                    </p>
+                  </div>
+
+                  <div className="pt-4 border-t border-border/40 flex items-center justify-between">
+                    <div>
+                      <div className="font-mono font-bold text-base text-foreground">
+                        {vert.metric.value}
+                      </div>
+                      <div className="text-[10px] font-mono text-muted-foreground uppercase">
+                        {vert.metric.label[lang]}
+                      </div>
+                    </div>
+
+                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand group-hover:translate-x-1 transition-transform">
+                      <span>{lang === "fr" ? "Voir l'architecture" : "View architecture"}</span>
+                      <ArrowRight size={14} />
+                    </span>
+                  </div>
+                </Link>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </Section>
   );

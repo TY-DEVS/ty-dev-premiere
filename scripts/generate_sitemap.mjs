@@ -30,6 +30,7 @@ const staticPages = [
   { url: '/blog', lastmod: STATIC_LASTMOD, priority: '0.95', changefreq: 'daily' },
   { url: '/about', lastmod: STATIC_LASTMOD, priority: '0.8', changefreq: 'monthly' },
   { url: '/contact', lastmod: STATIC_LASTMOD, priority: '0.8', changefreq: 'monthly' },
+  { url: '/simulateur', lastmod: '2026-10-08', priority: '0.95', changefreq: 'weekly' },
   { url: '/projets/navicab', lastmod: '2026-10-06', priority: '0.9', changefreq: 'weekly' },
 ];
 
@@ -43,6 +44,9 @@ const serviceSlugs = [
   "integration-apis-webhooks",
   "devops-cloud-infrastructure",
   "integration-ia-llm",
+  "saas-transport-logistique",
+  "saas-immobilier-conciergerie",
+  "saas-e-commerce-b2b",
 ];
 
 function extractBlogPosts(fileContent) {

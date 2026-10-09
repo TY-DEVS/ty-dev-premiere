@@ -10,23 +10,29 @@ import { useI18n } from "@/i18n/context";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Nos Services — TY Dev | Développement SaaS, IA & Cloud" },
+      { title: "Services Ingénierie Web, SaaS & IA Sur-Mesure | Devis 24h — TY Dev" },
       {
         name: "description",
         content:
-          "SaaS sur-mesure, automatisations IA, applications web, e-commerce, intégrations d'APIs et infrastructure Cloud — ingénierie de bout en bout par TY Dev.",
+          "Développement de plateformes SaaS, intégration d'agents IA, applications web ultra-rapides et Cloud DevOps. Cadrage d'architecture et chiffrage offert sous 24h.",
       },
-      { name: "keywords", content: "services saas, développement ia, intégration api, architecture cloud, react vite, devops" },
-      { property: "og:title", content: "Nos Services — TY Dev | Développement SaaS, IA & Cloud" },
+      { name: "keywords", content: "services saas, agence saas france, developpement ia entreprise, agent ia llm, api integration, architecture cloud devops, ty-dev.fr, ty-dev.tech" },
+      { property: "og:title", content: "Services Ingénierie Web, SaaS & IA Sur-Mesure | Devis 24h — TY Dev" },
       {
         property: "og:description",
         content:
-          "SaaS sur-mesure, automatisations IA, applications web, e-commerce, intégrations d'APIs et infrastructure Cloud.",
+          "Développement de plateformes SaaS, intégration d'agents IA, applications web ultra-rapides et Cloud DevOps. Cadrage d'architecture et chiffrage offert sous 24h.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://ty-dev.site/services" },
       { property: "og:image", content: "https://ty-dev.site/logo.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Services Ingénierie Web, SaaS & IA Sur-Mesure | Devis 24h — TY Dev" },
+      {
+        name: "twitter:description",
+        content:
+          "Développement de plateformes SaaS, intégration d'agents IA, applications web ultra-rapides et Cloud DevOps. Cadrage d'architecture et chiffrage offert sous 24h.",
+      },
       { name: "twitter:image", content: "https://ty-dev.site/logo.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://ty-dev.site/services" }],

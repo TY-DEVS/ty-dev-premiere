@@ -15,6 +15,7 @@ import { I18nProvider } from "@/i18n/context";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { ScrollToTop } from "@/components/site/ScrollToTop";
+import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 import { Toaster } from "sonner";
 
 function NotFoundComponent() {
@@ -86,8 +87,16 @@ const organizationSchema = {
   "url": "https://ty-dev.site",
   "logo": "https://ty-dev.site/logo.jpg",
   "image": "https://ty-dev.site/logo.jpg",
-  "description": "TY Dev concevoit et développe des applications web sur-mesure, plateformes SaaS, automatisations IA et architectures Cloud haute performance pour clients internationaux.",
+  "description": "TY Dev conçoit et développe des applications web sur-mesure, plateformes SaaS, automatisations IA et architectures Cloud haute performance pour clients internationaux.",
   "email": "contact@ty-dev.site",
+  "telephone": "+33 7 59 44 01 05",
+  "sameAs": [
+    "https://ty-dev.fr",
+    "https://ty-dev.tech",
+    "https://www.linkedin.com/company/ty-devs/",
+    "https://www.instagram.com/tydev__/",
+    "https://x.com/tydev__"
+  ],
   "knowsAbout": [
     "Artificial Intelligence Agents",
     "SaaS Development",
@@ -113,7 +122,11 @@ const websiteSchema = {
   "@type": "WebSite",
   "name": "TY Dev",
   "url": "https://ty-dev.site",
-  "inLanguage": ["fr", "en"]
+  "inLanguage": ["fr", "en"],
+  "sameAs": [
+    "https://ty-dev.fr",
+    "https://ty-dev.tech"
+  ]
 };
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
@@ -121,21 +134,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "TY Dev — Agence de Développement Web, SaaS & Agents IA" },
+      { title: "TY Dev — Agence SaaS, Applications Web & Agents IA | Devis Sous 24h" },
       {
         name: "description",
         content:
-          "TY Dev crée des plateformes SaaS sur mesure, des automatisations IA et des applications web haute performance. Agence d'ingénierie logicielle pour entreprises ambitieuses.",
+          "Création de plateformes SaaS sur-mesure, intégration d'agents IA et applications web haute performance. Audit d'architecture et devis gratuit sous 24h avec l'agence TY Dev.",
       },
-      { name: "keywords", content: "agence web, développement saas, agent ia, react, vite, devops, seo, tanstack, architecture logicielle, web agency europe, software agency us" },
+      { name: "keywords", content: "agence saas france, agence web france, developpement saas sur mesure, agence ia, developpement react vite, developpeur saas, devis saas, ty-dev.fr, ty-dev.tech" },
       { name: "author", content: "TY Dev" },
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       { property: "og:site_name", content: "TY Dev" },
-      { property: "og:title", content: "TY Dev — Agence de Développement Web, SaaS & Agents IA" },
+      { property: "og:title", content: "TY Dev — Agence SaaS, Applications Web & Agents IA | Devis Sous 24h" },
       {
         property: "og:description",
         content:
-          "Plateformes SaaS sur mesure, automatisations IA et applications web haute performance. Conçu pour la croissance mesurable.",
+          "Plateformes SaaS sur-mesure, automatisations IA et applications web haute performance. Audit technique et devis sous 24h.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://ty-dev.site" },
@@ -146,8 +159,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:locale:alternate", content: "en_US" },
       { property: "og:locale:alternate", content: "en_GB" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "TY Dev — Agence de Développement Web, SaaS & Agents IA" },
-      { name: "twitter:description", content: "Plateformes SaaS sur mesure, automatisations IA et applications web haute performance." },
+      { name: "twitter:title", content: "TY Dev — Agence SaaS, Applications Web & Agents IA | Devis Sous 24h" },
+      {
+        name: "twitter:description",
+        content:
+          "Plateformes SaaS sur-mesure, automatisations IA et applications web haute performance. Audit technique et devis sous 24h.",
+      },
       { name: "twitter:image", content: "https://ty-dev.site/logo.jpg" },
     ],
     links: [
@@ -214,6 +231,7 @@ function RootComponent() {
           </main>
           <Footer />
           <ScrollToTop />
+          <FloatingWhatsApp />
         </div>
         <Toaster richColors position="top-right" />
       </I18nProvider>

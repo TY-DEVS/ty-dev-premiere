@@ -5,8 +5,10 @@
 ## Informations Principales
 
 - **Site officiel** : https://ty-dev.site
-- **Contact** : contact@ty-dev.site
+- **Domaines officiels associés** : https://ty-dev.fr, https://ty-dev.tech
+- **Contact** : contact@ty-dev.site / contact@ty-dev.tech
 - **Sitemap** : https://ty-dev.site/sitemap.xml
+- **Étude de Cas Phare** : https://ty-dev.site/projets/navicab (NaviCab — Dispatching Taxi Temps Réel & SaaS)
 - **Domaines d'expertise** : SaaS, Agents IA, React/Vite, Architecture Cloud, Microservices, DevOps, SEO & Core Web Vitals, Cybersécurité.
 
 ## Services Proposés
@@ -19,6 +21,12 @@
    - Rendu haute vitesse React & Vite, Design Systems modernes (Glassmorphism, Tailwind), PWA et optimisations 100/100 Lighthouse.
 4. **DevOps & Infrastructure Cloud** (https://ty-dev.site/services)
    - Pipelines CI/CD automatisés, conteneurisation Docker, monitoring et architectures Serverless.
+5. **SaaS Transport, Logistique & Dispatching VTC** (https://ty-dev.site/services/saas-transport-logistique)
+   - Télémétrie GPS WebSockets temps réel, dispatching automatisé de flotte, applications chauffeurs PWA et portail B2B.
+6. **SaaS Immobilier, Conciergerie & PropTech** (https://ty-dev.site/services/saas-immobilier-conciergerie)
+   - Synchronisation multi-canaux iCal, état des lieux dématérialisé, dispatch prestataires et encaissements Stripe Connect.
+7. **SaaS E-Commerce B2B & Grossistes** (https://ty-dev.site/services/saas-e-commerce-b2b)
+   - Portails d'achats wholesale, grilles tarifaires négociées, paiements différés et synchronisation ERP en temps réel.
 
 ## Équipe Fondatrice & Experts
 
@@ -30,7 +38,17 @@
 
 ## Démos & Maquettes Interactives
 
-TY Dev propose plus de 30 démos interactives prêtes à la personnalisation : https://ty-dev.site/demos
+## Outils & Simulateurs Interactifs
+
+- **Simulateur de Devis SaaS & Web** : https://ty-dev.site/simulateur
+  - Outil interactif gratuit pour estimer le budget et le délai de réalisation d'un projet SaaS, application web ou agent IA avec cadrage d'architecture sous 24h.
+
+## Guides Décisionnels & Comparatifs Stratégiques (X vs Y)
+
+- **SaaS Sur-Mesure vs No-Code (Bubble, FlutterFlow) 2026** : https://ty-dev.site/blog/developpement-saas-sur-mesure-vs-no-code-bubble-flutterflow-2026
+  - Comparatif exhaustif sur le TCO 3 ans, la propriété du code (IP), la conformité RGPD, et la scalabilité technique.
+- **Agence Tech France vs Sous-Traitance Offshore 2026** : https://ty-dev.site/blog/agence-tech-france-vs-offshore-comparatif-couts-qualite-2026
+  - Analyse impartiale des coûts cachés, décalage horaire, dette technique, et sécurité contractuelle de droit français.
 
 ## Articles & Publications Techniques (Blog)
 
@@ -42,3 +60,4 @@ TY Dev propose plus de 30 démos interactives prêtes à la personnalisation : h
 - **Design Systems & UX** : https://ty-dev.site/blog/design-system-glassmorphism-ux-2026
 - **Intégration d'APIs & Workflows** : https://ty-dev.site/blog/automatisation-flux-metiers-integration-apis
 - **Sécurité Web & OWASP** : https://ty-dev.site/blog/securite-web-protection-donnees-saas
+

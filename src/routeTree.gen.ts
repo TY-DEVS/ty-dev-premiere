@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SimulateurRouteImport } from './routes/simulateur'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as LegalRouteImport } from './routes/legal'
@@ -25,6 +26,11 @@ import { Route as ServicesSlugRouteImport } from './routes/services_.$slug'
 import { Route as ProjetsNavicabRouteImport } from './routes/projets_.navicab'
 import { Route as BlogSlugRouteImport } from './routes/blog_.$slug'
 
+const SimulateurRoute = SimulateurRouteImport.update({
+  id: '/simulateur',
+  path: '/simulateur',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
@@ -113,6 +119,7 @@ export interface FileRoutesByFullPath {
   '/legal': typeof LegalRoute
   '/portfolio': typeof PortfolioRoute
   '/services': typeof ServicesRoute
+  '/simulateur': typeof SimulateurRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/projets/navicab': typeof ProjetsNavicabRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -130,6 +137,7 @@ export interface FileRoutesByTo {
   '/legal': typeof LegalRoute
   '/portfolio': typeof PortfolioRoute
   '/services': typeof ServicesRoute
+  '/simulateur': typeof SimulateurRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/projets/navicab': typeof ProjetsNavicabRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -148,6 +156,7 @@ export interface FileRoutesById {
   '/legal': typeof LegalRoute
   '/portfolio': typeof PortfolioRoute
   '/services': typeof ServicesRoute
+  '/simulateur': typeof SimulateurRoute
   '/blog_/$slug': typeof BlogSlugRoute
   '/projets_/navicab': typeof ProjetsNavicabRoute
   '/services_/$slug': typeof ServicesSlugRoute
@@ -167,6 +176,7 @@ export interface FileRouteTypes {
     | '/legal'
     | '/portfolio'
     | '/services'
+    | '/simulateur'
     | '/blog/$slug'
     | '/projets/navicab'
     | '/services/$slug'
@@ -184,6 +194,7 @@ export interface FileRouteTypes {
     | '/legal'
     | '/portfolio'
     | '/services'
+    | '/simulateur'
     | '/blog/$slug'
     | '/projets/navicab'
     | '/services/$slug'
@@ -201,6 +212,7 @@ export interface FileRouteTypes {
     | '/legal'
     | '/portfolio'
     | '/services'
+    | '/simulateur'
     | '/blog_/$slug'
     | '/projets_/navicab'
     | '/services_/$slug'
@@ -219,6 +231,7 @@ export interface RootRouteChildren {
   LegalRoute: typeof LegalRoute
   PortfolioRoute: typeof PortfolioRoute
   ServicesRoute: typeof ServicesRoute
+  SimulateurRoute: typeof SimulateurRoute
   BlogSlugRoute: typeof BlogSlugRoute
   ProjetsNavicabRoute: typeof ProjetsNavicabRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
@@ -227,6 +240,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/simulateur': {
+      id: '/simulateur'
+      path: '/simulateur'
+      fullPath: '/simulateur'
+      preLoaderRoute: typeof SimulateurRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
@@ -347,6 +367,7 @@ const rootRouteChildren: RootRouteChildren = {
   LegalRoute: LegalRoute,
   PortfolioRoute: PortfolioRoute,
   ServicesRoute: ServicesRoute,
+  SimulateurRoute: SimulateurRoute,
   BlogSlugRoute: BlogSlugRoute,
   ProjetsNavicabRoute: ProjetsNavicabRoute,
   ServicesSlugRoute: ServicesSlugRoute,

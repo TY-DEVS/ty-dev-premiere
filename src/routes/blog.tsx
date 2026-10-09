@@ -7,27 +7,33 @@ import { useI18n } from "@/i18n/context";
 export const Route = createFileRoute("/blog")({
   head: () => ({
     meta: [
-      { title: "Blog & Engineering Insights — TY Dev | Agence Web & SaaS" },
+      { title: "Blog Tech, IA & Architecture SaaS 2026 — Guides & Retours d'Expérience | TY Dev" },
       {
         name: "description",
         content:
-          "Analyses techniques, guides d'architecture logicielle, optimisation SEO, design systems et cybersécurité publiés par l'équipe d'ingénieurs TY Dev.",
+          "Guides approfondis d'architecture logicielle, développement SaaS moderne, intégration d'agents IA, optimisation Web Vitals et Cloud DevOps par les ingénieurs TY Dev.",
       },
       {
         name: "keywords",
         content:
-          "blog tech, architecture logicielle, SEO web vitals, design systems, cybersécurité SaaS, agence web TY Dev, microservices, serverless",
+          "blog tech 2026, architecture saas, agent ia tutoriel, react vite optimisation, seo technique, agence dev web, ty-dev.fr, ty-dev.tech",
       },
-      { property: "og:title", content: "Blog & Engineering Insights — TY Dev | Agence Web & SaaS" },
+      { property: "og:title", content: "Blog Tech, IA & Architecture SaaS 2026 — Guides & Retours d'Expérience | TY Dev" },
       {
         property: "og:description",
         content:
-          "Analyses techniques, guides d'architecture logicielle, optimisation SEO, design systems et cybersécurité publiés par l'équipe d'ingénieurs TY Dev.",
+          "Guides approfondis d'architecture logicielle, développement SaaS moderne, intégration d'agents IA, optimisation Web Vitals et Cloud DevOps par les ingénieurs TY Dev.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://ty-dev.site/blog" },
       { property: "og:image", content: "https://ty-dev.site/logo.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Blog Tech, IA & Architecture SaaS 2026 — Guides & Retours d'Expérience | TY Dev" },
+      {
+        name: "twitter:description",
+        content:
+          "Guides approfondis d'architecture logicielle, développement SaaS moderne, intégration d'agents IA, optimisation Web Vitals et Cloud DevOps par les ingénieurs TY Dev.",
+      },
       { name: "twitter:image", content: "https://ty-dev.site/logo.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://ty-dev.site/blog" }],

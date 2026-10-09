@@ -10,12 +10,17 @@ import {
   Link2,
   Cloud,
   Bot,
+  Truck,
+  Building2,
+  Store,
   ArrowRight,
   CheckCircle2,
   ChevronDown,
   Layers,
   Zap,
   ShieldCheck,
+  MessageCircle,
+  BarChart3,
 } from "lucide-react";
 import { ServiceItemData } from "@/data/servicesData";
 import { useI18n } from "@/i18n/context";
@@ -29,6 +34,9 @@ const iconMap: Record<string, React.ElementType> = {
   Link2,
   Cloud,
   Bot,
+  Truck,
+  Building2,
+  Store,
 };
 
 export function ServiceDetail({ service }: { service: ServiceItemData }) {
@@ -86,14 +94,28 @@ export function ServiceDetail({ service }: { service: ServiceItemData }) {
               {service.heroDescription[lang]}
             </p>
 
-            <div className="pt-4 flex flex-wrap items-center gap-4">
+            <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
               <Link
                 to="/contact"
-                className="group relative inline-flex items-center gap-3 px-8 py-4 bg-brand text-white font-semibold rounded-full overflow-hidden transition-all shadow-[0_0_40px_-10px_oklch(0.55_0.22_265)] hover:shadow-[0_0_60px_-5px_oklch(0.55_0.22_265)] hover:bg-brand/90"
+                className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-brand text-white font-semibold rounded-full overflow-hidden transition-all shadow-[0_0_40px_-10px_oklch(0.55_0.22_265)] hover:shadow-[0_0_60px_-5px_oklch(0.55_0.22_265)] hover:bg-brand/90 text-center"
               >
                 <span>{lang === "fr" ? "Demander une consultation" : "Schedule a Consultation"}</span>
                 <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
               </Link>
+
+              <a
+                href={`https://wa.me/33759440105?text=${encodeURIComponent(
+                  lang === "fr"
+                    ? `Bonjour TY Dev, j'aimerais échanger sur vos solutions ${service.title.fr}.`
+                    : `Hello TY Dev, I would like to discuss your ${service.title.en} solutions.`
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-full bg-[#25D366]/15 border border-[#25D366]/40 text-[#25D366] hover:bg-[#25D366] hover:text-white font-semibold text-sm transition-all duration-300 text-center shadow-sm"
+              >
+                <MessageCircle size={18} />
+                <span>{lang === "fr" ? "WhatsApp Direct" : "Direct WhatsApp"}</span>
+              </a>
             </div>
           </motion.div>
 
@@ -289,6 +311,57 @@ export function ServiceDetail({ service }: { service: ServiceItemData }) {
             ))}
           </div>
         </div>
+
+        {/* Linked Case Study (If Available) */}
+        {service.caseStudy && (
+          <div className="mb-24 p-8 sm:p-12 rounded-[36px] bg-gradient-to-br from-brand/10 via-surface/60 to-surface/30 border border-brand/35 backdrop-blur-xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-brand/15 rounded-full blur-[120px] pointer-events-none" />
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+              <div className="lg:col-span-7 space-y-4">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand/15 border border-brand/30 text-brand font-mono text-xs uppercase tracking-wider font-semibold">
+                  <BarChart3 size={13} />
+                  <span>{lang === "fr" ? "Étude de Cas & ROI Vérifié" : "Case Study & Verified ROI"}</span>
+                </div>
+                <h3 className="font-display text-2xl sm:text-3xl font-bold text-foreground">
+                  {service.caseStudy.title[lang]}
+                </h3>
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                  {service.caseStudy.summary[lang]}
+                </p>
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-surface/80 border border-border/60 text-xs font-mono text-brand">
+                  <CheckCircle2 size={13} />
+                  <span>{service.caseStudy.kpi}</span>
+                </div>
+                <div className="pt-2">
+                  <Link
+                    to={service.caseStudy.link}
+                    className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl bg-brand text-primary-foreground font-semibold text-sm shadow-lg shadow-brand/25 hover:bg-brand/90 hover:-translate-y-0.5 transition-all"
+                  >
+                    <span>{lang === "fr" ? "Lire l'étude de cas complète" : "Read Full Case Study"}</span>
+                    <ArrowRight size={16} />
+                  </Link>
+                </div>
+              </div>
+
+              {service.caseStudy.image && (
+                <div className="lg:col-span-5">
+                  <Link
+                    to={service.caseStudy.link}
+                    className="block relative rounded-2xl overflow-hidden border border-border/80 bg-surface/80 shadow-2xl group transition-all duration-300 hover:border-brand/40"
+                  >
+                    <img
+                      src={service.caseStudy.image}
+                      alt={service.caseStudy.title[lang]}
+                      className="w-full h-auto object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
+                  </Link>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
 
         {/* FAQ Section */}
         {service.faq && service.faq.length > 0 && (

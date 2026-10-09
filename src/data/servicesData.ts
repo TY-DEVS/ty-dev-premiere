@@ -13,6 +13,13 @@ export interface ServiceItemData {
   process: Array<{ step: string; title: { fr: string; en: string }; desc: { fr: string; en: string } }>;
   deliverables: Array<{ fr: string; en: string }>;
   faq: Array<{ question: { fr: string; en: string }; answer: { fr: string; en: string } }>;
+  caseStudy?: {
+    title: { fr: string; en: string };
+    link: string;
+    summary: { fr: string; en: string };
+    kpi: string;
+    image?: string;
+  };
 }
 
 export const servicesData: ServiceItemData[] = [
@@ -643,6 +650,313 @@ export const servicesData: ServiceItemData[] = [
       {
         question: { fr: "Mes données d'entreprise servent-elles à entraîner les modèles publics ?", en: "Are my internal company data used to train public LLM models?" },
         answer: { fr: "Non. Nous utilisons les APIs d'entreprise (OpenAI Enterprise / Anthropic Commercial) dont les clauses garantissent qu'aucune donnée n'est conservée ni utilisée pour le ré-entraînement.", en: "No. We utilize commercial enterprise API endpoints (OpenAI Enterprise / Anthropic API) with zero data retention clauses." },
+      },
+    ],
+  },
+  {
+    slug: "saas-transport-logistique",
+    iconName: "Truck",
+    title: {
+      fr: "Développement SaaS Transport, Logistique & Dispatching VTC",
+      en: "Custom Logistics, Transport & Fleet Dispatching SaaS",
+    },
+    eyebrow: {
+      fr: "// SAAS SECTORIEL & MOBILITÉ",
+      en: "// VERTICAL SAAS & MOBILITY",
+    },
+    subtitle: {
+      fr: "Conception de plateformes de dispatching en temps réel, calcul d'itinéraires GPS et réservation automatisée pour transporteurs et flottes de véhicules.",
+      en: "Architecting sub-second dispatching engines, telemetry tracking, and automated quote booking for logistics and transport fleets.",
+    },
+    heroDescription: {
+      fr: "Inspiré par nos succès d'ingénierie (comme NaviCab et Auto Liefern), nous développons des architectures logicielles complètes pour le transport : télémétrie GPS WebSockets, dispatching intelligent par algorithmes prédictifs, facturation Stripe/SEPA et suivi de flotte en temps réel.",
+      en: "Drawing from production-tested platforms like NaviCab and Auto Liefern, we engineer end-to-end transport architectures: WebSocket GPS telemetry, algorithmic dispatching, Stripe/SEPA automated billing, and live fleet telemetry.",
+    },
+    metrics: [
+      { value: "< 50ms", label: { fr: "Latence de synchronisation GPS WebSockets", en: "WebSocket GPS telemetry latency" } },
+      { value: "100%", label: { fr: "Automatisation du calcul des tarifs et devis", en: "Automated route fare estimation" } },
+      { value: "99.99%", label: { fr: "Disponibilité Uptime du moteur de dispatch", en: "Dispatch engine availability SLA" } },
+    ],
+    overview: {
+      fr: "Gérer une flotte de transport ou de logistique avec des outils génériques entraîne des pertes de temps considérables, des erreurs de dispatching et une rentabilité compromise. Chez TY Dev, nous concevons des plateformes SaaS taillées sur-mesure pour vos contraintes opérationnelles : suivi en direct des chauffeurs, affectation automatique des courses selon la proximité, gestion des bordereaux et portail B2B pour vos clients donneurs d'ordres.",
+      en: "Managing modern logistics operations with off-the-shelf software leads to routing inefficiencies and margin loss. At TY Dev, we craft dedicated vertical SaaS architectures engineered for mission-critical dispatching: live driver telemetry, nearest-vehicle dispatch algorithms, digital manifests, and enterprise B2B corporate portals.",
+    },
+    keyBenefits: [
+      {
+        title: { fr: "Dispatching Intelligent & Assignation Automatique", en: "Algorithmic Dispatch & Auto-Assignment" },
+        desc: {
+          fr: "Algorithme d'affectation dynamique basé sur le temps de trajet réel, le type de véhicule et la disponibilité du chauffeur.",
+          en: "Dynamic assignment algorithms calculating actual traffic ETA, vehicle classification, and driver shifts.",
+        },
+      },
+      {
+        title: { fr: "Télémétrie GPS & Cartographie Interactive", en: "Real-Time Telemetry & Geospatial Maps" },
+        desc: {
+          fr: "Suivi en temps réel de chaque véhicule sur carte interactive Mapbox/Google Maps avec mise à jour sub-seconde.",
+          en: "Sub-second geospatial vehicle tracking powered by Mapbox and WebSockets.",
+        },
+      },
+      {
+        title: { fr: "Portail Client B2B & Facturation Consolidée", en: "Corporate B2B Portal & Consolidated Invoicing" },
+        desc: {
+          fr: "Espace dédié pour vos clients entreprises avec commande en 1 clic, suivi des courses et facturation mensuelle groupée.",
+          en: "Dedicated corporate accounts with one-click ordering, real-time tracking, and automated monthly invoicing.",
+        },
+      },
+    ],
+    features: [
+      {
+        title: { fr: "Calcul d'Itinéraires & Estimations Prédictives", en: "Routing Calculations & Traffic Estimation" },
+        desc: {
+          fr: "Intégration d'APIs de routage professionnelles prenant en compte les restrictions poids lourds, péages et trafic.",
+          en: "Routing APIs factoring in vehicle weight limits, tolls, and live traffic patterns.",
+        },
+      },
+      {
+        title: { fr: "Application Chauffeur PWA Réactive", en: "Responsive Driver PWA Interface" },
+        desc: {
+          fr: "Interface mobile ultra-légère pour les chauffeurs avec acceptation des missions, guidage GPS et signature électronique.",
+          en: "Lightweight driver web app featuring mission acceptance, turn-by-turn navigation, and proof-of-delivery signatures.",
+        },
+      },
+      {
+        title: { fr: "Facturation Stripe, Prélèvements SEPA & Chorus Pro", en: "Multi-Channel Billing & Invoicing Automation" },
+        desc: {
+          fr: "Automatisation intégrale des encaissements bancaires et émission conforme des factures électroniques.",
+          en: "Full billing automation across credit card authorizations, SEPA direct debits, and compliant invoicing.",
+        },
+      },
+    ],
+    techStack: ["React 19", "TanStack Start", "Mapbox GL", "WebSockets", "Node.js", "PostgreSQL (PostGIS)", "Redis", "Stripe API", "Docker"],
+    process: [
+      { step: "01", title: { fr: "Cadrage Opérationnel & Règles de Dispatch", en: "Operational Scoping & Dispatch Rules" }, desc: { fr: "Définition des flux de tournées, types de flottes et règles d'assignation.", en: "Defining vehicle types, shift calendars, and proximity dispatch policies." } },
+      { step: "02", title: { fr: "Architecture Géospatiale & Base PostGIS", en: "Geospatial Architecture & PostGIS" }, desc: { fr: "Modélisation de la base géospatiale et des canaux temps réel WebSockets.", en: "Setting up spatial database indexes and real-time pub/sub telemetry channels." } },
+      { step: "03", title: { fr: "Développement Moteur & Apps Chauffeurs / Clients", en: "Engine & Driver / Client App Build" }, desc: { fr: "Développement des tableaux de bord, de l'app chauffeur et du portail B2B.", en: "Engineering dispatcher operations console, driver PWA, and corporate portal." } },
+      { step: "04", title: { fr: "Tests en Conditions Réelles & Lancement", en: "Field Testing & High-Availability Launch" }, desc: { fr: "Validation des flux GPS en conditions réelles et déploiement cloud haute disponibilité.", en: "Simulating high telemetry loads, validating offline sync, and rolling out live." } },
+    ],
+    deliverables: [
+      { fr: "Plateforme de gestion complète (Dashboard Dispatcher, Portail Client, App Chauffeur)", en: "Full multi-portal platform (Dispatcher Dashboard, Corporate Portal, Driver App)" },
+      { fr: "Moteur d'assignation automatisé et télémétrie GPS en temps réel", en: "Automated ride assignment engine and real-time GPS telemetry backend" },
+      { fr: "Code source TypeScript complet et propriété intellectuelle exclusive 100%", en: "100% full production source code and exclusive IP ownership" },
+      { fr: "Infrastructure Cloud scalable avec monitoring 24/7 et sauvegarde automatique", en: "Scalable cloud deployment with 24/7 telemetry monitoring and automated backups" },
+    ],
+    faq: [
+      {
+        question: { fr: "La plateforme est-elle adaptée pour des flottes de 5 à plus de 500 véhicules ?", en: "Is this platform scalable from 5 to 500+ vehicles?" },
+        answer: { fr: "Oui. Notre architecture basée sur Redis et PostgreSQL avec PostGIS est dimensionnée pour supporter des flux massifs de données télémétriques sans aucun ralentissement.", en: "Yes. Our Redis and PostGIS architecture easily sustains high-frequency GPS pings from hundreds of concurrent vehicles." },
+      },
+      {
+        question: { fr: "Peut-on personnaliser les grilles tarifaires selon les clients ?", en: "Can we configure client-specific pricing grids?" },
+        answer: { fr: "Absolument. Vous pouvez configurer des règles tarifaires sur-mesure : forfaits aéroports, tarifs de nuit, majorations horaires et grilles négociées par compte B2B.", en: "Absolutely. You can set up airport flat rates, night surcharges, zone-based fees, and dedicated contracted corporate rates." },
+      },
+    ],
+    caseStudy: {
+      title: {
+        fr: "NaviCab — Plateforme SaaS de Dispatching Taxi & Flottes en Île-de-France",
+        en: "NaviCab — Mission-Critical Fleet Dispatch & Taxi SaaS in Paris Region",
+      },
+      link: "/projets/navicab",
+      summary: {
+        fr: "Découvrez comment nous avons architecturé un dispatch temps réel < 2s avec 5 portails synchronisés, la télémétrie GPS WebSockets et la facturation Factur-X automatisée.",
+        en: "Discover how we architected a sub-2s real-time dispatch with 5 synchronized portals, WebSocket GPS telemetry, and automated Factur-X billing.",
+      },
+      kpi: "Dispatch < 2s • 5 Portails Synchronisés • 100% Factur-X Conforme",
+      image: "/portfolio/navicab-hero.webp",
+    },
+  },
+  {
+    slug: "saas-immobilier-conciergerie",
+    iconName: "Building2",
+    title: {
+      fr: "Développement SaaS Immobilier, Conciergerie & Services à Domicile",
+      en: "Real Estate, Concierge & Property Services SaaS",
+    },
+    eyebrow: {
+      fr: "// SAAS SECTORIEL & PROPTECH",
+      en: "// VERTICAL SAAS & PROPTECH",
+    },
+    subtitle: {
+      fr: "Plateformes multi-agences pour la gestion locative, conciergeries Airbnb, interventions d'entretien et réservation d'artisans avec paiement séquestre et planning interactif.",
+      en: "Multi-tenant platforms for property management, short-term rental concierge, maintenance dispatch, and booking workflows.",
+    },
+    heroDescription: {
+      fr: "Digitalisez l'intégralité de vos opérations immobilières et services sur le terrain (dans l'esprit de nos réalisations comme Brill Auto Maison 83 et Créa Jardin 74) : portail propriétaires et locataires, synchronisation iCal multi-plateformes, état des lieux dématérialisé et encaissement automatisé des loyers et prestations.",
+      en: "Digitize property workflows and field operations (proven by platforms like Brill Auto Maison 83 and Créa Jardin 74): owner/tenant portals, multi-channel iCal calendar sync, digital inspection reports, and automated rent/service payouts.",
+    },
+    metrics: [
+      { value: "-75%", label: { fr: "Temps administratif consacré aux réservations", en: "Administrative booking time reduction" } },
+      { value: "0", label: { fr: "Risque de sur-réservation grâce à la synchro temps réel", en: "Zero double-booking risk via live sync" } },
+      { value: "< 2 min", label: { fr: "Génération et signature d'un devis d'intervention", en: "Quote creation and e-signature speed" } },
+    ],
+    overview: {
+      fr: "Le secteur de la conciergerie, de la gestion immobilière et des services à domicile souffre d'outils fragmentés : tableurs Excel, échanges WhatsApp désorganisés et erreurs de facturation. Nous bâtissons des plateformes unifiées qui centralisent plannings, affectations des prestataires de ménage/maintenance, états des lieux et paiements sécurisés.",
+      en: "The property management and concierge industry struggles with disconnected tools: spreadsheets, messaging apps, and manual invoicing errors. We engineer unified platforms that streamline calendars, cleaner/contractor dispatching, digital inspection logs, and automated payments.",
+    },
+    keyBenefits: [
+      {
+        title: { fr: "Synchronisation Calendriers Multi-Canaux (iCal/Airbnb/Booking)", en: "Multi-Channel Calendar Sync" },
+        desc: {
+          fr: "Synchronisation automatique bidirectionnelle des plannings pour éliminer tout risque de double réservation.",
+          en: "Two-way calendar sync preventing double bookings across Airbnb, Booking.com, and direct portals.",
+        },
+      },
+      {
+        title: { fr: "Planning Interactif & Dispatch des Prestataires", en: "Interactive Dispatch & Contractor Scheduling" },
+        desc: {
+          fr: "Attribution des missions de ménage, blanchisserie et check-in avec checklists numériques et photos de contrôle.",
+          en: "Automated task assignments with photo checklists for cleaning and maintenance teams.",
+        },
+      },
+      {
+        title: { fr: "Portail Propriétaire avec Rapports de Revenus", en: "Owner Portal & Revenue Transparent Reporting" },
+        desc: {
+          fr: "Espace propriétaire transparent avec suivi du taux d'occupation, décompte des commissions et virements automatiques.",
+          en: "Transparent owner dashboard tracking occupancy rates, net payout calculations, and automated statements.",
+        },
+      },
+    ],
+    features: [
+      {
+        title: { fr: "État des Lieux Numérique & Signature Électronique", en: "Digital Property Inspection & E-Signature" },
+        desc: {
+          fr: "Réalisation des états des lieux sur smartphone avec horodatage certifié et signature en ligne des locataires.",
+          en: "Mobile-first inspection flow with photo attachments, certified timestamps, and client signature.",
+        },
+      },
+      {
+        title: { fr: "Encaissement Automatisé & Gestion des Cautions", en: "Automated Payments & Deposit Management" },
+        desc: {
+          fr: "Empreinte bancaire sécurisée pour les cautions et encaissement échelonné via Stripe Payments.",
+          en: "Pre-authorized security deposits and automated payment schedules via Stripe.",
+        },
+      },
+      {
+        title: { fr: "Système de Messagerie & Notifications SMS/WhatsApp", en: "Automated Guest Messaging & Alerts" },
+        desc: {
+          fr: "Envoi automatique des codes d'accès, consignes d'arrivée et rappels de départ par SMS ou WhatsApp.",
+          en: "Scheduled WhatsApp and SMS guest notifications for check-in codes and house rules.",
+        },
+      },
+    ],
+    techStack: ["React 19", "TypeScript", "PostgreSQL", "Node.js", "Redis", "Stripe Connect", "Twilio / WhatsApp API", "Docker"],
+    process: [
+      { step: "01", title: { fr: "Analyse des Flux Locatifs & Besoins Terrain", en: "Rental Operations & Field Needs Analysis" }, desc: { fr: "Cartographie du parcours propriétaire, voyageur et personnel d'entretien.", en: "Mapping operational workflows across owners, guests, and field crew." } },
+      { step: "02", title: { fr: "Conception UI/UX des Portails", en: "Portals UI/UX Design System" }, desc: { fr: "Maquettes dédiées pour les espaces propriétaires, planning et mobile terrain.", en: "Designing mobile-first layouts for property managers, owners, and cleaners." } },
+      { step: "03", title: { fr: "Intégration iCal, Stripe et Moteur de Tâches", en: "iCal, Stripe & Task Engine Integration" }, desc: { fr: "Développement des connecteurs de réservation, calcul de commissions et alertes.", en: "Coding two-way calendar sync, commission split logic, and automated SMS alerts." } },
+      { step: "04", title: { fr: "Déploiement en Production & Formation", en: "Production Launch & Onboarding" }, desc: { fr: "Mise en service sécurisée et accompagnement de vos équipes.", en: "Zero-downtime deployment, documentation handover, and staff onboarding." } },
+    ],
+    deliverables: [
+      { fr: "Portail Propriétaires, Espace Voyageurs et Application Terrain pour prestataires", en: "Owner Portal, Guest Direct Booking Portal, and Mobile Contractor Interface" },
+      { fr: "Moteur de synchronisation de calendriers et d'affectation des interventions", en: "Automated calendar synchronization engine and task dispatching system" },
+      { fr: "Système de facturation avec calcul automatique des commissions et taxes de séjour", en: "Automated billing system with split payout calculations and tourist tax reports" },
+      { fr: "Code source complet, documentation d'architecture et propriété intellectuelle exclusive", en: "Full production source code, architecture documentation, and 100% exclusive IP" },
+    ],
+    faq: [
+      {
+        question: { fr: "Peut-on connecter la plateforme à nos canaux de réservation existants ?", en: "Can we connect existing reservation channels?" },
+        answer: { fr: "Oui, nous intégrons la synchronisation universelle iCal ainsi que les APIs directes pour récupérer automatiquement l'ensemble de vos réservations.", en: "Yes, we integrate two-way iCal synchronization and direct APIs to ingest bookings from Airbnb, Booking.com, and VRBO." },
+      },
+      {
+        question: { fr: "Comment sont gérées les commissions des conciergeries ?", en: "How are management commissions calculated?" },
+        answer: { fr: "Grâce à l'intégration de Stripe Connect, la répartition des revenus entre propriétaires et conciergerie est automatisée au centime près.", en: "With Stripe Connect split charges, concierge commissions and net owner payouts are distributed automatically." },
+      },
+    ],
+  },
+  {
+    slug: "saas-e-commerce-b2b",
+    iconName: "Store",
+    title: {
+      fr: "Développement Plateforme SaaS E-Commerce B2B & Grossistes",
+      en: "B2B E-Commerce & Wholesale SaaS Platforms",
+    },
+    eyebrow: {
+      fr: "// COMMERCE B2B & DISTRIBUTION",
+      en: "// WHOLESALE COMMERCE & DISTRIBUTION",
+    },
+    subtitle: {
+      fr: "Portails de commande B2B pour fabricants, distributeurs et marques avec catalogues de prix personnalisés, paiements différés et synchronisation ERP.",
+      en: "High-performance wholesale B2B ordering portals with tier-based pricing, invoice financing, and real-time ERP synchronization.",
+    },
+    heroDescription: {
+      fr: "Fini les bons de commande papier, les erreurs de saisie par e-mail et les catalogues obsolètes. Nous développons des plateformes B2B privatives ultra-rapides (dans la lignée de notre travail sur By Zeee) : grilles tarifaires négociées par client, validation de commandes multi-niveaux, devis instantanés et intégration directe avec Stripe B2B, Sage, Cegid et SAP.",
+      en: "Eliminate paper purchase orders, email typos, and stale catalogs. We engineer private, lightning-fast B2B portals (building on our e-commerce expertise like By Zeee): client-specific price lists, multi-tier approvals, instant quotes, and direct connectors for Stripe B2B, Sage, and SAP.",
+    },
+    metrics: [
+      { value: "x4", label: { fr: "Accélération du traitement des commandes récurrentes", en: "Recurring order processing speed multiplier" } },
+      { value: "100%", label: { fr: "Synchronisation des stocks en temps réel avec l'ERP", en: "Real-time ERP stock synchronization" } },
+      { value: "0", label: { fr: "Ressaisie manuelle de factures ou de bons de livraison", en: "Zero manual data re-entry for order fulfillment" } },
+    ],
+    overview: {
+      fr: "Le commerce interentreprises (B2B) obéit à des règles complexes que les plateformes B2C grand public ne savent pas gérer : conditions de paiement à 30 ou 60 jours, remises sur volume, franco de port, gestion des rôles acheteurs/valideurs. TY Dev conçoit des portails B2B sur-mesure offrant la simplicité d'un site grand public tout en respectant la rigueur comptable et logistique des grands comptes.",
+      en: "B2B wholesale commerce requires specialized business logic that conventional B2C stores cannot handle: 30/60-day net payment terms, volume price tiers, custom freight rules, and approval hierarchies. TY Dev builds tailored B2B portals delivering intuitive consumer-grade UX backed by rock-solid enterprise accounting and ERP synchronization.",
+    },
+    keyBenefits: [
+      {
+        title: { fr: "Grilles Tarifaires Négociées par Client", en: "Custom Negotiated Price Tiers" },
+        desc: {
+          fr: "Chaque client accède à son catalogue personnalisé avec ses remises contractuelles et conditions spécifiques.",
+          en: "Each B2B client accesses dedicated negotiated catalogs with contractual discount tiers.",
+        },
+      },
+      {
+        title: { fr: "Gestion des Délais de Paiement & Facturation Différée", en: "Net Payment Terms & Credit Limits" },
+        desc: {
+          fr: "Prise en charge du paiement à terme (30/60 jours), encours client plafonné et prélèvements SEPA B2B.",
+          en: "Net-30/60 day terms, customer credit limit enforcement, and SEPA B2B direct debit workflows.",
+        },
+      },
+      {
+        title: { fr: "Validation Hiérarchique des Commandes (Workflow)", en: "Multi-Tier Approval Workflows" },
+        desc: {
+          fr: "Les collaborateurs d'une entreprise préparent leurs paniers, soumis à la validation de leur responsable achats.",
+          en: "Employees build purchase carts requiring manager sign-off prior to order submission.",
+        },
+      },
+    ],
+    features: [
+      {
+        title: { fr: "Import Rapide par Fichier CSV / Excel", en: "Bulk Quick-Order via CSV / SKU" },
+        desc: {
+          fr: "Saisie de commandes massives en quelques secondes par upload de fichier ou saisie rapide de références.",
+          en: "Rapid bulk order creation via spreadsheet upload or instant SKU reference lookup.",
+        },
+      },
+      {
+        title: { fr: "Synchronisation Bidirectionnelle ERP & WMS", en: "Two-Way ERP & WMS Synchronization" },
+        desc: {
+          fr: "Mise à jour instantanée des stocks, prix et statuts d'expédition avec vos logiciels comptables et logistiques.",
+          en: "Live synchronization of stock levels, price changes, and shipment statuses with your ERP.",
+        },
+      },
+      {
+        title: { fr: "Génération Instantanée de Devis Proforma PDF", en: "Instant Proforma Quote Generation" },
+        desc: {
+          fr: "Transformation d'un panier en devis officiel téléchargeable en un clic avec validité paramétrable.",
+          en: "One-click conversion of shopping carts into official downloadable proforma PDF quotes.",
+        },
+      },
+    ],
+    techStack: ["React 19", "TypeScript", "Node.js", "PostgreSQL", "Redis", "Stripe Invoicing", "PDFKit", "Docker"],
+    process: [
+      { step: "01", title: { fr: "Analyse des Grilles Tarifaires & Règles Commerciales", en: "Price Grids & Business Rules Scoping" }, desc: { fr: "Définition des règles de remises, franco de port et encours autorisés.", en: "Defining discount hierarchies, freight thresholds, and customer credit limits." } },
+      { step: "02", title: { fr: "Modélisation de la Base Clients & Catalogues", en: "Data Modeling & Catalog Schemas" }, desc: { fr: "Conception de la base multi-entrepôts et des rôles d'utilisateurs acheteurs.", en: "Architecting multi-warehouse inventory, SKU variants, and corporate buyer roles." } },
+      { step: "03", title: { fr: "Développement du Portail B2B & Connexion ERP", en: "B2B Portal Build & ERP Connectors" }, desc: { fr: "Création du tunnel de commande express et des connecteurs comptables.", en: "Building fast ordering workflows, approval pipelines, and ERP sync webhooks." } },
+      { step: "04", title: { fr: "Tests de Charge & Mise en Ligne Sécurisée", en: "Stress Testing & Secure Launch" }, desc: { fr: "Vérification des règles comptables et ouverture des accès clients.", en: "Testing high-volume SKU lookups, validating payment terms, and onboarding client accounts." } },
+    ],
+    deliverables: [
+      { fr: "Portail de commande B2B privatif pour clients et commerciaux", en: "Dedicated wholesale ordering portal for B2B customers and sales reps" },
+      { fr: "Moteur de calcul tarifaire dynamique multi-niveaux et encours clients", en: "Dynamic tiered pricing engine and customer credit balance management" },
+      { fr: "Système de devis proforma et facturation automatisée conforme", en: "Automated proforma quote generator and compliant invoice engine" },
+      { fr: "Code source TypeScript complet et propriété intellectuelle exclusive", en: "100% full production source code and exclusive IP ownership" },
+    ],
+    faq: [
+      {
+        question: { fr: "Peut-on restreindre l'accès au site aux clients validés ?", en: "Can we restrict catalog access to verified B2B customers?" },
+        answer: { fr: "Oui. Le portail peut fonctionner en mode privé avec validation manuelle des comptes professionnels avant affichage des prix.", en: "Yes. The platform can operate as a closed gatekeeper portal requiring manual admin verification before displaying prices." },
+      },
+      {
+        question: { fr: "Comment s'effectue la synchronisation avec notre logiciel comptable ?", en: "How is data synced with our accounting software?" },
+        answer: { fr: "Nous développons des connecteurs sécurisés via Webhooks et APIs REST pour synchroniser les commandes directement dans votre ERP.", en: "We develop secure Webhook and REST API connectors to push orders and sync stock directly with your ERP (Sage, SAP, Cegid)." },
       },
     ],
   },

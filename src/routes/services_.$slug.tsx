@@ -45,11 +45,70 @@ export const Route = createFileRoute("/services_/$slug")({
       },
     };
 
+    const breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://ty-dev.site",
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://ty-dev.site/services",
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": loaderData.title.fr,
+          "item": `https://ty-dev.site/services/${loaderData.slug}`,
+        },
+      ],
+    };
+
+    const faqSchema =
+      loaderData.faq && loaderData.faq.length > 0
+        ? {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": loaderData.faq.map((item) => ({
+              "@type": "Question",
+              "name": item.question.fr,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": item.answer.fr,
+              },
+            })),
+          }
+        : null;
+
+    const scripts: Array<{ type: string; children: string }> = [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(serviceSchema),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(breadcrumbSchema),
+      },
+    ];
+
+    if (faqSchema) {
+      scripts.push({
+        type: "application/ld+json",
+        children: JSON.stringify(faqSchema),
+      });
+    }
+
     return {
       meta: [
         { title: `${loaderData.title.fr} — Services TY Dev` },
         { name: "description", content: loaderData.subtitle.fr },
-        { name: "keywords", content: loaderData.techStack.join(", ") },
+        { name: "keywords", content: `${loaderData.techStack.join(", ")}, ty-dev.site, ty-dev.fr, ty-dev.tech` },
         { property: "og:title", content: `${loaderData.title.fr} — TY Dev` },
         { property: "og:description", content: loaderData.subtitle.fr },
         { property: "og:image", content: "https://ty-dev.site/logo.jpg" },
@@ -61,12 +120,7 @@ export const Route = createFileRoute("/services_/$slug")({
         { name: "twitter:image", content: "https://ty-dev.site/logo.jpg" },
       ],
       links: [{ rel: "canonical", href: `https://ty-dev.site/services/${loaderData.slug}` }],
-      scripts: [
-        {
-          type: "application/ld+json",
-          children: JSON.stringify(serviceSchema),
-        },
-      ],
+      scripts,
     };
   },
   component: ServiceDetailPage,

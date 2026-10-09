@@ -9,9 +9,11 @@ import {
   Youtube,
   Send,
   Loader2,
+  Calculator,
+  ArrowRight,
 } from "lucide-react";
 import { toast } from "sonner";
-import { useNavigate } from "@tanstack/react-router";
+import { useNavigate, Link } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
 import { Section } from "./Services";
 import { sendContactEmailFn } from "@/lib/contactFn";
@@ -46,29 +48,81 @@ function XIcon(props: React.SVGProps<SVGSVGElement>) {
 }
 
 export function Contact() {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
   const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   return (
     <Section id="contact">
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+      {/* Interactive Simulator Banner */}
+      <motion.div
+        initial={{ opacity: 0, y: 15 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="mb-12 p-6 sm:p-7 rounded-[28px] bg-gradient-to-r from-brand/15 via-surface/70 to-surface/40 border border-brand/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 shadow-xl"
+      >
+        <div className="flex items-center gap-4">
+          <div className="w-12 h-12 rounded-2xl bg-brand/20 border border-brand/40 flex items-center justify-center text-brand shrink-0">
+            <Calculator size={22} />
+          </div>
+          <div>
+            <h3 className="font-display font-bold text-base sm:text-lg text-foreground">
+              {lang === "fr" ? "Envie d'un chiffrage budgétaire immédiat ?" : "Need an instant budget estimate?"}
+            </h3>
+            <p className="text-xs sm:text-sm text-muted-foreground mt-0.5">
+              {lang === "fr"
+                ? "Utilisez notre simulateur interactif pour configurer vos modules et calculer votre devis en 2 minutes."
+                : "Use our interactive quote simulator to select your technical modules and get an estimate in 2 minutes."}
+            </p>
+          </div>
+        </div>
+
+        <Link
+          to="/simulateur"
+          className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-brand text-white font-semibold text-xs sm:text-sm shadow-md hover:bg-brand/90 hover:-translate-y-0.5 transition-all w-full sm:w-auto shrink-0 text-center"
+        >
+          <span>{lang === "fr" ? "Lancer le simulateur" : "Launch Simulator"}</span>
+          <ArrowRight size={15} />
+        </Link>
+      </motion.div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+        {/* Colonne Coordonnées Directes & Réseaux Sociaux (order-2 sur mobile, colonne gauche sur desktop) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="lg:col-span-2"
+          className="order-2 lg:order-1 lg:col-span-2"
         >
-          <div className="font-mono text-xs uppercase tracking-wider text-brand mb-4">
-            // CONTACT
+          {/* Version Desktop : Titre & Sous-titre */}
+          <div className="hidden lg:block">
+            <div className="font-mono text-xs uppercase tracking-wider text-brand mb-4">
+              // CONTACT
+            </div>
+            <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight mb-4">
+              {t.contact.title}
+            </h2>
+            <p className="text-muted-foreground text-lg mb-10">{t.contact.subtitle}</p>
           </div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight mb-4">
-            {t.contact.title}
-          </h2>
-          <p className="text-muted-foreground text-lg mb-10">{t.contact.subtitle}</p>
 
-          <div className="space-y-2 mb-12">
+          {/* Version Mobile : En-tête des coordonnées sous le formulaire */}
+          <div className="lg:hidden mb-6 pt-2">
+            <div className="font-mono text-xs uppercase tracking-wider text-brand mb-2">
+              // {lang === "fr" ? "CANAUX DIRECTS & RÉSEAUX" : "DIRECT CHANNELS & SOCIALS"}
+            </div>
+            <h3 className="font-display text-2xl font-bold text-foreground mb-2">
+              {lang === "fr" ? "Échangez directement avec nos ingénieurs" : "Reach out to our team directly"}
+            </h3>
+            <p className="text-muted-foreground text-sm">
+              {lang === "fr"
+                ? "Disponibles en direct sur WhatsApp, e-mail et sur nos réseaux sociaux."
+                : "Available directly via WhatsApp, email and official social networks."}
+            </p>
+          </div>
+
+          <div className="space-y-2 mb-8 lg:mb-12">
             <ContactRow Icon={Mail} text="contact@ty-dev.tech" href="mailto:contact@ty-dev.tech" />
             <ContactRow
               Icon={MessageCircle}
@@ -98,6 +152,7 @@ export function Contact() {
           </div>
         </motion.div>
 
+        {/* Colonne Formulaire de Contact (order-1 sur mobile pour apparaître directement sous l'estimation) */}
         <motion.form
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -162,7 +217,7 @@ export function Contact() {
               setIsSubmitting(false);
             }
           }}
-          className="relative lg:col-span-3 p-8 md:p-12 rounded-[2rem] bg-gradient-to-br from-[oklch(0.08_0.025_260)] to-[oklch(0.05_0.015_260)] border border-border/50 shadow-2xl space-y-6 overflow-hidden"
+          className="order-1 lg:order-2 relative lg:col-span-3 p-8 md:p-12 rounded-[2rem] bg-gradient-to-br from-[oklch(0.08_0.025_260)] to-[oklch(0.05_0.015_260)] border border-border/50 shadow-2xl space-y-6 overflow-hidden"
         >
           <div className="absolute inset-0 pointer-events-none opacity-20 bg-[radial-gradient(ellipse_at_top_right,oklch(0.6_0.22_265/0.4),transparent_60%)]" />
           

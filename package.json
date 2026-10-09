@@ -13,7 +13,8 @@
     "blog:publish": "node scripts/publish_blog.mjs --publish-next",
     "blog:sitemap": "node scripts/generate_sitemap.mjs",
     "blog:mcp": "node scripts/mcp_blog_server.mjs",
-    "verify-email": "node scripts/verify-email.mjs"
+    "verify-email": "node scripts/verify-email.mjs",
+    "test:k6": ".\\k6-v0.56.0-windows-amd64\\k6.exe run tests/k6_load_test.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
