@@ -165,6 +165,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://ty-dev.site/blog/gitops-a-l-ere-de-kubernetes-2026-revolutionner-le-deploiement-et-la-gestion-des-infrastructures-cloud-avec-argocd-et-fluxcd</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://ty-dev.site/blog/cout-mvp-saas-tarifs-budget-guide-complet-2026</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
