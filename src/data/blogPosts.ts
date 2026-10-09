@@ -85,7 +85,7 @@ export const blogPosts: BlogPost[] = [
     author: {
       name: "Mohamed Yassine Ben Yaala",
       role: "CEO & FULL STACK ARCHITECT",
-      avatar: "/team/yassinebenyaala.png"
+      avatar: "/team/mohamedyassinbenyaala.jfif"
     },
     image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -365,7 +365,7 @@ Explore our [NaviCab Case Study](/projets/navicab) or [request a free technical 
     author: {
       name: "Mohamed Yassine Ben Yaala",
       role: "CEO & FULL STACK ARCHITECT",
-      avatar: "/team/yassinebenyaala.png"
+      avatar: "/team/mohamedyassinbenyaala.jfif"
     },
     image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
     tags: [

@@ -100,6 +100,9 @@ export function TeamMemberProfileView({ member }: TeamMemberProfileProps) {
                 <img
                   src={member.image}
                   alt={`${member.firstName} ${member.lastName}`}
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).src = "/team/mohamedyassinbenyaala.jfif";
+                  }}
                   className={`w-full h-full object-cover select-none pointer-events-none ${member.imagePosition || "object-center"}`}
                   draggable={false}
                   onContextMenu={(e) => e.preventDefault()}

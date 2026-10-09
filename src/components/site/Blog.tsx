@@ -248,6 +248,9 @@ export function Blog({ isPage = false }: { isPage?: boolean }) {
                       <img
                         src={featuredPost.author.avatar}
                         alt={featuredPost.author.name}
+                        onError={(e) => {
+                          (e.currentTarget as HTMLImageElement).src = "/team/mohamedyassinbenyaala.jfif";
+                        }}
                         className="w-9 h-9 rounded-full border border-cyan-500/40 object-cover"
                       />
                       <div>
@@ -353,6 +356,9 @@ export function Blog({ isPage = false }: { isPage?: boolean }) {
                           <img
                             src={post.author.avatar}
                             alt={post.author.name}
+                            onError={(e) => {
+                              (e.currentTarget as HTMLImageElement).src = "/team/mohamedyassinbenyaala.jfif";
+                            }}
                             className="w-7 h-7 rounded-full border border-cyan-500/30 object-cover"
                           />
                           <div>
