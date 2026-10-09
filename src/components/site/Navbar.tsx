@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight, Calculator } from "lucide-react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
 import { TyDevLogo } from "./TyDevLogo";
 
 type NavItem = { 
-  to: "/" | "/about" | "/services" | "/portfolio" | "/demos" | "/faq" | "/blog" | "/contact"; 
+  to: "/" | "/about" | "/services" | "/portfolio" | "/simulateur" | "/demos" | "/faq" | "/blog" | "/contact"; 
   label: string;
   num: string;
+  badge?: string;
 };
 
 export function Navbar() {
@@ -44,10 +45,16 @@ export function Navbar() {
     { to: "/about", label: t.nav.about, num: "01" },
     { to: "/services", label: t.nav.services, num: "02" },
     { to: "/portfolio", label: t.nav.portfolio, num: "03" },
-    { to: "/demos", label: (t.nav as any).demos || "Démos", num: "04" },
-    { to: "/faq", label: (t.nav as any).faq || "FAQ", num: "05" },
-    { to: "/blog", label: (t.nav as any).blog || "Blog", num: "06" },
-    { to: "/contact", label: t.nav.contact, num: "07" },
+    { 
+      to: "/simulateur", 
+      label: lang === "fr" ? "Simulateur" : "Simulator", 
+      badge: lang === "fr" ? "Devis" : "Quote", 
+      num: "04" 
+    },
+    { to: "/demos", label: (t.nav as any).demos || "Démos", num: "05" },
+    { to: "/faq", label: (t.nav as any).faq || "FAQ", num: "06" },
+    { to: "/blog", label: (t.nav as any).blog || "Blog", num: "07" },
+    { to: "/contact", label: t.nav.contact, num: "08" },
   ];
 
   return (
@@ -68,16 +75,29 @@ export function Navbar() {
           </Link>
 
           <nav className="hidden lg:flex items-center gap-1 rounded-full border border-border/60 bg-surface/30 backdrop-blur-md px-2 py-1.5">
-            {navItems.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                activeOptions={{ exact: true }}
-                className="relative px-3.5 py-1.5 text-[13px] text-muted-foreground hover:text-foreground transition-colors rounded-full hover:bg-surface/60 data-[status=active]:text-foreground data-[status=active]:bg-surface/70"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const isSimulateur = item.to === "/simulateur";
+              return (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  activeOptions={{ exact: true }}
+                  className={
+                    isSimulateur
+                      ? "relative inline-flex items-center gap-1.5 px-3 py-1.5 text-[13px] font-medium text-cyan-300 bg-cyan-500/10 border border-cyan-500/30 hover:bg-cyan-500/20 hover:text-cyan-200 transition-all rounded-full shadow-[0_0_15px_-3px_rgba(6,182,212,0.35)] data-[status=active]:bg-cyan-500/25 data-[status=active]:text-cyan-100"
+                      : "relative inline-flex items-center gap-1 px-3 py-1.5 text-[13px] text-muted-foreground hover:text-foreground transition-colors rounded-full hover:bg-surface/60 data-[status=active]:text-foreground data-[status=active]:bg-surface/70"
+                  }
+                >
+                  {isSimulateur && <Calculator size={13} className="text-cyan-400 shrink-0" />}
+                  <span>{item.label}</span>
+                  {item.badge && (
+                    <span className="px-1.5 py-0.5 rounded-full bg-cyan-500/20 border border-cyan-400/40 text-cyan-300 text-[9px] font-mono font-bold tracking-wider uppercase animate-pulse">
+                      {item.badge}
+                    </span>
+                  )}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="flex items-center gap-2 md:gap-3">
@@ -193,9 +213,18 @@ function MobileDrawer({
                         <span className="font-mono text-[11px] text-muted-foreground/60 w-6">
                           {item.num}
                         </span>
-                        <span className="font-display text-lg text-foreground group-hover:text-brand transition-colors group-data-[status=active]:text-brand">
+                        <span className={`font-display text-lg transition-colors ${
+                          item.to === "/simulateur" 
+                            ? "text-cyan-300 font-semibold group-hover:text-cyan-200" 
+                            : "text-foreground group-hover:text-brand group-data-[status=active]:text-brand"
+                        }`}>
                           {item.label}
                         </span>
+                        {item.badge && (
+                          <span className="px-2 py-0.5 rounded-full bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 text-[10px] font-mono font-bold tracking-wider uppercase">
+                            {item.badge}
+                          </span>
+                        )}
                       </span>
                       <ArrowUpRight
                         size={16}
@@ -209,9 +238,18 @@ function MobileDrawer({
               <motion.div
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="px-3 mt-6"
+                transition={{ delay: 0.45, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                className="px-3 mt-5 space-y-2.5"
               >
+                <Link
+                  to="/simulateur"
+                  onClick={onClose}
+                  className="flex items-center justify-center gap-2 w-full px-5 py-3.5 rounded-full bg-cyan-500/15 border border-cyan-500/35 text-cyan-300 font-semibold text-sm hover:bg-cyan-500 hover:text-slate-950 transition-all shadow-[0_0_25px_-5px_oklch(0.6_0.22_200/0.3)]"
+                >
+                  <Calculator size={16} />
+                  <span>{lang === "fr" ? "Simulateur de Devis (2 min)" : "Instant Quote Simulator (2 min)"}</span>
+                </Link>
+
                 <Link
                   to="/contact"
                   onClick={onClose}

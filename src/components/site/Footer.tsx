@@ -7,6 +7,7 @@ import {
   Clock,
   ArrowRight,
   ArrowUpRight,
+  Calculator,
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
@@ -72,16 +73,25 @@ export function Footer() {
                 : "Let's craft high-performance solutions together."}
             </p>
           </div>
-          <Link
-            to="/contact"
-            className="group relative inline-flex items-center gap-2 px-8 py-4 bg-brand text-white font-semibold rounded-full overflow-hidden transition-all hover:pr-12 shadow-[0_0_40px_-10px_oklch(0.55_0.22_265)] hover:shadow-[0_0_60px_-5px_oklch(0.55_0.22_265)]"
-          >
-            <span className="relative z-10">{t.nav.cta}</span>
-            <ArrowRight
-              size={18}
-              className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all"
-            />
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
+            <Link
+              to="/simulateur"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full border border-cyan-500/35 bg-cyan-500/10 text-cyan-300 font-semibold hover:bg-cyan-500 hover:text-slate-950 transition-all shadow-[0_0_25px_-5px_oklch(0.6_0.22_200/0.3)] hover:shadow-[0_0_35px_oklch(0.6_0.22_200/0.5)]"
+            >
+              <Calculator size={18} />
+              <span>{lang === "fr" ? "Simuler mon projet" : "Estimate my project"}</span>
+            </Link>
+            <Link
+              to="/contact"
+              className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand text-white font-semibold rounded-full overflow-hidden transition-all hover:pr-12 shadow-[0_0_40px_-10px_oklch(0.55_0.22_265)] hover:shadow-[0_0_60px_-5px_oklch(0.55_0.22_265)]"
+            >
+              <span className="relative z-10">{t.nav.cta}</span>
+              <ArrowRight
+                size={18}
+                className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all"
+              />
+            </Link>
+          </div>
         </div>
 
         {/* Main Footer Grid */}
@@ -103,6 +113,15 @@ export function Footer() {
           <div>
             <FooterColTitle>{t.footer.services}</FooterColTitle>
             <ul className="space-y-4 text-sm">
+              <li>
+                <Link
+                  to="/simulateur"
+                  className="inline-flex items-center gap-1.5 text-cyan-400 font-medium hover:text-cyan-300 transition-colors"
+                >
+                  <Calculator size={14} />
+                  <span>{lang === "fr" ? "Simulateur de Devis (2 min)" : "Quote Simulator (2 min)"}</span>
+                </Link>
+              </li>
               {t.services.items.slice(0, 5).map((s) => (
                 <li key={s.title}>
                   <Link to="/services" className="hover:text-brand transition-colors">
@@ -130,6 +149,15 @@ export function Footer() {
               <li>
                 <Link to="/portfolio" className="hover:text-brand transition-colors">
                   {t.nav.portfolio}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/simulateur"
+                  className="inline-flex items-center gap-1 text-cyan-400 font-medium hover:text-cyan-300 transition-colors"
+                >
+                  <Calculator size={13} />
+                  <span>{lang === "fr" ? "Simulateur de Devis" : "Quote Simulator"}</span>
                 </Link>
               </li>
               <li>
@@ -189,9 +217,21 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="px-8 py-6 flex flex-col sm:flex-row justify-between items-center gap-6 bg-[oklch(0.05_0.015_260)]">
-          <div className="flex items-center gap-4 md:gap-6 text-xs font-mono text-muted-foreground/80 flex-wrap justify-center">
+        <div className="px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-6 bg-[oklch(0.05_0.015_260)]">
+          <div className="flex items-center gap-4 md:gap-6 text-xs font-mono text-muted-foreground/80 flex-wrap justify-center md:justify-start">
             <span className="uppercase tracking-[0.16em]">{t.footer.rights}</span>
+            <span className="hidden sm:inline text-border">•</span>
+            <Link to="/legal" className="hover:text-foreground transition-colors">
+              {lang === "fr" ? "Mentions Légales" : "Legal Notice"}
+            </Link>
+            <span className="hidden sm:inline text-border">•</span>
+            <Link to="/faq" className="hover:text-foreground transition-colors">
+              FAQ
+            </Link>
+            <span className="hidden sm:inline text-border">•</span>
+            <Link to="/simulateur" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+              {lang === "fr" ? "Simulateur Devis" : "Quote Simulator"}
+            </Link>
           </div>
 
           <div className="flex items-center gap-5">
