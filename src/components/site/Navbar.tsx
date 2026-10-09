@@ -40,7 +40,18 @@ export function Navbar() {
     setOpen(false);
   }, [pathname]);
 
-  const navItems: NavItem[] = [
+  const desktopNavItems: NavItem[] = [
+    { to: "/", label: t.nav.home, num: "00" },
+    { to: "/about", label: t.nav.about, num: "01" },
+    { to: "/services", label: t.nav.services, num: "02" },
+    { to: "/portfolio", label: t.nav.portfolio, num: "03" },
+    { to: "/demos", label: (t.nav as any).demos || "Démos", num: "04" },
+    { to: "/faq", label: (t.nav as any).faq || "FAQ", num: "05" },
+    { to: "/blog", label: (t.nav as any).blog || "Blog", num: "06" },
+    { to: "/contact", label: t.nav.contact, num: "07" },
+  ];
+
+  const mobileNavItems: NavItem[] = [
     { to: "/", label: t.nav.home, num: "00" },
     { to: "/about", label: t.nav.about, num: "01" },
     { to: "/services", label: t.nav.services, num: "02" },
@@ -75,29 +86,16 @@ export function Navbar() {
           </Link>
 
           <nav className="hidden lg:flex items-center gap-1 rounded-full border border-border/60 bg-surface/30 backdrop-blur-md px-2 py-1.5">
-            {navItems.map((item) => {
-              const isSimulateur = item.to === "/simulateur";
-              return (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  activeOptions={{ exact: true }}
-                  className={
-                    isSimulateur
-                      ? "relative inline-flex items-center gap-1.5 px-3 py-1.5 text-[13px] font-medium text-cyan-300 bg-cyan-500/10 border border-cyan-500/30 hover:bg-cyan-500/20 hover:text-cyan-200 transition-all rounded-full shadow-[0_0_15px_-3px_rgba(6,182,212,0.35)] data-[status=active]:bg-cyan-500/25 data-[status=active]:text-cyan-100"
-                      : "relative inline-flex items-center gap-1 px-3 py-1.5 text-[13px] text-muted-foreground hover:text-foreground transition-colors rounded-full hover:bg-surface/60 data-[status=active]:text-foreground data-[status=active]:bg-surface/70"
-                  }
-                >
-                  {isSimulateur && <Calculator size={13} className="text-cyan-400 shrink-0" />}
-                  <span>{item.label}</span>
-                  {item.badge && (
-                    <span className="px-1.5 py-0.5 rounded-full bg-cyan-500/20 border border-cyan-400/40 text-cyan-300 text-[9px] font-mono font-bold tracking-wider uppercase animate-pulse">
-                      {item.badge}
-                    </span>
-                  )}
-                </Link>
-              );
-            })}
+            {desktopNavItems.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                activeOptions={{ exact: true }}
+                className="relative inline-flex items-center gap-1 px-3.5 py-1.5 text-[13px] text-muted-foreground hover:text-foreground transition-colors rounded-full hover:bg-surface/60 data-[status=active]:text-foreground data-[status=active]:bg-surface/70"
+              >
+                <span>{item.label}</span>
+              </Link>
+            ))}
           </nav>
 
           <div className="flex items-center gap-2 md:gap-3">
@@ -124,7 +122,7 @@ export function Navbar() {
       <MobileDrawer
         open={open}
         onClose={() => setOpen(false)}
-        navItems={navItems}
+        navItems={mobileNavItems}
         lang={lang}
         setLang={setLang}
         cta={t.nav.cta}
