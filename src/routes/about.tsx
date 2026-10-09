@@ -8,6 +8,25 @@ import { useI18n } from "@/i18n/context";
 import { Team } from "@/components/site/Team";
 import { Testimonials } from "@/components/site/Testimonials";
 
+const aboutBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Accueil",
+      item: "https://ty-dev.site",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "À Propos",
+      item: "https://ty-dev.site/about",
+    },
+  ],
+};
+
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
@@ -31,6 +50,12 @@ export const Route = createFileRoute("/about")({
       { name: "twitter:image", content: "https://ty-dev.site/logo.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://ty-dev.site/about" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(aboutBreadcrumbSchema),
+      },
+    ],
   }),
   component: AboutPage,
 });

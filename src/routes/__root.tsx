@@ -84,6 +84,7 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "TY Dev",
+  "legalName": "TY Dev LLC",
   "alternateName": "TY-DEV International AI & Software Agency",
   "url": "https://ty-dev.site",
   "logo": "https://ty-dev.site/logo.jpg",
@@ -91,6 +92,14 @@ const organizationSchema = {
   "description": "TY Dev conçoit et développe des applications web sur-mesure, plateformes SaaS, automatisations IA et architectures Cloud haute performance pour clients internationaux.",
   "email": "contact@ty-dev.site",
   "telephone": "+33 7 59 44 01 05",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "75 E 3rd St",
+    "addressLocality": "Sheridan",
+    "addressRegion": "WY",
+    "postalCode": "82801",
+    "addressCountry": "US",
+  },
   "sameAs": [
     "https://ty-dev.fr",
     "https://ty-dev.tech",
@@ -106,10 +115,24 @@ const organizationSchema = {
     "Cloud DevOps & Infrastructure"
   ],
   "areaServed": [
+    { "@type": "Country", "name": "France" },
+    { "@type": "Country", "name": "Tunisia" },
+    { "@type": "Country", "name": "Belgium" },
+    { "@type": "Country", "name": "Switzerland" },
+    { "@type": "Country", "name": "United States" },
     { "@type": "Continent", "name": "Europe" },
     { "@type": "Continent", "name": "North America" },
-    { "@type": "Continent", "name": "Asia" },
     { "@type": "Country", "name": "Worldwide" }
+  ],
+  "currenciesAccepted": "EUR, USD, TND",
+  "paymentAccepted": "Credit Card, Stripe, Bank Transfer, Wire Transfer",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "19:00"
+    }
   ],
   "availableLanguage": [
     { "@type": "Language", "name": "French", "alternateName": "fr" },

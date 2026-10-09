@@ -1,9 +1,41 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader } from "@/components/site/PageHeader";
-import { Faq } from "@/components/site/Faq";
+import { Faq, FAQ_ITEMS } from "@/components/site/Faq";
 import { CtaStrip } from "@/components/site/CtaStrip";
 import { Testimonials } from "@/components/site/Testimonials";
 import { useI18n } from "@/i18n/context";
+
+const faqBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Accueil",
+      item: "https://ty-dev.site",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Foire Aux Questions",
+      item: "https://ty-dev.site/faq",
+    },
+  ],
+};
+
+const faqPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ_ITEMS.map((item) => ({
+    "@type": "Question",
+    name: item.question.fr,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer.fr,
+    },
+  })),
+};
 
 export const Route = createFileRoute("/faq")({
   head: () => ({
@@ -32,6 +64,16 @@ export const Route = createFileRoute("/faq")({
       { name: "twitter:image", content: "https://ty-dev.site/logo.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://ty-dev.site/faq" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(faqBreadcrumbSchema),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(faqPageSchema),
+      },
+    ],
   }),
   component: FaqPage,
 });

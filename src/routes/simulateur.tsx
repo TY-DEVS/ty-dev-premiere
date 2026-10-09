@@ -30,6 +30,25 @@ const simulatorWebSchema = {
   },
 };
 
+const simulatorBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Accueil",
+      item: "https://ty-dev.site",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Simulateur de Devis",
+      item: "https://ty-dev.site/simulateur",
+    },
+  ],
+};
+
 const simulatorFaqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -115,6 +134,10 @@ export const Route = createFileRoute("/simulateur")({
     ],
     links: [{ rel: "canonical", href: "https://ty-dev.site/simulateur" }],
     scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(simulatorBreadcrumbSchema),
+      },
       {
         type: "application/ld+json",
         children: JSON.stringify(simulatorWebSchema),

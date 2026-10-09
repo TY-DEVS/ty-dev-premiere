@@ -2,6 +2,25 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Building2, Mail, MapPin } from "lucide-react";
 
+const legalBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Accueil",
+      item: "https://ty-dev.site",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Mentions Légales",
+      item: "https://ty-dev.site/legal",
+    },
+  ],
+};
+
 export const Route = createFileRoute("/legal")({
   head: () => ({
     meta: [
@@ -19,6 +38,12 @@ export const Route = createFileRoute("/legal")({
       { property: "og:type", content: "website" },
     ],
     links: [{ rel: "canonical", href: "https://ty-dev.site/legal" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(legalBreadcrumbSchema),
+      },
+    ],
   }),
   component: LegalPage,
 });

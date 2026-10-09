@@ -6,6 +6,25 @@ import { CtaStrip } from "@/components/site/CtaStrip";
 import { Testimonials } from "@/components/site/Testimonials";
 import { useI18n } from "@/i18n/context";
 
+const portfolioBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Accueil",
+      item: "https://ty-dev.site",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Portfolio & Réalisations",
+      item: "https://ty-dev.site/portfolio",
+    },
+  ],
+};
+
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
     meta: [
@@ -35,6 +54,12 @@ export const Route = createFileRoute("/portfolio")({
       { name: "twitter:image", content: "https://ty-dev.site/logo.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://ty-dev.site/portfolio" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(portfolioBreadcrumbSchema),
+      },
+    ],
   }),
   component: PortfolioPage,
 });

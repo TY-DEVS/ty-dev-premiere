@@ -13,7 +13,7 @@ export interface FaqItem {
   answer: { fr: string; en: string };
 }
 
-const FAQ_ITEMS: FaqItem[] = [
+export const FAQ_ITEMS: FaqItem[] = [
   // SaaS & Développement
   {
     id: "project-types",

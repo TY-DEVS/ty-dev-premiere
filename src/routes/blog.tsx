@@ -4,6 +4,25 @@ import { Blog } from "@/components/site/Blog";
 import { CtaStrip } from "@/components/site/CtaStrip";
 import { useI18n } from "@/i18n/context";
 
+const blogBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Accueil",
+      item: "https://ty-dev.site",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Blog & Guides Tech",
+      item: "https://ty-dev.site/blog",
+    },
+  ],
+};
+
 export const Route = createFileRoute("/blog")({
   head: () => ({
     meta: [
@@ -37,6 +56,12 @@ export const Route = createFileRoute("/blog")({
       { name: "twitter:image", content: "https://ty-dev.site/logo.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://ty-dev.site/blog" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(blogBreadcrumbSchema),
+      },
+    ],
   }),
   component: BlogListPage,
 });
