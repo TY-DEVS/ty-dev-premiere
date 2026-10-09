@@ -38,6 +38,31 @@ export const Route = createFileRoute("/blog_/$slug")({
       },
     };
 
+    const breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://ty-dev.site",
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://ty-dev.site/blog",
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": loaderData.title.fr,
+          "item": `https://ty-dev.site/blog/${loaderData.slug}`,
+        },
+      ],
+    };
+
     return {
       meta: [
         { title: `${loaderData.title.fr} — TY Dev Blog` },
@@ -58,6 +83,10 @@ export const Route = createFileRoute("/blog_/$slug")({
         {
           type: "application/ld+json",
           children: JSON.stringify(articleSchema),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(breadcrumbSchema),
         },
       ],
     };

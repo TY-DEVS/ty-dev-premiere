@@ -26,6 +26,7 @@ export default function () {
     { url: `${BASE_URL}/services/saas-immobilier-conciergerie`, name: 'P1: PropTech & Conciergerie' },
     { url: `${BASE_URL}/services/saas-e-commerce-b2b`, name: 'P1: E-Commerce B2B' },
     { url: `${BASE_URL}/blog`, name: 'Blog Index' },
+    { url: `${BASE_URL}/blog/cout-mvp-saas-tarifs-budget-guide-complet-2026`, name: 'P7: Coût MVP SaaS' },
     { url: `${BASE_URL}/blog/developpement-saas-sur-mesure-vs-no-code-bubble-flutterflow-2026`, name: 'P4: SaaS vs No-Code' },
     { url: `${BASE_URL}/blog/agence-tech-france-vs-offshore-comparatif-couts-qualite-2026`, name: 'P4: Agence France vs Offshore' },
     { url: `${BASE_URL}/portfolio`, name: 'Portfolio Hub' },
