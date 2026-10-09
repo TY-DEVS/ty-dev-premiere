@@ -45,8 +45,9 @@ jobs:
           git add src/data/blogPosts.ts public/sitemap.xml
           git commit -m "chore(blog): publication automatique quotidienne du blog et mise à jour du sitemap" || exit 0
           
-          # Push to main, Raouf and ty-dev-tn
+          # Push to main, Raouf (both casing), and ty-dev-tn
           git pull origin main --rebase || true
           git push --force origin HEAD:main
           git push --force origin HEAD:refs/heads/Raouf
+          git push --force origin HEAD:refs/heads/raouf
           git push --force origin HEAD:refs/heads/ty-dev-tn
