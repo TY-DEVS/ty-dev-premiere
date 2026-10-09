@@ -5,18 +5,20 @@ import { Building2, Mail, MapPin } from "lucide-react";
 export const Route = createFileRoute("/legal")({
   head: () => ({
     meta: [
-      { title: "Legal Information — TY Dev LLC" },
+      { title: "Mentions Légales & Informations Juridiques — TY Dev LLC" },
       {
         name: "description",
-        content: "Legal information and company details for TY Dev LLC.",
+        content: "Informations légales, immatriculation et coordonnées officielles de l'agence TY Dev LLC.",
       },
-      { property: "og:title", content: "Legal Information — TY Dev LLC" },
+      { property: "og:title", content: "Mentions Légales & Informations Juridiques — TY Dev LLC" },
       {
         property: "og:description",
-        content: "Legal information and company details for TY Dev LLC.",
+        content: "Informations légales, immatriculation et coordonnées officielles de l'agence TY Dev LLC.",
       },
+      { property: "og:url", content: "https://ty-dev.site/legal" },
+      { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "/legal" }],
+    links: [{ rel: "canonical", href: "https://ty-dev.site/legal" }],
   }),
   component: LegalPage,
 });

@@ -30,6 +30,8 @@ const staticPages = [
   { url: '/blog', lastmod: STATIC_LASTMOD, priority: '0.95', changefreq: 'daily' },
   { url: '/about', lastmod: STATIC_LASTMOD, priority: '0.8', changefreq: 'monthly' },
   { url: '/contact', lastmod: STATIC_LASTMOD, priority: '0.8', changefreq: 'monthly' },
+  { url: '/faq', lastmod: STATIC_LASTMOD, priority: '0.8', changefreq: 'monthly' },
+  { url: '/legal', lastmod: STATIC_LASTMOD, priority: '0.5', changefreq: 'monthly' },
   { url: '/simulateur', lastmod: '2026-10-08', priority: '0.95', changefreq: 'weekly' },
   { url: '/projets/navicab', lastmod: '2026-10-06', priority: '0.9', changefreq: 'weekly' },
 ];
@@ -47,6 +49,15 @@ const serviceSlugs = [
   "saas-transport-logistique",
   "saas-immobilier-conciergerie",
   "saas-e-commerce-b2b",
+];
+
+// Expert team member profiles (E-E-A-T Google Authority)
+const teamSlugs = [
+  "yassine-ben-yaala",
+  "moutia-ben-yahia",
+  "amine-ben-ammar",
+  "mohamed-ben-khemis",
+  "mohamed-ben-yahia",
 ];
 
 function extractBlogPosts(fileContent) {
@@ -100,6 +111,16 @@ async function generateSitemap() {
     xml += `  </url>\n`;
   }
 
+  // Add expert team profiles (E-E-A-T Google Authority)
+  for (const slug of teamSlugs) {
+    xml += `  <url>\n`;
+    xml += `    <loc>${domain}/team/${slug}</loc>\n`;
+    xml += `    <lastmod>${STATIC_LASTMOD}</lastmod>\n`;
+    xml += `    <changefreq>monthly</changefreq>\n`;
+    xml += `    <priority>0.8</priority>\n`;
+    xml += `  </url>\n`;
+  }
+
   // Add all blog posts with their actual publication date
   for (const post of blogPosts) {
     xml += `  <url>\n`;
@@ -113,8 +134,9 @@ async function generateSitemap() {
   xml += `</urlset>\n`;
 
   const outputPath = path.join(rootDir, 'public', 'sitemap.xml');
+  const totalUrls = staticPages.length + serviceSlugs.length + teamSlugs.length + blogPosts.length;
   fs.writeFileSync(outputPath, xml, 'utf-8');
-  console.log(`✅ Sitemap.xml generated successfully with ${staticPages.length + serviceSlugs.length + blogPosts.length} URLs (including ${blogPosts.length} blog articles) at ${outputPath}`);
+  console.log(`✅ Sitemap.xml generated successfully with ${totalUrls} URLs (including ${blogPosts.length} blog articles, ${teamSlugs.length} team profiles) at ${outputPath}`);
 }
 
 generateSitemap().catch(console.error);
