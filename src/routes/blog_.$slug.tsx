@@ -13,16 +13,23 @@ export const Route = createFileRoute("/blog_/$slug")({
   },
   head: ({ loaderData }) => {
     if (!loaderData) return {};
+    const publishDate = loaderData.date.iso || loaderData.date.fr;
+
     const articleSchema = {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
       "headline": loaderData.title.fr,
       "description": loaderData.summary.fr,
       "image": [loaderData.image],
+      "datePublished": publishDate,
+      "dateModified": publishDate,
+      "articleSection": loaderData.category,
+      "keywords": (loaderData.tags || []).join(", "),
       "author": {
         "@type": "Person",
         "name": loaderData.author.name,
         "jobTitle": loaderData.author.role,
+        "url": `https://ty-dev.site/team/${loaderData.author.slug || "yassine-ben-yaala"}`,
       },
       "publisher": {
         "@type": "Organization",
@@ -73,6 +80,11 @@ export const Route = createFileRoute("/blog_/$slug")({
         { property: "og:image", content: loaderData.image },
         { property: "og:type", content: "article" },
         { property: "og:url", content: `https://ty-dev.site/blog/${loaderData.slug}` },
+        { property: "article:published_time", content: publishDate },
+        { property: "article:modified_time", content: publishDate },
+        { property: "article:author", content: loaderData.author.name },
+        { property: "article:section", content: loaderData.category },
+        ...((loaderData.tags || []).map((tag) => ({ property: "article:tag", content: tag }))),
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: loaderData.title.fr },
         { name: "twitter:description", content: loaderData.summary.fr },

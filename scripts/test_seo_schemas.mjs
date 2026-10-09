@@ -125,6 +125,44 @@ assert(fs.existsSync(path.join(rootDir, "public/team/moutiabenyahia.webp")), "Le
 assert(fs.existsSync(path.join(rootDir, "public/team/aminebenamamr.webp")), "Le fichier public/team/aminebenamamr.webp existe");
 assert(fs.existsSync(path.join(rootDir, "public/logo.webp")), "Le fichier public/logo.webp existe");
 
+// 14. Test Schéma Person, ProfilePage & Breadcrumbs sur /team/$slug (E-E-A-T)
+console.log("\n14. Test team_.$slug.tsx - Schémas Person & ProfilePage (E-E-A-T)");
+const teamRoutePath = path.join(rootDir, "src/routes/team_.$slug.tsx");
+const teamRouteContent = fs.readFileSync(teamRoutePath, "utf-8");
+assert(teamRouteContent.includes('"@type": "Person"'), "team_.$slug.tsx contient le schéma @type Person");
+assert(teamRouteContent.includes('"@type": "ProfilePage"'), "team_.$slug.tsx contient le schéma @type ProfilePage");
+assert(teamRouteContent.includes('"worksFor"'), "Person inclut worksFor (TY Dev)");
+assert(teamRouteContent.includes('children: JSON.stringify(personSchema)'), "personSchema est injecté dans le head");
+assert(teamRouteContent.includes('children: JSON.stringify(profilePageSchema)'), "profilePageSchema est injecté dans le head");
+
+// 15. Test Métadonnées OpenGraph Article sur /blog/$slug
+console.log("\n15. Test blog_.$slug.tsx - Balises OpenGraph Article complètes");
+const blogSlugPath = path.join(rootDir, "src/routes/blog_.$slug.tsx");
+const blogSlugContent = fs.readFileSync(blogSlugPath, "utf-8");
+assert(blogSlugContent.includes('"article:published_time"'), "blog_.$slug.tsx contient article:published_time");
+assert(blogSlugContent.includes('"article:author"'), "blog_.$slug.tsx contient article:author");
+assert(blogSlugContent.includes('"article:section"'), "blog_.$slug.tsx contient article:section");
+assert(blogSlugContent.includes('"datePublished"'), "Le schéma BlogPosting inclut datePublished");
+
+// 16. Test Maillage Interne BlogArticleDetail.tsx (Articles connexes & Service lié)
+console.log("\n16. Test BlogArticleDetail.tsx - Articles connexes & Service associé");
+const blogDetailPath = path.join(rootDir, "src/components/site/BlogArticleDetail.tsx");
+const blogDetailContent = fs.readFileSync(blogDetailPath, "utf-8");
+assert(blogDetailContent.includes('getDynamicBlogPosts'), "BlogArticleDetail importe getDynamicBlogPosts");
+assert(blogDetailContent.includes('servicesData'), "BlogArticleDetail importe servicesData");
+assert(blogDetailContent.includes('relatedPosts'), "BlogArticleDetail calcule relatedPosts");
+assert(blogDetailContent.includes('matchedService'), "BlogArticleDetail associe matchedService");
+
+// 17. Test Flux RSS et déclaration dans __root.tsx
+console.log("\n17. Test Flux RSS 2.0 (rss.xml)");
+const rssPath = path.join(rootDir, "public/rss.xml");
+assert(fs.existsSync(rssPath), "Le fichier public/rss.xml existe");
+const rssContent = fs.readFileSync(rssPath, "utf-8");
+assert(rssContent.includes('<rss version="2.0"'), "rss.xml est un flux RSS 2.0 valide");
+assert(rssContent.includes('<channel>'), "rss.xml contient l'élément channel");
+assert(rssContent.includes('<item>'), "rss.xml contient des éléments item");
+assert(rootRouteContent.includes('application/rss+xml'), "__root.tsx contient la balise de découverte RSS dans <head>");
+
 console.log("\n=======================================================");
 console.log(`Résultats : ${successes} succès, ${failures} échec(s)`);
 console.log("=======================================================");
@@ -132,6 +170,6 @@ console.log("=======================================================");
 if (failures > 0) {
   process.exit(1);
 } else {
-  console.log("🎉 Toutes les optimisations SEO (Schémas, Hreflang, 404, Maillage, Images) sont 100% validées et conformes !\n");
+  console.log("🎉 Toutes les optimisations SEO (Schémas, E-E-A-T, OpenGraph, RSS, Maillage, Images) sont 100% validées et conformes !\n");
   process.exit(0);
 }

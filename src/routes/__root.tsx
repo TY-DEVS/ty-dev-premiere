@@ -203,6 +203,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "alternate", hrefLang: "fr", href: "https://ty-dev.site" },
       { rel: "alternate", hrefLang: "en", href: "https://ty-dev.site" },
       { rel: "alternate", hrefLang: "x-default", href: "https://ty-dev.site" },
+      {
+        rel: "alternate",
+        type: "application/rss+xml",
+        title: "TY Dev Blog — Flux RSS",
+        href: "https://ty-dev.site/rss.xml",
+      },
       { rel: "icon", href: "/favicon.ico", sizes: "any" },
       { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32x32.png" },
       { rel: "icon", type: "image/png", sizes: "48x48", href: "/favicon-48x48.png" },

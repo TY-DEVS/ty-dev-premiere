@@ -2,7 +2,8 @@ import { useState } from "react";
 import { ArrowLeft, Calendar, Share2, Tag, Check, Copy, Terminal, Info, User, ArrowRight, MessageCircle, Code2, Clock, ShieldCheck } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
-import { type BlogPost, getAuthorSlug } from "@/data/blogPosts";
+import { type BlogPost, getAuthorSlug, getDynamicBlogPosts } from "@/data/blogPosts";
+import { servicesData } from "@/data/servicesData";
 import { Section } from "./Services";
 import { ShareArticleModal } from "./ShareArticleModal";
 
@@ -250,6 +251,23 @@ export function BlogArticleDetail({ post }: { post: BlogPost }) {
     },
   };
 
+  const allPosts = getDynamicBlogPosts();
+  const relatedPosts = allPosts
+    .filter((p) => p.slug !== post.slug)
+    .filter((p) => p.category === post.category || p.tags.some((t) => post.tags.includes(t)))
+    .slice(0, 3);
+
+  const matchedService = servicesData.find((s) => {
+    const slug = s.slug.toLowerCase();
+    const cat = post.category.toLowerCase();
+    if (cat.includes("saas") && slug.includes("saas")) return true;
+    if (cat.includes("ia") && slug.includes("ia")) return true;
+    if (cat.includes("performance") && slug.includes("performance")) return true;
+    if (cat.includes("web") && slug.includes("web")) return true;
+    if (cat.includes("mvp") && slug.includes("mvp")) return true;
+    return false;
+  }) || servicesData[0];
+
   return (
     <Section id="article-detail" className="pt-28 pb-20">
       {/* Inject SEO JSON-LD Schema */}
@@ -474,6 +492,89 @@ export function BlogArticleDetail({ post }: { post: BlogPost }) {
             </button>
           </div>
         </div>
+
+        {/* Passerelle Maillage Interne : Service Associé */}
+        {matchedService && (
+          <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-surface/50 border border-brand/30 hover:border-brand/60 transition-all flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div className="space-y-2">
+              <span className="text-[11px] font-mono uppercase tracking-widest text-brand font-semibold">
+                // {lang === "fr" ? "Expertise technique TY Dev" : "Associated TY Dev Service"}
+              </span>
+              <h3 className="text-lg sm:text-xl font-bold font-display text-foreground">
+                {matchedService.title[lang as "fr" | "en"] || matchedService.title.fr}
+              </h3>
+              <p className="text-xs sm:text-sm text-muted-foreground line-clamp-2 max-w-2xl">
+                {matchedService.subtitle[lang as "fr" | "en"] || matchedService.subtitle.fr}
+              </p>
+            </div>
+            <Link
+              to="/services/$slug"
+              params={{ slug: matchedService.slug }}
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand text-primary-foreground text-xs font-semibold hover:opacity-90 transition-opacity shrink-0"
+            >
+              <span>{lang === "fr" ? "Découvrir notre offre" : "Discover Service"}</span>
+              <ArrowRight size={14} />
+            </Link>
+          </div>
+        )}
+
+        {/* Section Articles Connexes (Internal Linking & Dwell Time) */}
+        {relatedPosts.length > 0 && (
+          <div className="mt-16 pt-10 border-t border-border/50">
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <span className="font-mono text-xs text-cyan-400 uppercase tracking-widest block mb-1">
+                  // {lang === "fr" ? "Pour aller plus loin" : "Further Reading"}
+                </span>
+                <h3 className="font-display text-2xl font-bold text-foreground">
+                  {lang === "fr" ? "Articles Connexes & Recommandés" : "Related Articles"}
+                </h3>
+              </div>
+              <Link
+                to="/blog"
+                className="hidden sm:inline-flex items-center gap-1.5 text-xs font-mono text-cyan-300 hover:text-cyan-200 transition-colors"
+              >
+                <span>{lang === "fr" ? "Tout le blog" : "All articles"}</span>
+                <ArrowRight size={14} />
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {relatedPosts.map((rPost) => (
+                <Link
+                  key={rPost.slug}
+                  to="/blog/$slug"
+                  params={{ slug: rPost.slug }}
+                  className="group relative flex flex-col rounded-2xl overflow-hidden bg-surface/40 border border-border/50 hover:border-cyan-500/50 hover:bg-surface/70 transition-all duration-300 hover:-translate-y-1"
+                >
+                  <div className="relative aspect-video w-full overflow-hidden bg-surface shrink-0">
+                    <img
+                      src={rPost.image}
+                      alt={rPost.title[lang]}
+                      width={400}
+                      height={225}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <span className="absolute top-2 left-2 text-[10px] font-mono uppercase px-2 py-0.5 rounded-full bg-slate-950/80 text-cyan-300 border border-cyan-500/30">
+                      {rPost.category}
+                    </span>
+                  </div>
+                  <div className="p-4 flex flex-col justify-between flex-grow">
+                    <h4 className="font-display font-semibold text-sm text-foreground group-hover:text-cyan-300 transition-colors line-clamp-2 mb-2 leading-snug">
+                      {rPost.title[lang]}
+                    </h4>
+                    <span className="text-[11px] font-mono text-muted-foreground flex items-center gap-1 mt-auto pt-2 border-t border-border/30">
+                      <Calendar size={12} className="text-cyan-400" />
+                      {rPost.date[lang]}
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </article>
     </Section>
   );

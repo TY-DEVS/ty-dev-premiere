@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>TY Dev — Blog &amp; Actualités Ingénierie Logicielle, SaaS &amp; IA</title>
+    <link>https://ty-dev.site/blog</link>
+    <description>Articles techniques, guides d'architecture SaaS, développement web haute performance et intégration d'agents IA par TY Dev.</description>
+    <language>fr</language>
+    <lastBuildDate>Fri, 09 Oct 2026 16:42:52 GMT</lastBuildDate>
+    <atom:link href="https://ty-dev.site/rss.xml" rel="self" type="application/rss+xml" />
+    <image>
+      <url>https://ty-dev.site/logo.jpg</url>
+      <title>TY Dev</title>
+      <link>https://ty-dev.site</link>
+    </image>
+    <item>
+      <title><![CDATA[GitOps à l'Ère de Kubernetes 2026 : Révolutionner le Déploiement et la Gestion des Infrastructures Cloud avec ArgoCD et FluxCD]]></title>
+      <link>https://ty-dev.site/blog/gitops-a-l-ere-de-kubernetes-2026-revolutionner-le-deploiement-et-la-gestion-des-infrastructures-cloud-avec-argocd-et-fluxcd</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/gitops-a-l-ere-de-kubernetes-2026-revolutionner-le-deploiement-et-la-gestion-des-infrastructures-cloud-avec-argocd-et-fluxcd</guid>
+      <description><![CDATA[En 2026, l'approche GitOps est devenue indispensable pour la gestion des infrastructures Kubernetes, offrant une automatisation sans précédent et une fiabilité accrue. Cet article explore comment ArgoCD et FluxCD transforment le déploiement continu et la réconciliation d'état pour les entreprises.]]></description>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Software Architecture]]></category>
+      <dc:creator><![CDATA[Mohamed Ben Khemis]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Coût d'un MVP SaaS en 2026 : Tarifs Réels, Fourchettes Budgétaires & Guide Complet]]></title>
+      <link>https://ty-dev.site/blog/cout-mvp-saas-tarifs-budget-guide-complet-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/cout-mvp-saas-tarifs-budget-guide-complet-2026</guid>
+      <description><![CDATA[Guide budgétaire 2026 pour fondateurs et directeurs de produit : fourchettes de prix réelles (4 500 € à 35 000 €+), décomposition par étape, coûts cachés (Cloud, IA, Stripe) et méthode pour économiser 30% sans dégrader la qualité.]]></description>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Stratégie & Tarifs Tech]]></category>
+      <dc:creator><![CDATA[Mohamed Yassine Ben Yaala]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Développement SaaS Sur-Mesure vs No-Code (Bubble, FlutterFlow) : Quel Choix pour Votre Projet en 2026 ?]]></title>
+      <link>https://ty-dev.site/blog/developpement-saas-sur-mesure-vs-no-code-bubble-flutterflow-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/developpement-saas-sur-mesure-vs-no-code-bubble-flutterflow-2026</guid>
+      <description><![CDATA[Analyse comparative approfondie entre le développement sur-mesure et les plateformes No-Code : coûts réels sur 3 ans, propriété intellectuelle, scalabilité, conformité RGPD et limites techniques pour les fondateurs et décideurs.]]></description>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Architecture & Stratégie]]></category>
+      <dc:creator><![CDATA[Moutia Ben Yahia]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Agence Tech en France vs Sous-Traitance Offshore : Analyse des Coûts Cachés & Comparatif 2026]]></title>
+      <link>https://ty-dev.site/blog/agence-tech-france-vs-offshore-comparatif-couts-qualite-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/agence-tech-france-vs-offshore-comparatif-couts-qualite-2026</guid>
+      <description><![CDATA[Pourquoi un devis offshore 3 fois moins cher finit souvent par coûter le double : étude des coûts cachés, décalage horaire, dette technique, sécurité juridique et cadre contractuel français.]]></description>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Gestion de Projet Tech]]></category>
+      <dc:creator><![CDATA[Mohamed Yassine Ben Yaala]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Edge Computing & Cloudflare Workers : Exécuter des SaaS au Plus Près des Utilisateurs]]></title>
+      <link>https://ty-dev.site/blog/edge-computing-cloudflare-workers-executer-des-saas-au-plus-pres-des-utilisateurs</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/edge-computing-cloudflare-workers-executer-des-saas-au-plus-pres-des-utilisateurs</guid>
+      <description><![CDATA[Comment décentraliser vos API et vos bases de données relationnelles sur le réseau Edge pour diviser vos temps de réponse par cinq à l'échelle mondiale.]]></description>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[DevOps & Cloud]]></category>
+      <dc:creator><![CDATA[Mohamed Ben Khemis]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[L'IA de Bord de Navigateur : Révolutionner les Applications Web avec ONNX Runtime Web en 2026]]></title>
+      <link>https://ty-dev.site/blog/l-ia-de-bord-de-navigateur-revolutionner-les-applications-web-avec-onnx-runtime-web-en-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/l-ia-de-bord-de-navigateur-revolutionner-les-applications-web-avec-onnx-runtime-web-en-2026</guid>
+      <description><![CDATA[L'intelligence artificielle s'apprête à transformer les applications web directement dans le navigateur, offrant performance, vie privée et réactivité inégalées. Cet article explore comment ONNX Runtime Web est la clé pour déployer des modèles d'IA sophistiqués côté client, ouvrant de nouvelles perspectives pour les applications de nouvelle génération d'ici 2026.]]></description>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Software Architecture]]></category>
+      <dc:creator><![CDATA[Mohamed Ben Khemis]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Passkeys & WebAuthn : L'Aube de l'Authentification Sans Mot de Passe en 2026]]></title>
+      <link>https://ty-dev.site/blog/passkeys-webauthn-l-aube-de-l-authentification-sans-mot-de-passe-en-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/passkeys-webauthn-l-aube-de-l-authentification-sans-mot-de-passe-en-2026</guid>
+      <description><![CDATA[Les Passkeys, basés sur la norme WebAuthn, redéfinissent la sécurité et l'expérience utilisateur en éliminant les mots de passe. Cette technologie cruciale pour 2026 promet une authentification robuste et fluide à travers tous les appareils.]]></description>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Software Architecture]]></category>
+      <dc:creator><![CDATA[Amine Ben Ammar]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[L'IA à la Périphérie : ONNX Web et l'Inférence en Temps Réel Directement dans le Navigateur en 2026]]></title>
+      <link>https://ty-dev.site/blog/l-ia-a-la-peripherie-onnx-web-et-l-inference-en-temps-reel-directement-dans-le-navigateur-en-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/l-ia-a-la-peripherie-onnx-web-et-l-inference-en-temps-reel-directement-dans-le-navigateur-en-2026</guid>
+      <description><![CDATA[L'intelligence artificielle décentralisée devient une réalité grâce à ONNX Web, permettant des inférences complexes directement dans le navigateur sans latence serveur. Cette approche révolutionne le développement d'applications web, offrant des expériences utilisateur hyper-personnalisées et ultra-réactives.]]></description>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Software Architecture]]></category>
+      <dc:creator><![CDATA[Mohamed Yassine Ben Yaala]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[DeepSeek-R1 & LLMs Open Source en Entreprise : Déploiement Local, vLLM & Souveraineté]]></title>
+      <link>https://ty-dev.site/blog/deepseek-r1-llms-open-source-en-entreprise-deploiement-local-vllm-souverainete</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/deepseek-r1-llms-open-source-en-entreprise-deploiement-local-vllm-souverainete</guid>
+      <description><![CDATA[Guide pratique pour héberger et exécuter des modèles de raisonnement open source sur serveurs privés, optimiser l'inférence avec vLLM et garantir la conformité RGPD.]]></description>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[IA & Automatisation]]></category>
+      <dc:creator><![CDATA[Mohamed Ben Yahia]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[TanStack Start vs Next.js 15 : Pourquoi l'Écosystème Fullstack Évolue vers Vite en 2026]]></title>
+      <link>https://ty-dev.site/blog/tanstack-start-vs-next-js-15-pourquoi-l-ecosysteme-fullstack-evolue-vers-vite-en-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/tanstack-start-vs-next-js-15-pourquoi-l-ecosysteme-fullstack-evolue-vers-vite-en-2026</guid>
+      <description><![CDATA[Analyse comparative d'architecture : gestion des Server Functions, typage TypeScript de bout en bout, temps de build et autonomie d'hébergement sans vendor lock-in.]]></description>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Software Architecture]]></category>
+      <dc:creator><![CDATA[Mohamed Ben Khemis]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1526374870839-e155464bb9b2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Model Context Protocol (MCP) & Agents IA : Standardiser l'Architecture d'Outils en 2026]]></title>
+      <link>https://ty-dev.site/blog/model-context-protocol-mcp-agents-ia-standardiser-l-architecture-d-outils-en-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/model-context-protocol-mcp-agents-ia-standardiser-l-architecture-d-outils-en-2026</guid>
+      <description><![CDATA[Comment le standard ouvert MCP révolutionne l'intégration d'agents autonomes dans vos logiciels en remplaçant les connecteurs propriétaires par un protocole JSON-RPC unifié.]]></description>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[IA & Automatisation]]></category>
+      <dc:creator><![CDATA[Amine Ben Ammar]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Intégration d'Agents IA & LLM dans les SaaS : Automatiser les Workflows Métiers en 2026]]></title>
+      <link>https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</guid>
+      <description><![CDATA[Guide d'architecture complet pour connecter vos bases de données aux modèles LLM (RAG, Function Calling, Pgvector) et automatiser vos processus métiers sans compromettre la sécurité.]]></description>
+      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[IA & Automatisation]]></category>
+      <dc:creator><![CDATA[Moutia Ben Yahia]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Performance Frontend & Code Splitting : Accélérer les Applications React & Vite]]></title>
+      <link>https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</guid>
+      <description><![CDATA[Techniques avancées d'optimisation frontend : Lazy Loading des composants, Tree-Shaking, optimisation des bundles Vite et atteinte d'un score Lighthouse de 100.]]></description>
+      <pubDate>Sun, 04 Oct 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[SEO & Web Performance]]></category>
+      <dc:creator><![CDATA[Mohamed Ben Yahia]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Monétisation SaaS & Intégration Stripe : Gestion des Abonnements & Facturation]]></title>
+      <link>https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation</guid>
+      <description><![CDATA[Architecture d'ingénierie financière pour intégrer Stripe, gérer la synchronisation asynchrone par Webhooks, les abonnements et le Dunning Management.]]></description>
+      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Engineering & API]]></category>
+      <dc:creator><![CDATA[Mohamed Ben Khemis]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1526374870839-e155464bb9b2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Continuous Integration & Deployment (CI/CD) : Pipelines de Production Résilients]]></title>
+      <link>https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients</guid>
+      <description><![CDATA[Mettre en place des pipelines GitHub Actions automatisés avec tests unitaires, vérification de types TypeScript, audit de sécurité et déploiement continu.]]></description>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Engineering & API]]></category>
+      <dc:creator><![CDATA[Amine Ben Ammar]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Bases de Données Relationnelles vs NoSQL : PostgreSQL, Redis & MongoDB en 2026]]></title>
+      <link>https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</guid>
+      <description><![CDATA[Guide technique d'architecture pour sélectionner le bon moteur de stockage, optimiser les index et concevoir une stratégie multi-base performante.]]></description>
+      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Software Architecture]]></category>
+      <dc:creator><![CDATA[Mohamed Yassine Ben Yaala]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Intégration d'Agents IA & LLM dans les SaaS : Automatiser les Workflows Métiers en 2026]]></title>
+      <link>https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</guid>
+      <description><![CDATA[Guide d'architecture complet pour connecter vos bases de données aux modèles LLM (RAG, Function Calling, Pgvector) et automatiser vos processus métiers sans compromettre la sécurité.]]></description>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[IA & Automatisation]]></category>
+      <dc:creator><![CDATA[Moutia Ben Yahia]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Performance Frontend & Code Splitting : Accélérer les Applications React & Vite]]></title>
+      <link>https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</guid>
+      <description><![CDATA[Techniques avancées d'optimisation frontend : Lazy Loading des composants, Tree-Shaking, optimisation des bundles Vite et atteinte d'un score Lighthouse de 100.]]></description>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[SEO & Web Performance]]></category>
+      <dc:creator><![CDATA[Mohamed Ben Yahia]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Monétisation SaaS & Intégration Stripe : Gestion des Abonnements & Facturation]]></title>
+      <link>https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation</guid>
+      <description><![CDATA[Architecture d'ingénierie financière pour intégrer Stripe, gérer la synchronisation asynchrone par Webhooks, les abonnements et le Dunning Management.]]></description>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Engineering & API]]></category>
+      <dc:creator><![CDATA[Mohamed Ben Khemis]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Continuous Integration & Deployment (CI/CD) : Pipelines de Production Résilients]]></title>
+      <link>https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients</guid>
+      <description><![CDATA[Mettre en place des pipelines GitHub Actions automatisés avec tests unitaires, vérification de types TypeScript, audit de sécurité et déploiement continu.]]></description>
+      <pubDate>Sun, 27 Sep 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Engineering & API]]></category>
+      <dc:creator><![CDATA[Amine Ben Ammar]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Bases de Données Relationnelles vs NoSQL : PostgreSQL, Redis & MongoDB en 2026]]></title>
+      <link>https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</guid>
+      <description><![CDATA[Guide technique d'architecture pour sélectionner le bon moteur de stockage, optimiser les index et concevoir une stratégie multi-base performante.]]></description>
+      <pubDate>Sat, 26 Sep 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Software Architecture]]></category>
+      <dc:creator><![CDATA[Mohamed Yassine Ben Yaala]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Intégration d'Agents IA & LLM dans les SaaS : Automatiser les Workflows Métiers en 2026]]></title>
+      <link>https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</guid>
+      <description><![CDATA[Guide d'architecture complet pour connecter vos bases de données aux modèles LLM (RAG, Function Calling, Pgvector) et automatiser vos processus métiers sans compromettre la sécurité.]]></description>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[IA & Automatisation]]></category>
+      <dc:creator><![CDATA[Moutia Ben Yahia]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Performance Frontend & Code Splitting : Accélérer les Applications React & Vite]]></title>
+      <link>https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</guid>
+      <description><![CDATA[Techniques avancées d'optimisation frontend : Lazy Loading des composants, Tree-Shaking, optimisation des bundles Vite et atteinte d'un score Lighthouse de 100.]]></description>
+      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[SEO & Web Performance]]></category>
+      <dc:creator><![CDATA[Mohamed Ben Yahia]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Monétisation SaaS & Intégration Stripe : Gestion des Abonnements & Facturation]]></title>
+      <link>https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation</guid>
+      <description><![CDATA[Architecture d'ingénierie financière pour intégrer Stripe, gérer la synchronisation asynchrone par Webhooks, les abonnements et le Dunning Management.]]></description>
+      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Engineering & API]]></category>
+      <dc:creator><![CDATA[Mohamed Ben Khemis]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Continuous Integration & Deployment (CI/CD) : Pipelines de Production Résilients]]></title>
+      <link>https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients</guid>
+      <description><![CDATA[Mettre en place des pipelines GitHub Actions automatisés avec tests unitaires, vérification de types TypeScript, audit de sécurité et déploiement continu.]]></description>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Engineering & API]]></category>
+      <dc:creator><![CDATA[Amine Ben Ammar]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Bases de Données Relationnelles vs NoSQL : PostgreSQL, Redis & MongoDB en 2026]]></title>
+      <link>https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</guid>
+      <description><![CDATA[Guide technique d'architecture pour sélectionner le bon moteur de stockage, optimiser les index et concevoir une stratégie multi-base performante.]]></description>
+      <pubDate>Mon, 21 Sep 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Software Architecture]]></category>
+      <dc:creator><![CDATA[Mohamed Yassine Ben Yaala]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Intégration d'Agents IA & LLM dans les SaaS : Automatiser les Workflows Métiers en 2026]]></title>
+      <link>https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</guid>
+      <description><![CDATA[Guide d'architecture complet pour connecter vos bases de données aux modèles LLM (RAG, Function Calling, Pgvector) et automatiser vos processus métiers sans compromettre la sécurité.]]></description>
+      <pubDate>Sun, 20 Sep 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[IA & Automatisation]]></category>
+      <dc:creator><![CDATA[Moutia Ben Yahia]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Performance Frontend & Code Splitting : Accélérer les Applications React & Vite]]></title>
+      <link>https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</guid>
+      <description><![CDATA[Techniques avancées d'optimisation frontend : Lazy Loading des composants, Tree-Shaking, optimisation des bundles Vite et atteinte d'un score Lighthouse de 100.]]></description>
+      <pubDate>Sat, 19 Sep 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[SEO & Web Performance]]></category>
+      <dc:creator><![CDATA[Mohamed Ben Yahia]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Monétisation SaaS & Intégration Stripe : Gestion des Abonnements & Facturation]]></title>
+      <link>https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation</guid>
+      <description><![CDATA[Architecture d'ingénierie financière pour intégrer Stripe, gérer la synchronisation asynchrone par Webhooks, les abonnements et le Dunning Management.]]></description>
+      <pubDate>Fri, 18 Sep 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Engineering & API]]></category>
+      <dc:creator><![CDATA[Mohamed Ben Khemis]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Continuous Integration & Deployment (CI/CD) : Pipelines de Production Résilients]]></title>
+      <link>https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients</guid>
+      <description><![CDATA[Mettre en place des pipelines GitHub Actions automatisés avec tests unitaires, vérification de types TypeScript, audit de sécurité et déploiement continu.]]></description>
+      <pubDate>Thu, 17 Sep 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Engineering & API]]></category>
+      <dc:creator><![CDATA[Amine Ben Ammar]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Bases de Données Relationnelles vs NoSQL : PostgreSQL, Redis & MongoDB en 2026]]></title>
+      <link>https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</guid>
+      <description><![CDATA[Guide technique d'architecture pour sélectionner le bon moteur de stockage, optimiser les index et concevoir une stratégie multi-base performante.]]></description>
+      <pubDate>Wed, 16 Sep 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Software Architecture]]></category>
+      <dc:creator><![CDATA[Mohamed Yassine Ben Yaala]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Intégration d'Agents IA & LLM dans les SaaS : Automatiser les Workflows Métiers en 2026]]></title>
+      <link>https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</guid>
+      <description><![CDATA[Guide d'architecture complet pour connecter vos bases de données aux modèles LLM (RAG, Function Calling, Pgvector) et automatiser vos processus métiers sans compromettre la sécurité.]]></description>
+      <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[IA & Automatisation]]></category>
+      <dc:creator><![CDATA[Moutia Ben Yahia]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Performance Frontend & Code Splitting : Accélérer les Applications React & Vite]]></title>
+      <link>https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</guid>
+      <description><![CDATA[Techniques avancées d'optimisation frontend : Lazy Loading des composants, Tree-Shaking, optimisation des bundles Vite et atteinte d'un score Lighthouse de 100.]]></description>
+      <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[SEO & Web Performance]]></category>
+      <dc:creator><![CDATA[Mohamed Ben Yahia]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Monétisation SaaS & Intégration Stripe : Gestion des Abonnements & Facturation]]></title>
+      <link>https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation</guid>
+      <description><![CDATA[Architecture d'ingénierie financière pour intégrer Stripe, gérer la synchronisation asynchrone par Webhooks, les abonnements et le Dunning Management.]]></description>
+      <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Engineering & API]]></category>
+      <dc:creator><![CDATA[Mohamed Ben Khemis]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Continuous Integration & Deployment (CI/CD) : Pipelines de Production Résilients]]></title>
+      <link>https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients</guid>
+      <description><![CDATA[Mettre en place des pipelines GitHub Actions automatisés avec tests unitaires, vérification de types TypeScript, audit de sécurité et déploiement continu.]]></description>
+      <pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Engineering & API]]></category>
+      <dc:creator><![CDATA[Amine Ben Ammar]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Bases de Données Relationnelles vs NoSQL : PostgreSQL, Redis & MongoDB en 2026]]></title>
+      <link>https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</guid>
+      <description><![CDATA[Guide technique d'architecture pour sélectionner le bon moteur de stockage, optimiser les index et concevoir une stratégie multi-base performante.]]></description>
+      <pubDate>Fri, 11 Sep 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Software Architecture]]></category>
+      <dc:creator><![CDATA[Mohamed Yassine Ben Yaala]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Intégration d'Agents IA & LLM dans les SaaS : Automatiser les Workflows Métiers en 2026]]></title>
+      <link>https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</guid>
+      <description><![CDATA[Guide d'architecture complet pour connecter vos bases de données aux modèles LLM (RAG, Function Calling, Pgvector) et automatiser vos processus métiers sans compromettre la sécurité.]]></description>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[IA & Automatisation]]></category>
+      <dc:creator><![CDATA[Moutia Ben Yahia]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Performance Frontend & Code Splitting : Accélérer les Applications React & Vite]]></title>
+      <link>https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</guid>
+      <description><![CDATA[Techniques avancées d'optimisation frontend : Lazy Loading des composants, Tree-Shaking, optimisation des bundles Vite et atteinte d'un score Lighthouse de 100.]]></description>
+      <pubDate>Wed, 09 Sep 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[SEO & Web Performance]]></category>
+      <dc:creator><![CDATA[Mohamed Ben Yahia]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Monétisation SaaS & Intégration Stripe : Gestion des Abonnements & Facturation]]></title>
+      <link>https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation</guid>
+      <description><![CDATA[Architecture d'ingénierie financière pour intégrer Stripe, gérer la synchronisation asynchrone par Webhooks, les abonnements et le Dunning Management.]]></description>
+      <pubDate>Tue, 08 Sep 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Engineering & API]]></category>
+      <dc:creator><![CDATA[Mohamed Ben Khemis]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Continuous Integration & Deployment (CI/CD) : Pipelines de Production Résilients]]></title>
+      <link>https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients</guid>
+      <description><![CDATA[Mettre en place des pipelines GitHub Actions automatisés avec tests unitaires, vérification de types TypeScript, audit de sécurité et déploiement continu.]]></description>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Engineering & API]]></category>
+      <dc:creator><![CDATA[Amine Ben Ammar]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Bases de Données Relationnelles vs NoSQL : PostgreSQL, Redis & MongoDB en 2026]]></title>
+      <link>https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</guid>
+      <description><![CDATA[Guide technique d'architecture pour sélectionner le bon moteur de stockage, optimiser les index et concevoir une stratégie multi-base performante.]]></description>
+      <pubDate>Sun, 06 Sep 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Software Architecture]]></category>
+      <dc:creator><![CDATA[Mohamed Yassine Ben Yaala]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Intégration d'Agents IA & LLM dans les SaaS : Automatiser les Workflows Métiers en 2026]]></title>
+      <link>https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</guid>
+      <description><![CDATA[Guide d'architecture complet pour connecter vos bases de données aux modèles LLM (RAG, Function Calling, Pgvector) et automatiser vos processus métiers sans compromettre la sécurité.]]></description>
+      <pubDate>Sat, 05 Sep 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[IA & Automatisation]]></category>
+      <dc:creator><![CDATA[Moutia Ben Yahia]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Performance Frontend & Code Splitting : Accélérer les Applications React & Vite]]></title>
+      <link>https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</guid>
+      <description><![CDATA[Techniques avancées d'optimisation frontend : Lazy Loading des composants, Tree-Shaking, optimisation des bundles Vite et atteinte d'un score Lighthouse de 100.]]></description>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[SEO & Web Performance]]></category>
+      <dc:creator><![CDATA[Mohamed Ben Yahia]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Monétisation SaaS & Intégration Stripe : Gestion des Abonnements & Facturation]]></title>
+      <link>https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation</guid>
+      <description><![CDATA[Architecture d'ingénierie financière pour intégrer Stripe, gérer la synchronisation asynchrone par Webhooks, les abonnements et le Dunning Management.]]></description>
+      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Engineering & API]]></category>
+      <dc:creator><![CDATA[Mohamed Ben Khemis]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1526374870839-e155464bb9b2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Continuous Integration & Deployment (CI/CD) : Pipelines de Production Résilients]]></title>
+      <link>https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients</guid>
+      <description><![CDATA[Mettre en place des pipelines GitHub Actions automatisés avec tests unitaires, vérification de types TypeScript, audit de sécurité et déploiement continu.]]></description>
+      <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Engineering & API]]></category>
+      <dc:creator><![CDATA[Amine Ben Ammar]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Bases de Données Relationnelles vs NoSQL : PostgreSQL, Redis & MongoDB en 2026]]></title>
+      <link>https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</guid>
+      <description><![CDATA[Guide technique d'architecture pour sélectionner le bon moteur de stockage, optimiser les index et concevoir une stratégie multi-base performante.]]></description>
+      <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Software Architecture]]></category>
+      <dc:creator><![CDATA[Mohamed Yassine Ben Yaala]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Intégration d'Agents IA & LLM dans les SaaS : Automatiser les Workflows Métiers en 2026]]></title>
+      <link>https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</guid>
+      <description><![CDATA[Guide d'architecture complet pour connecter vos bases de données aux modèles LLM (RAG, Function Calling, Pgvector) et automatiser vos processus métiers sans compromettre la sécurité.]]></description>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[IA & Automatisation]]></category>
+      <dc:creator><![CDATA[Moutia Ben Yahia]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Performance Frontend & Code Splitting : Accélérer les Applications React & Vite]]></title>
+      <link>https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</guid>
+      <description><![CDATA[Techniques avancées d'optimisation frontend : Lazy Loading des composants, Tree-Shaking, optimisation des bundles Vite et atteinte d'un score Lighthouse de 100.]]></description>
+      <pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[SEO & Web Performance]]></category>
+      <dc:creator><![CDATA[Mohamed Ben Yahia]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Monétisation SaaS & Intégration Stripe : Gestion des Abonnements & Facturation]]></title>
+      <link>https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation</guid>
+      <description><![CDATA[Architecture d'ingénierie financière pour intégrer Stripe, gérer la synchronisation asynchrone par Webhooks, les abonnements et le Dunning Management.]]></description>
+      <pubDate>Sat, 29 Aug 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Engineering & API]]></category>
+      <dc:creator><![CDATA[Mohamed Ben Khemis]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Continuous Integration & Deployment (CI/CD) : Pipelines de Production Résilients]]></title>
+      <link>https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients</guid>
+      <description><![CDATA[Mettre en place des pipelines GitHub Actions automatisés avec tests unitaires, vérification de types TypeScript, audit de sécurité et déploiement continu.]]></description>
+      <pubDate>Fri, 28 Aug 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Engineering & API]]></category>
+      <dc:creator><![CDATA[Amine Ben Ammar]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Bases de Données Relationnelles vs NoSQL : PostgreSQL, Redis & MongoDB en 2026]]></title>
+      <link>https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</guid>
+      <description><![CDATA[Guide technique d'architecture pour sélectionner le bon moteur de stockage, optimiser les index et concevoir une stratégie multi-base performante.]]></description>
+      <pubDate>Thu, 27 Aug 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Software Architecture]]></category>
+      <dc:creator><![CDATA[Mohamed Yassine Ben Yaala]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Intégration d'Agents IA & LLM dans les SaaS : Automatiser les Workflows Métiers en 2026]]></title>
+      <link>https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</guid>
+      <description><![CDATA[Guide d'architecture complet pour connecter vos bases de données aux modèles LLM (RAG, Function Calling, Pgvector) et automatiser vos processus métiers sans compromettre la sécurité.]]></description>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[IA & Automatisation]]></category>
+      <dc:creator><![CDATA[Moutia Ben Yahia]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Performance Frontend & Code Splitting : Accélérer les Applications React & Vite]]></title>
+      <link>https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</guid>
+      <description><![CDATA[Techniques avancées d'optimisation frontend : Lazy Loading des composants, Tree-Shaking, optimisation des bundles Vite et atteinte d'un score Lighthouse de 100.]]></description>
+      <pubDate>Tue, 25 Aug 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[SEO & Web Performance]]></category>
+      <dc:creator><![CDATA[Mohamed Ben Yahia]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Monétisation SaaS & Intégration Stripe : Gestion des Abonnements & Facturation]]></title>
+      <link>https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation</guid>
+      <description><![CDATA[Architecture d'ingénierie financière pour intégrer Stripe, gérer la synchronisation asynchrone par Webhooks, les abonnements et le Dunning Management.]]></description>
+      <pubDate>Mon, 24 Aug 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Engineering & API]]></category>
+      <dc:creator><![CDATA[Mohamed Ben Khemis]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Continuous Integration & Deployment (CI/CD) : Pipelines de Production Résilients]]></title>
+      <link>https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients</guid>
+      <description><![CDATA[Mettre en place des pipelines GitHub Actions automatisés avec tests unitaires, vérification de types TypeScript, audit de sécurité et déploiement continu.]]></description>
+      <pubDate>Sun, 23 Aug 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Engineering & API]]></category>
+      <dc:creator><![CDATA[Amine Ben Ammar]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Bases de Données Relationnelles vs NoSQL : PostgreSQL, Redis & MongoDB en 2026]]></title>
+      <link>https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</guid>
+      <description><![CDATA[Guide technique d'architecture pour sélectionner le bon moteur de stockage, optimiser les index et concevoir une stratégie multi-base performante.]]></description>
+      <pubDate>Sat, 22 Aug 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Software Architecture]]></category>
+      <dc:creator><![CDATA[Mohamed Yassine Ben Yaala]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Intégration d'Agents IA & LLM dans les SaaS : Automatiser les Workflows Métiers en 2026]]></title>
+      <link>https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</guid>
+      <description><![CDATA[Guide d'architecture complet pour connecter vos bases de données aux modèles LLM (RAG, Function Calling, Pgvector) et automatiser vos processus métiers sans compromettre la sécurité.]]></description>
+      <pubDate>Fri, 21 Aug 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[IA & Automatisation]]></category>
+      <dc:creator><![CDATA[Moutia Ben Yahia]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Performance Frontend & Code Splitting : Accélérer les Applications React & Vite]]></title>
+      <link>https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</guid>
+      <description><![CDATA[Techniques avancées d'optimisation frontend : Lazy Loading des composants, Tree-Shaking, optimisation des bundles Vite et atteinte d'un score Lighthouse de 100.]]></description>
+      <pubDate>Thu, 20 Aug 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[SEO & Web Performance]]></category>
+      <dc:creator><![CDATA[Mohamed Ben Yahia]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Monétisation SaaS & Intégration Stripe : Gestion des Abonnements & Facturation]]></title>
+      <link>https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation</guid>
+      <description><![CDATA[Architecture d'ingénierie financière pour intégrer Stripe, gérer la synchronisation asynchrone par Webhooks, les abonnements et le Dunning Management.]]></description>
+      <pubDate>Wed, 19 Aug 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Engineering & API]]></category>
+      <dc:creator><![CDATA[Mohamed Ben Khemis]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Continuous Integration & Deployment (CI/CD) : Pipelines de Production Résilients]]></title>
+      <link>https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients</guid>
+      <description><![CDATA[Mettre en place des pipelines GitHub Actions automatisés avec tests unitaires, vérification de types TypeScript, audit de sécurité et déploiement continu.]]></description>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Engineering & API]]></category>
+      <dc:creator><![CDATA[Amine Ben Ammar]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Bases de Données Relationnelles vs NoSQL : PostgreSQL, Redis & MongoDB en 2026]]></title>
+      <link>https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</guid>
+      <description><![CDATA[Guide technique d'architecture pour sélectionner le bon moteur de stockage, optimiser les index et concevoir une stratégie multi-base performante.]]></description>
+      <pubDate>Fri, 09 Oct 2026 16:42:52 GMT</pubDate>
+      <category><![CDATA[Software Architecture]]></category>
+      <dc:creator><![CDATA[Mohamed Yassine Ben Yaala]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Intégration d'Agents IA & LLM dans les SaaS : Automatiser les Workflows Métiers en 2026]]></title>
+      <link>https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</guid>
+      <description><![CDATA[Guide d'architecture complet pour connecter vos bases de données aux modèles LLM (RAG, Function Calling, Pgvector) et automatiser vos processus métiers sans compromettre la sécurité.]]></description>
+      <pubDate>Fri, 09 Oct 2026 16:42:52 GMT</pubDate>
+      <category><![CDATA[IA & Automatisation]]></category>
+      <dc:creator><![CDATA[Moutia Ben Yahia]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Architecture SaaS Multi-Tenant & Scalabilité Cloud : Les Meilleures Pratiques en 2026]]></title>
+      <link>https://ty-dev.site/blog/architecture-saas-multi-tenant-scalabilite-cloud-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/architecture-saas-multi-tenant-scalabilite-cloud-2026</guid>
+      <description><![CDATA[Guide d'ingénierie complet pour concevoir des architectures multi-tenants isolées, performantes et capables d'absorber des millions de requêtes sans explosion des coûts d'infrastructure.]]></description>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Software Architecture]]></category>
+      <dc:creator><![CDATA[Moutia Ben Yahia]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Intégration d'Agents IA & Model Context Protocol (MCP) : Orchestrer vos LLM en 2026]]></title>
+      <link>https://ty-dev.site/blog/integration-agents-ia-llm-model-context-protocol-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/integration-agents-ia-llm-model-context-protocol-2026</guid>
+      <description><![CDATA[Architecture d'intégration IA avancée : RAG (Retrieval-Augmented Generation), Pgvector, Function Calling et Model Context Protocol pour orchestrer des workflows complexes.]]></description>
+      <pubDate>Fri, 14 Aug 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[IA & Automatisation]]></category>
+      <dc:creator><![CDATA[Mohamed Yassine Ben Yaala]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Design Systems, Glassmorphism UX & Tailwind CSS v4 : Créer des Interfaces D'Exception]]></title>
+      <link>https://ty-dev.site/blog/design-system-glassmorphism-ux-tailwind-v4</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/design-system-glassmorphism-ux-tailwind-v4</guid>
+      <description><![CDATA[Principes de design d'interface moderne : jetons de couleurs OKLCH, animations Framer Motion fluides et règles d'accessibilité WCAG 2.2.]]></description>
+      <pubDate>Thu, 13 Aug 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[UI/UX & Design Systems]]></category>
+      <dc:creator><![CDATA[Amine Ben Ammar]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Monétisation SaaS & Stripe : Gestion des Abonnements & Webhooks Idempotents]]></title>
+      <link>https://ty-dev.site/blog/monetisation-saas-stripe-abonnements-webhooks-idempotents</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/monetisation-saas-stripe-abonnements-webhooks-idempotents</guid>
+      <description><![CDATA[Architecture d'ingénierie financière pour intégrer Stripe, gérer la synchronisation asynchrone par Webhooks, les abonnements et le Dunning Management.]]></description>
+      <pubDate>Wed, 12 Aug 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Engineering & API]]></category>
+      <dc:creator><![CDATA[Mohamed Ben Khemis]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Performance Frontend & Core Web Vitals : Atteindre 100/100 sur Lighthouse]]></title>
+      <link>https://ty-dev.site/blog/performance-frontend-core-web-vitals-tanstack-start</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/performance-frontend-core-web-vitals-tanstack-start</guid>
+      <description><![CDATA[Optimisation de l'interactivité (INP), du temps de chargement (LCP) et de la stabilité visuelle (CLS) avec React 19, Vite 8 et TanStack Start SSR.]]></description>
+      <pubDate>Tue, 11 Aug 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[SEO & Web Performance]]></category>
+      <dc:creator><![CDATA[Mohamed Ben Yahia]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Cybersécurité Web & Protection des Données : Conformité OWASP 2026]]></title>
+      <link>https://ty-dev.site/blog/cybersecurite-web-protection-donnees-owasp-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/cybersecurite-web-protection-donnees-owasp-2026</guid>
+      <description><![CDATA[Protéger vos applications contre le Top 10 OWASP : Cookies HttpOnly, Content Security Policy (CSP), chiffrement AES-256 et requêtes ORM préparées.]]></description>
+      <pubDate>Mon, 10 Aug 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Cybersecurity]]></category>
+      <dc:creator><![CDATA[Moutia Ben Yahia]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Bases de Données Relationnelles vs NoSQL : PostgreSQL, Redis & MongoDB en 2026]]></title>
+      <link>https://ty-dev.site/blog/bases-de-donnees-postgresql-redis-mongodb-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/bases-de-donnees-postgresql-redis-mongodb-2026</guid>
+      <description><![CDATA[Guide technique d'architecture pour sélectionner le bon moteur de stockage, optimiser les index et concevoir une stratégie multi-base performante.]]></description>
+      <pubDate>Sun, 09 Aug 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Software Architecture]]></category>
+      <dc:creator><![CDATA[Mohamed Yassine Ben Yaala]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Continuous Integration & CI/CD Pipelines : Déploiements Zéro-Downtime avec Docker]]></title>
+      <link>https://ty-dev.site/blog/continuous-integration-cicd-pipelines-production-docker</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/continuous-integration-cicd-pipelines-production-docker</guid>
+      <description><![CDATA[Concevoir des pipelines de livraison continue avec GitHub Actions, audits de sécurité automatisés, tests unitaires et déploiement progressif.]]></description>
+      <pubDate>Sat, 08 Aug 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Engineering & API]]></category>
+      <dc:creator><![CDATA[Amine Ben Ammar]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Infrastructure As Code (IaC) & Cloud Native : Terraform & Kubernetes pour le SaaS]]></title>
+      <link>https://ty-dev.site/blog/infrastructure-as-code-terraform-kubernetes-cloud-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/infrastructure-as-code-terraform-kubernetes-cloud-2026</guid>
+      <description><![CDATA[Automatiser l'approvisionnement de votre infrastructure cloud avec Terraform, Docker et Kubernetes pour garantir une reproductibilité à 100%.]]></description>
+      <pubDate>Fri, 07 Aug 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Engineering & API]]></category>
+      <dc:creator><![CDATA[Mohamed Ben Khemis]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Progressive Web Apps (PWA) : L'Avenir du Mobile sans Passer par les Stores]]></title>
+      <link>https://ty-dev.site/blog/pwa-progressive-web-apps-mobile-architecture-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/pwa-progressive-web-apps-mobile-architecture-2026</guid>
+      <description><![CDATA[Pourquoi les entreprises adoptent les PWA pour offrir une expérience mobile native fluide, des notifications push et un fonctionnement hors-ligne.]]></description>
+      <pubDate>Thu, 06 Aug 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Software Architecture]]></category>
+      <dc:creator><![CDATA[Mohamed Ben Yahia]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Stratégie SEO Technique & Données Structurées JSON-LD : Dominer les SERP Google]]></title>
+      <link>https://ty-dev.site/blog/strategie-seo-technique-donnees-structurees-json-ld-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/strategie-seo-technique-donnees-structurees-json-ld-2026</guid>
+      <description><![CDATA[Guide d'optimisation sémantique avancée : Schémas Schema.org, balises méta Open Graph, sitemaps dynamiques et indexation instantanée.]]></description>
+      <pubDate>Wed, 05 Aug 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[SEO & Web Performance]]></category>
+      <dc:creator><![CDATA[Moutia Ben Yahia]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Micro-Frontends & Modular Architecture : Scaler les Grandes Équipes Dev]]></title>
+      <link>https://ty-dev.site/blog/micro-frontends-architecture-modulaire-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/micro-frontends-architecture-modulaire-2026</guid>
+      <description><![CDATA[Comment découper des applications frontend complexes en sous-modules indépendants avec Module Federation et Vite pour des déploiements autonomes.]]></description>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Software Architecture]]></category>
+      <dc:creator><![CDATA[Mohamed Yassine Ben Yaala]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+  </channel>
+</rss>
