@@ -2,6 +2,7 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { getServiceBySlug } from "@/data/servicesData";
 import { ServiceDetail } from "@/components/site/ServiceDetail";
 import { CtaStrip } from "@/components/site/CtaStrip";
+import { getAggregateRatingSchema } from "@/data/reviewsData";
 
 export const Route = createFileRoute("/services_/$slug")({
   loader: ({ params }) => {
@@ -43,6 +44,7 @@ export const Route = createFileRoute("/services_/$slug")({
           "position": i + 1,
         })),
       },
+      "aggregateRating": getAggregateRatingSchema(),
     };
 
     const breadcrumbSchema = {

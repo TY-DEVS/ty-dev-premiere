@@ -17,6 +17,7 @@ import { Footer } from "@/components/site/Footer";
 import { ScrollToTop } from "@/components/site/ScrollToTop";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 import { Toaster } from "sonner";
+import { getAggregateRatingSchema, getReviewsSchemaList } from "@/data/reviewsData";
 
 function NotFoundComponent() {
   return (
@@ -114,7 +115,9 @@ const organizationSchema = {
     { "@type": "Language", "name": "French", "alternateName": "fr" },
     { "@type": "Language", "name": "English", "alternateName": "en" }
   ],
-  "priceRange": "$$"
+  "priceRange": "$$",
+  "aggregateRating": getAggregateRatingSchema(),
+  "review": getReviewsSchemaList(),
 };
 
 const websiteSchema = {

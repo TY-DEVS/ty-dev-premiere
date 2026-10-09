@@ -7,6 +7,43 @@ import { CtaStrip } from "@/components/site/CtaStrip";
 import { Testimonials } from "@/components/site/Testimonials";
 import { useI18n } from "@/i18n/context";
 
+import { getAggregateRatingSchema } from "@/data/reviewsData";
+
+const servicesBreadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Accueil",
+      item: "https://ty-dev.site",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Services",
+      item: "https://ty-dev.site/services",
+    },
+  ],
+};
+
+const servicesAggregateSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Services Ingénierie Logicielle, SaaS & IA — TY Dev",
+  serviceType: "Développement Logiciel & Architecture Cloud",
+  provider: {
+    "@type": "Organization",
+    name: "TY Dev",
+    url: "https://ty-dev.site",
+    logo: "https://ty-dev.site/logo.jpg",
+  },
+  description:
+    "Conception et déploiement de plateformes SaaS sur-mesure, agents IA d'automatisation, architectures web haute performance et maintenance cloud devops.",
+  aggregateRating: getAggregateRatingSchema(),
+};
+
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
@@ -36,6 +73,16 @@ export const Route = createFileRoute("/services")({
       { name: "twitter:image", content: "https://ty-dev.site/logo.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://ty-dev.site/services" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(servicesBreadcrumbSchema),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(servicesAggregateSchema),
+      },
+    ],
   }),
   component: ServicesPage,
 });
