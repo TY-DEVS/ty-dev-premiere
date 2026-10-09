@@ -23,11 +23,11 @@ const secretToken = process.env.BLOG_ADMIN_TOKEN || 'tydev_blog_admin_secret_key
 
 // 1. Team Authors Pool (Rotates dynamically across posts)
 const teamAuthors = [
-  { name: 'Moutia Ben Yahia', role: 'CEO', avatar: '/team/moutiabenyahia.png' },
-  { name: 'Mohamed Yassine Ben Yaala', role: 'CO-FOUNDER', avatar: '/team/mohamedyassinbenyaala.jfif' },
-  { name: 'Amine Ben Ammar', role: 'CO-FOUNDER', avatar: '/team/aminebenamamr.jpg' },
-  { name: 'Mohamed Ben Khemis', role: 'DEVOPS ENGINEER', avatar: '/team/mohamedbenkhemis.jfif' },
-  { name: 'Mohamed Ben Yahia', role: 'FULL STACK DEVELOPER', avatar: '/team/mohamedbenyahia.jpg' },
+  { name: 'Moutia Ben Yahia', role: 'CEO', avatar: '/team/moutiabenyahia.webp' },
+  { name: 'Mohamed Yassine Ben Yaala', role: 'CO-FOUNDER', avatar: '/team/mohamedyassinbenyaala.webp' },
+  { name: 'Amine Ben Ammar', role: 'CO-FOUNDER', avatar: '/team/aminebenamamr.webp' },
+  { name: 'Mohamed Ben Khemis', role: 'DEVOPS ENGINEER', avatar: '/team/mohamedbenkhemis.webp' },
+  { name: 'Mohamed Ben Yahia', role: 'FULL STACK DEVELOPER', avatar: '/team/mohamedbenyahia.webp' },
 ];
 
 // 2. High-Quality Royalty-Free Technical Image Pool (Unsplash Tech/Engineering)

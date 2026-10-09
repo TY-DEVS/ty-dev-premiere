@@ -315,8 +315,12 @@ export function BlogArticleDetail({ post }: { post: BlogPost }) {
                       <img
                         src={post.author.avatar}
                         alt={post.author.name}
+                        width={56}
+                        height={56}
+                        loading="lazy"
+                        decoding="async"
                         onError={(e) => {
-                          (e.currentTarget as HTMLImageElement).src = "/team/mohamedyassinbenyaala.jfif";
+                          (e.currentTarget as HTMLImageElement).src = "/team/mohamedyassinbenyaala.webp";
                         }}
                         className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-cyan-500/40 object-cover group-hover:border-cyan-400 group-hover:scale-105 transition-all duration-300 shadow-md"
                       />
@@ -366,6 +370,10 @@ export function BlogArticleDetail({ post }: { post: BlogPost }) {
           <img
             src={post.image}
             alt={post.title[lang]}
+            width={1200}
+            height={675}
+            loading="eager"
+            decoding="async"
             className="w-full h-full object-cover"
           />
         </div>

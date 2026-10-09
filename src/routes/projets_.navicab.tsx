@@ -292,8 +292,11 @@ function NaviCabCaseStudyPage() {
                 <img
                   src="/portfolio/navicab-hero.webp"
                   alt="Interface officielle de la plateforme SaaS NaviCab sur navicab.fr"
+                  width={1200}
+                  height={675}
                   className="w-full h-auto block transition-transform duration-700 group-hover:scale-[1.01]"
                   loading="eager"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
                   <span className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand text-primary-foreground text-xs font-semibold shadow-xl">

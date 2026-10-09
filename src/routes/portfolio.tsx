@@ -128,8 +128,11 @@ function PortfolioPage() {
                 <img
                   src="/portfolio/navicab-hero.webp"
                   alt="Étude de cas NaviCab"
+                  width={800}
+                  height={500}
                   className="w-full h-auto object-cover object-top transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-black/25 group-hover:bg-transparent transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
                   <span className="px-4 py-2 rounded-xl bg-brand text-primary-foreground font-medium text-xs">

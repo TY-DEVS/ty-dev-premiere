@@ -85,7 +85,7 @@ export const blogPosts: BlogPost[] = [
     author: {
         name: "Mohamed Ben Khemis",
         role: "DEVOPS ENGINEER",
-        avatar: "/team/mohamedbenkhemis.jfif"
+        avatar: "/team/mohamedbenkhemis.webp"
     },
     image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -126,7 +126,7 @@ export const blogPosts: BlogPost[] = [
     author: {
       name: "Mohamed Yassine Ben Yaala",
       role: "CEO & FULL STACK ARCHITECT",
-      avatar: "/team/mohamedyassinbenyaala.jfif"
+      avatar: "/team/mohamedyassinbenyaala.webp"
     },
     image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -322,7 +322,7 @@ Explore our work on the **NaviCab** dispatch infrastructure:
     author: {
       name: "Moutia Ben Yahia",
       role: "CEO & LEAD ARCHITECT",
-      avatar: "/team/moutiabenyahia.png"
+      avatar: "/team/moutiabenyahia.webp"
     },
     image: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -406,7 +406,7 @@ Explore our [NaviCab Case Study](/projets/navicab) or [request a free technical 
     author: {
       name: "Mohamed Yassine Ben Yaala",
       role: "CEO & FULL STACK ARCHITECT",
-      avatar: "/team/mohamedyassinbenyaala.jfif"
+      avatar: "/team/mohamedyassinbenyaala.webp"
     },
     image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -471,7 +471,7 @@ TY Dev combines engineering rigor, binding legal protections, direct engineer ac
     author: {
       name: "Mohamed Ben Khemis",
       role: "DEVOPS ENGINEER",
-      avatar: "/team/mohamedbenkhemis.jfif"
+      avatar: "/team/mohamedbenkhemis.webp"
     },
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -521,7 +521,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Ben Khemis",
         role: "DEVOPS ENGINEER",
-        avatar: "/team/mohamedbenkhemis.jfif"
+        avatar: "/team/mohamedbenkhemis.webp"
     },
     image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -559,7 +559,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Amine Ben Ammar",
         role: "CO-FOUNDER",
-        avatar: "/team/aminebenamamr.jpg"
+        avatar: "/team/aminebenamamr.webp"
     },
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -597,7 +597,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Yassine Ben Yaala",
         role: "CO-FOUNDER",
-        avatar: "/team/mohamedyassinbenyaala.jfif"
+        avatar: "/team/mohamedyassinbenyaala.webp"
     },
     image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -635,7 +635,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Ben Yahia",
         role: "FULL STACK DEVELOPER",
-        avatar: "/team/mohamedbenyahia.jpg"
+        avatar: "/team/mohamedbenyahia.webp"
     },
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -671,7 +671,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Ben Khemis",
         role: "DEVOPS ENGINEER",
-        avatar: "/team/mohamedbenkhemis.jfif"
+        avatar: "/team/mohamedbenkhemis.webp"
     },
     image: "https://images.unsplash.com/photo-1526374870839-e155464bb9b2?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -707,7 +707,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Amine Ben Ammar",
         role: "CO-FOUNDER",
-        avatar: "/team/aminebenamamr.jpg"
+        avatar: "/team/aminebenamamr.webp"
     },
     image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -743,7 +743,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Moutia Ben Yahia",
         role: "CEO",
-        avatar: "/team/moutiabenyahia.png"
+        avatar: "/team/moutiabenyahia.webp"
     },
     image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -779,7 +779,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Ben Yahia",
         role: "FULL STACK DEVELOPER",
-        avatar: "/team/mohamedbenyahia.jpg"
+        avatar: "/team/mohamedbenyahia.webp"
     },
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -815,7 +815,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Ben Khemis",
         role: "DEVOPS ENGINEER",
-        avatar: "/team/mohamedbenkhemis.jfif"
+        avatar: "/team/mohamedbenkhemis.webp"
     },
     image: "https://images.unsplash.com/photo-1526374870839-e155464bb9b2?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -851,7 +851,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Amine Ben Ammar",
         role: "CO-FOUNDER",
-        avatar: "/team/aminebenamamr.jpg"
+        avatar: "/team/aminebenamamr.webp"
     },
     image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -887,7 +887,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Yassine Ben Yaala",
         role: "CO-FOUNDER",
-        avatar: "/team/mohamedyassinbenyaala.jfif"
+        avatar: "/team/mohamedyassinbenyaala.webp"
     },
     image: "https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -923,7 +923,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Moutia Ben Yahia",
         role: "CEO",
-        avatar: "/team/moutiabenyahia.png"
+        avatar: "/team/moutiabenyahia.webp"
     },
     image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -959,7 +959,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Ben Yahia",
         role: "FULL STACK DEVELOPER",
-        avatar: "/team/mohamedbenyahia.jpg"
+        avatar: "/team/mohamedbenyahia.webp"
     },
     image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -995,7 +995,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Ben Khemis",
         role: "DEVOPS ENGINEER",
-        avatar: "/team/mohamedbenkhemis.jfif"
+        avatar: "/team/mohamedbenkhemis.webp"
     },
     image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -1031,7 +1031,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Amine Ben Ammar",
         role: "CO-FOUNDER",
-        avatar: "/team/aminebenamamr.jpg"
+        avatar: "/team/aminebenamamr.webp"
     },
     image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -1067,7 +1067,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Yassine Ben Yaala",
         role: "CO-FOUNDER",
-        avatar: "/team/mohamedyassinbenyaala.jfif"
+        avatar: "/team/mohamedyassinbenyaala.webp"
     },
     image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -1103,7 +1103,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Moutia Ben Yahia",
         role: "CEO",
-        avatar: "/team/moutiabenyahia.png"
+        avatar: "/team/moutiabenyahia.webp"
     },
     image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -1139,7 +1139,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Ben Yahia",
         role: "FULL STACK DEVELOPER",
-        avatar: "/team/mohamedbenyahia.jpg"
+        avatar: "/team/mohamedbenyahia.webp"
     },
     image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -1175,7 +1175,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Ben Khemis",
         role: "DEVOPS ENGINEER",
-        avatar: "/team/mohamedbenkhemis.jfif"
+        avatar: "/team/mohamedbenkhemis.webp"
     },
     image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -1211,7 +1211,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Amine Ben Ammar",
         role: "CO-FOUNDER",
-        avatar: "/team/aminebenamamr.jpg"
+        avatar: "/team/aminebenamamr.webp"
     },
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -1247,7 +1247,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Yassine Ben Yaala",
         role: "CO-FOUNDER",
-        avatar: "/team/mohamedyassinbenyaala.jfif"
+        avatar: "/team/mohamedyassinbenyaala.webp"
     },
     image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -1283,7 +1283,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Moutia Ben Yahia",
         role: "CEO",
-        avatar: "/team/moutiabenyahia.png"
+        avatar: "/team/moutiabenyahia.webp"
     },
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -1319,7 +1319,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Ben Yahia",
         role: "FULL STACK DEVELOPER",
-        avatar: "/team/mohamedbenyahia.jpg"
+        avatar: "/team/mohamedbenyahia.webp"
     },
     image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -1355,7 +1355,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Ben Khemis",
         role: "DEVOPS ENGINEER",
-        avatar: "/team/mohamedbenkhemis.jfif"
+        avatar: "/team/mohamedbenkhemis.webp"
     },
     image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -1391,7 +1391,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Amine Ben Ammar",
         role: "CO-FOUNDER",
-        avatar: "/team/aminebenamamr.jpg"
+        avatar: "/team/aminebenamamr.webp"
     },
     image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -1427,7 +1427,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Yassine Ben Yaala",
         role: "CO-FOUNDER",
-        avatar: "/team/mohamedyassinbenyaala.jfif"
+        avatar: "/team/mohamedyassinbenyaala.webp"
     },
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -1463,7 +1463,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Moutia Ben Yahia",
         role: "CEO",
-        avatar: "/team/moutiabenyahia.png"
+        avatar: "/team/moutiabenyahia.webp"
     },
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -1499,7 +1499,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Ben Yahia",
         role: "FULL STACK DEVELOPER",
-        avatar: "/team/mohamedbenyahia.jpg"
+        avatar: "/team/mohamedbenyahia.webp"
     },
     image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -1535,7 +1535,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Ben Khemis",
         role: "DEVOPS ENGINEER",
-        avatar: "/team/mohamedbenkhemis.jfif"
+        avatar: "/team/mohamedbenkhemis.webp"
     },
     image: "https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -1571,7 +1571,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Amine Ben Ammar",
         role: "CO-FOUNDER",
-        avatar: "/team/aminebenamamr.jpg"
+        avatar: "/team/aminebenamamr.webp"
     },
     image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -1607,7 +1607,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Yassine Ben Yaala",
         role: "CO-FOUNDER",
-        avatar: "/team/mohamedyassinbenyaala.jfif"
+        avatar: "/team/mohamedyassinbenyaala.webp"
     },
     image: "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -1643,7 +1643,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Moutia Ben Yahia",
         role: "CEO",
-        avatar: "/team/moutiabenyahia.png"
+        avatar: "/team/moutiabenyahia.webp"
     },
     image: "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -1679,7 +1679,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Ben Yahia",
         role: "FULL STACK DEVELOPER",
-        avatar: "/team/mohamedbenyahia.jpg"
+        avatar: "/team/mohamedbenyahia.webp"
     },
     image: "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -1715,7 +1715,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Ben Khemis",
         role: "DEVOPS ENGINEER",
-        avatar: "/team/mohamedbenkhemis.jfif"
+        avatar: "/team/mohamedbenkhemis.webp"
     },
     image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -1751,7 +1751,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Amine Ben Ammar",
         role: "CO-FOUNDER",
-        avatar: "/team/aminebenamamr.jpg"
+        avatar: "/team/aminebenamamr.webp"
     },
     image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -1787,7 +1787,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Yassine Ben Yaala",
         role: "CO-FOUNDER",
-        avatar: "/team/mohamedyassinbenyaala.jfif"
+        avatar: "/team/mohamedyassinbenyaala.webp"
     },
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -1823,7 +1823,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Moutia Ben Yahia",
         role: "CEO",
-        avatar: "/team/moutiabenyahia.png"
+        avatar: "/team/moutiabenyahia.webp"
     },
     image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -1859,7 +1859,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Ben Yahia",
         role: "FULL STACK DEVELOPER",
-        avatar: "/team/mohamedbenyahia.jpg"
+        avatar: "/team/mohamedbenyahia.webp"
     },
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -1895,7 +1895,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Ben Khemis",
         role: "DEVOPS ENGINEER",
-        avatar: "/team/mohamedbenkhemis.jfif"
+        avatar: "/team/mohamedbenkhemis.webp"
     },
     image: "https://images.unsplash.com/photo-1526374870839-e155464bb9b2?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -1931,7 +1931,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Amine Ben Ammar",
         role: "CO-FOUNDER",
-        avatar: "/team/aminebenamamr.jpg"
+        avatar: "/team/aminebenamamr.webp"
     },
     image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -1967,7 +1967,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Yassine Ben Yaala",
         role: "CO-FOUNDER",
-        avatar: "/team/mohamedyassinbenyaala.jfif"
+        avatar: "/team/mohamedyassinbenyaala.webp"
     },
     image: "https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -2003,7 +2003,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Moutia Ben Yahia",
         role: "CEO",
-        avatar: "/team/moutiabenyahia.png"
+        avatar: "/team/moutiabenyahia.webp"
     },
     image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -2039,7 +2039,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Ben Yahia",
         role: "FULL STACK DEVELOPER",
-        avatar: "/team/mohamedbenyahia.jpg"
+        avatar: "/team/mohamedbenyahia.webp"
     },
     image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -2075,7 +2075,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Ben Khemis",
         role: "DEVOPS ENGINEER",
-        avatar: "/team/mohamedbenkhemis.jfif"
+        avatar: "/team/mohamedbenkhemis.webp"
     },
     image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -2111,7 +2111,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Amine Ben Ammar",
         role: "CO-FOUNDER",
-        avatar: "/team/aminebenamamr.jpg"
+        avatar: "/team/aminebenamamr.webp"
     },
     image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -2147,7 +2147,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Yassine Ben Yaala",
         role: "CO-FOUNDER",
-        avatar: "/team/mohamedyassinbenyaala.jfif"
+        avatar: "/team/mohamedyassinbenyaala.webp"
     },
     image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -2183,7 +2183,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Moutia Ben Yahia",
         role: "CEO",
-        avatar: "/team/moutiabenyahia.png"
+        avatar: "/team/moutiabenyahia.webp"
     },
     image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -2219,7 +2219,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Ben Yahia",
         role: "FULL STACK DEVELOPER",
-        avatar: "/team/mohamedbenyahia.jpg"
+        avatar: "/team/mohamedbenyahia.webp"
     },
     image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -2255,7 +2255,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Ben Khemis",
         role: "DEVOPS ENGINEER",
-        avatar: "/team/mohamedbenkhemis.jfif"
+        avatar: "/team/mohamedbenkhemis.webp"
     },
     image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -2291,7 +2291,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Amine Ben Ammar",
         role: "CO-FOUNDER",
-        avatar: "/team/aminebenamamr.jpg"
+        avatar: "/team/aminebenamamr.webp"
     },
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -2327,7 +2327,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Yassine Ben Yaala",
         role: "CO-FOUNDER",
-        avatar: "/team/mohamedyassinbenyaala.jfif"
+        avatar: "/team/mohamedyassinbenyaala.webp"
     },
     image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -2363,7 +2363,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Moutia Ben Yahia",
         role: "CEO",
-        avatar: "/team/moutiabenyahia.png"
+        avatar: "/team/moutiabenyahia.webp"
     },
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -2399,7 +2399,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Ben Yahia",
         role: "FULL STACK DEVELOPER",
-        avatar: "/team/mohamedbenyahia.jpg"
+        avatar: "/team/mohamedbenyahia.webp"
     },
     image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -2435,7 +2435,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Ben Khemis",
         role: "DEVOPS ENGINEER",
-        avatar: "/team/mohamedbenkhemis.jfif"
+        avatar: "/team/mohamedbenkhemis.webp"
     },
     image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -2471,7 +2471,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Amine Ben Ammar",
         role: "CO-FOUNDER",
-        avatar: "/team/aminebenamamr.jpg"
+        avatar: "/team/aminebenamamr.webp"
     },
     image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -2506,7 +2506,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Mohamed Yassine Ben Yaala",
         role: "CO-FOUNDER",
-        avatar: "/team/mohamedyassinbenyaala.jfif"
+        avatar: "/team/mohamedyassinbenyaala.webp"
     },
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -2541,7 +2541,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     author: {
         name: "Moutia Ben Yahia",
         role: "CEO",
-        avatar: "/team/moutiabenyahia.png"
+        avatar: "/team/moutiabenyahia.webp"
     },
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
     tags: [
@@ -2577,7 +2577,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     "author": {
       "name": "Moutia Ben Yahia",
       "role": "CEO",
-      "avatar": "/team/moutiabenyahia.png"
+      "avatar": "/team/moutiabenyahia.webp"
     },
     "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
     "tags": [
@@ -2613,7 +2613,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     "author": {
       "name": "Mohamed Yassine Ben Yaala",
       "role": "CO-FOUNDER",
-      "avatar": "/team/mohamedyassinbenyaala.jfif"
+      "avatar": "/team/mohamedyassinbenyaala.webp"
     },
     "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
     "tags": [
@@ -2649,7 +2649,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     "author": {
       "name": "Amine Ben Ammar",
       "role": "CO-FOUNDER",
-      "avatar": "/team/aminebenamamr.jpg"
+      "avatar": "/team/aminebenamamr.webp"
     },
     "image": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80",
     "tags": [
@@ -2685,7 +2685,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     "author": {
       "name": "Mohamed Ben Khemis",
       "role": "DEVOPS ENGINEER",
-      "avatar": "/team/mohamedbenkhemis.jfif"
+      "avatar": "/team/mohamedbenkhemis.webp"
     },
     "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
     "tags": [
@@ -2721,7 +2721,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     "author": {
       "name": "Mohamed Ben Yahia",
       "role": "FULL STACK DEVELOPER",
-      "avatar": "/team/mohamedbenyahia.jpg"
+      "avatar": "/team/mohamedbenyahia.webp"
     },
     "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
     "tags": [
@@ -2757,7 +2757,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     "author": {
       "name": "Moutia Ben Yahia",
       "role": "CEO",
-      "avatar": "/team/moutiabenyahia.png"
+      "avatar": "/team/moutiabenyahia.webp"
     },
     "image": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
     "tags": [
@@ -2793,7 +2793,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     "author": {
       "name": "Mohamed Yassine Ben Yaala",
       "role": "CO-FOUNDER",
-      "avatar": "/team/mohamedyassinbenyaala.jfif"
+      "avatar": "/team/mohamedyassinbenyaala.webp"
     },
     "image": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80",
     "tags": [
@@ -2829,7 +2829,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     "author": {
       "name": "Amine Ben Ammar",
       "role": "CO-FOUNDER",
-      "avatar": "/team/aminebenamamr.jpg"
+      "avatar": "/team/aminebenamamr.webp"
     },
     "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
     "tags": [
@@ -2865,7 +2865,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     "author": {
       "name": "Mohamed Ben Khemis",
       "role": "DEVOPS ENGINEER",
-      "avatar": "/team/mohamedbenkhemis.jfif"
+      "avatar": "/team/mohamedbenkhemis.webp"
     },
     "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
     "tags": [
@@ -2901,7 +2901,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     "author": {
       "name": "Mohamed Ben Yahia",
       "role": "FULL STACK DEVELOPER",
-      "avatar": "/team/mohamedbenyahia.jpg"
+      "avatar": "/team/mohamedbenyahia.webp"
     },
     "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80",
     "tags": [
@@ -2936,7 +2936,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     "author": {
       "name": "Moutia Ben Yahia",
       "role": "CEO",
-      "avatar": "/team/moutiabenyahia.png"
+      "avatar": "/team/moutiabenyahia.webp"
     },
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
     "tags": [
@@ -2971,7 +2971,7 @@ Edge Computing cuts latency to sub-10ms by distributing compute across hundreds 
     "author": {
       "name": "Mohamed Yassine Ben Yaala",
       "role": "CO-FOUNDER",
-      "avatar": "/team/mohamedyassinbenyaala.jfif"
+      "avatar": "/team/mohamedyassinbenyaala.webp"
     },
     "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80",
     "tags": [

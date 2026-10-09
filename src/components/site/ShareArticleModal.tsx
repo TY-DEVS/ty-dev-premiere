@@ -119,6 +119,10 @@ export function ShareArticleModal({ isOpen, onClose, post, lang }: ShareArticleM
           <img
             src={post.image}
             alt={post.title[lang]}
+            width={80}
+            height={80}
+            loading="lazy"
+            decoding="async"
             className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl object-cover shrink-0 border border-cyan-500/30 shadow-md"
           />
           <div className="flex-1 min-w-0 overflow-hidden">

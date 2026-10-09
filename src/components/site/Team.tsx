@@ -56,7 +56,11 @@ export function Team() {
                       <>
                         <img
                           src={member.image}
-                          alt={member.firstName}
+                          alt={`${member.firstName} ${member.lastName}`}
+                          width={112}
+                          height={112}
+                          loading="lazy"
+                          decoding="async"
                           className={`w-full h-full object-cover transition-all duration-700 opacity-90 group-hover:opacity-100 select-none pointer-events-none ${member.imagePosition || "object-center"}`}
                           draggable={false}
                           onContextMenu={(e) => e.preventDefault()}

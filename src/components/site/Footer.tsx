@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
+import { servicesData } from "@/data/servicesData";
 import { TyDevLogo } from "./TyDevLogo";
 
 function XIcon({ size = 15, className = "" }: { size?: number; className?: string }) {
@@ -109,24 +110,37 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Services */}
+          {/* Services - Maillage interne profond vers chaque service */}
           <div>
             <FooterColTitle>{t.footer.services}</FooterColTitle>
-            <ul className="space-y-4 text-sm">
-              {t.services.items.slice(0, 5).map((s) => (
-                <li key={s.title}>
-                  <Link to="/services" className="hover:text-brand transition-colors">
-                    {s.title}
+            <ul className="space-y-3 text-sm">
+              {servicesData.slice(0, 5).map((service) => (
+                <li key={service.slug}>
+                  <Link
+                    to="/services/$slug"
+                    params={{ slug: service.slug }}
+                    className="hover:text-brand text-muted-foreground hover:text-foreground transition-colors block"
+                  >
+                    {service.title[lang === "fr" ? "fr" : "en"] || service.title.fr}
                   </Link>
                 </li>
               ))}
+              <li className="pt-1">
+                <Link
+                  to="/services"
+                  className="inline-flex items-center gap-1.5 text-xs font-mono text-brand hover:underline"
+                >
+                  <span>{lang === "fr" ? "Tous nos services" : "All services"}</span>
+                  <ArrowRight size={12} />
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Navigation */}
           <div>
             <FooterColTitle>{t.footer.company}</FooterColTitle>
-            <ul className="space-y-3.5 text-sm">
+            <ul className="space-y-3 text-sm">
               <li>
                 <Link to="/about" className="hover:text-brand transition-colors">
                   {t.nav.about}
@@ -145,6 +159,11 @@ export function Footer() {
               <li>
                 <Link to="/demos" className="hover:text-brand transition-colors">
                   {t.nav.demos}
+                </Link>
+              </li>
+              <li>
+                <Link to="/simulateur" className="hover:text-brand transition-colors">
+                  {lang === "fr" ? "Simulateur de Devis" : "Project Simulator"}
                 </Link>
               </li>
               <li>

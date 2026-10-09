@@ -189,8 +189,11 @@ export function Blog({ isPage = false }: { isPage?: boolean }) {
                   <img
                     src={featuredPost.image}
                     alt={featuredPost.title[lang]}
+                    width={800}
+                    height={450}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
                     loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.06_0.02_250)] via-transparent to-transparent opacity-80" />
                   <span className="absolute top-4 left-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500 text-slate-950 text-xs font-mono font-bold uppercase tracking-wider shadow-lg">
@@ -248,8 +251,12 @@ export function Blog({ isPage = false }: { isPage?: boolean }) {
                       <img
                         src={featuredPost.author.avatar}
                         alt={featuredPost.author.name}
+                        width={36}
+                        height={36}
+                        loading="lazy"
+                        decoding="async"
                         onError={(e) => {
-                          (e.currentTarget as HTMLImageElement).src = "/team/mohamedyassinbenyaala.jfif";
+                          (e.currentTarget as HTMLImageElement).src = "/team/mohamedyassinbenyaala.webp";
                         }}
                         className="w-9 h-9 rounded-full border border-cyan-500/40 object-cover"
                       />
@@ -296,6 +303,8 @@ export function Blog({ isPage = false }: { isPage?: boolean }) {
                       <img
                         src={post.image}
                         alt={post.title[lang]}
+                        width={600}
+                        height={338}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 select-none pointer-events-none"
                         loading="lazy"
                         decoding="async"
@@ -356,8 +365,12 @@ export function Blog({ isPage = false }: { isPage?: boolean }) {
                           <img
                             src={post.author.avatar}
                             alt={post.author.name}
+                            width={28}
+                            height={28}
+                            loading="lazy"
+                            decoding="async"
                             onError={(e) => {
-                              (e.currentTarget as HTMLImageElement).src = "/team/mohamedyassinbenyaala.jfif";
+                              (e.currentTarget as HTMLImageElement).src = "/team/mohamedyassinbenyaala.webp";
                             }}
                             className="w-7 h-7 rounded-full border border-cyan-500/30 object-cover"
                           />

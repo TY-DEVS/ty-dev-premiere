@@ -93,6 +93,38 @@ assert(rootRouteContent.includes('"currenciesAccepted": "EUR, USD, TND"'), "__ro
 assert(rootRouteContent.includes('"paymentAccepted"'), "__root.tsx contient paymentAccepted");
 assert(rootRouteContent.includes('"openingHoursSpecification"'), "__root.tsx contient openingHoursSpecification");
 
+// 10. Test Hreflang et Canonical dans __root.tsx
+console.log("\n10. Test __root.tsx - Balises Hreflang et Canonical conformes Google");
+assert(rootRouteContent.includes('{ rel: "canonical", href: "https://ty-dev.site" }'), "__root.tsx contient l'URL canonique");
+assert(rootRouteContent.includes('{ rel: "alternate", hrefLang: "fr", href: "https://ty-dev.site" }'), "__root.tsx contient alternate fr");
+assert(rootRouteContent.includes('{ rel: "alternate", hrefLang: "en", href: "https://ty-dev.site" }'), "__root.tsx contient alternate en");
+assert(rootRouteContent.includes('{ rel: "alternate", hrefLang: "x-default", href: "https://ty-dev.site" }'), "__root.tsx contient alternate x-default");
+assert(!rootRouteContent.includes('"https://ty-dev.site/fr"'), "Aucun hreflang ne pointe vers une redirection /fr");
+assert(!rootRouteContent.includes('"https://ty-dev.site/en"'), "Aucun hreflang ne pointe vers une redirection /en");
+
+// 11. Test 404 / Noindex
+console.log("\n11. Test __root.tsx - Directive robots noindex sur la page 404");
+assert(rootRouteContent.includes('<meta name="robots" content="noindex, nofollow" />'), "NotFoundComponent inclut <meta name='robots' content='noindex, nofollow' />");
+assert(!rootRouteContent.includes("<HeadContent>\n        <meta name=\"robots\""), "NotFoundComponent n'utilise pas HeadContent comme wrapper invalide");
+
+// 12. Test Maillage Interne dans Footer.tsx
+console.log("\n12. Test Footer.tsx - Maillage interne profond vers chaque service & simulateur");
+const footerComponentPath = path.join(rootDir, "src/components/site/Footer.tsx");
+const footerContent = fs.readFileSync(footerComponentPath, "utf-8");
+assert(footerContent.includes('to="/services/$slug"'), "Footer.tsx contient des liens dynamiques vers /services/$slug");
+assert(footerContent.includes('to="/simulateur"'), "Footer.tsx contient un lien vers /simulateur");
+assert(footerContent.includes('import { servicesData }'), "Footer.tsx importe servicesData");
+
+// 13. Test Optimisation Images WebP & Core Web Vitals
+console.log("\n13. Test Optimisation des Images et Formats WebP");
+const teamDataPath = path.join(rootDir, "src/data/teamData.ts");
+const teamDataContent = fs.readFileSync(teamDataPath, "utf-8");
+assert(teamDataContent.includes('moutiabenyahia.webp'), "teamData.ts utilise moutiabenyahia.webp");
+assert(teamDataContent.includes('aminebenamamr.webp'), "teamData.ts utilise aminebenamamr.webp");
+assert(fs.existsSync(path.join(rootDir, "public/team/moutiabenyahia.webp")), "Le fichier public/team/moutiabenyahia.webp existe");
+assert(fs.existsSync(path.join(rootDir, "public/team/aminebenamamr.webp")), "Le fichier public/team/aminebenamamr.webp existe");
+assert(fs.existsSync(path.join(rootDir, "public/logo.webp")), "Le fichier public/logo.webp existe");
+
 console.log("\n=======================================================");
 console.log(`Résultats : ${successes} succès, ${failures} échec(s)`);
 console.log("=======================================================");
@@ -100,6 +132,6 @@ console.log("=======================================================");
 if (failures > 0) {
   process.exit(1);
 } else {
-  console.log("🎉 Tous les schémas SEO JSON-LD sont parfaitement conformes !\n");
+  console.log("🎉 Toutes les optimisations SEO (Schémas, Hreflang, 404, Maillage, Images) sont 100% validées et conformes !\n");
   process.exit(0);
 }

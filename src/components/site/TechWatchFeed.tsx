@@ -126,8 +126,11 @@ export function TechWatchFeed() {
                       "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80"
                     }
                     alt={art.title}
+                    width={800}
+                    height={450}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
                     {art.tag_list.slice(0, 2).map((t) => (
@@ -146,6 +149,10 @@ export function TechWatchFeed() {
                   <img
                     src={art.user.profile_image}
                     alt={art.user.name}
+                    width={24}
+                    height={24}
+                    loading="lazy"
+                    decoding="async"
                     className="w-6 h-6 rounded-full border border-cyan-500/40"
                   />
                   <span className="text-xs text-muted-foreground font-medium truncate">

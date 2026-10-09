@@ -352,8 +352,11 @@ export function ServiceDetail({ service }: { service: ServiceItemData }) {
                     <img
                       src={service.caseStudy.image}
                       alt={service.caseStudy.title[lang]}
+                      width={800}
+                      height={500}
                       className="w-full h-auto object-cover object-top transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
                   </Link>
