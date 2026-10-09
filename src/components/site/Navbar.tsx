@@ -172,7 +172,7 @@ function MobileDrawer({
               </button>
             </div>
 
-            <nav className="relative flex-1 overflow-y-auto px-3 py-6">
+            <nav className="relative flex-1 overflow-y-auto px-3 py-5 overscroll-contain">
               <div className="px-3 mb-2 font-mono text-[10px] tracking-[0.22em] uppercase text-muted-foreground/70">
                 // {lang === "fr" ? "Navigation" : "Navigate"}
               </div>
@@ -182,30 +182,21 @@ function MobileDrawer({
                     key={item.to}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.15 + i * 0.06, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ delay: 0.15 + i * 0.05, duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                   >
                     <Link
                       to={item.to}
                       onClick={onClose}
                       activeOptions={{ exact: true }}
-                      className="group flex items-center justify-between gap-3 px-3 py-3.5 rounded-lg hover:bg-surface/50 transition-colors data-[status=active]:bg-surface/60"
+                      className="group flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg hover:bg-surface/50 transition-colors data-[status=active]:bg-surface/60"
                     >
                       <span className="flex items-center gap-3">
                         <span className="font-mono text-[11px] text-muted-foreground/60 w-6">
                           {item.num}
                         </span>
-                        <span className={`font-display text-lg transition-colors ${
-                          item.to === "/simulateur" 
-                            ? "text-cyan-300 font-semibold group-hover:text-cyan-200" 
-                            : "text-foreground group-hover:text-brand group-data-[status=active]:text-brand"
-                        }`}>
+                        <span className="font-display text-lg text-foreground group-hover:text-brand transition-colors group-data-[status=active]:text-brand">
                           {item.label}
                         </span>
-                        {item.badge && (
-                          <span className="px-2 py-0.5 rounded-full bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 text-[10px] font-mono font-bold tracking-wider uppercase">
-                            {item.badge}
-                          </span>
-                        )}
                       </span>
                       <ArrowUpRight
                         size={16}
@@ -219,50 +210,31 @@ function MobileDrawer({
               <motion.div
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.45, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="px-3 mt-5 space-y-2.5"
+                transition={{ delay: 0.45, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                className="px-3 mt-5 space-y-2.5 pb-2"
               >
                 <Link
                   to="/simulateur"
                   onClick={onClose}
-                  className="group relative flex items-center justify-between gap-3 w-full p-3.5 rounded-2xl bg-gradient-to-r from-cyan-950/40 via-cyan-900/25 to-slate-900/40 border border-cyan-500/35 hover:border-cyan-400 text-foreground transition-all shadow-[0_0_25px_-5px_rgba(6,182,212,0.25)] hover:shadow-[0_0_35px_-2px_rgba(6,182,212,0.45)] active:scale-[0.99]"
+                  className="flex items-center justify-center gap-2.5 w-full px-5 py-3.5 rounded-full bg-cyan-500/15 border border-cyan-500/40 text-cyan-300 font-semibold text-sm hover:bg-cyan-500 hover:text-slate-950 transition-all shadow-[0_0_25px_-5px_rgba(6,182,212,0.3)] hover:shadow-[0_0_35px_rgba(6,182,212,0.5)] active:scale-[0.99]"
                 >
-                  <div className="flex items-center gap-3 min-w-0">
-                    <div className="w-10 h-10 rounded-xl bg-cyan-500/15 border border-cyan-400/35 flex items-center justify-center text-cyan-300 group-hover:scale-105 group-hover:bg-cyan-500/25 group-hover:text-cyan-200 transition-all shrink-0">
-                      <Calculator size={18} />
-                    </div>
-                    <div className="text-left min-w-0">
-                      <div className="flex items-center gap-2">
-                        <span className="font-display font-semibold text-sm text-foreground group-hover:text-cyan-300 transition-colors">
-                          {lang === "fr" ? "Simulateur de Devis" : "Instant Quote Simulator"}
-                        </span>
-                        <span className="px-1.5 py-0.5 rounded-full text-[9px] font-mono font-bold uppercase bg-cyan-500/20 text-cyan-300 border border-cyan-400/30 shrink-0">
-                          {lang === "fr" ? "2 min" : "2 min"}
-                        </span>
-                      </div>
-                      <p className="text-[11px] text-muted-foreground/80 group-hover:text-muted-foreground truncate">
-                        {lang === "fr" ? "Estimation tarifaire en direct & gratuite" : "Free & instant project cost estimate"}
-                      </p>
-                    </div>
-                  </div>
-                  <ArrowUpRight
-                    size={18}
-                    className="text-cyan-400/70 group-hover:text-cyan-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0"
-                  />
+                  <Calculator size={17} className="shrink-0" />
+                  <span className="truncate">{lang === "fr" ? "Simulateur de Devis" : "Instant Quote Simulator"}</span>
+                  <ArrowUpRight size={16} className="shrink-0 opacity-75" />
                 </Link>
 
                 <Link
                   to="/contact"
                   onClick={onClose}
-                  className="flex items-center justify-center gap-2 w-full px-5 py-3.5 rounded-full bg-brand text-primary-foreground font-medium shadow-[0_0_40px_oklch(0.6_0.22_265/0.4)] transition-all hover:shadow-[0_0_60px_oklch(0.6_0.22_265/0.7)]"
+                  className="flex items-center justify-center gap-2 w-full px-5 py-3.5 rounded-full bg-brand text-primary-foreground font-medium shadow-[0_0_40px_oklch(0.6_0.22_265/0.4)] transition-all hover:shadow-[0_0_60px_oklch(0.6_0.22_265/0.7)] active:scale-[0.99]"
                 >
                   {cta}
-                  <ArrowUpRight size={16} />
+                  <ArrowUpRight size={16} className="shrink-0" />
                 </Link>
               </motion.div>
             </nav>
 
-            <div className="relative border-t border-border/50 px-6 py-4 flex items-center justify-between">
+            <div className="relative border-t border-border/50 px-6 py-4 pb-[max(1rem,env(safe-area-inset-bottom))] flex items-center justify-between">
               <LangToggle lang={lang} setLang={setLang} />
               <span className="font-mono text-[10px] text-muted-foreground/60">
                 © {new Date().getFullYear()} TY Dev
