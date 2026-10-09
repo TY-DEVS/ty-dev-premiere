@@ -163,6 +163,35 @@ assert(rssContent.includes('<channel>'), "rss.xml contient l'élément channel")
 assert(rssContent.includes('<item>'), "rss.xml contient des éléments item");
 assert(rootRouteContent.includes('application/rss+xml'), "__root.tsx contient la balise de découverte RSS dans <head>");
 
+// 18. Test Performance - Google Fonts Non-Bloquant dans __root.tsx
+console.log("\n18. Test Performance - Google Fonts Asynchrone & Non-Bloquant");
+assert(rootRouteContent.includes('media="print"'), "__root.tsx charge les polices Google Fonts avec media='print'");
+assert(rootRouteContent.includes('this.media=\'all\''), "__root.tsx permute le media en 'all' au chargement sans bloquer le rendu");
+assert(rootRouteContent.includes('<noscript>'), "__root.tsx fournit un fallback <noscript> pour les polices");
+
+// 19. Test Core Web Vitals - Accélération GPU des animations (styles.css & Hero.tsx)
+console.log("\n19. Test Core Web Vitals - Animations GPU & Déblocage LCP");
+const stylesPath = path.join(rootDir, "src/styles.css");
+const stylesContent = fs.readFileSync(stylesPath, "utf-8");
+assert(stylesContent.includes("animation: pulse-ring"), "styles.css utilise l'animation GPU pulse-ring");
+assert(!stylesContent.includes("box-shadow: 0 0 0 8px"), "styles.css ne contient plus de box-shadow bloquante sur le pulse");
+assert(stylesContent.includes("transform: scale"), "pulse-ring utilise transform: scale accéléré par GPU");
+
+const heroPath = path.join(rootDir, "src/components/site/Hero.tsx");
+const heroContent = fs.readFileSync(heroPath, "utf-8");
+assert(!heroContent.includes('filter: "blur(6px)"'), "Hero.tsx ne contient plus de filter blur sur fadeUp");
+assert(!heroContent.includes('initial={{ y: "110%", opacity: 0 }}'), "Hero.tsx ne masque plus le titre H1 à 0% d'opacité pour le LCP");
+
+// 20. Test GEO (Generative Engine Optimization) - llms.txt & robots.txt
+console.log("\n20. Test GEO (Generative Engine Optimization) & Robots IA");
+const llmsPath = path.join(rootDir, "public/llms.txt");
+assert(fs.existsSync(llmsPath), "Le fichier public/llms.txt existe");
+const robotsPath = path.join(rootDir, "public/robots.txt");
+const robotsContent = fs.readFileSync(robotsPath, "utf-8");
+assert(robotsContent.includes("GPTBot"), "robots.txt autorise GPTBot");
+assert(robotsContent.includes("ClaudeBot"), "robots.txt autorise ClaudeBot");
+assert(robotsContent.includes("PerplexityBot"), "robots.txt autorise PerplexityBot");
+
 console.log("\n=======================================================");
 console.log(`Résultats : ${successes} succès, ${failures} échec(s)`);
 console.log("=======================================================");
@@ -170,6 +199,7 @@ console.log("=======================================================");
 if (failures > 0) {
   process.exit(1);
 } else {
-  console.log("🎉 Toutes les optimisations SEO (Schémas, E-E-A-T, OpenGraph, RSS, Maillage, Images) sont 100% validées et conformes !\n");
+  console.log("🎉 Les 6 Piliers SEO & Performance (Schémas, E-E-A-T, OpenGraph, RSS, Maillage, Images, Core Web Vitals, GEO) sont 100% validés et conformes !\n");
   process.exit(0);
 }
+

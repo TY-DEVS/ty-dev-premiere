@@ -11,12 +11,11 @@ const containerVariants: Variants = {
 };
 
 const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 18, filter: "blur(6px)" },
+  hidden: { opacity: 0, y: 16 },
   visible: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
-    transition: { duration: 0.9, ease },
+    transition: { duration: 0.75, ease },
   },
 };
 
@@ -36,9 +35,9 @@ function WordReveal({
         <span key={`${w}-${i}`} className="inline-block overflow-hidden align-bottom pb-[0.08em]">
           <motion.span
             className="inline-block"
-            initial={{ y: "110%", opacity: 0 }}
+            initial={{ y: "25%", opacity: 0.85 }}
             animate={{ y: "0%", opacity: 1 }}
-            transition={{ duration: 0.85, delay: delayStart + i * 0.08, ease }}
+            transition={{ duration: 0.7, delay: delayStart + i * 0.05, ease }}
           >
             {w}
             {i < words.length - 1 ? "\u00A0" : ""}
