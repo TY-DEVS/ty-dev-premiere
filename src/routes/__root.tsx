@@ -200,8 +200,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "canonical", href: "https://ty-dev.site" },
-      { rel: "alternate", hrefLang: "fr", href: "https://ty-dev.site" },
-      { rel: "alternate", hrefLang: "en", href: "https://ty-dev.site" },
+      { rel: "alternate", hrefLang: "fr", href: "https://ty-dev.fr" },
+      { rel: "alternate", hrefLang: "en", href: "https://ty-dev.tech" },
       { rel: "alternate", hrefLang: "x-default", href: "https://ty-dev.site" },
       {
         rel: "alternate",
@@ -243,6 +243,11 @@ function RootShell({ children }: { children: ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <HeadContent />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var h=window.location.hostname.toLowerCase(),c=document.querySelector('link[rel="canonical"]');if(c){if(h.indexOf('ty-dev.fr')!==-1){c.setAttribute('href','https://ty-dev.fr'+window.location.pathname);}else if(h.indexOf('ty-dev.tech')!==-1){c.setAttribute('href','https://ty-dev.tech'+window.location.pathname);}}}catch(e){}})();`,
+          }}
+        />
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"

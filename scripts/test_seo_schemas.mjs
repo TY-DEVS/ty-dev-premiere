@@ -93,12 +93,12 @@ assert(rootRouteContent.includes('"currenciesAccepted": "EUR, USD, TND"'), "__ro
 assert(rootRouteContent.includes('"paymentAccepted"'), "__root.tsx contient paymentAccepted");
 assert(rootRouteContent.includes('"openingHoursSpecification"'), "__root.tsx contient openingHoursSpecification");
 
-// 10. Test Hreflang et Canonical dans __root.tsx
-console.log("\n10. Test __root.tsx - Balises Hreflang et Canonical conformes Google");
-assert(rootRouteContent.includes('{ rel: "canonical", href: "https://ty-dev.site" }'), "__root.tsx contient l'URL canonique");
-assert(rootRouteContent.includes('{ rel: "alternate", hrefLang: "fr", href: "https://ty-dev.site" }'), "__root.tsx contient alternate fr");
-assert(rootRouteContent.includes('{ rel: "alternate", hrefLang: "en", href: "https://ty-dev.site" }'), "__root.tsx contient alternate en");
-assert(rootRouteContent.includes('{ rel: "alternate", hrefLang: "x-default", href: "https://ty-dev.site" }'), "__root.tsx contient alternate x-default");
+// 10. Test Hreflang et Canonical Multi-Domaines dans __root.tsx
+console.log("\n10. Test __root.tsx - Balises Hreflang et Canonical Multi-Domaines Option A");
+assert(rootRouteContent.includes('{ rel: "canonical", href: "https://ty-dev.site" }'), "__root.tsx contient l'URL canonique hub");
+assert(rootRouteContent.includes('{ rel: "alternate", hrefLang: "fr", href: "https://ty-dev.fr" }'), "__root.tsx associe le marché français à ty-dev.fr");
+assert(rootRouteContent.includes('{ rel: "alternate", hrefLang: "en", href: "https://ty-dev.tech" }'), "__root.tsx associe le marché tech anglophone à ty-dev.tech");
+assert(rootRouteContent.includes('{ rel: "alternate", hrefLang: "x-default", href: "https://ty-dev.site" }'), "__root.tsx associe le hub par défaut x-default à ty-dev.site");
 assert(!rootRouteContent.includes('"https://ty-dev.site/fr"'), "Aucun hreflang ne pointe vers une redirection /fr");
 assert(!rootRouteContent.includes('"https://ty-dev.site/en"'), "Aucun hreflang ne pointe vers une redirection /en");
 
