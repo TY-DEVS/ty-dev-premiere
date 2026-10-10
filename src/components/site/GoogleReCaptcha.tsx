@@ -169,16 +169,13 @@ export function GoogleReCaptcha({
       {/* Jeton caché pour capture automatique via FormData */}
       <input type="hidden" name="recaptchaToken" value={token} />
 
-      {/* Conteneur d'affichage épuré du widget officiel Google */}
+      {/* Conteneur d'affichage épuré du widget officiel Google (avec masquage net du bandeau test) */}
       <div
-        className={`relative flex items-center justify-start overflow-hidden ${
-          isTestKey ? "h-[78px] w-[304px] rounded-[4px]" : "min-h-[78px]"
+        className={`relative flex items-center justify-start ${
+          isTestKey ? "recaptcha-clean-box" : "min-h-[78px]"
         }`}
       >
-        <div
-          ref={containerRef}
-          className={`g-recaptcha ${isTestKey ? "-mt-[28px]" : ""}`}
-        />
+        <div ref={containerRef} className="g-recaptcha" />
 
         {!isWidgetRendered && (
           <div className="flex items-center gap-2.5 text-xs text-muted-foreground font-mono px-2 py-3">

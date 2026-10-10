@@ -199,3 +199,19 @@
 @utility animate-bounce-arrow {
   animation: bounce-arrow 2s ease-in-out infinite;
 }
+
+/* Google reCAPTCHA Clean Presentation & Test Notice Removal */
+.recaptcha-clean-box {
+  width: 304px;
+  height: 78px;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
+  background: #222;
+}
+
+.recaptcha-clean-box iframe {
+  margin-top: -38px !important;
+  vertical-align: top !important;
+}
