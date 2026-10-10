@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Loader2 } from "lucide-react";
-import { getRecaptchaSiteKeyFn, GOOGLE_TEST_SITE_KEY } from "@/lib/captcha";
+import { getRecaptchaSiteKeyFn, DEFAULT_RECAPTCHA_SITE_KEY } from "@/lib/captcha";
 import { useI18n } from "@/i18n/context";
 
 declare global {
@@ -40,7 +40,7 @@ export function GoogleReCaptcha({
   const containerRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<number | null>(null);
 
-  const [siteKey, setSiteKey] = useState<string>(GOOGLE_TEST_SITE_KEY);
+  const [siteKey, setSiteKey] = useState<string>(DEFAULT_RECAPTCHA_SITE_KEY);
   const [token, setToken] = useState<string>("");
   const [honeypot, setHoneypot] = useState<string>("");
   const [isScriptLoaded, setIsScriptLoaded] = useState<boolean>(false);

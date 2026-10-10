@@ -1,15 +1,15 @@
 import { createServerFn } from "@tanstack/react-start";
 
-// Clés officielles Google reCAPTCHA v2 (avec fallback clés de test Google documentées)
-export const GOOGLE_TEST_SITE_KEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
-export const GOOGLE_TEST_SECRET_KEY = "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe";
+// Clés officielles Google reCAPTCHA v2 de TY Dev
+export const DEFAULT_RECAPTCHA_SITE_KEY = "6LfVxOgtAAAAAI2hMoinkz4lyf2KqmHmw_gBBRr2";
+export const DEFAULT_RECAPTCHA_SECRET_KEY = "6LfVxOgtAAAAAAooTxVUTMYVbIXtvx1N9zNUYOGF";
 
 export function getRecaptchaSiteKey(): string {
-  return (process.env.RECAPTCHA_SITE_KEY || GOOGLE_TEST_SITE_KEY).trim();
+  return (process.env.RECAPTCHA_SITE_KEY || DEFAULT_RECAPTCHA_SITE_KEY).trim();
 }
 
 export function getRecaptchaSecretKey(): string {
-  return (process.env.RECAPTCHA_SECRET_KEY || GOOGLE_TEST_SECRET_KEY).trim();
+  return (process.env.RECAPTCHA_SECRET_KEY || DEFAULT_RECAPTCHA_SECRET_KEY).trim();
 }
 
 export interface VerifyRecaptchaParams {
@@ -74,12 +74,23 @@ export async function verifyGoogleRecaptcha(params: VerifyRecaptchaParams): Prom
 
     const data = (await response.json()) as {
       success: boolean;
+      score?: number;
+      action?: string;
       challenge_ts?: string;
       hostname?: string;
       "error-codes"?: string[];
     };
 
     if (data.success) {
+      // Si la clé est de type v3, Google renvoie un score (0.0 = bot, 1.0 = humain)
+      if (typeof data.score === "number" && data.score < 0.4) {
+        console.warn(`[reCAPTCHA Shield] Score insuffisant détecté (${data.score}) - blocage préventif.`);
+        return {
+          valid: false,
+          reason: "Suspicion de comportement automatisé. Veuillez réessayer.",
+        };
+      }
+
       return {
         valid: true,
         hostname: data.hostname,
@@ -89,7 +100,7 @@ export async function verifyGoogleRecaptcha(params: VerifyRecaptchaParams): Prom
     console.warn("[reCAPTCHA] Échec de validation Google:", data["error-codes"]);
     return {
       valid: false,
-      reason: "La validation Google reCAPTCHA a échoué. Veuillez cocher à nouveau la case.",
+      reason: "La validation Google reCAPTCHA a échoué. Veuillez vérifier la sécurité.",
     };
   } catch (error: any) {
     console.error("[reCAPTCHA] Exception lors de l'appel Google:", error);
