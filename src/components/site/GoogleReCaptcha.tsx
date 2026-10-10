@@ -136,8 +136,6 @@ export function GoogleReCaptcha({
     }
   }, [isScriptLoaded, siteKey, isWidgetRendered, onVerify, onExpire]);
 
-  const isTestKey = siteKey === GOOGLE_TEST_SITE_KEY;
-
   return (
     <div className={`relative my-2 ${className}`}>
       {/* Honeypot invisible : si rempli par un robot, la requête est rejetée */}
@@ -169,12 +167,8 @@ export function GoogleReCaptcha({
       {/* Jeton caché pour capture automatique via FormData */}
       <input type="hidden" name="recaptchaToken" value={token} />
 
-      {/* Conteneur d'affichage épuré du widget officiel Google (avec masquage net du bandeau test) */}
-      <div
-        className={`relative flex items-center justify-start ${
-          isTestKey ? "recaptcha-clean-box" : "min-h-[78px]"
-        }`}
-      >
+      {/* Conteneur d'affichage officiel Google reCAPTCHA v2 */}
+      <div className="relative flex items-center justify-start min-h-[78px] py-1">
         <div ref={containerRef} className="g-recaptcha" />
 
         {!isWidgetRendered && (
