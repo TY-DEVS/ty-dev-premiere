@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { ShieldCheck, Lock, Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { getRecaptchaSiteKeyFn, GOOGLE_TEST_SITE_KEY } from "@/lib/captcha";
 import { useI18n } from "@/i18n/context";
 
@@ -136,10 +136,10 @@ export function GoogleReCaptcha({
     }
   }, [isScriptLoaded, siteKey, isWidgetRendered, onVerify, onExpire]);
 
+  const isTestKey = siteKey === GOOGLE_TEST_SITE_KEY;
+
   return (
-    <div
-      className={`relative p-4 sm:p-5 rounded-2xl bg-surface/40 border border-border/60 hover:border-brand/40 transition-all duration-300 backdrop-blur-sm ${className}`}
-    >
+    <div className={`relative my-2 ${className}`}>
       {/* Honeypot invisible : si rempli par un robot, la requête est rejetée */}
       <div
         style={{
@@ -169,34 +169,16 @@ export function GoogleReCaptcha({
       {/* Jeton caché pour capture automatique via FormData */}
       <input type="hidden" name="recaptchaToken" value={token} />
 
-      {/* En-tête officiel reCAPTCHA */}
-      <div className="flex items-center justify-between gap-3 mb-3.5">
-        <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-brand/15 border border-brand/30 flex items-center justify-center text-brand shrink-0">
-            {token ? (
-              <ShieldCheck size={16} className="text-emerald-400" />
-            ) : (
-              <Lock size={16} />
-            )}
-          </div>
-          <div>
-            <div className="font-mono text-[11px] uppercase tracking-wider text-brand font-semibold">
-              // {lang === "fr" ? "SÉCURITÉ GOOGLE RECAPTCHA" : "GOOGLE RECAPTCHA SECURITY"}
-            </div>
-            <p className="text-xs text-muted-foreground mt-0.5">
-              {token
-                ? (lang === "fr" ? "Vérification réussie avec succès" : "Verification successfully completed")
-                : (lang === "fr"
-                    ? "Veuillez cocher la case ci-dessous pour prouver que vous êtes humain"
-                    : "Please check the box below to verify you are human")}
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Conteneur d'affichage du widget officiel Google */}
-      <div className="min-h-[78px] flex items-center justify-start overflow-x-auto py-1">
-        <div ref={containerRef} className="g-recaptcha" />
+      {/* Conteneur d'affichage épuré du widget officiel Google */}
+      <div
+        className={`relative flex items-center justify-start overflow-hidden ${
+          isTestKey ? "h-[78px] w-[304px] rounded-[4px]" : "min-h-[78px]"
+        }`}
+      >
+        <div
+          ref={containerRef}
+          className={`g-recaptcha ${isTestKey ? "-mt-[28px]" : ""}`}
+        />
 
         {!isWidgetRendered && (
           <div className="flex items-center gap-2.5 text-xs text-muted-foreground font-mono px-2 py-3">
