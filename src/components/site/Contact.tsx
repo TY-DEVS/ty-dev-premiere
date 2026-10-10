@@ -17,7 +17,7 @@ import { useNavigate, Link } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
 import { Section } from "./Services";
 import { sendContactEmailFn } from "@/lib/contactFn";
-import { AntiBotCaptcha } from "./AntiBotCaptcha";
+import { GoogleReCaptcha } from "./GoogleReCaptcha";
 
 const socials = [
   { Icon: Instagram, href: "https://www.instagram.com/tydev__/", label: "Instagram" },
@@ -166,6 +166,9 @@ export function Contact() {
 
             const form = e.target as HTMLFormElement;
             const formData = new FormData(form);
+            const recaptchaToken = (formData.get("recaptchaToken") as string) || "";
+            const website_hp = (formData.get("website_hp") as string) || "";
+
             const data = {
               name: formData.get("name") as string,
               email: formData.get("email") as string,
@@ -174,9 +177,8 @@ export function Contact() {
               budget: formData.get("budget") as string,
               desc: formData.get("desc") as string,
               source: window.location.origin, // Capture which domain was used
-              captchaAnswer: formData.get("captchaAnswer") as string,
-              captchaToken: formData.get("captchaToken") as string,
-              website_hp: formData.get("website_hp") as string,
+              recaptchaToken,
+              website_hp,
             };
 
             // Email regex verification
@@ -203,8 +205,12 @@ export function Contact() {
               return;
             }
 
-            if (!data.captchaAnswer || !data.captchaAnswer.trim()) {
-              toast.error(lang === "fr" ? "Veuillez répondre au calcul de sécurité anti-robot." : "Please answer the anti-bot security check.");
+            if (!recaptchaToken.trim()) {
+              toast.error(
+                lang === "fr"
+                  ? "Veuillez cocher la case Google 'Je ne suis pas un robot'."
+                  : "Please check the Google 'I'm not a robot' box."
+              );
               return;
             }
 
@@ -264,9 +270,9 @@ export function Contact() {
             />
           </div>
 
-          {/* Module de vérification anti-robot Captcha */}
+          {/* Module officiel Google reCAPTCHA v2 */}
           <div className="relative">
-            <AntiBotCaptcha />
+            <GoogleReCaptcha />
           </div>
 
           <div className="relative pt-2">

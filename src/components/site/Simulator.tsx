@@ -30,7 +30,7 @@ import {
 import { toast } from "sonner";
 import { useI18n } from "@/i18n/context";
 import { sendContactEmailFn } from "@/lib/contactFn";
-import { AntiBotCaptcha } from "./AntiBotCaptcha";
+import { GoogleReCaptcha } from "./GoogleReCaptcha";
 
 interface ProjectType {
   id: string;
@@ -546,11 +546,7 @@ export function Simulator() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [notes, setNotes] = useState("");
-  const [captchaData, setCaptchaData] = useState<{ answer: string; token: string; honeypot: string }>({
-    answer: "",
-    token: "",
-    honeypot: "",
-  });
+  const [recaptchaToken, setRecaptchaToken] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [submittedProposal, setSubmittedProposal] = useState<{
@@ -688,8 +684,12 @@ I would like to discuss this project with your engineers.`;
       return;
     }
 
-    if (!captchaData.answer.trim()) {
-      toast.error(lang === "fr" ? "Veuillez répondre au calcul de sécurité anti-robot." : "Please answer the anti-bot security check.");
+    if (!recaptchaToken.trim()) {
+      toast.error(
+        lang === "fr"
+          ? "Veuillez cocher la case Google 'Je ne suis pas un robot'."
+          : "Please check the Google 'I'm not a robot' box."
+      );
       return;
     }
 
@@ -721,9 +721,7 @@ ${notes.trim() || "Aucune note additionnelle."}
           budget: budgetFormatted,
           desc: fullDescription,
           source: `${origin}/simulateur`,
-          captchaAnswer: captchaData.answer.trim(),
-          captchaToken: captchaData.token,
-          website_hp: captchaData.honeypot,
+          recaptchaToken,
         },
       });
 
@@ -1406,10 +1404,10 @@ ${notes.trim() || "Aucune note additionnelle."}
                           />
                         </div>
 
-                        {/* Module Anti-Bot Captcha */}
-                        <AntiBotCaptcha
-                          onCaptchaChange={setCaptchaData}
-                          required={true}
+                        {/* Module officiel Google reCAPTCHA v2 */}
+                        <GoogleReCaptcha
+                          onVerify={setRecaptchaToken}
+                          onExpire={() => setRecaptchaToken("")}
                         />
 
                         {/* Privacy & NDA Footnote */}

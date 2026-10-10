@@ -1,6 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import nodemailer from "nodemailer";
-import { verifyCaptchaSolution } from "./captcha";
+import { verifyGoogleRecaptcha } from "./captcha";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -116,24 +116,22 @@ export const sendContactEmailFn = createServerFn({ method: "POST" })
       budget: string;
       desc: string;
       source?: string;
-      captchaAnswer?: string | number;
-      captchaToken?: string;
+      recaptchaToken?: string;
       website_hp?: string;
     }) => data
   )
   .handler(async (ctx) => {
-    const { name, email, phone, type, budget, desc, source, captchaAnswer, captchaToken, website_hp } = ctx.data;
+    const { name, email, phone, type, budget, desc, source, recaptchaToken, website_hp } = ctx.data;
 
-    // 0. Sécurité Anti-Bot & Captcha
-    const captchaResult = verifyCaptchaSolution({
-      userAnswer: captchaAnswer,
-      token: captchaToken,
+    // 0. Sécurité Officielle Google reCAPTCHA v2
+    const captchaResult = await verifyGoogleRecaptcha({
+      token: recaptchaToken,
       honeypot: website_hp,
     });
 
     if (!captchaResult.valid) {
-      console.warn(`[AntiBot Shield] Rejet soumission (${email || "inconnu"}): ${captchaResult.reason}`);
-      throw new Error(captchaResult.reason || "Vérification anti-robot échouée. Veuillez réessayer.");
+      console.warn(`[reCAPTCHA Shield] Rejet soumission (${email || "inconnu"}): ${captchaResult.reason}`);
+      throw new Error(captchaResult.reason || "Veuillez cocher la case Google 'Je ne suis pas un robot'.");
     }
 
     // 1. Strict email verification
