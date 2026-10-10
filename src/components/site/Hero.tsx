@@ -69,18 +69,17 @@ export function Hero() {
         aria-hidden
       />
       {/* Glow orb */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: [0.28, 0.42, 0.28] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full blur-3xl pointer-events-none"
+      <div
+        className="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] sm:w-[900px] sm:h-[900px] rounded-full pointer-events-none opacity-40"
         style={{
-          background: "radial-gradient(circle, oklch(0.6 0.22 265 / 0.4), transparent 60%)",
+          background: "radial-gradient(circle, oklch(0.6 0.22 265 / 0.35) 0%, oklch(0.6 0.22 265 / 0.1) 45%, transparent 70%)",
         }}
         aria-hidden
       />
 
-      <Particles />
+      <div className="hidden sm:block">
+        <Particles />
+      </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-16 items-center">
@@ -105,14 +104,13 @@ export function Hero() {
               <span className="opacity-80 text-muted-foreground">— EST. 2025</span>
             </motion.div>
 
-            <h1 className="font-display font-bold text-[2.6rem] sm:text-6xl lg:text-7xl xl:text-[5.25rem] tracking-tight leading-[1.02] mb-6">
-              <WordReveal text={t.hero.title1.trim()} />{" "}
-              <WordReveal
-                text={t.hero.titleAccent}
-                className="text-gradient-brand"
-                delayStart={t.hero.title1.trim().split(/\s+/).length * 0.08}
-              />
-            </h1>
+            <motion.h1
+              variants={fadeUp}
+              className="font-display font-bold text-[2.6rem] sm:text-6xl lg:text-7xl xl:text-[5.25rem] tracking-tight leading-[1.02] mb-6"
+            >
+              {t.hero.title1.trim()}{" "}
+              <span className="text-gradient-brand">{t.hero.titleAccent}</span>
+            </motion.h1>
 
             <motion.p
               variants={fadeUp}
@@ -153,17 +151,22 @@ export function Hero() {
 
           {/* Right — code terminal visual */}
           <motion.div
-            initial={{ opacity: 0, y: 30, filter: "blur(12px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 1.2, delay: 0.6, ease }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.25, ease }}
             className="relative mx-auto w-full max-w-lg lg:max-w-none"
           >
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-            >
+            <div className="hidden lg:block">
+              <motion.div
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <TerminalMock />
+              </motion.div>
+            </div>
+            <div className="lg:hidden">
               <TerminalMock />
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>
@@ -176,10 +179,10 @@ function TerminalMock() {
     <div className="relative">
       {/* Glow */}
       <div
-        className="absolute -inset-6 rounded-3xl opacity-60 blur-2xl"
+        className="absolute -inset-6 rounded-3xl opacity-40 pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle at 30% 30%, oklch(0.6 0.22 265 / 0.5), transparent 60%), radial-gradient(circle at 70% 70%, oklch(0.82 0.16 220 / 0.3), transparent 60%)",
+            "radial-gradient(circle at 30% 30%, oklch(0.6 0.22 265 / 0.35), transparent 60%), radial-gradient(circle at 70% 70%, oklch(0.82 0.16 220 / 0.2), transparent 60%)",
         }}
         aria-hidden
       />
