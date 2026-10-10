@@ -30,6 +30,7 @@ import {
 import { toast } from "sonner";
 import { useI18n } from "@/i18n/context";
 import { sendContactEmailFn } from "@/lib/contactFn";
+import { AntiBotCaptcha } from "./AntiBotCaptcha";
 
 interface ProjectType {
   id: string;
@@ -545,6 +546,11 @@ export function Simulator() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [notes, setNotes] = useState("");
+  const [captchaData, setCaptchaData] = useState<{ answer: string; token: string; honeypot: string }>({
+    answer: "",
+    token: "",
+    honeypot: "",
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [submittedProposal, setSubmittedProposal] = useState<{
@@ -682,6 +688,11 @@ I would like to discuss this project with your engineers.`;
       return;
     }
 
+    if (!captchaData.answer.trim()) {
+      toast.error(lang === "fr" ? "Veuillez répondre au calcul de sécurité anti-robot." : "Please answer the anti-bot security check.");
+      return;
+    }
+
     setIsSubmitting(true);
     const toastId = toast.loading(lang === "fr" ? "Transmission de votre proposition..." : "Submitting your proposal...");
 
@@ -710,6 +721,9 @@ ${notes.trim() || "Aucune note additionnelle."}
           budget: budgetFormatted,
           desc: fullDescription,
           source: `${origin}/simulateur`,
+          captchaAnswer: captchaData.answer.trim(),
+          captchaToken: captchaData.token,
+          website_hp: captchaData.honeypot,
         },
       });
 
@@ -1391,6 +1405,12 @@ ${notes.trim() || "Aucune note additionnelle."}
                             className="w-full px-3.5 py-2.5 rounded-xl bg-background/90 border border-border/80 text-foreground text-xs sm:text-sm placeholder:text-muted-foreground/60 focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 resize-none transition-all"
                           />
                         </div>
+
+                        {/* Module Anti-Bot Captcha */}
+                        <AntiBotCaptcha
+                          onCaptchaChange={setCaptchaData}
+                          required={true}
+                        />
 
                         {/* Privacy & NDA Footnote */}
                         <div className="flex items-start gap-2 text-[11px] text-muted-foreground bg-surface/30 p-2.5 rounded-lg border border-border/40">

@@ -5,7 +5,7 @@
     <link>https://ty-dev.site/blog</link>
     <description>Articles techniques, guides d'architecture SaaS, développement web haute performance et intégration d'agents IA par TY Dev.</description>
     <language>fr</language>
-    <lastBuildDate>Sat, 10 Oct 2026 11:59:35 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 10 Oct 2026 16:28:28 GMT</lastBuildDate>
     <atom:link href="https://ty-dev.site/rss.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://ty-dev.site/logo.jpg</url>
@@ -617,7 +617,7 @@
       <link>https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</link>
       <guid isPermaLink="true">https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</guid>
       <description><![CDATA[Guide technique d'architecture pour sélectionner le bon moteur de stockage, optimiser les index et concevoir une stratégie multi-base performante.]]></description>
-      <pubDate>Sat, 10 Oct 2026 11:59:35 GMT</pubDate>
+      <pubDate>Sat, 10 Oct 2026 16:28:28 GMT</pubDate>
       <category><![CDATA[Software Architecture]]></category>
       <dc:creator><![CDATA[Mohamed Yassine Ben Yaala]]></dc:creator>
       <enclosure url="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
@@ -627,7 +627,7 @@
       <link>https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</link>
       <guid isPermaLink="true">https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</guid>
       <description><![CDATA[Guide d'architecture complet pour connecter vos bases de données aux modèles LLM (RAG, Function Calling, Pgvector) et automatiser vos processus métiers sans compromettre la sécurité.]]></description>
-      <pubDate>Sat, 10 Oct 2026 11:59:35 GMT</pubDate>
+      <pubDate>Sat, 10 Oct 2026 16:28:28 GMT</pubDate>
       <category><![CDATA[IA & Automatisation]]></category>
       <dc:creator><![CDATA[Moutia Ben Yahia]]></dc:creator>
       <enclosure url="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />

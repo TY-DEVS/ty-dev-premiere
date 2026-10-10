@@ -1,5 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import nodemailer from "nodemailer";
+import { verifyCaptchaSolution } from "./captcha";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -106,9 +107,34 @@ function parseReceivers(): string[] {
 }
 
 export const sendContactEmailFn = createServerFn({ method: "POST" })
-  .validator((data: { name: string; email: string; phone?: string; type: string; budget: string; desc: string; source?: string }) => data)
+  .validator(
+    (data: {
+      name: string;
+      email: string;
+      phone?: string;
+      type: string;
+      budget: string;
+      desc: string;
+      source?: string;
+      captchaAnswer?: string | number;
+      captchaToken?: string;
+      website_hp?: string;
+    }) => data
+  )
   .handler(async (ctx) => {
-    const { name, email, phone, type, budget, desc, source } = ctx.data;
+    const { name, email, phone, type, budget, desc, source, captchaAnswer, captchaToken, website_hp } = ctx.data;
+
+    // 0. Sécurité Anti-Bot & Captcha
+    const captchaResult = verifyCaptchaSolution({
+      userAnswer: captchaAnswer,
+      token: captchaToken,
+      honeypot: website_hp,
+    });
+
+    if (!captchaResult.valid) {
+      console.warn(`[AntiBot Shield] Rejet soumission (${email || "inconnu"}): ${captchaResult.reason}`);
+      throw new Error(captchaResult.reason || "Vérification anti-robot échouée. Veuillez réessayer.");
+    }
 
     // 1. Strict email verification
     const cleanEmail = (email || "").trim();

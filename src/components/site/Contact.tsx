@@ -17,6 +17,7 @@ import { useNavigate, Link } from "@tanstack/react-router";
 import { useI18n } from "@/i18n/context";
 import { Section } from "./Services";
 import { sendContactEmailFn } from "@/lib/contactFn";
+import { AntiBotCaptcha } from "./AntiBotCaptcha";
 
 const socials = [
   { Icon: Instagram, href: "https://www.instagram.com/tydev__/", label: "Instagram" },
@@ -173,6 +174,9 @@ export function Contact() {
               budget: formData.get("budget") as string,
               desc: formData.get("desc") as string,
               source: window.location.origin, // Capture which domain was used
+              captchaAnswer: formData.get("captchaAnswer") as string,
+              captchaToken: formData.get("captchaToken") as string,
+              website_hp: formData.get("website_hp") as string,
             };
 
             // Email regex verification
@@ -196,6 +200,11 @@ export function Contact() {
 
             if (!data.desc.trim() || data.desc.trim().length < 5) {
               toast.error("Veuillez décrire votre projet (au moins 5 caractères).");
+              return;
+            }
+
+            if (!data.captchaAnswer || !data.captchaAnswer.trim()) {
+              toast.error(lang === "fr" ? "Veuillez répondre au calcul de sécurité anti-robot." : "Please answer the anti-bot security check.");
               return;
             }
 
@@ -254,6 +263,12 @@ export function Contact() {
               className="w-full px-5 py-4 rounded-xl bg-surface/50 border border-border/60 focus:border-brand focus:bg-background focus:ring-4 focus:ring-brand/10 outline-none transition-all duration-300 text-foreground text-sm placeholder:text-muted-foreground/50 resize-none"
             />
           </div>
+
+          {/* Module de vérification anti-robot Captcha */}
+          <div className="relative">
+            <AntiBotCaptcha />
+          </div>
+
           <div className="relative pt-2">
             <button
               type="submit"
