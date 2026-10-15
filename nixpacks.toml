@@ -7,9 +7,10 @@ NIXPACKS_NODE_VERSION = "22"
 
 [phases.setup]
 nixPkgs = ["nodejs_22"]
+nixpkgsArchive = "31fb21469e34b6b5c7be77b9a35bae43d0c598e9"
 
 [phases.install]
-cmds = ["npm ci || npm install"]
+cmds = ["npm install --fetch-retries=5 --fetch-retry-mintimeout=20000 --fetch-retry-maxtimeout=120000"]
 cacheDirectories = ["/root/.npm"]
 
 [phases.build]
