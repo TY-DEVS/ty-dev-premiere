@@ -165,6 +165,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://ty-dev.site/blog/bases-vectorielles-a-grande-echelle-qdrant-pgvector-ou-milvus-pour-le-rag-entreprise</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://ty-dev.site/blog/graphql-federation-vs-trpc-l-evolution-des-architectures-api-pour-les-microservices-en-2026</loc>
     <lastmod>2026-10-14</lastmod>
     <changefreq>weekly</changefreq>

@@ -66,6 +66,42 @@ export function formatDate(date: Date) {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "bases-vectorielles-a-grande-echelle-qdrant-pgvector-ou-milvus-pour-le-rag-entreprise",
+    slug: "bases-vectorielles-a-grande-echelle-qdrant-pgvector-ou-milvus-pour-le-rag-entreprise",
+    title: {
+        fr: "Bases Vectorielles à Grande Échelle : Qdrant, Pgvector ou Milvus pour le RAG Entreprise ?",
+        en: "Vector Databases at Scale: Qdrant, Pgvector or Milvus for Enterprise RAG?"
+    },
+    summary: {
+        fr: "Benchmark comparatif d'indexation vectorielle : latence HNSW, filtrage multi-tenant, passage à l'échelle sur 10M+ embeddings et recommandations d'ingénierie.",
+        en: "Comparative vector indexing benchmark: HNSW latency, multi-tenant payload filtering, scaling past 10M+ embeddings, and production architecture guidance."
+    },
+    category: "Bases de Données",
+    date: {
+        fr: "15 Octobre 2026",
+        en: "October 15, 2026",
+        iso: "2026-10-15"
+    },
+    author: {
+        name: "Mohamed Yassine Ben Yaala",
+        role: "CO-FOUNDER",
+        avatar: "/team/mohamedyassinbenyaala.webp"
+    },
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
+    tags: [
+        "VectorDB",
+        "Qdrant",
+        "Pgvector",
+        "Milvus",
+        "RAG",
+        "IA"
+    ],
+    content: {
+        fr: "\n## Le Défi de la Recherche Vectorielle à Haute Fréquence\n\nDans une architecture RAG (Retrieval-Augmented Generation), la vitesse de réponse dépend directement de la capacité de la base de données vectorielle à exécuter des recherches de similarité cosinus ou distance euclidienne sur des millions de vecteurs de grande dimension (ex: 1536 ou 3072 dimensions).\n\nChoisir la mauvaise technologie peut dégrader les temps de réponse de plusieurs secondes. Notre équipe d'[intégration IA & LLM](/services/integration-ia-llm) vous aide à faire le bon choix technologique.\n\n---\n\n### 1. Benchmark des Trois Géants du Vector Search\n\n1. **Pgvector (Extension PostgreSQL)** :\n   - *Forces* : Évite d'ajouter une nouvelle brique d'infrastructure ; permet de joindre des données relationnelles classiques et vectorielles dans une seule requête SQL transactionnelle.\n   - *Limites* : Performances moindres au-delà de 2 millions d'embeddings lors de fortes concurrences.\n2. **Qdrant (Moteur Vectoriel Écrit en Rust)** :\n   - *Forces* : Vitesse d'exécution exceptionnelle, filtrage par payload (mots-clés, tenant_id) intégré nativement dans l'index HNSW.\n   - *Idéal pour* : Les SaaS multi-tenants avec des millions d'utilisateurs.\n3. **Milvus (Architecture Distribuée Découplée)** :\n   - *Forces* : Conçu pour les volumes colossaux (100M+ vecteurs) avec scalabilité horizontale indépendante des nœuds de calcul et de stockage.\n\n---\n\n### 2. Exemple d'Interrogation Filtrée avec Qdrant en TypeScript\n\n```typescript\nimport { QdrantClient } from \"@qdrant/js-client-rest\";\n\nconst client = new QdrantClient({ url: process.env.QDRANT_URL, apiKey: process.env.QDRANT_KEY });\n\nexport async function searchEnterpriseDocs(vector: number[], tenantId: string) {\n  return await client.search(\"enterprise_knowledge\", {\n    vector,\n    limit: 5,\n    filter: {\n      must: [\n        { key: \"tenant_id\", match: { value: tenantId } },\n        { key: \"access_level\", match: { value: \"confidential\" } }\n      ]\n    }\n  });\n}\n```\n\n---\n\n### Conclusion\n\nPour débuter avec simplicité, **Pgvector** est parfait. Pour une application SaaS à grande échelle exigeant une latence sub-10ms, **Qdrant** est notre recommandation numéro un. [Découvrez nos offres SaaS sur-mesure](/services/saas-sur-mesure) ou [parlez-en directement à nos développeurs](/contact).\n",
+        en: "\n## Scaling High-Frequency Vector Retrieval\n\nFast, reliable RAG systems demand dedicated vector indexing capable of querying multi-dimensional embeddings with minimal latency.\n\nOur team at TY Dev delivers robust vector search pipelines through our [AI & LLM Services](/services/integration-ia-llm) and [Custom SaaS Engineering](/services/saas-sur-mesure).\n\n---\n\n### Comparison Summary\n- **Pgvector**: Perfect for combining relational data and embeddings in a single ACID store.\n- **Qdrant**: Blazing-fast Rust engine with first-class payload filtering for multi-tenant SaaS.\n- **Milvus**: Distributed infrastructure tailored for hundreds of millions of embeddings.\n\n[Get in touch with our team](/contact) to evaluate your vector storage architecture.\n"
+    }
+},
+  {
     id: "graphql-federation-vs-trpc-l-evolution-des-architectures-api-pour-les-microservices-en-2026",
     slug: "graphql-federation-vs-trpc-l-evolution-des-architectures-api-pour-les-microservices-en-2026",
     title: {
