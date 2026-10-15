@@ -5,13 +5,63 @@
     <link>https://ty-dev.site/blog</link>
     <description>Articles techniques, guides d'architecture SaaS, développement web haute performance et intégration d'agents IA par TY Dev.</description>
     <language>fr</language>
-    <lastBuildDate>Sat, 10 Oct 2026 17:45:08 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2026 14:01:17 GMT</lastBuildDate>
     <atom:link href="https://ty-dev.site/rss.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>https://ty-dev.site/logo.jpg</url>
       <title>TY Dev</title>
       <link>https://ty-dev.site</link>
     </image>
+    <item>
+      <title><![CDATA[Bases Vectorielles à Grande Échelle : Qdrant, Pgvector ou Milvus pour le RAG Entreprise ?]]></title>
+      <link>https://ty-dev.site/blog/bases-vectorielles-a-grande-echelle-qdrant-pgvector-ou-milvus-pour-le-rag-entreprise</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/bases-vectorielles-a-grande-echelle-qdrant-pgvector-ou-milvus-pour-le-rag-entreprise</guid>
+      <description><![CDATA[Benchmark comparatif d'indexation vectorielle : latence HNSW, filtrage multi-tenant, passage à l'échelle sur 10M+ embeddings et recommandations d'ingénierie.]]></description>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Bases de Données]]></category>
+      <dc:creator><![CDATA[Mohamed Yassine Ben Yaala]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[GraphQL Federation vs tRPC : L'Évolution des Architectures API pour les Microservices en 2026]]></title>
+      <link>https://ty-dev.site/blog/graphql-federation-vs-trpc-l-evolution-des-architectures-api-pour-les-microservices-en-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/graphql-federation-vs-trpc-l-evolution-des-architectures-api-pour-les-microservices-en-2026</guid>
+      <description><![CDATA[En 2026, la complexité croissante des microservices exige des approches API sophistiquées. Cet article explore les stratégies de GraphQL Federation et tRPC, analysant leurs forces et faiblesses pour bâtir des systèmes distribués performants et maintenables.]]></description>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Software Architecture]]></category>
+      <dc:creator><![CDATA[Mohamed Ben Khemis]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1526374870839-e155464bb9b2?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Bun 2.0 vs Node.js 24 : Benchmarks et Stratégies d'Architecture pour les SaaS de 2026]]></title>
+      <link>https://ty-dev.site/blog/bun-2-0-vs-node-js-24-benchmarks-et-strategies-d-architecture-pour-les-saas-de-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/bun-2-0-vs-node-js-24-benchmarks-et-strategies-d-architecture-pour-les-saas-de-2026</guid>
+      <description><![CDATA[En 2026, le choix du runtime JavaScript est crucial pour la performance des applications SaaS. Cet article explore les innovations de Bun 2.0 face aux évolutions de Node.js 24, analysant leurs impacts sur les benchmarks et les architectures de microservices.]]></description>
+      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Software Architecture]]></category>
+      <dc:creator><![CDATA[Amine Ben Ammar]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[Bases de Données Vectorielles (Qdrant, pgvector) : Architectures pour les Applications IA de Nouvelle Génération en 2026]]></title>
+      <link>https://ty-dev.site/blog/bases-de-donnees-vectorielles-qdrant-pgvector-architectures-pour-les-applications-ia-de-nouvelle-generation-en-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/bases-de-donnees-vectorielles-qdrant-pgvector-architectures-pour-les-applications-ia-de-nouvelle-generation-en-2026</guid>
+      <description><![CDATA[L'essor de l'IA générative rend les bases de données vectorielles indispensables pour gérer les embeddings et alimenter des applications intelligentes. Cet article explore les architectures clés autour de Qdrant et pgvector, comparant leurs forces pour le développement d'agents IA et de systèmes de recherche sémantique à l'horizon 2026.]]></description>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Software Architecture]]></category>
+      <dc:creator><![CDATA[Mohamed Yassine Ben Yaala]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
+    <item>
+      <title><![CDATA[L'IA à la Périphérie du Navigateur : Révolutionner les Applications Web avec ONNX.js en 2026]]></title>
+      <link>https://ty-dev.site/blog/l-ia-a-la-peripherie-du-navigateur-revolutionner-les-applications-web-avec-onnx-js-en-2026</link>
+      <guid isPermaLink="true">https://ty-dev.site/blog/l-ia-a-la-peripherie-du-navigateur-revolutionner-les-applications-web-avec-onnx-js-en-2026</guid>
+      <description><![CDATA[Découvrez comment l'IA s'exécute directement dans le navigateur client, offrant latence réduite, confidentialité améliorée et capacités hors ligne. Nous explorons ONNX.js comme technologie clé pour transformer les applications web en expériences intelligentes et performantes.]]></description>
+      <pubDate>Sun, 11 Oct 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Software Architecture]]></category>
+      <dc:creator><![CDATA[Moutia Ben Yahia]]></dc:creator>
+      <enclosure url="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
+    </item>
     <item>
       <title><![CDATA[WASI 3.0 et les Runtimes Serverless : Révolutionner le Cloud-Native pour 2026]]></title>
       <link>https://ty-dev.site/blog/wasi-3-0-et-les-runtimes-serverless-revolutionner-le-cloud-native-pour-2026</link>
@@ -627,7 +677,7 @@
       <link>https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</link>
       <guid isPermaLink="true">https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</guid>
       <description><![CDATA[Guide technique d'architecture pour sélectionner le bon moteur de stockage, optimiser les index et concevoir une stratégie multi-base performante.]]></description>
-      <pubDate>Sat, 10 Oct 2026 17:45:08 GMT</pubDate>
+      <pubDate>Thu, 15 Oct 2026 14:01:17 GMT</pubDate>
       <category><![CDATA[Software Architecture]]></category>
       <dc:creator><![CDATA[Mohamed Yassine Ben Yaala]]></dc:creator>
       <enclosure url="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />
@@ -637,7 +687,7 @@
       <link>https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</link>
       <guid isPermaLink="true">https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</guid>
       <description><![CDATA[Guide d'architecture complet pour connecter vos bases de données aux modèles LLM (RAG, Function Calling, Pgvector) et automatiser vos processus métiers sans compromettre la sécurité.]]></description>
-      <pubDate>Sat, 10 Oct 2026 17:45:08 GMT</pubDate>
+      <pubDate>Thu, 15 Oct 2026 14:01:17 GMT</pubDate>
       <category><![CDATA[IA & Automatisation]]></category>
       <dc:creator><![CDATA[Moutia Ben Yahia]]></dc:creator>
       <enclosure url="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" type="image/jpeg" />

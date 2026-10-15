@@ -1,12 +1,20 @@
+providers = ["node"]
+
 [variables]
 NITRO_PRESET = "node-server"
 PORT = "3000"
+NIXPACKS_NODE_VERSION = "22"
+
+[phases.setup]
+nixPkgs = ["nodejs_22"]
 
 [phases.install]
-cmds = ["npm install --fetch-retries=5 --fetch-retry-mintimeout=20000 --fetch-retry-maxtimeout=120000"]
+cmds = ["npm ci || npm install"]
+cacheDirectories = ["/root/.npm"]
 
 [phases.build]
 cmds = ["npm run build"]
+cacheDirectories = ["node_modules/.cache"]
 
 [start]
 cmd = "node .output/server/index.mjs"
