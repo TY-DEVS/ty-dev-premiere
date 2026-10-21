@@ -165,6 +165,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://ty-dev.site/blog/identite-decentralisee-did-verifiable-credentials-la-revolution-de-la-souverainete-des-donnees-saas-en-2026</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://ty-dev.site/blog/postgres-serverless-branching-de-bases-de-donnees-l-agilite-devops-reinventee-pour-2026</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>weekly</changefreq>
