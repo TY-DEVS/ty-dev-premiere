@@ -165,6 +165,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://ty-dev.site/blog/l-ere-des-interfaces-autonomes-quand-l-ia-generative-reinvente-le-developpement-frontend-saas-en-2026</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://ty-dev.site/blog/l-orchestration-d-agents-ia-avec-semantic-kernel-construire-des-applications-saas-intelligentes-et-composables-en-2026</loc>
     <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
