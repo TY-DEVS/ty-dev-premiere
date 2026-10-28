@@ -66,6 +66,42 @@ export function formatDate(date: Date) {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "passkeys-webauthn-en-typescript-supprimer-les-mots-de-passe-dans-vos-applications-saas",
+    slug: "passkeys-webauthn-en-typescript-supprimer-les-mots-de-passe-dans-vos-applications-saas",
+    title: {
+        fr: "Passkeys & WebAuthn en TypeScript : Supprimer les Mots de Passe dans vos Applications SaaS",
+        en: "Passkeys & WebAuthn in TypeScript: Eliminating Passwords in Modern SaaS Applications"
+    },
+    summary: {
+        fr: "Implémentation complète de l'authentification FIDO2 passwordless : cryptographie asymétrique, support biométrique (Touch ID, Face ID) et réduction de l'abandon utilisateur.",
+        en: "Complete FIDO2 passwordless auth implementation: asymmetric cryptography, biometric validation (Face ID, Touch ID), and drastically lower onboarding drop-off."
+    },
+    category: "Sécurité & Auth",
+    date: {
+        fr: "28 Octobre 2026",
+        en: "October 28, 2026",
+        iso: "2026-10-28"
+    },
+    author: {
+        name: "Mohamed Ben Yahia",
+        role: "FULL STACK DEVELOPER",
+        avatar: "/team/mohamedbenyahia.webp"
+    },
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
+    tags: [
+        "Cybersécurité",
+        "Passkeys",
+        "WebAuthn",
+        "TypeScript",
+        "SaaS",
+        "Authentification"
+    ],
+    content: {
+        fr: "\n## La Fin de l'Ère des Mots de Passe\n\nPlus de 80% des failles de sécurité proviennent d'identifiants volés ou réutilisés. En 2026, l'adoption des **Passkeys** fondées sur le standard ouvert **WebAuthn / FIDO2** s'impose comme la référence absolue en matière de sécurité logicielle et de confort utilisateur.\n\nDans nos développements de [plateformes SaaS sécurisées](/services/saas-sur-mesure), le support des Passkeys permet une connexion instantanée en une seconde via biométrie sans aucun mot de passe à mémoriser.\n\n---\n\n### 1. Fonctionnement Cryptographique de WebAuthn\n\nLe mécanisme repose sur une paire de clés asymétriques :\n- **Clé Privée** : Générée et stockée de manière inviolable dans l'enclave sécurisée de l'appareil de l'utilisateur (Secure Enclave Apple, TPM Windows, puce Titan Android). Elle ne quitte jamais l'appareil.\n- **Clé Publique** : Envoyée et enregistrée sur le serveur de votre application SaaS.\n- **Zéro Phishing Possible** : La signature cryptographique inclut le domaine d'origine du site web, rendant les faux sites clones totalement inopérants.\n\n---\n\n### 2. Exemple de Flux Backend avec `@simplewebauthn`\n\n```typescript\nimport { generateRegistrationOptions, verifyRegistrationResponse } from \"@simplewebauthn/server\";\n\n// 1. Émission du challenge cryptographique\nexport async function createPasskeyOptions(user: User) {\n  return generateRegistrationOptions({\n    rpName: \"TY Dev SaaS Platform\",\n    rpID: \"ty-dev.site\",\n    userID: user.id,\n    userName: user.email,\n    attestationType: \"none\",\n    authenticatorSelection: {\n      residentKey: \"required\",\n      userVerification: \"preferred\",\n    },\n  });\n}\n```\n\n---\n\n### Conclusion\n\nIntégrer les Passkeys augmente la conversion à l'inscription de plus de **25%** tout en éliminant les coûts de réinitialisation de mots de passe. Pour sécuriser vos systèmes, consultez nos services d'[intégration d'API](/services/integration-apis-webhooks) ou [échangez avec nos experts TY Dev](/contact).\n",
+        en: "\n## Retiring Passwords with WebAuthn\n\nOver 80% of data breaches involve compromised credentials. Modern SaaS platforms adopt **Passkeys (FIDO2 / WebAuthn)** for frictionless biometric authentication.\n\nThrough our [Secure SaaS Development](/services/saas-sur-mesure) and [API Integration Capabilities](/services/integration-apis-webhooks), TY Dev implements passwordless flows that boost registration conversions.\n\n---\n\n### Key Architectural Benefits\n- **Zero Phishing Vulnerabilities**: Private keys remain sealed inside device Secure Enclaves.\n- **Instant Biometric Sign-in**: Face ID or fingerprint replaces SMS 2FA codes.\n- **Frictionless Onboarding**: Drastically reduced support tickets for forgotten passwords.\n\n[Contact our engineers](/contact) to implement WebAuthn into your products.\n"
+    }
+},
+  {
     id: "l-ere-des-interfaces-autonomes-quand-l-ia-generative-reinvente-le-developpement-frontend-saas-en-2026",
     slug: "l-ere-des-interfaces-autonomes-quand-l-ia-generative-reinvente-le-developpement-frontend-saas-en-2026",
     title: {
