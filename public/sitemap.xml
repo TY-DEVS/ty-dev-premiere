@@ -165,6 +165,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://ty-dev.site/blog/l-ere-de-l-ingenierie-de-plateforme-accelerer-le-developpement-saas-avec-les-internal-developer-platforms-idp-en-2026</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://ty-dev.site/blog/passkeys-webauthn-en-typescript-supprimer-les-mots-de-passe-dans-vos-applications-saas</loc>
     <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
