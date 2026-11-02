@@ -165,6 +165,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://ty-dev.site/blog/architectures-frontend-composables-l-ere-des-micro-frontends-2-0-pour-un-saas-agnostique-et-performant</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://ty-dev.site/blog/platform-engineering-et-idp-catalyser-l-innovation-saas-a-l-echelle-en-2026</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
