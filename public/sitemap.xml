@@ -165,6 +165,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://ty-dev.site/blog/architectures-de-donnees-composables-et-couches-semantiques-la-revolution-de-la-donnee-produit-pour-le-saas-et-l-ia-en-2026</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://ty-dev.site/blog/architectures-frontend-composables-l-ere-des-micro-frontends-2-0-pour-un-saas-agnostique-et-performant</loc>
     <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
