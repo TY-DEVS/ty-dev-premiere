@@ -66,6 +66,42 @@ export function formatDate(date: Date) {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "architectures-evenementielles-resilientes-rabbitmq-redis-streams-bullmq-pour-traitements-asynchrones",
+    slug: "architectures-evenementielles-resilientes-rabbitmq-redis-streams-bullmq-pour-traitements-asynchrones",
+    title: {
+        fr: "Architectures Événementielles Résilientes : RabbitMQ, Redis Streams & BullMQ pour Traitements Asynchrones",
+        en: "Resilient Event-Driven Architectures: RabbitMQ, Redis Streams & BullMQ for Async Jobs"
+    },
+    summary: {
+        fr: "Comment découpler les requêtes HTTP, gérer les pics de charge soudains et garantir la livraison de messages avec retries exponentiels et Dead Letter Queues.",
+        en: "How to decouple synchronous HTTP endpoints, absorb traffic spikes, and guarantee zero message loss using exponential backoff retries and DLQs."
+    },
+    category: "Software Architecture",
+    date: {
+        fr: "07 Novembre 2026",
+        en: "November 07, 2026",
+        iso: "2026-11-07"
+    },
+    author: {
+        name: "Mohamed Ben Yahia",
+        role: "FULL STACK DEVELOPER",
+        avatar: "/team/mohamedbenyahia.webp"
+    },
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
+    tags: [
+        "Event-Driven",
+        "RabbitMQ",
+        "Redis Streams",
+        "BullMQ",
+        "Microservices",
+        "Queues"
+    ],
+    content: {
+        fr: "\n## Découpler le Traitement Synchrone du Flux Utilisateur\n\nDans une application web de production, bloquer un utilisateur pendant l'envoi d'e-mails, la génération de PDF lourds ou l'appel à des API tierces est une erreur critique d'architecture. Si l'un des services externes ralentit ou tombe en panne, toute votre plateforme subit un effet domino d'indisponibilité.\n\nPour remédier à cela, l'**architecture événementielle (Event-Driven)** permet de différer les calculs en arrière-plan via des files d'attente (Queues) résilientes.\n\nC'est une spécialité centrale de nos offres d'[intégration d'API & webhooks](/services/integration-apis-webhooks) et d'[automatisation de processus métiers](/services/automatisation-processus-metiers).\n\n---\n\n### 1. Quand Choisir BullMQ vs RabbitMQ vs Apache Kafka ?\n\n- **BullMQ + Redis** : Parfait pour les applications Node.js / TypeScript. Léger, facile à déployer, supporte le monitoring en temps réel, les tâches planifiées (cron) et les priorités.\n- **RabbitMQ (AMQP)** : La référence pour le routage complexe multi-langages avec des topologies d'échange avancées (Direct, Topic, Fanout).\n- **Apache Kafka** : Indispensable uniquement pour le streaming d'événements à très haut volume (des dizaines de milliers d'événements par seconde).\n\n---\n\n### 2. Exemple de Worker Résilient avec BullMQ\n\n```typescript\nimport { Worker, Queue } from \"bullmq\";\n\nconst redisConnection = { host: \"localhost\", port: 6379 };\nexport const emailQueue = new Queue(\"emailProcessing\", { connection: redisConnection });\n\nconst worker = new Worker(\"emailProcessing\", async (job) => {\n  console.log(`Traitement de la tâche ${job.id} : envoi d'email à ${job.data.to}`);\n  await sendTransactionEmail(job.data);\n}, {\n  connection: redisConnection,\n  concurrency: 5,\n  limiter: { max: 50, duration: 1000 }, // Protection contre le rate-limiting\n});\n\nworker.on(\"failed\", (job, err) => {\n  console.error(`Échec tâche ${job?.id} après tentatives : ${err.message}`);\n});\n```\n\n---\n\n### Conclusion\n\nUne architecture événementielle bien orchestrée garantit un temps de réponse HTTP inférieur à 100ms et une tolérance totale aux pannes. Découvrez nos [services SaaS sur-mesure](/services/saas-sur-mesure) ou [prenez contact avec l'équipe TY Dev](/contact) pour concevoir vos pipelines asynchrones.\n",
+        en: "\n## Decoupling Heavy Processing with Event Queues\n\nBlocking client HTTP requests for background jobs such as email dispatches or document exports introduces serious scalability bottlenecks.\n\nThrough our [API Integration & Webhooks](/services/integration-apis-webhooks) and [Business Workflow Automation](/services/automatisation-processus-metiers), TY Dev implements resilient background queues with zero data loss.\n\n---\n\n### Queue Selection Matrix\n- **BullMQ / Redis**: Ideal for TypeScript backends requiring job priorities and scheduled crons.\n- **RabbitMQ**: Enterprise standard for complex routing exchanges and multi-language services.\n- **Kafka**: Purpose-built for massive event-streaming throughput.\n\n[Reach out to our engineering team](/contact) to scale your async processing.\n"
+    }
+},
+  {
     id: "wasi-2-0-et-les-binaires-universels-revolutionner-le-cloud-native-performant-et-securise-en-2026",
     slug: "wasi-2-0-et-les-binaires-universels-revolutionner-le-cloud-native-performant-et-securise-en-2026",
     title: {
