@@ -165,6 +165,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://ty-dev.site/blog/cryptographie-post-quantique-pour-le-saas-anticiper-l-ere-quantique-en-2026</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://ty-dev.site/blog/architectures-evenementielles-resilientes-rabbitmq-redis-streams-bullmq-pour-traitements-asynchrones</loc>
     <lastmod>2026-11-07</lastmod>
     <changefreq>weekly</changefreq>
