@@ -165,6 +165,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://ty-dev.site/blog/architectures-rag-avancees-et-bases-de-donnees-vectorielles-le-c-ur-intelligent-du-saas-en-2026</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://ty-dev.site/blog/confidential-computing-pour-le-saas-securiser-les-donnees-en-usage-avec-les-environnements-d-execution-de-confiance-tee-en-2026</loc>
     <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
