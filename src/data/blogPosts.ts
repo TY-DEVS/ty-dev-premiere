@@ -66,6 +66,42 @@ export function formatDate(date: Date) {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "revolution-de-l-outillage-web-pourquoi-rust-biome-et-oxlint-remplacent-eslint-et-prettier",
+    slug: "revolution-de-l-outillage-web-pourquoi-rust-biome-et-oxlint-remplacent-eslint-et-prettier",
+    title: {
+        fr: "Révolution de l'Outillage Web : Pourquoi Rust, Biome et Oxlint Remplacent ESLint et Prettier",
+        en: "Web Tooling Revolution: Why Rust, Biome and Oxlint are Replacing ESLint and Prettier"
+    },
+    summary: {
+        fr: "Analyse de la transition vers les outils d'ingénierie compilés en Rust : temps de CI/CD divisés par dix, configuration unifiée et suppression de la dette technique.",
+        en: "Analysis of the shift towards Rust-powered web toolchains: 10x faster CI/CD pipelines, single unified configuration, and eliminated tooling technical debt."
+    },
+    category: "DevOps & Cloud",
+    date: {
+        fr: "15 Novembre 2026",
+        en: "November 15, 2026",
+        iso: "2026-11-15"
+    },
+    author: {
+        name: "Amine Ben Ammar",
+        role: "CO-FOUNDER",
+        avatar: "/team/aminebenamamr.webp"
+    },
+    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80",
+    tags: [
+        "Tooling",
+        "Rust",
+        "Biome",
+        "Oxlint",
+        "TypeScript",
+        "Performance"
+    ],
+    content: {
+        fr: "\n## La Fin de la Lenteur dans les Toolchains JavaScript\n\nDepuis plus d'une décennie, les développeurs web composent avec un empilement complexe d'outils Node.js : ESLint pour le linting, Prettier pour le formatage, Babel pour la transpilation. Sur de grands monorepos, exécuter une simple passe de vérification de code pouvait paralyser les machines pendant plusieurs minutes.\n\nEn 2026, l'arrivée d'outils natifs écrits en **Rust** comme **Biome** et **Oxlint** transforme radicalement la productivité des équipes d'ingénierie.\n\nPour notre agence axée sur les [pipelines DevOps et CI/CD](/services/devops-cloud-infrastructure), ces outils représentent une réduction massive de l'empreinte carbone et du temps d'attente des développeurs.\n\n---\n\n### 1. Pourquoi Biome s'Impose face au Couple ESLint + Prettier\n\n- **Vitesse Époustouflante (x25 à x40 plus rapide)** : Capable de vérifier et formater des milliers de fichiers en moins de 300 millisecondes.\n- **Unification Parfaite** : Un seul binaire, un seul fichier de configuration (`biome.json`), zéro conflit de règles entre le formateur et le linter.\n- **Zéro Dépendance Node.js** : Évite d'installer des centaines de sous-dépendances `npm` vulnérables aux attaques de chaîne d'approvisionnement (Supply Chain Attacks).\n\n```json\n// Exemple de configuration épurée biome.json\n{\n  \"$schema\": \"https://biomejs.dev/schemas/1.9.4/schema.json\",\n  \"formatter\": {\n    \"enabled\": true,\n    \"indentStyle\": \"space\",\n    \"lineWidth\": 100\n  },\n  \"linter\": {\n    \"enabled\": true,\n    \"rules\": {\n      \"recommended\": true,\n      \"correctness\": { \"noUnusedVariables\": \"error\" }\n    }\n  }\n}\n```\n\n---\n\n### Conclusion\n\nModerniser son outillage de développement est le moyen le plus rapide d'accélérer les livraisons en production. Découvrez comment nous optimisons vos [applications web et PWA](/services/applications-web-pwa) ou [contactez notre équipe technique](/contact).\n",
+        en: "\n## Upgrading Web Toolchains with Native Rust Speed\n\nTraditional Node.js linting stacks struggle on large codebases. Modern Rust tools like **Biome** and **Oxlint** offer 25x faster execution and unified formatting without dependency bloat.\n\nThrough our [DevOps & Cloud Pipelines](/services/devops-cloud-infrastructure) and [Web App Optimization](/services/applications-web-pwa), TY Dev builds lightning-fast development pipelines.\n\n---\n\n### Highlights\n- **Sub-Second Linting**: Format and lint thousands of files in under 300ms.\n- **Unified Configuration**: Single `biome.json` eliminates conflicting rules.\n- **Zero Supply-Chain Risk**: Standalone native binary without hundreds of unvetted packages.\n\n[Talk with our developers](/contact) to modernize your continuous integration workflow.\n"
+    }
+},
+  {
     id: "crossplane-et-gitops-le-plan-de-controle-universel-pour-le-saas-multi-cloud-en-2026",
     slug: "crossplane-et-gitops-le-plan-de-controle-universel-pour-le-saas-multi-cloud-en-2026",
     title: {
