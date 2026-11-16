@@ -165,6 +165,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://ty-dev.site/blog/securite-de-la-chaine-logistique-logicielle-sboms-slsa-et-attestation-pour-un-saas-resilient-en-2026</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://ty-dev.site/blog/revolution-de-l-outillage-web-pourquoi-rust-biome-et-oxlint-remplacent-eslint-et-prettier</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>weekly</changefreq>
