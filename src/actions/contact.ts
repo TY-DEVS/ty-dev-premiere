@@ -3,7 +3,7 @@
 import nodemailer from "nodemailer";
 import { headers } from "next/headers";
 import { verifyGoogleRecaptcha } from "@/lib/captcha";
-import { resolveTenantByHostname, type TenantConfig, DEFAULT_TENANT } from "@/config/tenants";
+import { resolveTenantByHostname, isStagingEnvironment, type TenantConfig, DEFAULT_TENANT } from "@/config/tenants";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -161,11 +161,14 @@ export async function sendContactEmailAction(data: ContactFormData) {
         socketTimeout: 10000,
       });
 
+      const isStag = isStagingEnvironment(tenant.domain);
+      const subjectPrefix = isStag ? "[STAGING] " : "";
+
       const mailOptions = {
         from: `"${tenant.brandName}" <${tenant.contact.email || user}>`,
         to: receivers.join(", "),
         replyTo: cleanEmail,
-        subject: `[${tenant.brandName}] Nouveau Contact: ${cleanName} - ${type || "Projet"}`,
+        subject: `${subjectPrefix}[${tenant.brandName}] Nouveau Contact: ${cleanName} - ${type || "Projet"}`,
         text: `Nouveau message reçu depuis ${tenant.domain} (${tenant.brandName}):\n\nNom: ${cleanName}\nEmail: ${cleanEmail}\nTéléphone: ${cleanPhone || "Non renseigné"}\nType: ${type}\nBudget: ${budget}\n\nDescription:\n${cleanDesc}\n\nSource: ${source || tenant.seo.canonicalBase}`,
         html: htmlContent,
       };

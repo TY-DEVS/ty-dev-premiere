@@ -9,11 +9,19 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+const isStaging =
+  process.env.APP_ENV === "staging" ||
+  process.env.NEXT_PUBLIC_APP_ENV === "staging";
+
+const siteBaseUrl = isStaging ? "https://staging.ty-dev.site" : "https://ty-dev.site";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ty-dev.site"),
+  metadataBase: new URL(siteBaseUrl),
   title: {
-    default: "TY Dev — Agence SaaS, Applications Web & Agents IA | Devis Sous 24h",
-    template: "%s | TY Dev",
+    default: isStaging
+      ? "[STAGING] TY Dev — Agence SaaS, Applications Web & Agents IA"
+      : "TY Dev — Agence SaaS, Applications Web & Agents IA | Devis Sous 24h",
+    template: isStaging ? "%s | [STAGING] TY Dev" : "%s | TY Dev",
   },
   description:
     "Création de plateformes SaaS sur-mesure, intégration d'agents IA et applications web haute performance. Audit d'architecture et devis gratuit sous 24h avec l'agence TY Dev.",
@@ -28,33 +36,46 @@ export const metadata: Metadata = {
     "ty-dev.fr",
     "ty-dev.tech",
   ],
-  authors: [{ name: "TY Dev", url: "https://ty-dev.site" }],
+  authors: [{ name: "TY Dev", url: siteBaseUrl }],
   creator: "TY Dev",
   publisher: "TY Dev",
-  robots: {
-    index: true,
-    follow: true,
-    "max-image-preview": "large",
-    "max-snippet": -1,
-    "max-video-preview": -1,
-  },
+  robots: isStaging
+    ? {
+        index: false,
+        follow: false,
+      }
+    : {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
   alternates: {
-    canonical: "https://ty-dev.site",
-    languages: {
-      fr: "https://ty-dev.fr",
-      en: "https://ty-dev.tech",
-      "x-default": "https://ty-dev.site",
-    },
+    canonical: siteBaseUrl,
+    languages: isStaging
+      ? {
+          fr: "https://staging.ty-dev.fr",
+          en: "https://staging.ty-dev.tech",
+          "x-default": "https://staging.ty-dev.site",
+        }
+      : {
+          fr: "https://ty-dev.fr",
+          en: "https://ty-dev.tech",
+          "x-default": "https://ty-dev.site",
+        },
     types: {
-      "application/rss+xml": "https://ty-dev.site/feed.xml",
+      "application/rss+xml": `${siteBaseUrl}/feed.xml`,
     },
   },
   openGraph: {
-    siteName: "TY Dev",
-    title: "TY Dev — Agence SaaS, Applications Web & Agents IA | Devis Sous 24h",
+    siteName: isStaging ? "[STAGING] TY Dev" : "TY Dev",
+    title: isStaging
+      ? "[STAGING] TY Dev — Agence SaaS, Applications Web & Agents IA"
+      : "TY Dev — Agence SaaS, Applications Web & Agents IA | Devis Sous 24h",
     description:
       "Plateformes SaaS sur-mesure, automatisations IA et applications web haute performance. Audit technique et devis sous 24h.",
-    url: "https://ty-dev.site",
+    url: siteBaseUrl,
     images: [{ url: "/logo.jpg", width: 1200, height: 630, alt: "TY Dev" }],
     type: "website",
     locale: "fr_FR",
@@ -62,7 +83,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "TY Dev — Agence SaaS, Applications Web & Agents IA | Devis Sous 24h",
+    title: isStaging
+      ? "[STAGING] TY Dev — Agence SaaS, Applications Web & Agents IA"
+      : "TY Dev — Agence SaaS, Applications Web & Agents IA | Devis Sous 24h",
     description:
       "Plateformes SaaS sur-mesure, automatisations IA et applications web haute performance. Audit technique et devis sous 24h.",
     images: ["/logo.jpg"],
@@ -158,7 +181,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var h=window.location.hostname.toLowerCase(),c=document.querySelector('link[rel="canonical"]');if(c){if(h.indexOf('ty-dev.fr')!==-1){c.setAttribute('href','https://ty-dev.fr'+window.location.pathname);}else if(h.indexOf('ty-dev.tech')!==-1){c.setAttribute('href','https://ty-dev.tech'+window.location.pathname);}}}catch(e){}})();`,
+            __html: `(function(){try{var h=window.location.hostname.toLowerCase(),c=document.querySelector('link[rel="canonical"]');if(c){var isStag=h.indexOf('staging.')!==-1;var prefix=isStag?'https://staging.':'https://';if(h.indexOf('ty-dev.fr')!==-1){c.setAttribute('href',prefix+'ty-dev.fr'+window.location.pathname);}else if(h.indexOf('ty-dev.tech')!==-1){c.setAttribute('href',prefix+'ty-dev.tech'+window.location.pathname);}}}catch(e){}})();`,
           }}
         />
         <script

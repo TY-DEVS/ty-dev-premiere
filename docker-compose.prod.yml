@@ -1,0 +1,56 @@
+# ==============================================================================
+# Production Docker Compose Configuration - TY Dev Platform
+# Target Domains: ty-dev.fr, ty-dev.tech, ty-dev.site
+# ==============================================================================
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tydev-platform-prod
+    restart: always
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      - NODE_ENV=production
+      - APP_ENV=production
+      - NEXT_PUBLIC_APP_ENV=production
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
+      - SITE_URL=${SITE_URL:-https://ty-dev.site}
+      - NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL:-https://ty-dev.site}
+      - SMTP_HOST=${SMTP_HOST:-83.229.19.107}
+      - SMTP_PORT=${SMTP_PORT:-587}
+      - SMTP_USER=${SMTP_USER:-contact@ty-dev.site}
+      - SMTP_PASS=${SMTP_PASS:-}
+      - CONTACT_RECEIVER=${CONTACT_RECEIVER:-}
+      - RECAPTCHA_SITE_KEY=${RECAPTCHA_SITE_KEY:-6LfVxOgtAAAAAI2hMoinkz4lyf2KqmHmw_gBBRr2}
+      - RECAPTCHA_SECRET_KEY=${RECAPTCHA_SECRET_KEY:-6LfVxOgtAAAAAAooTxVUTMYVbIXtvx1N9zNUYOGF}
+      - BLOG_ADMIN_TOKEN=${BLOG_ADMIN_TOKEN:-tydev_blog_admin_secret_key_2026}
+    env_file:
+      - path: .env.production
+        required: false
+      - path: .env
+        required: false
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://127.0.0.1:3000/ || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 2048M
+        reservations:
+          cpus: "0.25"
+          memory: 256M
+    networks:
+      - tydev-prod-network
+
+networks:
+  tydev-prod-network:
+    name: tydev-prod-network
+    driver: bridge

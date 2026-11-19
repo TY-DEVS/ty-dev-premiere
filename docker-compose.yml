@@ -1,14 +1,20 @@
+# ==============================================================================
+# Production Docker Compose Configuration - TY Dev Platform
+# ==============================================================================
+
 services:
   web:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: tydev-platform
-    restart: unless-stopped
+    container_name: tydev-platform-prod
+    restart: always
     ports:
       - "${PORT:-3000}:3000"
     environment:
       - NODE_ENV=production
+      - APP_ENV=production
+      - NEXT_PUBLIC_APP_ENV=production
       - PORT=3000
       - HOSTNAME=0.0.0.0
       - SITE_URL=${SITE_URL:-https://ty-dev.site}
@@ -24,6 +30,8 @@ services:
     env_file:
       - path: .env
         required: false
+      - path: .env.production
+        required: false
     healthcheck:
       test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://127.0.0.1:3000/ || exit 1"]
       interval: 30s
@@ -38,11 +46,10 @@ services:
         reservations:
           cpus: "0.25"
           memory: 256M
-
-    # Configuration réseau
     networks:
-      - tydev-network
+      - tydev-prod-network
 
 networks:
-  tydev-network:
+  tydev-prod-network:
+    name: tydev-prod-network
     driver: bridge

@@ -112,20 +112,48 @@ export const TENANTS: Record<TenantId, TenantConfig> = {
 
 export const DEFAULT_TENANT = TENANTS.site;
 
+export function isStagingEnvironment(hostname?: string | null): boolean {
+  if (typeof process !== "undefined" && process.env) {
+    if (
+      process.env.APP_ENV === "staging" ||
+      process.env.NEXT_PUBLIC_APP_ENV === "staging"
+    ) {
+      return true;
+    }
+  }
+  if (hostname && hostname.toLowerCase().startsWith("staging.")) {
+    return true;
+  }
+  return false;
+}
+
 export function resolveTenantByHostname(hostname?: string | null): TenantConfig {
-  if (!hostname) return DEFAULT_TENANT;
-  const lower = hostname.toLowerCase();
+  const isStaging = isStagingEnvironment(hostname);
+  let baseTenant = DEFAULT_TENANT;
 
-  if (lower.includes("ty-dev.fr")) {
-    return TENANTS.fr;
-  }
-  if (lower.includes("ty-dev.tech")) {
-    return TENANTS.tech;
-  }
-  if (lower.includes("ty-dev.site")) {
-    return TENANTS.site;
+  if (hostname) {
+    const lower = hostname.toLowerCase();
+    if (lower.includes("ty-dev.fr")) {
+      baseTenant = TENANTS.fr;
+    } else if (lower.includes("ty-dev.tech")) {
+      baseTenant = TENANTS.tech;
+    } else if (lower.includes("ty-dev.site")) {
+      baseTenant = TENANTS.site;
+    }
   }
 
-  // Fallback pour localhost / preview
-  return DEFAULT_TENANT;
+  if (isStaging) {
+    const stagingDomain = `staging.${baseTenant.domain}`;
+    return {
+      ...baseTenant,
+      domain: stagingDomain,
+      seo: {
+        ...baseTenant.seo,
+        canonicalBase: `https://${stagingDomain}`,
+        siteTitle: `[STAGING] ${baseTenant.seo.siteTitle}`,
+      },
+    };
+  }
+
+  return baseTenant;
 }
