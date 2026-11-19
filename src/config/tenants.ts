@@ -84,29 +84,28 @@ export const TENANTS: Record<TenantId, TenantConfig> = {
   site: {
     id: "site",
     domain: "ty-dev.site",
-    brandName: "TY Dev",
-    defaultLang: "fr",
-    allowedLangs: ["fr", "en"],
-    currency: "EUR",
-    currencySymbol: "€",
+    brandName: "TY Dev Global",
+    defaultLang: "en",
+    allowedLangs: ["en", "fr"],
+    currency: "USD",
+    currencySymbol: "$",
     contact: {
       email: "contact@ty-dev.site",
-      whatsappNumber: "33759440105",
+      whatsappNumber: "33759440105", // Ligne Mohamed Yassine Ben Yaala (CEO / Tech Lead)
       whatsappDisplay: "+33 7 59 44 01 05",
-      whatsappDefaultText: "Bonjour TY Dev, je souhaite discuter de mon projet d'application web / SaaS.",
+      whatsappDefaultText: "Hello TY Dev, I would like to discuss a SaaS, Web App or Cloud Engineering project.",
       phoneDisplay: "+33 7 59 44 01 05",
       receivers: [
         "contact@ty-dev.site",
         "benyaalamedyassine24@gmail.com",
         "amine.benammar17@gmail.com",
-        "support@ty-dev.site",
       ],
     },
     seo: {
       canonicalBase: "https://ty-dev.site",
-      siteTitle: "TY Dev — Agence SaaS, Applications Web & Agents IA | Devis Sous 24h",
+      siteTitle: "TY Dev — High-Performance SaaS & AI Engineering",
       description:
-        "Création de plateformes SaaS sur-mesure, intégration d'agents IA et applications web haute performance. Audit d'architecture et devis gratuit sous 24h.",
+        "Global software engineering firm specialized in bespoke multi-tenant SaaS, distributed architectures, and autonomous AI agents.",
     },
   },
 };
