@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useI18n } from "@/i18n/context";
+import { useTenant } from "@/context/tenantContext";
 import {
   getContextualWhatsAppConfig,
   buildContextualWhatsAppUrl,
@@ -17,11 +18,16 @@ function WhatsAppIcon(props: React.SVGProps<SVGSVGElement>) {
 
 export function FloatingWhatsApp() {
   const { lang } = useI18n();
+  const { tenant } = useTenant();
   const rawPathname = usePathname();
   const pathname = rawPathname || "/";
 
   const config = getContextualWhatsAppConfig(pathname, lang);
-  const whatsappUrl = buildContextualWhatsAppUrl(pathname, lang);
+  const whatsappUrl = buildContextualWhatsAppUrl(
+    pathname,
+    lang,
+    tenant.contact.whatsappNumber
+  );
 
   return (
     <div className="fixed bottom-5 left-5 sm:bottom-6 sm:left-6 z-50 group flex flex-col items-start gap-2">

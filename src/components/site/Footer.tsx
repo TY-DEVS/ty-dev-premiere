@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useI18n } from "@/i18n/context";
+import { useTenant } from "@/context/tenantContext";
 import { servicesData } from "@/data/servicesData";
 import { TyDevLogo } from "./TyDevLogo";
 
@@ -42,11 +43,9 @@ const socialList = [
   { Icon: Youtube, href: "https://www.youtube.com/@TY-Dev", label: "YouTube" },
 ];
 
-const EMAIL = "contact@ty-dev.site";
-const SITE = "ty-dev.site";
-
 export function Footer() {
   const { t, lang, setLang } = useI18n();
+  const { tenant } = useTenant();
 
   return (
     <footer className="relative bg-[oklch(0.06_0.02_260)] px-4 md:px-8 lg:px-12 pt-12 pb-12">
@@ -190,11 +189,11 @@ export function Footer() {
             <FooterColTitle>{t.footer.connect}</FooterColTitle>
             <div className="space-y-4">
               <a
-                href={`mailto:${EMAIL}`}
+                href={`mailto:${tenant.contact.email}`}
                 className="flex items-center gap-3 text-sm hover:text-foreground transition-colors"
               >
                 <Mail size={15} className="text-muted-foreground/70" />
-                <span className="font-mono text-[13px]">{EMAIL}</span>
+                <span className="font-mono text-[13px]">{tenant.contact.email}</span>
               </a>
               <div className="flex items-center gap-3 text-sm">
                 <Clock size={15} className="text-muted-foreground/70" />

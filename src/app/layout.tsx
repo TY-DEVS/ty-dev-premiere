@@ -124,7 +124,7 @@ const organizationSchema = {
     { "@type": "Continent", name: "North America" },
     { "@type": "Country", name: "Worldwide" },
   ],
-  currenciesAccepted: "EUR, USD, TND",
+  currenciesAccepted: "EUR, USD",
   paymentAccepted: "Credit Card, Stripe, Bank Transfer, Wire Transfer",
   openingHoursSpecification: [
     {

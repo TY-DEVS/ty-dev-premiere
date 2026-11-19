@@ -18,6 +18,7 @@ import { toast } from "sonner";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useI18n } from "@/i18n/context";
+import { useTenant } from "@/context/tenantContext";
 import { Section } from "./Services";
 import { sendContactEmailAction } from "@/actions/contact";
 import { GoogleReCaptcha } from "./GoogleReCaptcha";
@@ -53,6 +54,7 @@ function XIcon(props: React.SVGProps<SVGSVGElement>) {
 
 export function Contact() {
   const { t, lang } = useI18n();
+  const { tenant } = useTenant();
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -127,11 +129,15 @@ export function Contact() {
           </div>
 
           <div className="space-y-2 mb-8 lg:mb-12">
-            <ContactRow Icon={Mail} text="contact@ty-dev.tech" href="mailto:contact@ty-dev.tech" />
+            <ContactRow
+              Icon={Mail}
+              text={tenant.contact.email}
+              href={`mailto:${tenant.contact.email}`}
+            />
             <ContactRow
               Icon={MessageCircle}
-              text="WhatsApp: +33 7 59 44 01 05"
-              href="https://wa.me/33759440105"
+              text={`WhatsApp: ${tenant.contact.whatsappDisplay}`}
+              href={`https://wa.me/${tenant.contact.whatsappNumber}?text=${encodeURIComponent(tenant.contact.whatsappDefaultText)}`}
             />
             <ContactRow
               Icon={Instagram}

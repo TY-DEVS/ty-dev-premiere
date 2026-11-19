@@ -2,6 +2,7 @@
 
 import { ReactNode } from "react";
 import { usePathname } from "next/navigation";
+import { TenantProvider } from "@/context/tenantContext";
 import { I18nProvider } from "@/i18n/context";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
@@ -15,23 +16,25 @@ export function Providers({ children }: { children: ReactNode }) {
 
   if (isKeystatic) {
     return (
-      <>
+      <TenantProvider>
         {children}
         <Toaster richColors position="top-right" />
-      </>
+      </TenantProvider>
     );
   }
 
   return (
-    <I18nProvider>
-      <div className="relative min-h-screen bg-background text-foreground overflow-x-hidden flex flex-col">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <ScrollToTop />
-        <FloatingWhatsApp />
-      </div>
-      <Toaster richColors position="top-right" />
-    </I18nProvider>
+    <TenantProvider>
+      <I18nProvider>
+        <div className="relative min-h-screen bg-background text-foreground overflow-x-hidden flex flex-col">
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <ScrollToTop />
+          <FloatingWhatsApp />
+        </div>
+        <Toaster richColors position="top-right" />
+      </I18nProvider>
+    </TenantProvider>
   );
 }
