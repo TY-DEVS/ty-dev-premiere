@@ -1,0 +1,54 @@
+## L'IA Générative au Cœur de l'Architecture Applicative
+
+En 2026, l'intégration de l'Intelligence Artificielle ne se limite plus à un simple chatbot générique. Les entreprises exigent des **Agents IA autonomes** capables d'interagir directement avec le SI métier, d'exécuter des requêtes vectorielles et de déclencher des actions sécurisées via le protocole MCP.
+
+---
+
+### 1. Architecture RAG (Retrieval-Augmented Generation)
+
+La méthode RAG permet d'injecter des données métiers fraîches et confidentielles dans le prompt système du modèle :
+
+- **Vectorisation des Données** : Indexation des documents et historiques clients sous forme d'embeddings.
+- **Recherche Vectorielle avec Pgvector** : Requêtes de similitude cosinus sub-10ms dans PostgreSQL.
+- **Context Injection** : Agrégation des passages pertinents avant génération de la réponse.
+
+```typescript
+// Interrogation vectorielle sécurisée avec Pgvector et PostgreSQL
+import { db } from './db';
+
+export async function searchContext(queryEmbedding: number[], tenantId: string) {
+  return await db.query(`
+    SELECT content, similarity
+    FROM document_embeddings
+    WHERE tenant_id = $1
+    ORDER BY embedding <=> $2::vector
+    LIMIT 5
+  `, [tenantId, JSON.stringify(queryEmbedding)]);
+}
+```
+
+---
+
+### 2. Orchestration & Function Calling
+
+Les modèles modernes (Claude 3.5 Sonnet, GPT-4o, Gemini Pro) utilisent le **Function Calling** pour déclencher des APIs internes :
+
+1. **Analyse de l'Intention** : Identification de l'action demandée par l'utilisateur.
+2. **Validation par Schéma Zod** : Garantir la conformité absolue des types transmis.
+3. **Exécution Contrôlée** : Application des droits de sécurité utilisateur (RBAC).
+
+---
+
+### 3. Matrice des Cas d'Usage IA Métier
+
+| Domaine d'Application | Technologie Clé | Gain Opérationnel Métier |
+| :--- | :--- | :--- |
+| **Support Client Auto** | RAG + Pgvector | Réduction de 65% du temps de traitement |
+| **Analyse Financière** | Function Calling + Stripe API | Audit automatique des anomalies de facturation |
+| **Traitement Documentaire** | OCR + Vector Embeddings | Extraction et classement instantané de contrats |
+
+---
+
+### Conclusion
+
+Les Agents IA deviennent un avantage compétitif décisif lorsqu'ils sont parfaitement intégrés à l'architecture logicielle existante.

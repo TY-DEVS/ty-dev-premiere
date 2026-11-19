@@ -1,5 +1,7 @@
+'use client';
+
 import { motion } from "framer-motion";
-import { Link } from "@tanstack/react-router";
+import Link from "next/link";
 import { useI18n } from "@/i18n/context";
 import { TeamMemberProfile as MemberProfileType } from "@/data/teamData";
 import { 
@@ -74,8 +76,7 @@ export function TeamMemberProfileView({ member }: TeamMemberProfileProps) {
           className="mb-8"
         >
           <Link
-            to="/about"
-            hash="team"
+            href="/about#team"
             className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-brand transition-colors group"
           >
             <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
@@ -187,7 +188,7 @@ export function TeamMemberProfileView({ member }: TeamMemberProfileProps) {
                   </a>
                 )}
                 <Link
-                  to="/contact"
+                  href="/contact"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-brand text-brand-foreground text-sm font-semibold hover:opacity-90 transition-all shadow-lg shadow-brand/20 w-full sm:w-auto"
                 >
                   <span>{isFr ? "Lancer un projet avec TY Dev" : "Start a Project with TY Dev"}</span>
@@ -519,7 +520,7 @@ export function TeamMemberProfileView({ member }: TeamMemberProfileProps) {
                   : "Let's collaborate to build the ideal solution for your business."}
               </p>
               <Link
-                to="/contact"
+                href="/contact"
                 className="inline-block w-full py-2.5 px-4 rounded-xl bg-brand text-brand-foreground font-semibold text-xs uppercase tracking-wider hover:opacity-90 transition-opacity shadow-md"
               >
                 {isFr ? "Discuter avec l'équipe" : "Get in Touch"}

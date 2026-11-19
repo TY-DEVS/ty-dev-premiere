@@ -1,0 +1,24 @@
+{
+  "slug": "design-system-glassmorphism-ux-tailwind-v4",
+  "title_fr": "Design Systems, Glassmorphism UX & Tailwind CSS v4 : Créer des Interfaces D'Exception",
+  "title_en": "Design Systems, Glassmorphism UX & Tailwind CSS v4: Crafting Exceptional Interfaces",
+  "summary_fr": "Principes de design d'interface moderne : jetons de couleurs OKLCH, animations Framer Motion fluides et règles d'accessibilité WCAG 2.2.",
+  "summary_en": "Modern UI design principles: OKLCH color tokens, fluid Framer Motion micro-interactions, and WCAG 2.2 accessibility.",
+  "category": "UI/UX & Design Systems",
+  "date_fr": "13 Août 2026",
+  "date_en": "August 13, 2026",
+  "date_iso": "2026-08-13",
+  "author_name": "Amine Ben Ammar",
+  "author_role": "CO-FOUNDER",
+  "author_avatar": "/team/aminebenamamr.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "UI/UX",
+    "Design Systems",
+    "Glassmorphism",
+    "CSS",
+    "Tailwind",
+    "Frontend"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "slug": "performance-frontend-core-web-vitals-tanstack-start",
+  "title_fr": "Performance Frontend & Core Web Vitals : Atteindre 100/100 sur Lighthouse",
+  "title_en": "Frontend Performance & Core Web Vitals: Achieving 100/100 Lighthouse Scores",
+  "summary_fr": "Optimisation de l'interactivité (INP), du temps de chargement (LCP) et de la stabilité visuelle (CLS) avec React 19, Vite 8 et TanStack Start SSR.",
+  "summary_en": "Optimizing interaction responsiveness (INP), render speed (LCP), and layout stability (CLS) with React 19, Vite 8, and TanStack Start.",
+  "category": "SEO & Web Performance",
+  "date_fr": "11 Août 2026",
+  "date_en": "August 11, 2026",
+  "date_iso": "2026-08-11",
+  "author_name": "Mohamed Ben Yahia",
+  "author_role": "FULL STACK DEVELOPER",
+  "author_avatar": "/team/mohamedbenyahia.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "React",
+    "Performance",
+    "Vite",
+    "SEO",
+    "WebVitals",
+    "Lighthouse"
+  ]
+}

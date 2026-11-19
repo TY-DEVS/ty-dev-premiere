@@ -1,6 +1,8 @@
+'use client';
+
 import { useState } from "react";
 import { ArrowLeft, Calendar, Share2, Tag, Check, Copy, Terminal, Info, User, ArrowRight, MessageCircle, Code2, Clock, ShieldCheck } from "lucide-react";
-import { Link } from "@tanstack/react-router";
+import Link from "next/link";
 import { useI18n } from "@/i18n/context";
 import { type BlogPost, getAuthorSlug, getDynamicBlogPosts } from "@/data/blogPosts";
 import { servicesData } from "@/data/servicesData";
@@ -66,7 +68,7 @@ function RenderMarkdownContent({ content }: { content: string }) {
   const parts = content.split(/(```[\s\S]*?```)/g);
 
   const renderInline = (text: string) => {
-    const subParts = text.split(/(\*\*.*?\*\*|`.*?`)/g);
+    const subParts = text.split(/(\*\*.*?\*\*|`.*?`|\[.*?\]\(.*?\))/g);
     return subParts.map((part, pIdx) => {
       if (part.startsWith("**") && part.endsWith("**")) {
         return (
@@ -81,6 +83,24 @@ function RenderMarkdownContent({ content }: { content: string }) {
             {part.slice(1, -1)}
           </code>
         );
+      }
+      if (part.startsWith("[") && part.includes("](") && part.endsWith(")")) {
+        const match = part.match(/^\[(.*?)\]\((.*?)\)$/);
+        if (match) {
+          const [, label, href] = match;
+          const isExternal = href.startsWith("http") || href.startsWith("//");
+          return (
+            <Link
+              key={pIdx}
+              href={href}
+              target={isExternal ? "_blank" : undefined}
+              rel={isExternal ? "noopener noreferrer" : undefined}
+              className="text-cyan-400 hover:text-cyan-300 underline underline-offset-4 transition-colors font-medium"
+            >
+              {label}
+            </Link>
+          );
+        }
       }
       return part;
     });
@@ -287,7 +307,7 @@ export function BlogArticleDetail({ post }: { post: BlogPost }) {
       {/* Navigation Top Bar */}
       <div className="max-w-4xl mx-auto mb-8">
         <Link
-          to="/blog"
+          href="/blog"
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface/50 border border-cyan-500/20 text-cyan-300 text-xs font-semibold hover:bg-cyan-500 hover:text-slate-950 transition-all duration-300"
         >
           <ArrowLeft className="w-4 h-4" />
@@ -325,8 +345,7 @@ export function BlogArticleDetail({ post }: { post: BlogPost }) {
                   {/* Author Avatar + Details */}
                   <div className="flex items-center gap-3.5 sm:gap-4">
                     <Link
-                      to="/team/$slug"
-                      params={{ slug: authorSlug }}
+                      href={`/team/${authorSlug}`}
                       className="block relative group shrink-0"
                       title={`${lang === "fr" ? "Voir le profil de" : "View profile of"} ${post.author.name}`}
                     >
@@ -345,8 +364,7 @@ export function BlogArticleDetail({ post }: { post: BlogPost }) {
                     </Link>
                     <div className="min-w-0">
                       <Link
-                        to="/team/$slug"
-                        params={{ slug: authorSlug }}
+                        href={`/team/${authorSlug}`}
                         className="font-display font-semibold text-foreground text-sm sm:text-base hover:text-cyan-300 transition-colors block truncate"
                       >
                         {post.author.name}
@@ -360,8 +378,7 @@ export function BlogArticleDetail({ post }: { post: BlogPost }) {
                   {/* Action Buttons: 2-columns grid on mobile, row on desktop */}
                   <div className="grid grid-cols-2 sm:flex sm:items-center gap-2.5 w-full sm:w-auto pt-3 sm:pt-0 border-t sm:border-t-0 border-border/30">
                     <Link
-                      to="/team/$slug"
-                      params={{ slug: authorSlug }}
+                      href={`/team/${authorSlug}`}
                       className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl sm:rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-semibold hover:bg-cyan-500 hover:text-slate-950 transition-all duration-300 shadow-sm active:scale-95 text-center group"
                     >
                       <User className="w-3.5 h-3.5 shrink-0 text-cyan-400 group-hover:text-slate-950" />
@@ -454,7 +471,7 @@ export function BlogArticleDetail({ post }: { post: BlogPost }) {
                 </a>
 
                 <Link
-                  to="/contact"
+                  href="/contact"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-brand text-primary-foreground font-semibold text-xs sm:text-sm shadow-[0_10px_25px_-5px_oklch(0.6_0.22_265/0.4)] hover:shadow-[0_15px_35px_-5px_oklch(0.6_0.22_265/0.6)] hover:-translate-y-0.5 transition-all duration-300 text-center"
                 >
                   <span>{lang === "fr" ? "Demander un devis gratuit" : "Request Free Quote"}</span>
@@ -508,8 +525,7 @@ export function BlogArticleDetail({ post }: { post: BlogPost }) {
               </p>
             </div>
             <Link
-              to="/services/$slug"
-              params={{ slug: matchedService.slug }}
+              href={`/services/${matchedService.slug}`}
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand text-primary-foreground text-xs font-semibold hover:opacity-90 transition-opacity shrink-0"
             >
               <span>{lang === "fr" ? "Découvrir notre offre" : "Discover Service"}</span>
@@ -531,7 +547,7 @@ export function BlogArticleDetail({ post }: { post: BlogPost }) {
                 </h3>
               </div>
               <Link
-                to="/blog"
+                href="/blog"
                 className="hidden sm:inline-flex items-center gap-1.5 text-xs font-mono text-cyan-300 hover:text-cyan-200 transition-colors"
               >
                 <span>{lang === "fr" ? "Tout le blog" : "All articles"}</span>
@@ -543,8 +559,7 @@ export function BlogArticleDetail({ post }: { post: BlogPost }) {
               {relatedPosts.map((rPost) => (
                 <Link
                   key={rPost.slug}
-                  to="/blog/$slug"
-                  params={{ slug: rPost.slug }}
+                  href={`/blog/${rPost.slug}`}
                   className="group relative flex flex-col rounded-2xl overflow-hidden bg-surface/40 border border-border/50 hover:border-cyan-500/50 hover:bg-surface/70 transition-all duration-300 hover:-translate-y-1"
                 >
                   <div className="relative aspect-video w-full overflow-hidden bg-surface shrink-0">

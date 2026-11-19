@@ -1,3 +1,5 @@
+'use client';
+
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
 import { translations, type Lang, type Dict } from "./translations";
 
@@ -49,7 +51,8 @@ function getInitialLang(): Lang {
 }
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>(getInitialLang);
+  // Toujours initialiser avec "fr" pour correspondre au rendu SSR et éviter les erreurs d'hydratation React #418
+  const [lang, setLangState] = useState<Lang>("fr");
   const [domainTarget, setDomainTarget] = useState<DomainTarget>("site");
 
   useEffect(() => {

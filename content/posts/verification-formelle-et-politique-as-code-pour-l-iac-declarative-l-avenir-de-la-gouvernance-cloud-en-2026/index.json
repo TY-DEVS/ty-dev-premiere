@@ -1,0 +1,29 @@
+{
+  "slug": "verification-formelle-et-politique-as-code-pour-l-iac-declarative-l-avenir-de-la-gouvernance-cloud-en-2026",
+  "title_fr": "Vérification Formelle et Politique-as-Code pour l'IaC Déclarative : L'Avenir de la Gouvernance Cloud en 2026",
+  "title_en": "Formal Verification and Policy-as-Code for Declarative IaC: The Future of Cloud Governance in 2026",
+  "summary_fr": "La gestion de l'infrastructure cloud en 2026 exige bien plus que de simples scripts, elle nécessite une assurance inébranlable. Cet article explore comment l'intégration de la vérification formelle et de la politique-as-code dans les architectures d'Infrastructure as Code (IaC) déclaratives révolutionne la sécurité, la conformité et la fiabilité de nos systèmes.",
+  "summary_en": "Cloud infrastructure management in 2026 demands more than just scripts; it requires unwavering assurance. This article explores how integrating formal verification and policy-as-code into declarative Infrastructure as Code (IaC) architectures is revolutionizing the security, compliance, and reliability of our systems.",
+  "category": "Software Architecture",
+  "date_fr": "05 Novembre 2026",
+  "date_en": "November 05, 2026",
+  "date_iso": "2026-11-05",
+  "author_name": "Amine Ben Ammar",
+  "author_role": "CO-FOUNDER",
+  "author_avatar": "/team/aminebenamamr.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "Tech",
+    "Engineering",
+    "Web",
+    "Cloud",
+    "DevOps",
+    "IaC",
+    "Policy-as-Code",
+    "Formal Verification",
+    "Security",
+    "Compliance",
+    "SaaS"
+  ]
+}

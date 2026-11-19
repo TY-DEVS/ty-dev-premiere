@@ -1,0 +1,27 @@
+{
+  "slug": "architectures-frontend-composables-l-ere-des-micro-frontends-2-0-pour-un-saas-agnostique-et-performant",
+  "title_fr": "Architectures Frontend Composables : L'Ère des Micro-Frontends 2.0 pour un SaaS Agnostique et Performant",
+  "title_en": "Composable Frontend Architectures: The Era of Micro-Frontends 2.0 for Agnostic and High-Performance SaaS",
+  "summary_fr": "Les applications SaaS modernes exigent une agilité et une évolutivité sans précédent. Les architectures frontend composables, via les Micro-Frontends 2.0, Module Federation et l'intégration poussée des Web Components, redéfinissent la manière dont nous construisons des interfaces utilisateur complexes. Cette approche promet une meilleure performance, une maintenance simplifiée et une collaboration accrue des équipes, ouvrant la voie à des expériences utilisateur dynamiques et personnalisables.",
+  "summary_en": "Modern SaaS applications demand unprecedented agility and scalability. Composable frontend architectures, leveraging Micro-Frontends 2.0, Module Federation, and advanced Web Component integration, are redefining how we build complex user interfaces. This approach promises improved performance, simplified maintenance, and enhanced team collaboration, paving the way for dynamic and personalized user experiences.",
+  "category": "Software Architecture",
+  "date_fr": "02 Novembre 2026",
+  "date_en": "November 02, 2026",
+  "date_iso": "2026-11-02",
+  "author_name": "Mohamed Ben Yahia",
+  "author_role": "FULL STACK DEVELOPER",
+  "author_avatar": "/team/mohamedbenyahia.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "Frontend",
+    "Micro-Frontends",
+    "Module Federation",
+    "Web Components",
+    "SaaS",
+    "React",
+    "Vite",
+    "Web Performance",
+    "Architecture"
+  ]
+}

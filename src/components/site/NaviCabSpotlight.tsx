@@ -1,6 +1,8 @@
+'use client';
+
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, Globe } from "lucide-react";
-import { Link } from "@tanstack/react-router";
+import Link from "next/link";
 import { useI18n } from "@/i18n/context";
 import { Section, SectionHeader } from "./Services";
 
@@ -56,7 +58,7 @@ export function NaviCabSpotlight() {
             {/* Action buttons: Prominent case study CTA */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link
-                to="/projets/navicab"
+                href="/projets/navicab"
                 className="group inline-flex items-center gap-3 px-7 py-3.5 rounded-2xl bg-brand text-primary-foreground font-semibold shadow-[0_10px_35px_-10px_oklch(0.6_0.22_265/0.4)] hover:bg-brand/90 hover:shadow-[0_15px_45px_-10px_oklch(0.6_0.22_265/0.6)] transition-all duration-300 hover:-translate-y-0.5"
               >
                 <span>{t.spotlight.caseStudyBtn}</span>
@@ -102,7 +104,7 @@ export function NaviCabSpotlight() {
 
               {/* Preview image */}
               <Link
-                to="/projets/navicab"
+                href="/projets/navicab"
                 className="block relative overflow-hidden bg-surface select-none group"
               >
                 <img

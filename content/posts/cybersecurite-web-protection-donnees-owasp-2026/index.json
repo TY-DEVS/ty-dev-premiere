@@ -1,0 +1,24 @@
+{
+  "slug": "cybersecurite-web-protection-donnees-owasp-2026",
+  "title_fr": "Cybersécurité Web & Protection des Données : Conformité OWASP 2026",
+  "title_en": "Web Cybersecurity & Data Protection: OWASP 2026 Compliance Standards",
+  "summary_fr": "Protéger vos applications contre le Top 10 OWASP : Cookies HttpOnly, Content Security Policy (CSP), chiffrement AES-256 et requêtes ORM préparées.",
+  "summary_en": "Securing web applications against top vulnerabilities: HttpOnly cookies, strict CSP policies, AES-256 encryption, and parameterized ORMs.",
+  "category": "Cybersecurity",
+  "date_fr": "10 Août 2026",
+  "date_en": "August 10, 2026",
+  "date_iso": "2026-08-10",
+  "author_name": "Moutia Ben Yahia",
+  "author_role": "CEO",
+  "author_avatar": "/team/moutiabenyahia.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "Cybersecurity",
+    "OWASP",
+    "Security",
+    "Encryption",
+    "SaaS",
+    "Auth"
+  ]
+}

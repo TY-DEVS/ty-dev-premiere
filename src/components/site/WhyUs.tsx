@@ -1,3 +1,5 @@
+'use client';
+
 import { motion } from "framer-motion";
 import { Zap, Shield, Bot, Globe2 } from "lucide-react";
 import { useI18n } from "@/i18n/context";

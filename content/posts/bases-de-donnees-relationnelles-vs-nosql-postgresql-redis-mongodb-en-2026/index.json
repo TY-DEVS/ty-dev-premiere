@@ -1,0 +1,24 @@
+{
+  "slug": "bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026",
+  "title_fr": "Bases de Données Relationnelles vs NoSQL : PostgreSQL, Redis & MongoDB en 2026",
+  "title_en": "Relational vs NoSQL Databases: PostgreSQL, Redis & MongoDB in 2026",
+  "summary_fr": "Guide technique d'architecture pour sélectionner le bon moteur de stockage, optimiser les index et concevoir une stratégie multi-base performante.",
+  "summary_en": "Technical architecture guide for selecting storage engines, optimizing indexes, and building scalable multi-database systems.",
+  "category": "Software Architecture",
+  "date_fr": "17 Août 2026",
+  "date_en": "August 17, 2026",
+  "date_iso": "",
+  "author_name": "Mohamed Yassine Ben Yaala",
+  "author_role": "CO-FOUNDER",
+  "author_avatar": "/team/mohamedyassinbenyaala.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "PostgreSQL",
+    "Database",
+    "Redis",
+    "MongoDB",
+    "Backend",
+    "SQL"
+  ]
+}

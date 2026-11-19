@@ -1,0 +1,25 @@
+{
+  "slug": "confidential-computing-securiser-les-donnees-saas-en-cours-d-utilisation-pour-2026",
+  "title_fr": "Confidential Computing : Sécuriser les Données SaaS en Cours d'Utilisation pour 2026",
+  "title_en": "Confidential Computing: Securing SaaS Data In Use for 2026",
+  "summary_fr": "Le Confidential Computing est une tendance majeure pour la sécurité des applications SaaS en 2026, protégeant les données même lorsqu'elles sont en mémoire et en cours de traitement. Cette technologie révolutionne la confiance dans le cloud en garantissant une confidentialité totale pour les workloads sensibles.",
+  "summary_en": "Confidential Computing is a major trend for SaaS application security in 2026, protecting data even when it's in memory and being processed. This technology revolutionizes cloud trust by ensuring complete confidentiality for sensitive workloads.",
+  "category": "Software Architecture",
+  "date_fr": "16 Octobre 2026",
+  "date_en": "October 16, 2026",
+  "date_iso": "2026-10-16",
+  "author_name": "Amine Ben Ammar",
+  "author_role": "CO-FOUNDER",
+  "author_avatar": "/team/aminebenamamr.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "Cloud",
+    "Security",
+    "SaaS",
+    "DevOps",
+    "AI",
+    "Confidential Computing",
+    "Architecture"
+  ]
+}

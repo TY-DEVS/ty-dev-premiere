@@ -1,0 +1,25 @@
+{
+  "slug": "identite-decentralisee-did-verifiable-credentials-la-revolution-de-la-souverainete-des-donnees-saas-en-2026",
+  "title_fr": "Identité Décentralisée (DID) & Verifiable Credentials : La Révolution de la Souveraineté des Données SaaS en 2026",
+  "title_en": "Decentralized Identity (DID) & Verifiable Credentials: Revolutionizing SaaS Data Sovereignty in 2026",
+  "summary_fr": "Les modèles d'identité centralisés sont sous pression. En 2026, l'Identité Décentralisée (DID) et les Verifiable Credentials (VC) émergent comme la solution pour une souveraineté numérique accrue, transformant la gestion des données utilisateur dans le SaaS. Cette approche offre une sécurité et une confidentialité inégalées, redéfinissant la relation entre les utilisateurs et les applications cloud.",
+  "summary_en": "Centralized identity models face increasing pressure. By 2026, Decentralized Identity (DID) and Verifiable Credentials (VC) are emerging as the solution for enhanced digital sovereignty, transforming user data management in SaaS. This approach offers unparalleled security and privacy, redefining the relationship between users and cloud applications.",
+  "category": "Software Architecture",
+  "date_fr": "21 Octobre 2026",
+  "date_en": "October 21, 2026",
+  "date_iso": "2026-10-21",
+  "author_name": "Amine Ben Ammar",
+  "author_role": "CO-FOUNDER",
+  "author_avatar": "/team/aminebenamamr.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "SaaS",
+    "Security",
+    "Privacy",
+    "Blockchain",
+    "Identity",
+    "Web3",
+    "Architecture"
+  ]
+}

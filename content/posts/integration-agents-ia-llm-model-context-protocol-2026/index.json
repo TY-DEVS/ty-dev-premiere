@@ -1,0 +1,24 @@
+{
+  "slug": "integration-agents-ia-llm-model-context-protocol-2026",
+  "title_fr": "Intégration d'Agents IA & Model Context Protocol (MCP) : Orchestrer vos LLM en 2026",
+  "title_en": "Integrating AI Agents & Model Context Protocol (MCP): Orchestrating LLMs in 2026",
+  "summary_fr": "Architecture d'intégration IA avancée : RAG (Retrieval-Augmented Generation), Pgvector, Function Calling et Model Context Protocol pour orchestrer des workflows complexes.",
+  "summary_en": "Advanced AI integration guide: RAG, Pgvector, Function Calling, and Model Context Protocol for orchestrating complex business workflows.",
+  "category": "IA & Automatisation",
+  "date_fr": "14 Août 2026",
+  "date_en": "August 14, 2026",
+  "date_iso": "2026-08-14",
+  "author_name": "Mohamed Yassine Ben Yaala",
+  "author_role": "CO-FOUNDER",
+  "author_avatar": "/team/mohamedyassinbenyaala.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "IA",
+    "LLM",
+    "Agents",
+    "Pgvector",
+    "RAG",
+    "Automation"
+  ]
+}

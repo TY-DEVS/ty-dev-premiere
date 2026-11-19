@@ -1,0 +1,58 @@
+
+## Financial Engineering for SaaS Monetization
+
+Monetization powers commercial SaaS operations. Managing recurring subscriptions requires a resilient, secure system capable of handling complex billing edge-cases (proration, failed card retries, compliance).
+
+---
+
+### 1. Idempotent Webhook Processing Architecture
+
+Stripe payment updates must be ingested asynchronously via **Webhooks**. To prevent duplicate balance credits during network retries, webhook consumers must enforce strict idempotency:
+
+```typescript
+// Express Webhook server with signature verification
+import express from 'express';
+import Stripe from 'stripe';
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+const app = express();
+
+app.post('/api/webhooks/stripe', express.raw({ type: 'application/json' }), async (req, res) => {
+  const sig = req.headers['stripe-signature']!;
+  let event: Stripe.Event;
+
+  try {
+    event = stripe.webhooks.constructEvent(req.body, sig, process.env.STRIPE_WEBHOOK_SECRET!);
+  } catch (err: any) {
+    return res.status(400).send(`Webhook Error: ${err.message}`);
+  }
+
+  switch (event.type) {
+    case 'invoice.payment_succeeded':
+      await handleInvoicePaid(event.data.object as Stripe.Invoice);
+      break;
+    case 'customer.subscription.deleted':
+      await handleSubscriptionCanceled(event.data.object as Stripe.Subscription);
+      break;
+  }
+
+  res.json({ received: true });
+});
+```
+
+---
+
+### 2. Dunning Management & Churn Prevention
+
+Unrecovered payment failures account for up to **10% of involuntary customer churn**:
+
+- **Automated Smart Retries**: Leveraging AI-driven retry timing via Stripe Billing.
+- **Grace Period Policy**: Granting temporary 3-to-7 day access buffers before subscription locking.
+- **Self-Service Billing Portal**: Directing users to update cards seamlessly via Stripe Customer Portal.
+
+---
+
+### 3. Compliance & Security Standards
+
+- **PCI-DSS Compliance**: Offloading card data processing entirely to Stripe Elements / Checkout.
+- **Global Tax Automation**: Using Stripe Tax for real-time VAT and sales tax collection.

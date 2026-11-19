@@ -1,3 +1,5 @@
+'use client';
+
 export function TyDevLogo({ className = "" }: { className?: string }) {
   return (
     <div className={`group flex items-center gap-3 ${className}`}>

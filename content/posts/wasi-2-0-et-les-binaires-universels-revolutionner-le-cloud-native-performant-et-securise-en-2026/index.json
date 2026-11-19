@@ -1,0 +1,26 @@
+{
+  "slug": "wasi-2-0-et-les-binaires-universels-revolutionner-le-cloud-native-performant-et-securise-en-2026",
+  "title_fr": "WASI 2.0 et les Binaires Universels : Révolutionner le Cloud-Native Performant et Sécurisé en 2026",
+  "title_en": "WASI 2.0 and Universal Binaries: Revolutionizing High-Performance and Secure Cloud-Native in 2026",
+  "summary_fr": "WASI 2.0 étend WebAssembly au-delà du navigateur, offrant des binaires universels ultra-portables, performants et sécurisés. Cette avancée promet de transformer les architectures cloud-native, les microservices et le serverless en 2026.",
+  "summary_en": "WASI 2.0 extends WebAssembly beyond the browser, delivering ultra-portable, high-performance, and secure universal binaries. This advancement is set to transform cloud-native architectures, microservices, and serverless computing by 2026.",
+  "category": "Software Architecture",
+  "date_fr": "06 Novembre 2026",
+  "date_en": "November 06, 2026",
+  "date_iso": "2026-11-06",
+  "author_name": "Mohamed Ben Khemis",
+  "author_role": "DEVOPS ENGINEER",
+  "author_avatar": "/team/mohamedbenkhemis.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "WebAssembly",
+    "WASI",
+    "Cloud-Native",
+    "Performance",
+    "Security",
+    "DevOps",
+    "SaaS",
+    "2026 Trends"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "slug": "bases-de-donnees-vectorielles-qdrant-pgvector-architectures-pour-les-applications-ia-de-nouvelle-generation-en-2026",
+  "title_fr": "Bases de Données Vectorielles (Qdrant, pgvector) : Architectures pour les Applications IA de Nouvelle Génération en 2026",
+  "title_en": "Vector Databases (Qdrant, pgvector): Architecting Next-Gen AI Applications for 2026",
+  "summary_fr": "L'essor de l'IA générative rend les bases de données vectorielles indispensables pour gérer les embeddings et alimenter des applications intelligentes. Cet article explore les architectures clés autour de Qdrant et pgvector, comparant leurs forces pour le développement d'agents IA et de systèmes de recherche sémantique à l'horizon 2026.",
+  "summary_en": "The rise of generative AI makes vector databases essential for managing embeddings and powering intelligent applications. This article explores key architectures around Qdrant and pgvector, comparing their strengths for developing AI agents and semantic search systems by 2026.",
+  "category": "Software Architecture",
+  "date_fr": "12 Octobre 2026",
+  "date_en": "October 12, 2026",
+  "date_iso": "2026-10-12",
+  "author_name": "Mohamed Yassine Ben Yaala",
+  "author_role": "CO-FOUNDER",
+  "author_avatar": "/team/mohamedyassinbenyaala.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "Tech",
+    "Engineering",
+    "Web",
+    "AI",
+    "Vector Databases",
+    "LLM",
+    "Data Architecture"
+  ]
+}

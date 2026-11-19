@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -29,7 +31,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import { useI18n } from "@/i18n/context";
-import { sendContactEmailFn } from "@/lib/contactFn";
+import { sendContactEmailAction } from "@/actions/contact";
 import { GoogleReCaptcha } from "./GoogleReCaptcha";
 
 interface ProjectType {
@@ -712,17 +714,15 @@ ${notes.trim() || "Aucune note additionnelle."}
 
       const origin = typeof window !== "undefined" ? window.location.origin : "https://ty-dev.site";
 
-      await sendContactEmailFn({
-        data: {
-          name: name.trim(),
-          email: email.trim(),
-          phone: phone.trim(),
-          type: `[SIMULATEUR] ${currentType.title.fr}`,
-          budget: budgetFormatted,
-          desc: fullDescription,
-          source: `${origin}/simulateur`,
-          recaptchaToken,
-        },
+      await sendContactEmailAction({
+        name: name.trim(),
+        email: email.trim(),
+        phone: phone.trim(),
+        type: `[SIMULATEUR] ${currentType.title.fr}`,
+        budget: budgetFormatted,
+        desc: fullDescription,
+        source: `${origin}/simulateur`,
+        recaptchaToken,
       });
 
       toast.success(

@@ -1,0 +1,26 @@
+{
+  "slug": "l-ia-de-bord-de-navigateur-revolutionner-les-applications-web-avec-onnx-runtime-web-en-2026",
+  "title_fr": "L'IA de Bord de Navigateur : Révolutionner les Applications Web avec ONNX Runtime Web en 2026",
+  "title_en": "Browser-Edge AI: Revolutionizing Web Applications with ONNX Runtime Web in 2026",
+  "summary_fr": "L'intelligence artificielle s'apprête à transformer les applications web directement dans le navigateur, offrant performance, vie privée et réactivité inégalées. Cet article explore comment ONNX Runtime Web est la clé pour déployer des modèles d'IA sophistiqués côté client, ouvrant de nouvelles perspectives pour les applications de nouvelle génération d'ici 2026.",
+  "summary_en": "Artificial intelligence is set to transform web applications directly within the browser, delivering unparalleled performance, privacy, and responsiveness. This article explores how ONNX Runtime Web is the key to deploying sophisticated AI models client-side, opening new horizons for next-generation applications by 2026.",
+  "category": "Software Architecture",
+  "date_fr": "08 Octobre 2026",
+  "date_en": "October 08, 2026",
+  "date_iso": "2026-10-08",
+  "author_name": "Mohamed Ben Khemis",
+  "author_role": "DEVOPS ENGINEER",
+  "author_avatar": "/team/mohamedbenkhemis.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "Tech",
+    "Engineering",
+    "Web",
+    "AI",
+    "Performance",
+    "Frontend",
+    "ONNX",
+    "Browser"
+  ]
+}

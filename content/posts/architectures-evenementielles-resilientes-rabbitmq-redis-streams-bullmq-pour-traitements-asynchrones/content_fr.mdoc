@@ -1,0 +1,46 @@
+
+## Découpler le Traitement Synchrone du Flux Utilisateur
+
+Dans une application web de production, bloquer un utilisateur pendant l'envoi d'e-mails, la génération de PDF lourds ou l'appel à des API tierces est une erreur critique d'architecture. Si l'un des services externes ralentit ou tombe en panne, toute votre plateforme subit un effet domino d'indisponibilité.
+
+Pour remédier à cela, l'**architecture événementielle (Event-Driven)** permet de différer les calculs en arrière-plan via des files d'attente (Queues) résilientes.
+
+C'est une spécialité centrale de nos offres d'[intégration d'API & webhooks](/services/integration-apis-webhooks) et d'[automatisation de processus métiers](/services/automatisation-processus-metiers).
+
+---
+
+### 1. Quand Choisir BullMQ vs RabbitMQ vs Apache Kafka ?
+
+- **BullMQ + Redis** : Parfait pour les applications Node.js / TypeScript. Léger, facile à déployer, supporte le monitoring en temps réel, les tâches planifiées (cron) et les priorités.
+- **RabbitMQ (AMQP)** : La référence pour le routage complexe multi-langages avec des topologies d'échange avancées (Direct, Topic, Fanout).
+- **Apache Kafka** : Indispensable uniquement pour le streaming d'événements à très haut volume (des dizaines de milliers d'événements par seconde).
+
+---
+
+### 2. Exemple de Worker Résilient avec BullMQ
+
+```typescript
+import { Worker, Queue } from "bullmq";
+
+const redisConnection = { host: "localhost", port: 6379 };
+export const emailQueue = new Queue("emailProcessing", { connection: redisConnection });
+
+const worker = new Worker("emailProcessing", async (job) => {
+  console.log(`Traitement de la tâche ${job.id} : envoi d'email à ${job.data.to}`);
+  await sendTransactionEmail(job.data);
+}, {
+  connection: redisConnection,
+  concurrency: 5,
+  limiter: { max: 50, duration: 1000 }, // Protection contre le rate-limiting
+});
+
+worker.on("failed", (job, err) => {
+  console.error(`Échec tâche ${job?.id} après tentatives : ${err.message}`);
+});
+```
+
+---
+
+### Conclusion
+
+Une architecture événementielle bien orchestrée garantit un temps de réponse HTTP inférieur à 100ms et une tolérance totale aux pannes. Découvrez nos [services SaaS sur-mesure](/services/saas-sur-mesure) ou [prenez contact avec l'équipe TY Dev](/contact) pour concevoir vos pipelines asynchrones.

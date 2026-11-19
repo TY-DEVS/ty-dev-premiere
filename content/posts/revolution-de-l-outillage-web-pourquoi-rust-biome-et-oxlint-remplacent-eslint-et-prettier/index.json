@@ -1,0 +1,24 @@
+{
+  "slug": "revolution-de-l-outillage-web-pourquoi-rust-biome-et-oxlint-remplacent-eslint-et-prettier",
+  "title_fr": "Révolution de l'Outillage Web : Pourquoi Rust, Biome et Oxlint Remplacent ESLint et Prettier",
+  "title_en": "Web Tooling Revolution: Why Rust, Biome and Oxlint are Replacing ESLint and Prettier",
+  "summary_fr": "Analyse de la transition vers les outils d'ingénierie compilés en Rust : temps de CI/CD divisés par dix, configuration unifiée et suppression de la dette technique.",
+  "summary_en": "Analysis of the shift towards Rust-powered web toolchains: 10x faster CI/CD pipelines, single unified configuration, and eliminated tooling technical debt.",
+  "category": "DevOps & Cloud",
+  "date_fr": "15 Novembre 2026",
+  "date_en": "November 15, 2026",
+  "date_iso": "2026-11-15",
+  "author_name": "Amine Ben Ammar",
+  "author_role": "CO-FOUNDER",
+  "author_avatar": "/team/aminebenamamr.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "Tooling",
+    "Rust",
+    "Biome",
+    "Oxlint",
+    "TypeScript",
+    "Performance"
+  ]
+}

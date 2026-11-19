@@ -1,3 +1,5 @@
+'use client';
+
 import { Instagram, ExternalLink, CheckCircle2, MessageSquareQuote } from "lucide-react";
 import { useI18n } from "@/i18n/context";
 import { Section, SectionHeader } from "./Services";

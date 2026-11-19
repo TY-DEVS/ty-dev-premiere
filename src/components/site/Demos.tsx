@@ -1,7 +1,9 @@
+'use client';
+
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, ArrowRight, ArrowDown, MonitorPlay } from "lucide-react";
-import { Link } from "@tanstack/react-router";
+import Link from "next/link";
 import { useI18n } from "@/i18n/context";
 import { Section, SectionHeader } from "./Services";
 
@@ -144,7 +146,7 @@ export function Demos({ isPage = false }: { isPage?: boolean }) {
             </button>
           ) : (
             <Link
-              to="/demos"
+              href="/demos"
               className="group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-surface/40 border border-border/80 text-foreground font-semibold shadow-[0_10px_30px_-10px_oklch(0.6_0.22_265/0.2)] hover:bg-cyan-500 hover:border-cyan-400 hover:text-slate-950 hover:shadow-[0_15px_40px_-10px_oklch(0.75_0.18_200/0.4)] transition-all duration-300 hover:-translate-y-1"
             >
               {demosData.viewAll || "Voir toutes les démos"}

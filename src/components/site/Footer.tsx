@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Instagram,
   Linkedin,
@@ -9,7 +11,7 @@ import {
   ArrowUpRight,
   Calculator,
 } from "lucide-react";
-import { Link } from "@tanstack/react-router";
+import Link from "next/link";
 import { useI18n } from "@/i18n/context";
 import { servicesData } from "@/data/servicesData";
 import { TyDevLogo } from "./TyDevLogo";
@@ -76,14 +78,14 @@ export function Footer() {
           </div>
           <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
             <Link
-              to="/simulateur"
+              href="/simulateur"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full border border-cyan-500/35 bg-cyan-500/10 text-cyan-300 font-semibold hover:bg-cyan-500 hover:text-slate-950 transition-all shadow-[0_0_25px_-5px_oklch(0.6_0.22_200/0.3)] hover:shadow-[0_0_35px_oklch(0.6_0.22_200/0.5)]"
             >
               <Calculator size={18} />
               <span>{lang === "fr" ? "Simuler mon projet" : "Estimate my project"}</span>
             </Link>
             <Link
-              to="/contact"
+              href="/contact"
               className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand text-white font-semibold rounded-full overflow-hidden transition-all hover:pr-12 shadow-[0_0_40px_-10px_oklch(0.55_0.22_265)] hover:shadow-[0_0_60px_-5px_oklch(0.55_0.22_265)]"
             >
               <span className="relative z-10">{t.nav.cta}</span>
@@ -117,8 +119,7 @@ export function Footer() {
               {servicesData.slice(0, 5).map((service) => (
                 <li key={service.slug}>
                   <Link
-                    to="/services/$slug"
-                    params={{ slug: service.slug }}
+                    href={`/services/${service.slug}`}
                     className="hover:text-brand text-muted-foreground hover:text-foreground transition-colors block"
                   >
                     {service.title[lang === "fr" ? "fr" : "en"] || service.title.fr}
@@ -127,7 +128,7 @@ export function Footer() {
               ))}
               <li className="pt-1">
                 <Link
-                  to="/services"
+                  href="/services"
                   className="inline-flex items-center gap-1.5 text-xs font-mono text-brand hover:underline"
                 >
                   <span>{lang === "fr" ? "Tous nos services" : "All services"}</span>
@@ -142,42 +143,42 @@ export function Footer() {
             <FooterColTitle>{t.footer.company}</FooterColTitle>
             <ul className="space-y-3 text-sm">
               <li>
-                <Link to="/about" className="hover:text-brand transition-colors">
+                <Link href="/about" className="hover:text-brand transition-colors">
                   {t.nav.about}
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-brand transition-colors">
+                <Link href="/services" className="hover:text-brand transition-colors">
                   {t.nav.services}
                 </Link>
               </li>
               <li>
-                <Link to="/portfolio" className="hover:text-brand transition-colors">
+                <Link href="/portfolio" className="hover:text-brand transition-colors">
                   {t.nav.portfolio}
                 </Link>
               </li>
               <li>
-                <Link to="/demos" className="hover:text-brand transition-colors">
+                <Link href="/demos" className="hover:text-brand transition-colors">
                   {t.nav.demos}
                 </Link>
               </li>
               <li>
-                <Link to="/simulateur" className="hover:text-brand transition-colors">
+                <Link href="/simulateur" className="hover:text-brand transition-colors">
                   {lang === "fr" ? "Simulateur de Devis" : "Project Simulator"}
                 </Link>
               </li>
               <li>
-                <Link to="/faq" className="hover:text-brand transition-colors">
+                <Link href="/faq" className="hover:text-brand transition-colors">
                   {(t.nav as any).faq || "FAQ"}
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="hover:text-brand transition-colors">
+                <Link href="/blog" className="hover:text-brand transition-colors">
                   {t.nav.blog}
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-brand transition-colors">
+                <Link href="/contact" className="hover:text-brand transition-colors">
                   {t.nav.contact}
                 </Link>
               </li>
@@ -222,11 +223,11 @@ export function Footer() {
           <div className="flex items-center gap-4 md:gap-6 text-xs font-mono text-muted-foreground/80 flex-wrap justify-center md:justify-start">
             <span className="uppercase tracking-[0.16em]">{t.footer.rights}</span>
             <span className="hidden sm:inline text-border">•</span>
-            <Link to="/legal" className="hover:text-foreground transition-colors">
+            <Link href="/legal" className="hover:text-foreground transition-colors">
               {lang === "fr" ? "Mentions Légales" : "Legal Notice"}
             </Link>
             <span className="hidden sm:inline text-border">•</span>
-            <Link to="/faq" className="hover:text-foreground transition-colors">
+            <Link href="/faq" className="hover:text-foreground transition-colors">
               FAQ
             </Link>
           </div>

@@ -1,0 +1,62 @@
+
+## L'Avènement du Standard Model Context Protocol (MCP)
+
+Jusqu'à récemment, connecter un Large Language Model (LLM) aux données internes d'une entreprise nécessitait de développer des adaptateurs d'API sur-mesure pour chaque outil (bases de données, CRM, dépôts Git, serveurs de fichiers). Avec l'émergence du **Model Context Protocol (MCP)**, l'industrie logicielle adopte enfin une interface unifiée.
+
+Pour notre agence spécialisée en [intégration d'agents IA et LLM](/services/integration-ia-llm), MCP représente une avancée majeure pour concevoir des systèmes intelligents modulaires, sécurisés et maintenables.
+
+---
+
+### 1. Pourquoi MCP Remplace le Function Calling Isolé
+
+Le Function Calling traditionnel oblige chaque modèle à connaître la spécification de chaque API cliente. Le protocole MCP inverse cette dépendance grâce à une architecture client-serveur standardisée :
+
+- **Protocole Transport Neutre** : Communication bidirectionnelle via JSON-RPC 2.0 (stdio pour les outils locaux, SSE / WebSockets pour les services cloud distants).
+- **Primitives Découplées** :
+  - *Resources* : Documents et états contextuels en lecture seule.
+  - *Tools* : Fonctions exécutables par le modèle avec confirmation de permissions.
+  - *Prompts* : Modèles de requêtes préconfigurés partagés entre agents.
+- **Sécurité et Isolation** : Chaque serveur MCP opère dans son propre périmètre de privilèges (RBAC), éliminant les risques de compromission globale du système.
+
+```typescript
+// Exemple de serveur MCP minimal en TypeScript pour exposer un outil de requête sécurisée
+import { Server } from "@modelcontextprotocol/sdk/server/index.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { CallToolRequestSchema, ListToolsRequestSchema } from "@modelcontextprotocol/sdk/types.js";
+
+const server = new Server({
+  name: "tydev-data-mcp",
+  version: "1.0.0",
+}, { capabilities: { tools: {} } });
+
+server.setRequestHandler(ListToolsRequestSchema, async () => ({
+  tools: [{
+    name: "query_business_kpis",
+    description: "Récupère les métriques de revenus et conversions SaaS",
+    inputSchema: {
+      type: "object",
+      properties: { period: { type: "string", enum: ["7d", "30d", "90d"] } },
+      required: ["period"]
+    }
+  }]
+}));
+
+const transport = new StdioServerTransport();
+await server.connect(transport);
+```
+
+---
+
+### 2. Intégration dans les Applications SaaS Multi-Tenants
+
+Dans le cadre du [développement SaaS sur-mesure](/services/saas-sur-mesure), l'intégration de serveurs MCP permet aux utilisateurs finaux de brancher leurs propres agents IA sur leurs données d'entreprise sans exposer les clés d'API sensibles ni risquer des fuites multi-tenants.
+
+1. **Isolation par Organisation** : Chaque requête MCP passe par un middleware validant le tenant ID et le token d'accès.
+2. **Audit & Traçabilité** : Chaque appel d'outil par l'agent est journalisé avec ses paramètres d'entrée et sa latence.
+3. **Mise en Cache Sémantique** : Les réponses fréquentes sont mises en cache sur Redis pour réduire les coûts d'inférence.
+
+---
+
+### Conclusion & Prochaines Étapes
+
+Le Model Context Protocol s'impose comme le socle des architectures logicielles pilotées par l'IA. Si vous souhaitez intégrer des agents autonomes et des workflows MCP dans vos applications, [contactez notre équipe d'ingénieurs TY Dev](/contact) pour une étude d'architecture personnalisée.

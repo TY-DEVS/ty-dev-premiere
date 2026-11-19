@@ -1,5 +1,7 @@
+'use client';
+
 import { motion } from "framer-motion";
-import { Link } from "@tanstack/react-router";
+import Link from "next/link";
 import { useI18n } from "@/i18n/context";
 import { Linkedin, User, ArrowRight } from "lucide-react";
 
@@ -47,8 +49,7 @@ export function Team() {
                 {/* Avatar / Photo Container */}
                 <div className="relative w-20 h-20 sm:w-28 sm:h-28 rounded-full mb-4 sm:mb-6 bg-gradient-to-br from-[oklch(0.12_0.02_260)] to-[oklch(0.08_0.02_260)] border border-border/80 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-500">
                   <Link
-                    to="/team/$slug"
-                    params={{ slug: memberSlug }}
+                    href={`/team/${memberSlug}`}
                     className="w-full h-full rounded-full overflow-hidden block relative select-none"
                     aria-label={`Profil de ${member.firstName} ${member.lastName}`}
                   >
@@ -95,8 +96,7 @@ export function Team() {
 
                 {/* Member Info & Name Link */}
                 <Link
-                  to="/team/$slug"
-                  params={{ slug: memberSlug }}
+                  href={`/team/${memberSlug}`}
                   className="flex flex-col items-center w-full text-inherit no-underline"
                 >
                   <h3 className="font-display text-[15px] sm:text-2xl font-semibold mb-1 sm:mb-2 group-hover:text-brand transition-colors leading-tight">

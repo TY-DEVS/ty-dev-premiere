@@ -1,9 +1,11 @@
 export function getSiteUrl(): string {
-  if (typeof process !== "undefined" && process.env && process.env.SITE_URL) {
-    return process.env.SITE_URL.replace(/\/$/, "");
-  }
-  if (typeof import.meta !== "undefined" && import.meta.env && import.meta.env.VITE_SITE_URL) {
-    return import.meta.env.VITE_SITE_URL.replace(/\/$/, "");
+  if (typeof process !== "undefined" && process.env) {
+    if (process.env.NEXT_PUBLIC_SITE_URL) {
+      return process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, "");
+    }
+    if (process.env.SITE_URL) {
+      return process.env.SITE_URL.replace(/\/$/, "");
+    }
   }
   return "https://ty-dev.site";
 }

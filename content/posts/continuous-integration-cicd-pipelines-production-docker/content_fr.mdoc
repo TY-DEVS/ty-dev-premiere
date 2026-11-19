@@ -1,0 +1,39 @@
+## L'Automatisation au Service de la Qualité Logicielle
+
+Dans les équipes d'ingénierie modernes, le déploiement manuel de code est proscrit. Un pipeline CI/CD robuste élimine le facteur d'erreur humaine et garantit que chaque commit livré en production respecte les standards de qualité.
+
+---
+
+### 1. Workflow GitHub Actions de Production
+
+```yaml
+name: Production CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  quality-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Static TypeCheck & Lint
+        run: |
+          npx tsc --noEmit
+          npm run lint
+```
+
+---
+
+### Conclusion
+
+L'intégration continue est la fondation indispensable pour faire évoluer des logiciels en toute confiance.

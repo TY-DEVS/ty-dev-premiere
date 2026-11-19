@@ -1,6 +1,8 @@
+'use client';
+
 import { useState, useEffect, useRef } from "react";
 import { Loader2 } from "lucide-react";
-import { getRecaptchaSiteKeyFn, DEFAULT_RECAPTCHA_SITE_KEY } from "@/lib/captcha";
+import { getRecaptchaSiteKey, DEFAULT_RECAPTCHA_SITE_KEY } from "@/lib/captcha";
 import { useI18n } from "@/i18n/context";
 
 declare global {
@@ -40,148 +42,130 @@ export function GoogleReCaptcha({
   const containerRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<number | null>(null);
 
-  const [siteKey, setSiteKey] = useState<string>(DEFAULT_RECAPTCHA_SITE_KEY);
+  const [siteKey, setSiteKey] = useState<string>(() => getRecaptchaSiteKey());
   const [token, setToken] = useState<string>("");
   const [honeypot, setHoneypot] = useState<string>("");
   const [isScriptLoaded, setIsScriptLoaded] = useState<boolean>(false);
   const [isWidgetRendered, setIsWidgetRendered] = useState<boolean>(false);
 
-  // 1. Récupération de la clé de site depuis le serveur
-  useEffect(() => {
-    let isMounted = true;
-    getRecaptchaSiteKeyFn()
-      .then((res) => {
-        if (isMounted && res.siteKey) {
-          setSiteKey(res.siteKey);
-        }
-      })
-      .catch((err) => {
-        console.warn("[reCAPTCHA] Utilisation de la clé de test:", err);
-      });
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
-
   // 2. Chargement du script officiel Google reCAPTCHA v2
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    if (window.grecaptcha && window.grecaptcha.render) {
+    if (window.grecaptcha && typeof window.grecaptcha.render === "function") {
       setIsScriptLoaded(true);
       return;
     }
 
     const scriptId = "google-recaptcha-v2-script";
-    let existingScript = document.getElementById(scriptId) as HTMLScriptElement | null;
+    let script = document.getElementById(scriptId) as HTMLScriptElement | null;
 
-    if (!existingScript) {
-      existingScript = document.createElement("script");
-      existingScript.id = scriptId;
-      existingScript.src = "https://www.google.com/recaptcha/api.js?onload=__onGoogleRecaptchaLoaded&render=explicit";
-      existingScript.async = true;
-      existingScript.defer = true;
-      document.head.appendChild(existingScript);
-    }
+    if (!script) {
+      script = document.createElement("script");
+      script.id = scriptId;
+      script.src = `https://www.google.com/recaptcha/api.js?onload=__onGoogleRecaptchaLoaded&render=explicit&hl=${lang === "en" ? "en" : "fr"}`;
+      script.async = true;
+      script.defer = true;
 
-    window.__onGoogleRecaptchaLoaded = () => {
-      setIsScriptLoaded(true);
-    };
-
-    // Vérification de sécurité si le script est déjà en cache
-    const checkInterval = setInterval(() => {
-      if (window.grecaptcha && window.grecaptcha.render) {
+      window.__onGoogleRecaptchaLoaded = () => {
         setIsScriptLoaded(true);
-        clearInterval(checkInterval);
+      };
+
+      document.head.appendChild(script);
+    } else {
+      if (window.grecaptcha && typeof window.grecaptcha.render === "function") {
+        setIsScriptLoaded(true);
+      } else {
+        window.__onGoogleRecaptchaLoaded = () => {
+          setIsScriptLoaded(true);
+        };
       }
-    }, 200);
+    }
+  }, [lang]);
 
-    return () => {
-      clearInterval(checkInterval);
-    };
-  }, []);
-
-  // 3. Rendu du widget reCAPTCHA une fois le script et le DOM prêts
+  // 3. Rendu du widget reCAPTCHA
   useEffect(() => {
-    if (!isScriptLoaded || !containerRef.current || isWidgetRendered || !siteKey) return;
-    if (!window.grecaptcha || typeof window.grecaptcha.render !== "function") return;
+    if (!isScriptLoaded || !containerRef.current || !window.grecaptcha) return;
+    if (isWidgetRendered) return;
 
     try {
-      // Nettoyer l'intérieur du conteneur avant rendu
-      containerRef.current.innerHTML = "";
+      window.grecaptcha.ready(() => {
+        if (!containerRef.current || isWidgetRendered) return;
 
-      const id = window.grecaptcha.render(containerRef.current, {
-        sitekey: siteKey,
-        theme: "dark",
-        size: "normal",
-        callback: (newToken: string) => {
-          setToken(newToken);
-          if (onVerify) onVerify(newToken);
-        },
-        "expired-callback": () => {
-          setToken("");
-          if (onExpire) onExpire();
-        },
-        "error-callback": () => {
-          setToken("");
-          if (onExpire) onExpire();
-        },
+        // Vider le conteneur avant rendu pour éviter doublons
+        containerRef.current.innerHTML = "";
+
+        const id = window.grecaptcha!.render(containerRef.current, {
+          sitekey: siteKey,
+          theme: "dark",
+          size: "normal",
+          callback: (receivedToken: string) => {
+            setToken(receivedToken);
+            if (onVerify) onVerify(receivedToken);
+          },
+          "expired-callback": () => {
+            setToken("");
+            if (onExpire) onExpire();
+          },
+          "error-callback": () => {
+            console.error("[reCAPTCHA] Erreur lors de l'exécution du challenge.");
+          },
+        });
+
+        widgetIdRef.current = id;
+        setIsWidgetRendered(true);
       });
-
-      widgetIdRef.current = id;
-      setIsWidgetRendered(true);
     } catch (e) {
-      console.warn("[reCAPTCHA] Note de rendu du widget:", e);
+      console.warn("[reCAPTCHA] Erreur lors de l'initialisation du widget:", e);
     }
-  }, [isScriptLoaded, siteKey, isWidgetRendered, onVerify, onExpire]);
+  }, [isScriptLoaded, siteKey, onVerify, onExpire, isWidgetRendered]);
 
   return (
-    <div className={`relative my-2 ${className}`}>
-      {/* Honeypot invisible : si rempli par un robot, la requête est rejetée */}
-      <div
+    <div className={`recaptcha-wrapper flex flex-col items-center justify-center my-4 ${className}`}>
+      {/* Honeypot invisible pour stopper les bots primitifs sans token */}
+      <input
+        type="text"
+        name="website_hp"
+        value={honeypot}
+        onChange={(e) => setHoneypot(e.target.value)}
+        tabIndex={-1}
+        autoComplete="off"
         style={{
           position: "absolute",
-          left: "-9999px",
-          top: "0",
           opacity: 0,
-          pointerEvents: "none",
+          top: 0,
+          left: 0,
           height: 0,
           width: 0,
-          overflow: "hidden",
+          zIndex: -1,
+          pointerEvents: "none",
         }}
         aria-hidden="true"
-      >
-        <label htmlFor="recaptcha_hp_field">Ne pas remplir</label>
-        <input
-          id="recaptcha_hp_field"
-          type="text"
-          name="website_hp"
-          value={honeypot}
-          onChange={(e) => setHoneypot(e.target.value)}
-          tabIndex={-1}
-          autoComplete="off"
+      />
+
+      {/* Jeton caché pour intégration formulaire natif */}
+      <input type="hidden" name="g-recaptcha-response" value={token} />
+
+      {/* Conteneur d'affichage officiel Google */}
+      <div className="relative min-h-[78px] min-w-[304px] flex items-center justify-center">
+        {!isWidgetRendered && (
+          <div className="absolute inset-0 flex items-center justify-center gap-2 text-xs text-muted-foreground bg-surface/50 border border-border/50 px-4 py-3 rounded-lg">
+            <Loader2 className="w-4 h-4 animate-spin text-primary" />
+            <span>Chargement de la vérification Google...</span>
+          </div>
+        )}
+        <div
+          ref={containerRef}
+          className={`min-h-[78px] min-w-[304px] flex items-center justify-center transition-opacity duration-300 ${!isWidgetRendered ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+          style={{ minHeight: "78px", minWidth: "304px" }}
         />
       </div>
 
-      {/* Jeton caché pour capture automatique via FormData */}
-      <input type="hidden" name="recaptchaToken" value={token} />
-
-      {/* Conteneur d'affichage officiel Google reCAPTCHA v2 */}
-      <div className="relative flex items-center justify-start min-h-[78px] py-1">
-        <div ref={containerRef} className="g-recaptcha" />
-
-        {!isWidgetRendered && (
-          <div className="flex items-center gap-2.5 text-xs text-muted-foreground font-mono px-2 py-3">
-            <Loader2 size={16} className="animate-spin text-brand" />
-            <span>
-              {lang === "fr"
-                ? "Chargement de la vérification Google..."
-                : "Loading Google verification..."}
-            </span>
-          </div>
-        )}
-      </div>
+      <p className="text-[11px] text-muted-foreground/70 mt-2 text-center max-w-xs">
+        {lang === "fr"
+          ? "Ce site est protégé par Google reCAPTCHA v2 pour sécuriser vos demandes de devis."
+          : "This site is protected by Google reCAPTCHA v2 to secure your quote requests."}
+      </p>
     </div>
   );
 }

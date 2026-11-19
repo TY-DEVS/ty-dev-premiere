@@ -1,0 +1,24 @@
+{
+  "slug": "tanstack-start-vs-next-js-15-pourquoi-l-ecosysteme-fullstack-evolue-vers-vite-en-2026",
+  "title_fr": "TanStack Start vs Next.js 15 : Pourquoi l'Écosystème Fullstack Évolue vers Vite en 2026",
+  "title_en": "TanStack Start vs Next.js 15: Why the Fullstack Ecosystem is Moving to Vite in 2026",
+  "summary_fr": "Analyse comparative d'architecture : gestion des Server Functions, typage TypeScript de bout en bout, temps de build et autonomie d'hébergement sans vendor lock-in.",
+  "summary_en": "Comparative architectural benchmark: typesafe Server Functions, end-to-end TypeScript safety, compilation speed, and host-agnostic deployments without vendor lock-in.",
+  "category": "Software Architecture",
+  "date_fr": "06 Octobre 2026",
+  "date_en": "October 06, 2026",
+  "date_iso": "2026-10-06",
+  "author_name": "Mohamed Ben Khemis",
+  "author_role": "DEVOPS ENGINEER",
+  "author_avatar": "/team/mohamedbenkhemis.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1526374870839-e155464bb9b2?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "TanStack Start",
+    "Next.js",
+    "React 19",
+    "Vite",
+    "SSR",
+    "Performance"
+  ]
+}

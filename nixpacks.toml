@@ -1,9 +1,9 @@
 providers = ["node"]
 
 [variables]
-NITRO_PRESET = "node-server"
 PORT = "3000"
 NIXPACKS_NODE_VERSION = "22"
+NODE_ENV = "production"
 
 [phases.setup]
 nixPkgs = ["nodejs_22"]
@@ -14,8 +14,12 @@ cmds = ["npm install --fetch-retries=5 --fetch-retry-mintimeout=20000 --fetch-re
 cacheDirectories = ["/root/.npm"]
 
 [phases.build]
-cmds = ["npm run build"]
-cacheDirectories = ["node_modules/.cache"]
+cmds = [
+  "npm run build",
+  "cp -r public .next/standalone/public 2>/dev/null || true",
+  "cp -r .next/static .next/standalone/.next/static 2>/dev/null || true"
+]
+cacheDirectories = ["node_modules/.cache", ".next/cache"]
 
 [start]
-cmd = "node .output/server/index.mjs"
+cmd = "node .next/standalone/server.js || npm run start"

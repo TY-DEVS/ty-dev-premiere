@@ -1,4 +1,6 @@
-import { useRouterState } from "@tanstack/react-router";
+'use client';
+
+import { usePathname } from "next/navigation";
 import { useI18n } from "@/i18n/context";
 import {
   getContextualWhatsAppConfig,
@@ -15,9 +17,8 @@ function WhatsAppIcon(props: React.SVGProps<SVGSVGElement>) {
 
 export function FloatingWhatsApp() {
   const { lang } = useI18n();
-  const pathname = useRouterState({
-    select: (state) => state.location.pathname,
-  });
+  const rawPathname = usePathname();
+  const pathname = rawPathname || "/";
 
   const config = getContextualWhatsAppConfig(pathname, lang);
   const whatsappUrl = buildContextualWhatsAppUrl(pathname, lang);

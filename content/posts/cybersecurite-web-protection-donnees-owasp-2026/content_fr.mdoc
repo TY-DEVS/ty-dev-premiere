@@ -1,0 +1,36 @@
+## La Sécurité par la Conception (Security by Design)
+
+La sécurité applicative ne doit jamais être traitée comme une option secondaire. Protéger les données de vos utilisateurs et garantir la conformité RGPD est indispensable pour établir la confiance.
+
+---
+
+### 1. Check-list de Sécurité OWASP 2026
+
+- **Authentification & Session** : Stockage des tokens JWT uniquement dans des cookies `HttpOnly`, `Secure` et `SameSite=Strict`.
+- **Injections SQL & XSS** : Utilisation d'ORMs typés (Prisma / Drizzle) et sanitisation systématique des entrées.
+- **Entêtes de Sécurité HTTP** : Configuration d'une Content Security Policy (CSP) stricte.
+
+```typescript
+// Configuration des entêtes de sécurité HTTP sous Node/Express
+import helmet from 'helmet';
+
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'", "'unsafe-inline'", "https://cdn.jsdelivr.net"],
+        styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+        imgSrc: ["'self'", "data:", "https://images.unsplash.com"],
+      },
+    },
+    referrerPolicy: { policy: 'strict-origin-when-cross-origin' },
+  })
+);
+```
+
+---
+
+### Conclusion
+
+Appliquer ces principes protège durablement la réputation de votre entreprise.

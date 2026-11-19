@@ -1,0 +1,29 @@
+{
+  "slug": "gitops-a-l-ere-de-kubernetes-2026-revolutionner-le-deploiement-et-la-gestion-des-infrastructures-cloud-avec-argocd-et-fluxcd",
+  "title_fr": "GitOps à l'Ère de Kubernetes 2026 : Révolutionner le Déploiement et la Gestion des Infrastructures Cloud avec ArgoCD et FluxCD",
+  "title_en": "GitOps in the Kubernetes 2026 Era: Revolutionizing Cloud Infrastructure Deployment and Management with ArgoCD and FluxCD",
+  "summary_fr": "En 2026, l'approche GitOps est devenue indispensable pour la gestion des infrastructures Kubernetes, offrant une automatisation sans précédent et une fiabilité accrue. Cet article explore comment ArgoCD et FluxCD transforment le déploiement continu et la réconciliation d'état pour les entreprises.",
+  "summary_en": "By 2026, the GitOps approach has become indispensable for Kubernetes infrastructure management, offering unparalleled automation and enhanced reliability. This article explores how ArgoCD and FluxCD are transforming continuous deployment and state reconciliation for enterprises.",
+  "category": "Software Architecture",
+  "date_fr": "09 Octobre 2026",
+  "date_en": "October 09, 2026",
+  "date_iso": "2026-10-09",
+  "author_name": "Mohamed Ben Khemis",
+  "author_role": "DEVOPS ENGINEER",
+  "author_avatar": "/team/mohamedbenkhemis.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "Tech",
+    "Engineering",
+    "Web",
+    "Kubernetes",
+    "GitOps",
+    "ArgoCD",
+    "FluxCD",
+    "DevOps",
+    "Cloud",
+    "SaaS",
+    "2026 Trends"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "slug": "edge-computing-cloudflare-workers-executer-des-saas-au-plus-pres-des-utilisateurs",
+  "title_fr": "Edge Computing & Cloudflare Workers : Exécuter des SaaS au Plus Près des Utilisateurs",
+  "title_en": "Edge Computing & Cloudflare Workers: Running SaaS at Sub-10ms Latency",
+  "summary_fr": "Comment décentraliser vos API et vos bases de données relationnelles sur le réseau Edge pour diviser vos temps de réponse par cinq à l'échelle mondiale.",
+  "summary_en": "How to decentralize SaaS APIs and relational databases across global edge networks, cutting latency by 5x worldwide.",
+  "category": "DevOps & Cloud",
+  "date_fr": "07 Octobre 2026",
+  "date_en": "October 07, 2026",
+  "date_iso": "2026-10-07",
+  "author_name": "Mohamed Ben Khemis",
+  "author_role": "DEVOPS ENGINEER",
+  "author_avatar": "/team/mohamedbenkhemis.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "Edge Computing",
+    "Cloudflare Workers",
+    "D1",
+    "Serverless",
+    "Performance"
+  ]
+}

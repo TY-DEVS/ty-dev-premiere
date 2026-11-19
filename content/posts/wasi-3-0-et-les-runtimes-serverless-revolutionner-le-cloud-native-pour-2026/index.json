@@ -1,0 +1,27 @@
+{
+  "slug": "wasi-3-0-et-les-runtimes-serverless-revolutionner-le-cloud-native-pour-2026",
+  "title_fr": "WASI 3.0 et les Runtimes Serverless : Révolutionner le Cloud-Native pour 2026",
+  "title_en": "WASI 3.0 and Serverless Runtimes: Revolutionizing Cloud-Native for 2026",
+  "summary_fr": "Le WebAssembly System Interface (WASI) 3.0 est en passe de redéfinir l'exécution serverless, offrant une portabilité, une sécurité et des performances inégalées. Cette évolution majeure promet de simplifier le déploiement d'applications cloud-native et de transformer l'architecture des SaaS.",
+  "summary_en": "The WebAssembly System Interface (WASI) 3.0 is set to redefine serverless execution, offering unparalleled portability, security, and performance. This major evolution promises to simplify cloud-native application deployment and transform SaaS architecture.",
+  "category": "Software Architecture",
+  "date_fr": "10 Octobre 2026",
+  "date_en": "October 10, 2026",
+  "date_iso": "2026-10-10",
+  "author_name": "Mohamed Ben Yahia",
+  "author_role": "FULL STACK DEVELOPER",
+  "author_avatar": "/team/mohamedbenyahia.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "WASI",
+    "WebAssembly",
+    "Serverless",
+    "Cloud-Native",
+    "SaaS",
+    "DevOps",
+    "Performance",
+    "Security",
+    "2026Trends"
+  ]
+}

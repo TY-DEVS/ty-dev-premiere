@@ -1,0 +1,23 @@
+{
+  "slug": "l-ere-de-l-ingenierie-de-plateforme-accelerer-le-developpement-saas-avec-les-internal-developer-platforms-idp-en-2026",
+  "title_fr": "L'Ère de l'Ingénierie de Plateforme : Accélérer le Développement SaaS avec les Internal Developer Platforms (IDP) en 2026",
+  "title_en": "The Era of Platform Engineering: Accelerating SaaS Development with Internal Developer Platforms (IDP) in 2026",
+  "summary_fr": "Les Internal Developer Platforms (IDP) redéfinissent la manière dont les équipes construisent et déploient des applications SaaS en 2026. En offrant des \"routes pavées\" et des outils self-service, elles transforment l'expérience développeur et optimisent les cycles de livraison en profondeur.",
+  "summary_en": "Internal Developer Platforms (IDPs) are redefining how teams build and deploy SaaS applications in 2026. By providing \"paved roads\" and self-service tools, they profoundly transform the developer experience and optimize delivery cycles.",
+  "category": "Software Architecture",
+  "date_fr": "29 Octobre 2026",
+  "date_en": "October 29, 2026",
+  "date_iso": "2026-10-29",
+  "author_name": "Moutia Ben Yahia",
+  "author_role": "CEO",
+  "author_avatar": "/team/moutiabenyahia.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "Platform Engineering",
+    "DevOps",
+    "Cloud Native",
+    "SaaS",
+    "Developer Experience"
+  ]
+}

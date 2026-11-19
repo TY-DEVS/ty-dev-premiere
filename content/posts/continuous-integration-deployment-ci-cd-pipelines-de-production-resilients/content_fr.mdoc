@@ -1,0 +1,62 @@
+
+## L'Automatisation au Service de la Qualité Logicielle
+
+Dans un environnement de développement moderne, le déploiement manuel de code est une source majeure de régressions et de pannes. Un pipeline CI/CD robuste élimine le facteur d'erreur humaine et garantit la stabilité de vos plateformes.
+
+---
+
+### 1. Les 4 Étapes d'un Pipeline CI/CD Performant
+
+1. **Statical Analysis & Typecheck** : Validation stricte des types TypeScript (`tsc --noEmit`) et linting (`eslint`).
+2. **Automated Testing Suite** : Exécution des tests unitaires (Vitest / Jest) et des tests d'intégration.
+3. **Containerization & Build** : Compilation du bundle de production et construction de l'image Docker optimisée.
+4. **Zero-Downtime Deployment** : Déploiement progressif (Canary / Blue-Green) vers les serveurs de production.
+
+---
+
+### 2. Exemple de Workflow GitHub Actions Professionnel
+
+```yaml
+name: Production CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: TypeCheck & Lint
+        run: |
+          npx tsc --noEmit
+          npm run lint
+
+      - name: Run Unit Tests
+        run: npm test -- --run
+
+      - name: Build Production Bundle
+        run: npm run build
+```
+
+---
+
+### 3. Les Métriques DORA pour Évaluer la Maturité DevOps
+
+Pour mesurer l'efficacité de vos déploiements, suivez les 4 métriques DORA incontournables :
+
+- **Deployment Frequency** : Nombre de mises en production par jour.
+- **Lead Time for Changes** : Délai entre le commit de code et sa livraison en production.
+- **Change Failure Rate** : Pourcentage de déploiements provoquant une panne.
+- **Time to Restore Service (MTTR)** : Temps moyen nécessaire pour résoudre un incident en production.

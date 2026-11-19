@@ -1,11 +1,9 @@
-import { createServerFn } from "@tanstack/react-start";
-
 // Clés officielles Google reCAPTCHA v2 de TY Dev
 export const DEFAULT_RECAPTCHA_SITE_KEY = "6LfVxOgtAAAAAI2hMoinkz4lyf2KqmHmw_gBBRr2";
 export const DEFAULT_RECAPTCHA_SECRET_KEY = "6LfVxOgtAAAAAAooTxVUTMYVbIXtvx1N9zNUYOGF";
 
 export function getRecaptchaSiteKey(): string {
-  return (process.env.RECAPTCHA_SITE_KEY || DEFAULT_RECAPTCHA_SITE_KEY).trim();
+  return (process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || process.env.RECAPTCHA_SITE_KEY || DEFAULT_RECAPTCHA_SITE_KEY).trim();
 }
 
 export function getRecaptchaSecretKey(): string {
@@ -82,7 +80,6 @@ export async function verifyGoogleRecaptcha(params: VerifyRecaptchaParams): Prom
     };
 
     if (data.success) {
-      // Si la clé est de type v3, Google renvoie un score (0.0 = bot, 1.0 = humain)
       if (typeof data.score === "number" && data.score < 0.4) {
         console.warn(`[reCAPTCHA Shield] Score insuffisant détecté (${data.score}) - blocage préventif.`);
         return {
@@ -110,12 +107,3 @@ export async function verifyGoogleRecaptcha(params: VerifyRecaptchaParams): Prom
     };
   }
 }
-
-/**
- * Server Function pour transmettre la clé de site publique au composant client
- */
-export const getRecaptchaSiteKeyFn = createServerFn({ method: "GET" }).handler(async () => {
-  return {
-    siteKey: getRecaptchaSiteKey(),
-  };
-});

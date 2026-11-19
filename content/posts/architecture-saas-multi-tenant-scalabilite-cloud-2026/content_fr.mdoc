@@ -1,0 +1,64 @@
+## L'Évolution des Architectures SaaS Multi-Tenants
+
+Concevoir une plateforme SaaS moderne exige d'arbitrer entre isolation des données, efficacité opérationnelle et maîtrise des coûts d'infrastructure Cloud. En 2026, l'architecture multi-tenant ne consiste plus à choisir aveuglément entre une base unique ou une base par client, mais à adopter une **Isolation Logique Hybride**.
+
+---
+
+### 1. Les 3 Modèles d'Isolation des Données
+
+> L'isolation stricte des tenant-ids au niveau des requêtes SQL et du cache est la clé de la conformité enterprise.
+
+| Modèle d'Isolation | Complexité Technique | Isolation des Données | Coût Infrastructure |
+| :--- | :--- | :--- | :--- |
+| **Pooled Database (Tenant-ID column)** | Faible | Logique (RLS PostgreSQL) | Très Bas |
+| **Schema-per-Tenant** | Modérée | Schéma isolé | Modéré |
+| **Database-per-Tenant** | Élevée | Physique (Silot complet) | Élevé |
+
+---
+
+### 2. Implémentation du Row-Level Security (RLS) avec PostgreSQL
+
+Pour les architectures Pooled, le **Row-Level Security (RLS)** d'au niveau du moteur de base de données garantit qu'aucune fuite de données inter-clients n'est possible, même en cas de bug applicatif :
+
+```sql
+-- Activation de RLS sur la table des commandes
+ALTER TABLE orders ENABLE ROW LEVEL SECURITY;
+
+-- Création de la politique d'isolation par tenant
+CREATE POLICY tenant_isolation_policy ON orders
+  FOR ALL
+  USING (tenant_id = current_setting('app.current_tenant_id'));
+```
+
+Lors de chaque requête, le middleware applicatif définit le contexte du tenant de manière transparente :
+
+```typescript
+// Middleware de session avec injection du tenant
+import { Request, Response, NextFunction } from 'express';
+import { db } from './database';
+
+export async function tenantMiddleware(req: Request, res: Response, next: NextFunction) {
+  const tenantId = req.headers['x-tenant-id'] as string;
+  
+  if (!tenantId) {
+    return res.status(401).json({ error: 'Tenant context missing' });
+  }
+
+  await db.query("SET LOCAL app.current_tenant_id = $1", [tenantId]);
+  next();
+}
+```
+
+---
+
+### 3. Gestion de la Charge & Cache Distribué
+
+- **Caching Séparé dans Redis** : Clés préfixées par le tenant (`tenant:{id}:user:{userId}`).
+- **Rate Limiting Personnalisé** : Quotas de requêtes modulables selon le plan d'abonnement du client (Free, Pro, Enterprise).
+- **Auto-Scaling à l'Edge** : Déploiement des fonctions API au plus proche des utilisateurs pour réduire les latences sous 25ms.
+
+---
+
+### Conclusion
+
+Une architecture SaaS réussie anticipe la croissance dès le jour un sans sur-ingénierie inutile. Chez **TY Dev**, nous implémentons ces standards de classe mondiale pour garantir la résilience de vos plateformes.

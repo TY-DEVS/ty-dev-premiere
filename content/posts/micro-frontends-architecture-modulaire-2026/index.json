@@ -1,0 +1,23 @@
+{
+  "slug": "micro-frontends-architecture-modulaire-2026",
+  "title_fr": "Micro-Frontends & Modular Architecture : Scaler les Grandes Équipes Dev",
+  "title_en": "Micro-Frontends & Modular Architecture: Scaling Large Dev Teams",
+  "summary_fr": "Comment découper des applications frontend complexes en sous-modules indépendants avec Module Federation et Vite pour des déploiements autonomes.",
+  "summary_en": "How to break down complex frontend applications into independent modules using Vite and Module Federation.",
+  "category": "Software Architecture",
+  "date_fr": "04 Août 2026",
+  "date_en": "August 04, 2026",
+  "date_iso": "2026-08-04",
+  "author_name": "Mohamed Yassine Ben Yaala",
+  "author_role": "CO-FOUNDER",
+  "author_avatar": "/team/mohamedyassinbenyaala.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "Micro-Frontends",
+    "Architecture",
+    "Vite",
+    "React",
+    "Frontend"
+  ]
+}
