@@ -1,8 +1,13 @@
+'use client';
+
 import { MessageCircle, ArrowUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
+import { useTenant } from "@/context/tenantContext";
+
 export function WhatsAppButton() {
+  const { tenant } = useTenant();
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
 
@@ -27,7 +32,7 @@ export function WhatsAppButton() {
       {/* WhatsApp Button */}
       <div className="relative">
         <motion.a
-          href="https://wa.me/33759440105"
+          href={`https://wa.me/${tenant.contact.whatsappNumber}`}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Contactez-nous sur WhatsApp"

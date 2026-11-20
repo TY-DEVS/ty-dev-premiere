@@ -1,0 +1,24 @@
+{
+  "slug": "cryptographie-post-quantique-pour-le-saas-anticiper-l-ere-quantique-en-2026",
+  "title_fr": "Cryptographie Post-Quantique pour le SaaS : Anticiper l'Ère Quantique en 2026",
+  "title_en": "Quantum-Safe Cryptography for SaaS: Anticipating the Quantum Era in 2026",
+  "summary_fr": "L'avènement imminent de l'ordinateur quantique menace les fondations cryptographiques de nos systèmes SaaS actuels. Cet article explore les stratégies et les implications architecturales pour l'intégration de la cryptographie post-quantique (PQC) d'ici 2026, garantissant la sécurité future de nos données et communications.",
+  "summary_en": "The imminent advent of quantum computers threatens the cryptographic foundations of our current SaaS systems. This article explores strategies and architectural implications for integrating Quantum-Safe Cryptography (PQC) by 2026, ensuring the future security of our data and communications.",
+  "category": "Software Architecture",
+  "date_fr": "08 Novembre 2026",
+  "date_en": "November 08, 2026",
+  "date_iso": "2026-11-08",
+  "author_name": "Moutia Ben Yahia",
+  "author_role": "CEO",
+  "author_avatar": "/team/moutiabenyahia.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "Cryptography",
+    "Security",
+    "SaaS",
+    "Cloud",
+    "Quantum Computing",
+    "2026 Trends"
+  ]
+}

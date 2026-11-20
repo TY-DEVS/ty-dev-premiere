@@ -1,0 +1,24 @@
+{
+  "slug": "architectures-evenementielles-resilientes-rabbitmq-redis-streams-bullmq-pour-traitements-asynchrones",
+  "title_fr": "Architectures Événementielles Résilientes : RabbitMQ, Redis Streams & BullMQ pour Traitements Asynchrones",
+  "title_en": "Resilient Event-Driven Architectures: RabbitMQ, Redis Streams & BullMQ for Async Jobs",
+  "summary_fr": "Comment découpler les requêtes HTTP, gérer les pics de charge soudains et garantir la livraison de messages avec retries exponentiels et Dead Letter Queues.",
+  "summary_en": "How to decouple synchronous HTTP endpoints, absorb traffic spikes, and guarantee zero message loss using exponential backoff retries and DLQs.",
+  "category": "Software Architecture",
+  "date_fr": "07 Novembre 2026",
+  "date_en": "November 07, 2026",
+  "date_iso": "2026-11-07",
+  "author_name": "Mohamed Ben Yahia",
+  "author_role": "FULL STACK DEVELOPER",
+  "author_avatar": "/team/mohamedbenyahia.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "Event-Driven",
+    "RabbitMQ",
+    "Redis Streams",
+    "BullMQ",
+    "Microservices",
+    "Queues"
+  ]
+}

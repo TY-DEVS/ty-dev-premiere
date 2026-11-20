@@ -1,0 +1,28 @@
+{
+  "slug": "securite-de-la-chaine-logistique-logicielle-sboms-slsa-et-attestation-pour-un-saas-resilient-en-2026",
+  "title_fr": "Sécurité de la Chaîne Logistique Logicielle : SBOMs, SLSA et Attestation pour un SaaS Résilient en 2026",
+  "title_en": "Software Supply Chain Security: SBOMs, SLSA, and Attestation for Resilient SaaS in 2026",
+  "summary_fr": "La sécurité de la chaîne logistique logicielle devient une priorité absolue pour le SaaS en 2026. Cet article explore comment les SBOMs, le cadre SLSA et l'attestation cryptographique sont essentiels pour bâtir des applications cloud résilientes et dignes de confiance face aux menaces croissantes.",
+  "summary_en": "Software supply chain security is becoming a top priority for SaaS in 2026. This article explores how SBOMs, the SLSA framework, and cryptographic attestation are essential for building resilient, trustworthy cloud applications against escalating threats.",
+  "category": "Software Architecture",
+  "date_fr": "16 Novembre 2026",
+  "date_en": "November 16, 2026",
+  "date_iso": "2026-11-16",
+  "author_name": "Mohamed Ben Khemis",
+  "author_role": "DEVOPS ENGINEER",
+  "author_avatar": "/team/mohamedbenkhemis.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "Tech",
+    "Engineering",
+    "Cloud",
+    "DevOps",
+    "Security",
+    "SaaS",
+    "Supply Chain",
+    "SBOM",
+    "SLSA",
+    "Attestation"
+  ]
+}

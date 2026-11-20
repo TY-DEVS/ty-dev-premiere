@@ -1,0 +1,24 @@
+{
+  "slug": "la-revolution-des-apis-distribuees-graphql-federation-vs-trpc-pour-une-architecture-microservices-en-2026",
+  "title_fr": "La Révolution des APIs Distribuées : GraphQL Federation vs tRPC pour une Architecture Microservices en 2026",
+  "title_en": "The Distributed API Revolution: GraphQL Federation vs tRPC for Microservices Architecture in 2026",
+  "summary_fr": "En 2026, la conception d'APIs pour les architectures microservices atteint un carrefour stratégique. Cet article explore deux approches avant-gardistes – GraphQL Federation et tRPC – pour bâtir des systèmes distribués performants et maintenables.",
+  "summary_en": "In 2026, API design for microservices architectures stands at a strategic crossroads. This article explores two cutting-edge approaches – GraphQL Federation and tRPC – for building high-performance and maintainable distributed systems.",
+  "category": "Software Architecture",
+  "date_fr": "09 Novembre 2026",
+  "date_en": "November 09, 2026",
+  "date_iso": "2026-11-09",
+  "author_name": "Mohamed Yassine Ben Yaala",
+  "author_role": "CO-FOUNDER",
+  "author_avatar": "/team/mohamedyassinbenyaala.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "API",
+    "Microservices",
+    "GraphQL",
+    "tRPC",
+    "Cloud",
+    "SaaS"
+  ]
+}

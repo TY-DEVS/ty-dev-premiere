@@ -1,7 +1,10 @@
+'use client';
+
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
 import { translations, type Lang, type Dict } from "./translations";
+import { resolveTenantByHostname, type TenantId } from "@/config/tenants";
 
-type DomainTarget = "fr" | "tech" | "site";
+type DomainTarget = TenantId;
 
 type Ctx = {
   lang: Lang;
@@ -12,15 +15,6 @@ type Ctx = {
 
 const I18nContext = createContext<Ctx | null>(null);
 
-function detectDomainTarget(): DomainTarget {
-  if (typeof window !== "undefined") {
-    const host = window.location.hostname.toLowerCase();
-    if (host.includes("ty-dev.fr")) return "fr";
-    if (host.includes("ty-dev.tech")) return "tech";
-  }
-  return "site";
-}
-
 function getInitialLang(): Lang {
   if (typeof window !== "undefined") {
     // 1. Si l'utilisateur a explicitement choisi une langue, la respecter
@@ -29,37 +23,31 @@ function getInitialLang(): Lang {
       return saved;
     }
 
-    // 2. Détection par domaine (Option A Multi-Domaines Ciblée)
+    // 2. Détection par domaine (Multi-Domaines Ciblée)
     const host = window.location.hostname.toLowerCase();
-    if (host.includes("ty-dev.fr")) {
-      return "fr"; // Ciblage Marché France & Francophone
-    }
-    if (host.includes("ty-dev.tech")) {
-      return "en"; // Ciblage International & Marché Tech Anglophone
-    }
-
-    // 3. Sur ty-dev.site ou localhost, détecter la langue du navigateur
-    if (navigator.language && navigator.language.toLowerCase().startsWith("en")) {
-      return "en";
-    }
+    const tenant = resolveTenantByHostname(host);
+    return tenant.defaultLang;
   }
 
-  // Par défaut en français pour le domaine principal
+  // Par défaut en français pour le SSR
   return "fr";
 }
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>(getInitialLang);
+  // Initialisation à "fr" pour correspondre au rendu SSR de référence et éviter les mismatches d'hydratation
+  const [lang, setLangState] = useState<Lang>("fr");
   const [domainTarget, setDomainTarget] = useState<DomainTarget>("site");
 
   useEffect(() => {
-    const detected = detectDomainTarget();
-    setDomainTarget(detected);
+    if (typeof window !== "undefined") {
+      const tenant = resolveTenantByHostname(window.location.hostname);
+      setDomainTarget(tenant.id);
 
-    const initial = getInitialLang();
-    setLangState(initial);
-    if (typeof document !== "undefined") {
-      document.documentElement.lang = initial;
+      const initial = getInitialLang();
+      setLangState(initial);
+      if (typeof document !== "undefined") {
+        document.documentElement.lang = initial;
+      }
     }
   }, []);
 
@@ -67,6 +55,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     setLangState(l);
     if (typeof window !== "undefined") {
       localStorage.setItem("tydev_lang", l);
+      document.cookie = `tydev_lang=${l}; path=/; max-age=31536000; SameSite=Lax`;
       document.documentElement.lang = l;
     }
   };

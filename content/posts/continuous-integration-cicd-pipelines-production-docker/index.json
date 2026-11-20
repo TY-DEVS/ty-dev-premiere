@@ -1,0 +1,24 @@
+{
+  "slug": "continuous-integration-cicd-pipelines-production-docker",
+  "title_fr": "Continuous Integration & CI/CD Pipelines : Déploiements Zéro-Downtime avec Docker",
+  "title_en": "Continuous Integration & CI/CD Pipelines: Zero-Downtime Deployments with Docker",
+  "summary_fr": "Concevoir des pipelines de livraison continue avec GitHub Actions, audits de sécurité automatisés, tests unitaires et déploiement progressif.",
+  "summary_en": "Building resilient CI/CD workflows using GitHub Actions, automated security audits, unit testing, and progressive deployments.",
+  "category": "Engineering & API",
+  "date_fr": "08 Août 2026",
+  "date_en": "August 08, 2026",
+  "date_iso": "2026-08-08",
+  "author_name": "Amine Ben Ammar",
+  "author_role": "CO-FOUNDER",
+  "author_avatar": "/team/aminebenamamr.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "CI/CD",
+    "DevOps",
+    "GitHub Actions",
+    "Docker",
+    "Automation",
+    "Testing"
+  ]
+}

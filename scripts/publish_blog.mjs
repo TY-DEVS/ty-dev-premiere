@@ -132,7 +132,35 @@ export function publishArticle({ titleFr, titleEn, summaryFr, summaryEn, categor
     content: { fr: contentFr, en: contentEn },
   };
 
-  // Insert at beginning of blogPosts array
+  // 1. Write to Keystatic content directory (content/posts/[slug])
+  const postFolder = path.join(rootDir, 'content', 'posts', slug);
+  if (!fs.existsSync(postFolder)) {
+    fs.mkdirSync(postFolder, { recursive: true });
+  }
+
+  const meta = {
+    slug,
+    title_fr: titleFr,
+    title_en: titleEn,
+    summary_fr: summaryFr,
+    summary_en: summaryEn,
+    category,
+    date_fr: dates.fr,
+    date_en: dates.en,
+    date_iso: dates.iso,
+    author_name: author.name,
+    author_role: author.role,
+    author_avatar: author.avatar,
+    author_slug: author.slug || generateSlug(author.name),
+    image: selectedImage,
+    tags: tags || ['Tech', 'Engineering', 'Web'],
+  };
+
+  fs.writeFileSync(path.join(postFolder, 'index.json'), JSON.stringify(meta, null, 2), 'utf-8');
+  fs.writeFileSync(path.join(postFolder, 'content_fr.mdoc'), contentFr || '', 'utf-8');
+  fs.writeFileSync(path.join(postFolder, 'content_en.mdoc'), contentEn || '', 'utf-8');
+
+  // 2. Insert at beginning of blogPosts array in blogPosts.ts for backward compatibility
   const arrayStartMarker = 'export const blogPosts: BlogPost[] = [';
   if (!fileContent.includes(arrayStartMarker)) {
     throw new Error('Could not locate blogPosts array in blogPosts.ts');

@@ -1,0 +1,15 @@
+
+## Decoupling Heavy Processing with Event Queues
+
+Blocking client HTTP requests for background jobs such as email dispatches or document exports introduces serious scalability bottlenecks.
+
+Through our [API Integration & Webhooks](/services/integration-apis-webhooks) and [Business Workflow Automation](/services/automatisation-processus-metiers), TY Dev implements resilient background queues with zero data loss.
+
+---
+
+### Queue Selection Matrix
+- **BullMQ / Redis**: Ideal for TypeScript backends requiring job priorities and scheduled crons.
+- **RabbitMQ**: Enterprise standard for complex routing exchanges and multi-language services.
+- **Kafka**: Purpose-built for massive event-streaming throughput.
+
+[Reach out to our engineering team](/contact) to scale your async processing.

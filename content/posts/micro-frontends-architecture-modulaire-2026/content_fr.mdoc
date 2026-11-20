@@ -1,0 +1,33 @@
+## Découper le Monolithe Frontend
+
+Lorsque plusieurs équipes travaillent sur la même application web, le monolithe frontend devient un goulot d'étranglement. Les **Micro-Frontends** permettent à chaque équipe de développer et déployer son module de manière totalement autonome.
+
+---
+
+### 1. Principes de Module Federation
+
+Module Federation permet de charger dynamiquement des composants distants au runtime sans recompilation globale :
+
+```typescript
+// Exemple de configuration Module Federation sous Vite
+import { defineConfig } from 'vite';
+import federation from '@originjs/vite-plugin-federation';
+
+export default defineConfig({
+  plugins: [
+    federation({
+      name: 'host_app',
+      remotes: {
+        analyticsApp: 'http://localhost:5001/assets/remoteEntry.js',
+      },
+      shared: ['react', 'react-dom'],
+    }),
+  ],
+});
+```
+
+---
+
+### Conclusion
+
+L'architecture micro-frontend offre une autonomie totale aux équipes produit à grande échelle.

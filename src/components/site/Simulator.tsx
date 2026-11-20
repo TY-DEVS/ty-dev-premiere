@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -29,7 +31,8 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import { useI18n } from "@/i18n/context";
-import { sendContactEmailFn } from "@/lib/contactFn";
+import { useTenant } from "@/context/tenantContext";
+import { sendContactEmailAction } from "@/actions/contact";
 import { GoogleReCaptcha } from "./GoogleReCaptcha";
 
 interface ProjectType {
@@ -511,6 +514,7 @@ const simulatorFaq = [
 ];
 
 export function Simulator() {
+  const { tenant } = useTenant();
   const { lang } = useI18n();
 
   // Référence pour remonter automatiquement en haut du formulaire à chaque changement d'étape
@@ -617,7 +621,7 @@ export function Simulator() {
 
   const budgetFormatted = isCustomDiscovery
     ? (lang === "fr" ? "Sur devis personnalisé après cadrage technique (Grand Projet)" : "Custom quote upon technical discovery (Enterprise Scope)")
-    : `${estimatedMin.toLocaleString(lang === "fr" ? "fr-FR" : "en-US")} € - ${estimatedMax.toLocaleString(lang === "fr" ? "fr-FR" : "en-US")} € HT`;
+    : `${estimatedMin.toLocaleString(lang === "fr" ? "fr-FR" : "en-US")} ${tenant.currencySymbol} - ${estimatedMax.toLocaleString(lang === "fr" ? "fr-FR" : "en-US")} ${tenant.currencySymbol} HT`;
 
   const toggleModule = (id: string) => {
     if (selectedModules.includes(id)) {
@@ -712,17 +716,15 @@ ${notes.trim() || "Aucune note additionnelle."}
 
       const origin = typeof window !== "undefined" ? window.location.origin : "https://ty-dev.site";
 
-      await sendContactEmailFn({
-        data: {
-          name: name.trim(),
-          email: email.trim(),
-          phone: phone.trim(),
-          type: `[SIMULATEUR] ${currentType.title.fr}`,
-          budget: budgetFormatted,
-          desc: fullDescription,
-          source: `${origin}/simulateur`,
-          recaptchaToken,
-        },
+      await sendContactEmailAction({
+        name: name.trim(),
+        email: email.trim(),
+        phone: phone.trim(),
+        type: `[SIMULATEUR] ${currentType.title.fr}`,
+        budget: budgetFormatted,
+        desc: fullDescription,
+        source: `${origin}/simulateur`,
+        recaptchaToken,
       });
 
       toast.success(
@@ -924,7 +926,7 @@ ${notes.trim() || "Aucune note additionnelle."}
                             <div className="flex items-center gap-1.5 shrink-0">
                               {tier.extraCost > 0 ? (
                                 <span className="font-mono text-[11px] px-2 py-0.5 rounded-md bg-brand/15 text-brand font-bold">
-                                  +{tier.extraCost} €
+                                  +{tier.extraCost} {tenant.currencySymbol}
                                 </span>
                               ) : (
                                 <span className="font-mono text-[11px] px-2 py-0.5 rounded-md bg-emerald-500/15 text-emerald-400 font-bold">
@@ -987,7 +989,7 @@ ${notes.trim() || "Aucune note additionnelle."}
                             </h3>
                             {mod.cost > 0 ? (
                               <span className="font-mono text-[11px] px-2 py-0.5 rounded-md bg-brand/15 text-brand font-bold shrink-0">
-                                +{mod.cost} €
+                                +{mod.cost} {tenant.currencySymbol}
                               </span>
                             ) : (
                               <span className="font-mono text-[11px] px-2 py-0.5 rounded-md bg-amber-500/15 text-amber-400 font-bold shrink-0">
@@ -1161,7 +1163,7 @@ ${notes.trim() || "Aucune note additionnelle."}
                   ) : (
                     <div>
                       <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-foreground">
-                        {estimatedMin.toLocaleString(lang === "fr" ? "fr-FR" : "en-US")} € — {estimatedMax.toLocaleString(lang === "fr" ? "fr-FR" : "en-US")} €{" "}
+                        {estimatedMin.toLocaleString(lang === "fr" ? "fr-FR" : "en-US")} {tenant.currencySymbol} — {estimatedMax.toLocaleString(lang === "fr" ? "fr-FR" : "en-US")} {tenant.currencySymbol}{" "}
                         <span className="text-sm font-mono text-muted-foreground font-normal">HT</span>
                       </h2>
 

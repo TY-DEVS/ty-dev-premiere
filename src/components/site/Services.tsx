@@ -1,4 +1,6 @@
-import { Link } from "@tanstack/react-router";
+'use client';
+
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Code2, Globe, Megaphone, Cog, ShoppingCart, Link2, Cloud, Bot, ArrowUpRight, Truck, Building2, Store, ArrowRight } from "lucide-react";
 import { useI18n } from "@/i18n/context";
@@ -86,8 +88,7 @@ export function Services() {
               transition={{ duration: 0.6, delay: (i % 4) * 0.1, ease: "easeOut" }}
             >
               <Link
-                to="/services/$slug"
-                params={{ slug }}
+                href={`/services/${slug}`}
                 className="group relative p-8 rounded-[32px] bg-surface/30 border border-border/50 backdrop-blur-md transition-all duration-700 hover:bg-surface/60 hover:border-brand/40 hover:-translate-y-2 hover:shadow-[0_20px_80px_-20px_oklch(0.6_0.22_265/0.25)] flex flex-col overflow-hidden h-full cursor-pointer"
               >
                 {/* Internal Hover Glow */}
@@ -169,8 +170,7 @@ export function Services() {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
               >
                 <Link
-                  to="/services/$slug"
-                  params={{ slug: vert.slug }}
+                  href={`/services/${vert.slug}`}
                   className="group relative p-8 rounded-[28px] bg-gradient-to-b from-surface/40 to-surface/10 border border-brand/20 hover:border-brand/60 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_20px_50px_-15px_oklch(0.6_0.22_265/0.25)] flex flex-col justify-between h-full overflow-hidden"
                 >
                   <div>

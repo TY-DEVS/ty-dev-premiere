@@ -1,0 +1,46 @@
+## La Vitesse de Chargement au Service de la Conversion
+
+Sur le web moderne, la vitesse de chargement et la réactivité d'une application conditionnent directement son taux de conversion et son classement dans les moteurs de recherche. Chaque tranche de 100ms gagnée sur l'indicateur **INP (Interaction to Next Paint)** améliore la rétention des utilisateurs.
+
+---
+
+### 1. Les 3 Piliers Core Web Vitals 2026
+
+- **LCP (Largest Contentful Paint) < 1.2s** : Préchargement des images clés avec `fetchpriority="high"` et formats WebP / AVIF.
+- **INP (Interaction to Next Paint) < 200ms** : Libération du thread principal JS en évitant les tâches longues (> 50ms).
+- **CLS (Cumulative Layout Shift) < 0.05** : Attribution systématique de dimensions `width` / `height` et `aspect-ratio` sur les conteneurs média.
+
+---
+
+### 2. Code Splitting & Configuration Vite Chunk Splitting
+
+Découpez les dépendances tierces lourdes dans des chunks séparés pour maximiser l'efficacité du cache navigateur :
+
+```typescript
+// Configuration Vite optimisée dans vite.config.ts
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react()],
+  build: {
+    target: 'esnext',
+    cssCodeSplit: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          ui: ['framer-motion', 'lucide-react'],
+          charts: ['recharts'],
+        },
+      },
+    },
+  },
+});
+```
+
+---
+
+### Conclusion
+
+L'optimisation des Core Web Vitals est un investissement stratégique indispensable pour dominer les résultats de recherche Google.

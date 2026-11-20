@@ -1,0 +1,28 @@
+## Choisir le Bon Moteur de Données pour la Scalabilité
+
+Le choix de la couche de stockage est l'une des décisions d'architecture les plus critiques. En 2026, l'approche dominante est l'adoption d'une **Architecture de Persistence Polyglotte**.
+
+---
+
+### 1. PostgreSQL : La Source Unique de Vérité (SSOT)
+
+- **Garanties ACID** : Transactions atomiques pour la facturation et les comptes.
+- **Support JSONB & Pgvector** : Requêtes hybrides relationnelles et vectorielles.
+
+```sql
+-- Index partiel pour optimiser les requêtes sur les utilisateurs actifs
+CREATE INDEX idx_active_users ON users (email) WHERE status = 'active';
+```
+
+---
+
+### 2. Redis : Cache In-Memory Sub-Millisecondes
+
+- **Session & Token JWT** : Accès ultra-rapide (< 2ms).
+- **Rate Limiting** : Algorithme Token Bucket pour les APIs.
+
+---
+
+### Conclusion
+
+Combiner le bon moteur de base de données à chaque cas d'usage garantit une performance optimale.

@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import {
@@ -13,10 +15,12 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { toast } from "sonner";
-import { useNavigate, Link } from "@tanstack/react-router";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useI18n } from "@/i18n/context";
+import { useTenant } from "@/context/tenantContext";
 import { Section } from "./Services";
-import { sendContactEmailFn } from "@/lib/contactFn";
+import { sendContactEmailAction } from "@/actions/contact";
 import { GoogleReCaptcha } from "./GoogleReCaptcha";
 
 const socials = [
@@ -50,7 +54,8 @@ function XIcon(props: React.SVGProps<SVGSVGElement>) {
 
 export function Contact() {
   const { t, lang } = useI18n();
-  const navigate = useNavigate();
+  const { tenant } = useTenant();
+  const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   return (
@@ -80,7 +85,7 @@ export function Contact() {
         </div>
 
         <Link
-          to="/simulateur"
+          href="/simulateur"
           className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-brand text-white font-semibold text-xs sm:text-sm shadow-md hover:bg-brand/90 hover:-translate-y-0.5 transition-all w-full sm:w-auto shrink-0 text-center"
         >
           <span>{lang === "fr" ? "Lancer le simulateur" : "Launch Simulator"}</span>
@@ -124,11 +129,15 @@ export function Contact() {
           </div>
 
           <div className="space-y-2 mb-8 lg:mb-12">
-            <ContactRow Icon={Mail} text="contact@ty-dev.tech" href="mailto:contact@ty-dev.tech" />
+            <ContactRow
+              Icon={Mail}
+              text={tenant.contact.email}
+              href={`mailto:${tenant.contact.email}`}
+            />
             <ContactRow
               Icon={MessageCircle}
-              text="WhatsApp: +33 7 59 44 01 05"
-              href="https://wa.me/33759440105"
+              text={`WhatsApp: ${tenant.contact.whatsappDisplay}`}
+              href={`https://wa.me/${tenant.contact.whatsappNumber}?text=${encodeURIComponent(tenant.contact.whatsappDefaultText)}`}
             />
             <ContactRow
               Icon={Instagram}
@@ -218,11 +227,11 @@ export function Contact() {
             const loadingToastId = toast.loading("Vérification & envoi de votre message...");
 
             try {
-              await sendContactEmailFn({ data });
+              await sendContactEmailAction(data);
               toast.success("Message envoyé avec succès ! Redirection vers l'accueil...", { id: loadingToastId });
               form.reset();
               setTimeout(() => {
-                navigate({ to: "/" });
+                router.push("/");
               }, 1500);
             } catch (error: any) {
               console.error("[Form Error]", error);
@@ -258,10 +267,11 @@ export function Contact() {
             />
           </div>
           <div className="relative">
-            <label className="block font-mono text-xs uppercase tracking-wider text-muted-foreground mb-2">
+            <label htmlFor="desc" className="block font-mono text-xs uppercase tracking-wider text-muted-foreground mb-2">
               {t.contact.form.desc}
             </label>
             <textarea
+              id="desc"
               name="desc"
               required
               rows={5}
@@ -328,10 +338,11 @@ function Field({
 }) {
   return (
     <div>
-      <label className="block font-mono text-xs uppercase tracking-wider text-muted-foreground mb-2">
+      <label htmlFor={name} className="block font-mono text-xs uppercase tracking-wider text-muted-foreground mb-2">
         {label}
       </label>
       <input
+        id={name}
         type={type}
         name={name}
         required={required}
@@ -354,10 +365,11 @@ function SelectField({
 }) {
   return (
     <div>
-      <label className="block font-mono text-xs uppercase tracking-wider text-muted-foreground mb-2">
+      <label htmlFor={name} className="block font-mono text-xs uppercase tracking-wider text-muted-foreground mb-2">
         {label}
       </label>
       <select
+        id={name}
         name={name}
         defaultValue=""
         required

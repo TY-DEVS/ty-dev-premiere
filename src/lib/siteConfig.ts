@@ -1,11 +1,19 @@
-export function getSiteUrl(): string {
-  if (typeof process !== "undefined" && process.env && process.env.SITE_URL) {
-    return process.env.SITE_URL.replace(/\/$/, "");
+import { resolveTenantByHostname, DEFAULT_TENANT } from "@/config/tenants";
+
+export function getSiteUrl(hostname?: string): string {
+  if (hostname) {
+    const tenant = resolveTenantByHostname(hostname);
+    return tenant.seo.canonicalBase;
   }
-  if (typeof import.meta !== "undefined" && import.meta.env && import.meta.env.VITE_SITE_URL) {
-    return import.meta.env.VITE_SITE_URL.replace(/\/$/, "");
+  if (typeof process !== "undefined" && process.env) {
+    if (process.env.NEXT_PUBLIC_SITE_URL) {
+      return process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, "");
+    }
+    if (process.env.SITE_URL) {
+      return process.env.SITE_URL.replace(/\/$/, "");
+    }
   }
-  return "https://ty-dev.site";
+  return DEFAULT_TENANT.seo.canonicalBase;
 }
 
 export const SITE_URL = getSiteUrl();

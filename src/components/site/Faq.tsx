@@ -1,7 +1,9 @@
+'use client';
+
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, HelpCircle, MessageSquare, ArrowRight, Sparkles, ShieldCheck, Zap, Code2, LineChart } from "lucide-react";
-import { Link } from "@tanstack/react-router";
+import Link from "next/link";
 import { useI18n } from "@/i18n/context";
 import { Section, SectionHeader } from "./Services";
 
@@ -263,7 +265,7 @@ export function Faq({ isPage = false }: { isPage?: boolean }) {
                 : "Have a specific question not listed here? Get in touch with our engineering team."}
             </p>
             <Link
-              to="/contact"
+              href="/contact"
               className="inline-flex items-center gap-2 px-6 py-2.5 mt-5 rounded-full bg-brand text-primary-foreground text-xs font-medium hover:shadow-lg transition-all"
             >
               {lang === "fr" ? "Poser une question" : "Ask us directly"}
@@ -350,7 +352,7 @@ export function Faq({ isPage = false }: { isPage?: boolean }) {
         </div>
 
         <Link
-          to="/contact"
+          href="/contact"
           className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand text-primary-foreground text-sm font-semibold transition-all hover:shadow-[0_0_30px_oklch(0.6_0.22_265/0.5)] shrink-0"
         >
           {lang === "fr" ? "Nous contacter" : "Contact Engineers"}

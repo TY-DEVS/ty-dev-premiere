@@ -42,7 +42,7 @@ jobs:
           git config --global user.email "bot@ty-dev.site"
           git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
           
-          git add src/data/blogPosts.ts public/sitemap.xml
+          git add content/posts/ src/data/blogPosts.ts public/sitemap.xml
           git commit -m "chore(blog): publication automatique quotidienne du blog et mise à jour du sitemap" || exit 0
           
           # Push to main, Raouf (both casing), and ty-dev-tn

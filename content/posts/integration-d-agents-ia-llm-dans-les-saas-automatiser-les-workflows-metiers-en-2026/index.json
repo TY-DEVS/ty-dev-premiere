@@ -1,0 +1,24 @@
+{
+  "slug": "integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026",
+  "title_fr": "Intégration d'Agents IA & LLM dans les SaaS : Automatiser les Workflows Métiers en 2026",
+  "title_en": "Integrating AI Agents & LLMs in SaaS: Automating Business Workflows in 2026",
+  "summary_fr": "Guide d'architecture complet pour connecter vos bases de données aux modèles LLM (RAG, Function Calling, Pgvector) et automatiser vos processus métiers sans compromettre la sécurité.",
+  "summary_en": "Comprehensive architecture guide for connecting enterprise databases to LLMs (RAG, Function Calling, Pgvector) to automate business workflows securely.",
+  "category": "IA & Automatisation",
+  "date_fr": "16 Août 2026",
+  "date_en": "August 16, 2026",
+  "date_iso": "",
+  "author_name": "Moutia Ben Yahia",
+  "author_role": "CEO",
+  "author_avatar": "/team/moutiabenyahia.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "IA",
+    "LLM",
+    "SaaS",
+    "Automation",
+    "RAG",
+    "Pgvector"
+  ]
+}

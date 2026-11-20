@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useState } from "react";
-import { Link } from "@tanstack/react-router";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   Code2,
@@ -59,11 +61,11 @@ export function ServiceDetail({ service }: { service: ServiceItemData }) {
       <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
         {/* Breadcrumb Navigation */}
         <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground mb-8 flex-wrap">
-          <Link to="/" className="hover:text-brand transition-colors">
+          <Link href="/" className="hover:text-brand transition-colors">
             Home
           </Link>
           <span className="text-muted-foreground/40">/</span>
-          <Link to="/services" className="hover:text-brand transition-colors">
+          <Link href="/services" className="hover:text-brand transition-colors">
             Services
           </Link>
           <span className="text-muted-foreground/40">/</span>
@@ -96,7 +98,7 @@ export function ServiceDetail({ service }: { service: ServiceItemData }) {
 
             <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
               <Link
-                to="/contact"
+                href="/contact"
                 className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-brand text-white font-semibold rounded-full overflow-hidden transition-all shadow-[0_0_40px_-10px_oklch(0.55_0.22_265)] hover:shadow-[0_0_60px_-5px_oklch(0.55_0.22_265)] hover:bg-brand/90 text-center"
               >
                 <span>{lang === "fr" ? "Demander une consultation" : "Schedule a Consultation"}</span>
@@ -334,7 +336,7 @@ export function ServiceDetail({ service }: { service: ServiceItemData }) {
                 </div>
                 <div className="pt-2">
                   <Link
-                    to={service.caseStudy.link}
+                    href={service.caseStudy.link}
                     className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl bg-brand text-primary-foreground font-semibold text-sm shadow-lg shadow-brand/25 hover:bg-brand/90 hover:-translate-y-0.5 transition-all"
                   >
                     <span>{lang === "fr" ? "Lire l'étude de cas complète" : "Read Full Case Study"}</span>
@@ -346,7 +348,7 @@ export function ServiceDetail({ service }: { service: ServiceItemData }) {
               {service.caseStudy.image && (
                 <div className="lg:col-span-5">
                   <Link
-                    to={service.caseStudy.link}
+                    href={service.caseStudy.link}
                     className="block relative rounded-2xl overflow-hidden border border-border/80 bg-surface/80 shadow-2xl group transition-all duration-300 hover:border-brand/40"
                   >
                     <img

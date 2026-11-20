@@ -1,0 +1,27 @@
+{
+  "slug": "postgres-serverless-branching-de-bases-de-donnees-l-agilite-devops-reinventee-pour-2026",
+  "title_fr": "Postgres Serverless & Branching de Bases de Données : L'Agilité DevOps Réinventée pour 2026",
+  "title_en": "Serverless Postgres & Database Branching: Reinventing DevOps Agility for 2026",
+  "summary_fr": "Le développement d'applications SaaS exige une agilité maximale, souvent entravée par la gestion des bases de données. L'émergence de PostgreSQL Serverless et du concept de 'database branching' transforme radicalement nos pratiques DevOps. Cette synergie offre des environnements de développement et de test isolés, instantanés et éphémères, comparables aux branches Git, pour une efficacité sans précédent.",
+  "summary_en": "SaaS application development demands maximum agility, often hindered by database management. The emergence of Serverless PostgreSQL and the 'database branching' concept is radically transforming our DevOps practices. This synergy offers isolated, instantaneous, and ephemeral development and testing environments, akin to Git branches, for unparalleled efficiency.",
+  "category": "Software Architecture",
+  "date_fr": "20 Octobre 2026",
+  "date_en": "October 20, 2026",
+  "date_iso": "2026-10-20",
+  "author_name": "Mohamed Yassine Ben Yaala",
+  "author_role": "CO-FOUNDER",
+  "author_avatar": "/team/mohamedyassinbenyaala.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "Tech",
+    "Engineering",
+    "Web",
+    "DevOps",
+    "SaaS",
+    "Database",
+    "PostgreSQL",
+    "Serverless",
+    "2026 Trends"
+  ]
+}

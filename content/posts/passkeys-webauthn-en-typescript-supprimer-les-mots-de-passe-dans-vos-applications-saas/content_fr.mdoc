@@ -1,0 +1,44 @@
+
+## La Fin de l'Ère des Mots de Passe
+
+Plus de 80% des failles de sécurité proviennent d'identifiants volés ou réutilisés. En 2026, l'adoption des **Passkeys** fondées sur le standard ouvert **WebAuthn / FIDO2** s'impose comme la référence absolue en matière de sécurité logicielle et de confort utilisateur.
+
+Dans nos développements de [plateformes SaaS sécurisées](/services/saas-sur-mesure), le support des Passkeys permet une connexion instantanée en une seconde via biométrie sans aucun mot de passe à mémoriser.
+
+---
+
+### 1. Fonctionnement Cryptographique de WebAuthn
+
+Le mécanisme repose sur une paire de clés asymétriques :
+- **Clé Privée** : Générée et stockée de manière inviolable dans l'enclave sécurisée de l'appareil de l'utilisateur (Secure Enclave Apple, TPM Windows, puce Titan Android). Elle ne quitte jamais l'appareil.
+- **Clé Publique** : Envoyée et enregistrée sur le serveur de votre application SaaS.
+- **Zéro Phishing Possible** : La signature cryptographique inclut le domaine d'origine du site web, rendant les faux sites clones totalement inopérants.
+
+---
+
+### 2. Exemple de Flux Backend avec `@simplewebauthn`
+
+```typescript
+import { generateRegistrationOptions, verifyRegistrationResponse } from "@simplewebauthn/server";
+
+// 1. Émission du challenge cryptographique
+export async function createPasskeyOptions(user: User) {
+  return generateRegistrationOptions({
+    rpName: "TY Dev SaaS Platform",
+    rpID: "ty-dev.site",
+    userID: user.id,
+    userName: user.email,
+    attestationType: "none",
+    authenticatorSelection: {
+      residentKey: "required",
+      userVerification: "preferred",
+    },
+  });
+}
+```
+
+---
+
+### Conclusion
+
+Intégrer les Passkeys augmente la conversion à l'inscription de plus de **25%** tout en éliminant les coûts de réinitialisation de mots de passe. Pour sécuriser vos systèmes, consultez nos services d'[intégration d'API](/services/integration-apis-webhooks) ou [échangez avec nos experts TY Dev](/contact).

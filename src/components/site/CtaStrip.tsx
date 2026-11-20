@@ -1,6 +1,8 @@
+'use client';
+
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { Link } from "@tanstack/react-router";
+import Link from "next/link";
 import { useI18n } from "@/i18n/context";
 
 export function CtaStrip() {
@@ -47,7 +49,7 @@ export function CtaStrip() {
               </p>
             </div>
             <Link
-              to="/contact"
+              href="/contact"
               className="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-brand text-primary-foreground font-medium shadow-[0_0_40px_oklch(0.6_0.22_265/0.4)] transition-all hover:shadow-[0_0_60px_oklch(0.6_0.22_265/0.7)] hover:-translate-y-0.5 whitespace-nowrap"
             >
               {t.nav.cta}

@@ -165,12 +165,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ty-dev.site/blog/integration-profonde-des-llm-dans-le-cycle-de-vie-logiciel-code-test-et-deploiement-augmentes-pour-le-saas-en-2026</loc>
-    <lastmod>2026-11-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
     <loc>https://ty-dev.site/blog/bases-de-donnees-serverless-et-data-branching-revolutionner-la-gestion-des-donnees-pour-le-saas-en-2026</loc>
     <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -857,6 +851,12 @@
   <url>
     <loc>https://ty-dev.site/blog/micro-frontends-architecture-modulaire-2026</loc>
     <lastmod>2026-08-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://ty-dev.site/blog/integration-profonde-des-llm-dans-le-cycle-de-vie-logiciel-code-test-et-deploiement-augmentes-pour-le-saas-en-2026</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>

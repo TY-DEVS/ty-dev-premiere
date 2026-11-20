@@ -1,0 +1,24 @@
+{
+  "slug": "performance-frontend-code-splitting-accelerer-les-applications-react-vite",
+  "title_fr": "Performance Frontend & Code Splitting : Accélérer les Applications React & Vite",
+  "title_en": "Frontend Performance & Code Splitting: Speeding up React & Vite Apps",
+  "summary_fr": "Techniques avancées d'optimisation frontend : Lazy Loading des composants, Tree-Shaking, optimisation des bundles Vite et atteinte d'un score Lighthouse de 100.",
+  "summary_en": "Advanced frontend performance techniques: Component Lazy Loading, Tree-Shaking, Vite bundle optimization, and achieving a 100 Lighthouse score.",
+  "category": "SEO & Web Performance",
+  "date_fr": "20 Août 2026",
+  "date_en": "August 20, 2026",
+  "date_iso": "2026-08-20",
+  "author_name": "Mohamed Ben Yahia",
+  "author_role": "FULL STACK DEVELOPER",
+  "author_avatar": "/team/mohamedbenyahia.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "React",
+    "Performance",
+    "Vite",
+    "JavaScript",
+    "Frontend",
+    "WebVitals"
+  ]
+}

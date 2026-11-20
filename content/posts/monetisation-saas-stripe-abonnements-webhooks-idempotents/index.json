@@ -1,0 +1,24 @@
+{
+  "slug": "monetisation-saas-stripe-abonnements-webhooks-idempotents",
+  "title_fr": "Monétisation SaaS & Stripe : Gestion des Abonnements & Webhooks Idempotents",
+  "title_en": "SaaS Monetization & Stripe Integration: Subscription Management & Billing",
+  "summary_fr": "Architecture d'ingénierie financière pour intégrer Stripe, gérer la synchronisation asynchrone par Webhooks, les abonnements et le Dunning Management.",
+  "summary_en": "Financial engineering architecture for Stripe integration, asynchronous Webhook synchronization, subscriptions, and automated Dunning Management.",
+  "category": "Engineering & API",
+  "date_fr": "12 Août 2026",
+  "date_en": "August 12, 2026",
+  "date_iso": "2026-08-12",
+  "author_name": "Mohamed Ben Khemis",
+  "author_role": "DEVOPS ENGINEER",
+  "author_avatar": "/team/mohamedbenkhemis.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "Stripe",
+    "SaaS",
+    "Billing",
+    "Payments",
+    "Webhooks",
+    "Integration"
+  ]
+}

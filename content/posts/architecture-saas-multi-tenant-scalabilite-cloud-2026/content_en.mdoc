@@ -1,0 +1,56 @@
+## Evolution of Multi-Tenant SaaS Systems
+
+Architecting modern SaaS platforms requires balancing data isolation, operational efficiency, and cloud expenditure. In 2026, leading SaaS products leverage **Hybrid Logical Isolation** paired with database row-level security.
+
+---
+
+### 1. Data Isolation Framework Matrix
+
+> Enforcing strict tenant scoping at both SQL and cache layers prevents cross-tenant data leaks.
+
+| Isolation Pattern | Engineering Overhead | Isolation Level | Infrastructure Cost |
+| :--- | :--- | :--- | :--- |
+| **Pooled (Tenant-ID Column)** | Low | Logical (Postgres RLS) | Very Low |
+| **Schema-per-Tenant** | Medium | Schema Level | Moderate |
+| **Database-per-Tenant** | High | Physical Silo | High |
+
+---
+
+### 2. Row-Level Security (RLS) Implementation
+
+For Pooled architectures, PostgreSQL **Row-Level Security (RLS)** ensures data separation directly at the database engine level:
+
+```sql
+-- Enforce RLS on sensitive tables
+ALTER TABLE orders ENABLE ROW LEVEL SECURITY;
+
+-- Define tenant isolation policy
+CREATE POLICY tenant_isolation_policy ON orders
+  FOR ALL
+  USING (tenant_id = current_setting('app.current_tenant_id'));
+```
+
+The API session middleware injects the active tenant ID seamlessly:
+
+```typescript
+// Session middleware enforcing tenant context
+import { Request, Response, NextFunction } from 'express';
+import { db } from './database';
+
+export async function tenantMiddleware(req: Request, res: Response, next: NextFunction) {
+  const tenantId = req.headers['x-tenant-id'] as string;
+  
+  if (!tenantId) {
+    return res.status(401).json({ error: 'Tenant context missing' });
+  }
+
+  await db.query("SET LOCAL app.current_tenant_id = $1", [tenantId]);
+  next();
+}
+```
+
+---
+
+### Summary
+
+A resilient SaaS architecture scales predictably without premature over-engineering.

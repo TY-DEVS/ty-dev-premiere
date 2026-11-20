@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ExternalLink, RefreshCw, Heart, MessageSquare, Clock } from "lucide-react";

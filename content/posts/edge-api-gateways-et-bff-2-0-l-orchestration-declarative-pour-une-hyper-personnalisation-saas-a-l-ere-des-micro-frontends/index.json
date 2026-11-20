@@ -1,0 +1,26 @@
+{
+  "slug": "edge-api-gateways-et-bff-2-0-l-orchestration-declarative-pour-une-hyper-personnalisation-saas-a-l-ere-des-micro-frontends",
+  "title_fr": "Edge API Gateways et BFF 2.0 : L'Orchestration Déclarative pour une Hyper-Personnalisation SaaS à l'Ère des Micro-Frontends",
+  "title_en": "Edge API Gateways & BFF 2.0: Declarative Orchestration for Hyper-Personalized SaaS in the Micro-Frontend Era",
+  "summary_fr": "Découvrez comment les Edge API Gateways évoluent vers des plateformes d'orchestration déclaratives (BFF 2.0) pour redéfinir l'expérience utilisateur des applications SaaS. Cette architecture de pointe permet une hyper-personnalisation, une performance accrue et une gestion simplifiée des micro-frontends grâce à des configurations intelligentes et automatisées.",
+  "summary_en": "Explore how Edge API Gateways are evolving into declarative orchestration platforms (BFF 2.0) to redefine the user experience of SaaS applications. This cutting-edge architecture enables hyper-personalization, enhanced performance, and simplified micro-frontend management through intelligent, automated configurations.",
+  "category": "Software Architecture",
+  "date_fr": "04 Novembre 2026",
+  "date_en": "November 04, 2026",
+  "date_iso": "2026-11-04",
+  "author_name": "Mohamed Yassine Ben Yaala",
+  "author_role": "CO-FOUNDER",
+  "author_avatar": "/team/mohamedyassinbenyaala.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "API Gateway",
+    "BFF",
+    "Micro-Frontends",
+    "SaaS",
+    "Edge Computing",
+    "Declarative",
+    "Web Performance",
+    "Cloud-Native"
+  ]
+}

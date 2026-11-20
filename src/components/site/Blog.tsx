@@ -1,7 +1,9 @@
+'use client';
+
 import { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Calendar, BookOpen, Radio, ChevronLeft, ChevronRight, Share2 } from "lucide-react";
-import { Link } from "@tanstack/react-router";
+import Link from "next/link";
 import { useI18n } from "@/i18n/context";
 import { Section, SectionHeader } from "./Services";
 import { getDynamicBlogPosts, type BlogPost } from "@/data/blogPosts";
@@ -10,15 +12,15 @@ import { ShareArticleModal } from "./ShareArticleModal";
 
 const POSTS_PER_PAGE = 6;
 
-export function Blog({ isPage = false }: { isPage?: boolean }) {
+export function Blog({ isPage = false, initialPosts }: { isPage?: boolean; initialPosts?: BlogPost[] }) {
   const { lang } = useI18n();
   const [activeTab, setActiveTab] = useState<"articles" | "live">("articles");
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [selectedSharePost, setSelectedSharePost] = useState<BlogPost | null>(null);
 
-  // Dynamically rotated posts for today
-  const blogPosts = useMemo(() => getDynamicBlogPosts(), []);
+  // Dynamically rotated posts for today or provided initial posts
+  const blogPosts = useMemo(() => initialPosts && initialPosts.length > 0 ? initialPosts : getDynamicBlogPosts(), [initialPosts]);
 
   const categories = useMemo(() => {
     const cats = Array.from(new Set(blogPosts.map((p) => p.category)));
@@ -180,8 +182,7 @@ export function Blog({ isPage = false }: { isPage?: boolean }) {
           {isPage && activeCategory === "all" && currentPage === 1 && featuredPost && (
             <div className="mt-12">
               <Link
-                to="/blog/$slug"
-                params={{ slug: featuredPost.slug }}
+                href={`/blog/${featuredPost.slug}`}
                 className="group relative flex flex-col lg:flex-row overflow-hidden rounded-3xl md:rounded-[36px] bg-gradient-to-br from-[oklch(0.1_0.03_250)] to-[oklch(0.06_0.02_250)] border border-cyan-500/30 hover:border-cyan-400/70 transition-all duration-700 hover:shadow-[0_25px_90px_-20px_oklch(0.75_0.18_200/0.35)] backdrop-blur-md"
               >
                 {/* Image Area */}
@@ -294,8 +295,7 @@ export function Blog({ isPage = false }: { isPage?: boolean }) {
                   className="h-full"
                 >
                   <Link
-                    to="/blog/$slug"
-                    params={{ slug: post.slug }}
+                    href={`/blog/${post.slug}`}
                     className="group relative flex flex-col h-full overflow-hidden rounded-3xl bg-gradient-to-br from-[oklch(0.09_0.03_250)] to-[oklch(0.06_0.02_250)] border border-cyan-500/20 hover:border-cyan-400/60 transition-all duration-700 hover:shadow-[0_20px_80px_-20px_oklch(0.75_0.18_200/0.3)] backdrop-blur-md"
                   >
                     {/* Thumbnail Image */}
@@ -439,7 +439,7 @@ export function Blog({ isPage = false }: { isPage?: boolean }) {
       {!isPage && (
         <div className="mt-16 flex justify-center">
           <Link
-            to="/blog"
+            href="/blog"
             className="group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-surface/40 border border-border/80 text-foreground font-semibold shadow-[0_10px_30px_-10px_oklch(0.6_0.22_265/0.2)] hover:bg-cyan-500 hover:border-cyan-400 hover:text-slate-950 hover:shadow-[0_15px_40px_-10px_oklch(0.75_0.18_200/0.4)] transition-all duration-300 hover:-translate-y-1"
           >
             <span>{lang === "fr" ? "Voir tous nos articles" : "Explore All Tech Articles"}</span>

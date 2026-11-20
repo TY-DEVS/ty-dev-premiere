@@ -1,0 +1,26 @@
+{
+  "slug": "l-ia-a-la-peripherie-du-navigateur-revolutionner-les-applications-web-avec-onnx-js-en-2026",
+  "title_fr": "L'IA à la Périphérie du Navigateur : Révolutionner les Applications Web avec ONNX.js en 2026",
+  "title_en": "Edge AI in the Browser: Revolutionizing Web Applications with ONNX.js in 2026",
+  "summary_fr": "Découvrez comment l'IA s'exécute directement dans le navigateur client, offrant latence réduite, confidentialité améliorée et capacités hors ligne. Nous explorons ONNX.js comme technologie clé pour transformer les applications web en expériences intelligentes et performantes.",
+  "summary_en": "Explore how AI runs directly in the client's browser, offering reduced latency, enhanced privacy, and offline capabilities. We delve into ONNX.js as a pivotal technology for transforming web applications into smart, high-performance experiences.",
+  "category": "Software Architecture",
+  "date_fr": "11 Octobre 2026",
+  "date_en": "October 11, 2026",
+  "date_iso": "2026-10-11",
+  "author_name": "Moutia Ben Yahia",
+  "author_role": "CEO",
+  "author_avatar": "/team/moutiabenyahia.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "AI",
+    "Edge Computing",
+    "Web Performance",
+    "Frontend",
+    "JavaScript",
+    "ONNX.js",
+    "2026 Trends",
+    "SaaS"
+  ]
+}

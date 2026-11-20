@@ -1,0 +1,24 @@
+{
+  "slug": "passkeys-webauthn-en-typescript-supprimer-les-mots-de-passe-dans-vos-applications-saas",
+  "title_fr": "Passkeys & WebAuthn en TypeScript : Supprimer les Mots de Passe dans vos Applications SaaS",
+  "title_en": "Passkeys & WebAuthn in TypeScript: Eliminating Passwords in Modern SaaS Applications",
+  "summary_fr": "Implémentation complète de l'authentification FIDO2 passwordless : cryptographie asymétrique, support biométrique (Touch ID, Face ID) et réduction de l'abandon utilisateur.",
+  "summary_en": "Complete FIDO2 passwordless auth implementation: asymmetric cryptography, biometric validation (Face ID, Touch ID), and drastically lower onboarding drop-off.",
+  "category": "Sécurité & Auth",
+  "date_fr": "28 Octobre 2026",
+  "date_en": "October 28, 2026",
+  "date_iso": "2026-10-28",
+  "author_name": "Mohamed Ben Yahia",
+  "author_role": "FULL STACK DEVELOPER",
+  "author_avatar": "/team/mohamedbenyahia.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "Cybersécurité",
+    "Passkeys",
+    "WebAuthn",
+    "TypeScript",
+    "SaaS",
+    "Authentification"
+  ]
+}

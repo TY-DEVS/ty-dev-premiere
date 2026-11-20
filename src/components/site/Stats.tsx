@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useRef, useState } from "react";
 import { useInView, motion } from "framer-motion";
 import { useI18n } from "@/i18n/context";

@@ -1,0 +1,25 @@
+## Automatiser l'Infrastructure Cloud
+
+L'Infrastructure as Code (IaC) permet de décrire l'intégralité des serveurs, réseaux et bases de données sous forme de code déclaratif versionné dans Git.
+
+---
+
+### 1. Déclarer son Infrastructure avec Terraform
+
+```hcl
+# Exemple d'approvisionnement de cluster Kubernetes sur AWS / Cloud
+resource "aws_eks_cluster" "saas_cluster" {
+  name     = "tydev-saas-prod"
+  role_arn = aws_iam_role.eks_role.arn
+
+  vpc_config {
+    subnet_ids = [aws_subnet.public_1.id, aws_subnet.public_2.id]
+  }
+}
+```
+
+---
+
+### Conclusion
+
+L'IaC élimine les dérives de configuration entre les environnements de staging et de production.

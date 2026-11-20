@@ -1,0 +1,26 @@
+{
+  "slug": "ia-embarquee-dans-le-navigateur-revolutionner-les-experiences-saas-avec-webgpu-et-webassembly-en-2026",
+  "title_fr": "IA Embarquée dans le Navigateur : Révolutionner les Expériences SaaS avec WebGPU et WebAssembly en 2026",
+  "title_en": "In-Browser Edge AI: Revolutionizing SaaS Experiences with WebGPU and WebAssembly in 2026",
+  "summary_fr": "En 2026, l'IA embarquée directement dans le navigateur, propulsée par WebGPU et WebAssembly, est prête à transformer les applications SaaS. Cette approche offre des expériences utilisateur ultra-rapides, respectueuses de la vie privée et réduisant significativement les coûts d'infrastructure côté serveur.",
+  "summary_en": "In 2026, on-device AI directly within the browser, powered by WebGPU and WebAssembly, is set to transform SaaS applications. This approach delivers ultra-fast, privacy-preserving user experiences while significantly reducing server-side infrastructure costs.",
+  "category": "Software Architecture",
+  "date_fr": "23 Octobre 2026",
+  "date_en": "October 23, 2026",
+  "date_iso": "2026-10-23",
+  "author_name": "Mohamed Ben Yahia",
+  "author_role": "FULL STACK DEVELOPER",
+  "author_avatar": "/team/mohamedbenyahia.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "AI",
+    "Web Performance",
+    "SaaS",
+    "WebAssembly",
+    "WebGPU",
+    "Edge Computing",
+    "Privacy",
+    "Cloud"
+  ]
+}

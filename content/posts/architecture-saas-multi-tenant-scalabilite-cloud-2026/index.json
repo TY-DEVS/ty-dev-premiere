@@ -1,0 +1,24 @@
+{
+  "slug": "architecture-saas-multi-tenant-scalabilite-cloud-2026",
+  "title_fr": "Architecture SaaS Multi-Tenant & Scalabilité Cloud : Les Meilleures Pratiques en 2026",
+  "title_en": "Multi-Tenant SaaS Architecture & Cloud Scalability: 2026 Engineering Standards",
+  "summary_fr": "Guide d'ingénierie complet pour concevoir des architectures multi-tenants isolées, performantes et capables d'absorber des millions de requêtes sans explosion des coûts d'infrastructure.",
+  "summary_en": "Comprehensive engineering guide for architecting secure, scalable multi-tenant SaaS platforms capable of handling millions of requests efficiently.",
+  "category": "Software Architecture",
+  "date_fr": "15 Août 2026",
+  "date_en": "August 15, 2026",
+  "date_iso": "2026-08-15",
+  "author_name": "Moutia Ben Yahia",
+  "author_role": "CEO",
+  "author_avatar": "/team/moutiabenyahia.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "SaaS",
+    "Architecture",
+    "Cloud",
+    "PostgreSQL",
+    "Docker",
+    "Multi-Tenant"
+  ]
+}

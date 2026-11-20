@@ -1,0 +1,27 @@
+{
+  "slug": "runtimes-javascript-de-nouvelle-generation-transformer-les-architectures-de-services-ultra-performants-en-2026",
+  "title_fr": "Runtimes JavaScript de Nouvelle Génération : Transformer les Architectures de Services Ultra-Performants en 2026",
+  "title_en": "Next-Generation JavaScript Runtimes: Reshaping Ultra-High Performance Service Architectures in 2026",
+  "summary_fr": "L'émergence de runtimes comme Bun et Deno, aux côtés de l'évolution de Node.js, redéfinit la performance des services back-end et les stratégies architecturales. Ces technologies ouvrent la voie à des applications SaaS et web plus rapides, plus sûres et plus efficaces, essentielles pour les défis de 2026.",
+  "summary_en": "The emergence of runtimes like Bun and Deno, alongside the evolution of Node.js, is redefining back-end service performance and architectural strategies. These technologies pave the way for faster, more secure, and more efficient SaaS and web applications, crucial for the challenges of 2026.",
+  "category": "Software Architecture",
+  "date_fr": "10 Novembre 2026",
+  "date_en": "November 10, 2026",
+  "date_iso": "2026-11-10",
+  "author_name": "Amine Ben Ammar",
+  "author_role": "CO-FOUNDER",
+  "author_avatar": "/team/aminebenamamr.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "JavaScript",
+    "Runtimes",
+    "Performance",
+    "SaaS",
+    "Architecture",
+    "Cloud",
+    "DevOps",
+    "Web Development",
+    "2026 Trends"
+  ]
+}

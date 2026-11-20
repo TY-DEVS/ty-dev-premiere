@@ -1,0 +1,24 @@
+{
+  "slug": "gestion-d-etat-frontend-de-nouvelle-generation-l-ere-des-signals-et-de-react-forget-en-2026",
+  "title_fr": "Gestion d'État Frontend de Nouvelle Génération : L'Ère des Signals et de React Forget en 2026",
+  "title_en": "Next-Gen Frontend State Management: The Era of Signals and React Forget in 2026",
+  "summary_fr": "En 2026, la gestion d'état frontend évolue vers une réactivité fine et des optimisations automatiques, transformant la performance et l'expérience développeur. Cet article explore comment les \"Signals\" et le compilateur React Forget redéfinissent la façon dont nous construisons des interfaces utilisateur rapides et maintenables.",
+  "summary_en": "By 2026, frontend state management is evolving towards fine-grained reactivity and automatic optimizations, transforming performance and developer experience. This article explores how \"Signals\" and the React Forget compiler are redefining how we build fast, maintainable user interfaces.",
+  "category": "Software Architecture",
+  "date_fr": "18 Novembre 2026",
+  "date_en": "November 18, 2026",
+  "date_iso": "2026-11-18",
+  "author_name": "Moutia Ben Yahia",
+  "author_role": "CEO",
+  "author_avatar": "/team/moutiabenyahia.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "Frontend",
+    "React",
+    "State Management",
+    "Performance",
+    "Web Development",
+    "2026 Trends"
+  ]
+}

@@ -1,5 +1,7 @@
+'use client';
+
 import { motion } from "framer-motion";
-import { Link } from "@tanstack/react-router";
+import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -51,7 +53,7 @@ export function PageHeader({
           className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground mb-8"
           aria-label="Breadcrumb"
         >
-          <Link to="/" className="hover:text-brand transition-colors">
+          <Link href="/" className="hover:text-brand transition-colors">
             Home
           </Link>
           <ChevronRight size={12} className="opacity-50" />

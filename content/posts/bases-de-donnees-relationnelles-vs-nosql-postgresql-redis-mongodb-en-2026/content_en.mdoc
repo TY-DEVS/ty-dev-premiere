@@ -1,0 +1,48 @@
+
+## Choosing the Optimal Data Layer for High-Scale Apps
+
+Database selection is one of the most critical architectural decisions for SaaS platforms. In 2026, leading engineering teams leverage a **Polyglot Persistence Architecture** to maximize performance and reliability.
+
+---
+
+### 1. PostgreSQL: The Single Source of Truth (SSOT)
+
+PostgreSQL is the gold standard relational engine for core data storage:
+
+- **ACID Guarantees**: Strict transactional integrity for billing, user accounts, and critical data.
+- **Advanced Capabilities**: Native JSONB query engine, full-text search, and Pgvector embeddings.
+- **Index Optimization**: B-Tree, BRIN, GIN, and Partial Indexing strategies.
+
+```sql
+-- Partial index to speed up active user lookups
+CREATE INDEX idx_active_users ON users (email) WHERE status = 'active';
+```
+
+---
+
+### 2. Redis: Sub-Millisecond In-Memory Caching
+
+Redis acts as the high-throughput caching and synchronization layer:
+
+- **Session & JWT Storage**: Fast sub-2ms key-value retrieval.
+- **API Rate Limiting**: Protecting critical endpoints via Token Bucket patterns.
+- **Distributed Locking**: Preventing race conditions in payment workflows.
+
+---
+
+### 3. MongoDB: Flexible Document Store
+
+MongoDB excels at handling dynamic, evolving document schemas:
+
+- **Activity Audit Logs**: Storing unstructured telemetry and event streams.
+- **Aggregation Pipelines**: Real-time analytical rollups across high-volume datasets.
+
+---
+
+### Architecture Decision Matrix
+
+| Data Workload | Target Engine | Engineering Rationale |
+| :--- | :--- | :--- |
+| Core SaaS Data & Billing | **PostgreSQL** | ACID Compliance & Foreign Keys |
+| Session State & Caching | **Redis** | In-Memory Performance & TTLs |
+| Telemetry & Audit Logs | **MongoDB** | Dynamic Schema & Aggregation |

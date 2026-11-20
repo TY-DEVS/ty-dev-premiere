@@ -1,0 +1,25 @@
+{
+  "slug": "observabilite-augmentee-ebpf-et-ia-pour-la-detection-proactive-d-anomalies-en-2026",
+  "title_fr": "Observabilité Augmentée : eBPF et IA pour la Détection Proactive d'Anomalies en 2026",
+  "title_en": "Augmented Observability: eBPF and AI for Proactive Anomaly Detection in 2026",
+  "summary_fr": "L'Observability-Driven Development (ODD) va transformer la gestion des systèmes en 2026. En combinant la puissance de l'eBPF pour la collecte de données fines et l'intelligence artificielle pour l'analyse prédictive, les équipes DevOps pourront anticiper et résoudre les problèmes avant même qu'ils n'impactent les utilisateurs.",
+  "summary_en": "Observability-Driven Development (ODD) is set to revolutionize system management in 2026. By combining the power of eBPF for granular data collection and artificial intelligence for predictive analysis, DevOps teams will anticipate and resolve issues before they impact users.",
+  "category": "Software Architecture",
+  "date_fr": "19 Octobre 2026",
+  "date_en": "October 19, 2026",
+  "date_iso": "2026-10-19",
+  "author_name": "Moutia Ben Yahia",
+  "author_role": "CEO",
+  "author_avatar": "/team/moutiabenyahia.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "Observability",
+    "eBPF",
+    "AI",
+    "DevOps",
+    "Cloud",
+    "SaaS",
+    "2026 Trends"
+  ]
+}

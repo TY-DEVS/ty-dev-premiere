@@ -1,0 +1,63 @@
+
+## Temps de Chargement & Conversion Utilisateur
+
+Sur le web moderne, la vitesse de chargement d'une application conditionne directement le taux de conversion et le référencement naturel (SEO). Chaque économie de 100ms sur l'interactivité (**INP - Interaction to Next Paint**) augmente l'engagement utilisateur.
+
+---
+
+### 1. Dynamic Imports & Lazy Loading avec React & Vite
+
+Au lieu de charger l'intégralité du bundle JavaScript lors du premier affichage, le **Code Splitting** permet d'isoler les routes et composants secondaires :
+
+```tsx
+import React, { Suspense, lazy } from 'react';
+
+// Chargement à la demande des routes lourdes
+const AnalyticsDashboard = lazy(() => import('./pages/AnalyticsDashboard'));
+const SettingsPanel = lazy(() => import('./pages/SettingsPanel'));
+
+export function AppRouter() {
+  return (
+    <Suspense fallback={<div className="animate-pulse p-6">Chargement du module...</div>}>
+      <Routes>
+        <Route path="/dashboard" element={<AnalyticsDashboard />} />
+        <Route path="/settings" element={<SettingsPanel />} />
+      </Routes>
+    </Suspense>
+  );
+}
+```
+
+---
+
+### 2. Optimisation de la Configuration Vite (`vite.config.ts`)
+
+Découpez les dépendances tierces lourdes (`lucide-react`, `recharts`, `framer-motion`) dans des chunks séparés pour optimiser la mise en cache du navigateur :
+
+```typescript
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react()],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          ui: ['framer-motion', 'lucide-react'],
+          charts: ['recharts'],
+        },
+      },
+    },
+  },
+});
+```
+
+---
+
+### 3. Checklist Core Web Vitals 2026
+
+- **LCP (Largest Contentful Paint) < 1.2s** : Préchargement des images critiques (`fetchpriority="high"`) et utilisation de formats WebP / AVIF.
+- **INP (Interaction to Next Paint) < 200ms** : Éviter le blocage du thread principal en découpant les fonctions JavaScript lourdes.
+- **CLS (Cumulative Layout Shift) < 0.05** : Définir des dimensions explicites (`width` / `height`) sur tous les éléments média.

@@ -1,7 +1,10 @@
+'use client';
+
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight, Calculator } from "lucide-react";
-import { Link, useRouterState } from "@tanstack/react-router";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useI18n } from "@/i18n/context";
 import { TyDevLogo } from "./TyDevLogo";
 
@@ -16,7 +19,8 @@ export function Navbar() {
   const { lang, setLang, t } = useI18n();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const rawPathname = usePathname();
+  const pathname = rawPathname || "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -64,7 +68,7 @@ export function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10 h-18 flex items-center justify-between py-4">
-          <Link to="/" aria-label="TY Dev home" className="shrink-0">
+          <Link href="/" aria-label="TY Dev home" className="shrink-0">
             <TyDevLogo />
           </Link>
 
@@ -72,9 +76,12 @@ export function Navbar() {
             {navItems.map((item) => (
               <Link
                 key={item.to}
-                to={item.to}
-                activeOptions={{ exact: true }}
-                className="relative inline-flex items-center gap-1 px-3.5 py-1.5 text-[13px] text-muted-foreground hover:text-foreground transition-colors rounded-full hover:bg-surface/60 data-[status=active]:text-foreground data-[status=active]:bg-surface/70"
+                href={item.to}
+                className={`relative inline-flex items-center gap-1 px-3.5 py-1.5 text-[13px] rounded-full transition-colors ${
+                  pathname === item.to
+                    ? "text-foreground bg-surface/70"
+                    : "text-muted-foreground hover:text-foreground hover:bg-surface/60"
+                }`}
               >
                 <span>{item.label}</span>
               </Link>
@@ -86,7 +93,7 @@ export function Navbar() {
               <LangToggle lang={lang} setLang={setLang} />
             </div>
             <Link
-              to="/contact"
+              href="/contact"
               className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand text-primary-foreground text-sm font-medium transition-all hover:shadow-[0_0_30px_oklch(0.6_0.22_265/0.5)] hover:-translate-y-0.5"
             >
               {t.nav.cta}
@@ -129,6 +136,7 @@ function MobileDrawer({
   setLang: (l: "en" | "fr") => void;
   cta: string;
 }) {
+  const pathname = usePathname();
   return (
     <AnimatePresence>
       {open && (
@@ -185,16 +193,19 @@ function MobileDrawer({
                     transition={{ delay: 0.15 + i * 0.05, duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                   >
                     <Link
-                      to={item.to}
+                      href={item.to}
                       onClick={onClose}
-                      activeOptions={{ exact: true }}
-                      className="group flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg hover:bg-surface/50 transition-colors data-[status=active]:bg-surface/60"
+                      className={`group flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg transition-colors ${
+                        pathname === item.to ? "bg-surface/60 text-brand" : "hover:bg-surface/50"
+                      }`}
                     >
                       <span className="flex items-center gap-3">
                         <span className="font-mono text-[11px] text-muted-foreground/60 w-6">
                           {item.num}
                         </span>
-                        <span className="font-display text-lg text-foreground group-hover:text-brand transition-colors group-data-[status=active]:text-brand">
+                        <span className={`font-display text-lg group-hover:text-brand transition-colors ${
+                          pathname === item.to ? "text-brand" : "text-foreground"
+                        }`}>
                           {item.label}
                         </span>
                       </span>
@@ -214,7 +225,7 @@ function MobileDrawer({
                 className="px-3 mt-5 space-y-2.5 pb-2"
               >
                 <Link
-                  to="/simulateur"
+                  href="/simulateur"
                   onClick={onClose}
                   className="flex items-center justify-center gap-2.5 w-full px-5 py-3.5 rounded-full bg-cyan-500/15 border border-cyan-500/40 text-cyan-300 font-semibold text-sm hover:bg-cyan-500 hover:text-slate-950 transition-all shadow-[0_0_25px_-5px_rgba(6,182,212,0.3)] hover:shadow-[0_0_35px_rgba(6,182,212,0.5)] active:scale-[0.99]"
                 >
@@ -224,7 +235,7 @@ function MobileDrawer({
                 </Link>
 
                 <Link
-                  to="/contact"
+                  href="/contact"
                   onClick={onClose}
                   className="flex items-center justify-center gap-2 w-full px-5 py-3.5 rounded-full bg-brand text-primary-foreground font-medium shadow-[0_0_40px_oklch(0.6_0.22_265/0.4)] transition-all hover:shadow-[0_0_60px_oklch(0.6_0.22_265/0.7)] active:scale-[0.99]"
                 >

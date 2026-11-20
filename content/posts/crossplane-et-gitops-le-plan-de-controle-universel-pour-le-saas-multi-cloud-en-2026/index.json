@@ -1,0 +1,25 @@
+{
+  "slug": "crossplane-et-gitops-le-plan-de-controle-universel-pour-le-saas-multi-cloud-en-2026",
+  "title_fr": "Crossplane et GitOps : Le Plan de Contrôle Universel pour le SaaS Multi-Cloud en 2026",
+  "title_en": "Crossplane and GitOps: The Universal Control Plane for Multi-Cloud SaaS in 2026",
+  "summary_fr": "L'année 2026 marque l'apogée des stratégies multi-cloud pour le SaaS, exigeant une gestion d'infrastructure unifiée et déclarative. Cet article explore comment Crossplane, associé aux principes GitOps, transforme Kubernetes en un puissant plan de contrôle universel pour provisionner et gérer toutes vos ressources cloud.",
+  "summary_en": "As 2026 unfolds, multi-cloud strategies are peaking for SaaS, demanding unified and declarative infrastructure management. This article explores how Crossplane, combined with GitOps principles, transforms Kubernetes into a powerful universal control plane for provisioning and managing all your cloud resources.",
+  "category": "Software Architecture",
+  "date_fr": "14 Novembre 2026",
+  "date_en": "November 14, 2026",
+  "date_iso": "2026-11-14",
+  "author_name": "Mohamed Yassine Ben Yaala",
+  "author_role": "CO-FOUNDER",
+  "author_avatar": "/team/mohamedyassinbenyaala.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "Cloud",
+    "DevOps",
+    "Kubernetes",
+    "IaC",
+    "Multi-Cloud",
+    "SaaS",
+    "2026TechTrends"
+  ]
+}

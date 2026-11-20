@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from "react";
 import { type BlogPost } from "@/data/blogPosts";
 import {

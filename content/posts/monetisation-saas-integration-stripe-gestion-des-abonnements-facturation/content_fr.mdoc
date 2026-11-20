@@ -1,0 +1,59 @@
+
+## L'Ingénierie Financière d'une Application SaaS
+
+La monétisation est le moteur fondamental de toute application SaaS commerciale. La gestion des abonnements récurrents nécessite une architecture logicielle hautement sécurisée, idoine et capable de gérer des scénarios complexes (prorata, échecs de paiement, gestion des taxes).
+
+---
+
+### 1. Architecture Webhook Idempotente
+
+Les événements de paiement Stripe doivent être traités de manière asynchrone via des **Webhooks**. Pour éviter les doubles facturations lors des re-tentatives du réseau, chaque gestionnaire de webhook doit être strictement **idempotent** :
+
+```typescript
+// Exemple de serveur Webhook Express sécurisé avec validation de signature
+import express from 'express';
+import Stripe from 'stripe';
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+const app = express();
+
+app.post('/api/webhooks/stripe', express.raw({ type: 'application/json' }), async (req, res) => {
+  const sig = req.headers['stripe-signature']!;
+  let event: Stripe.Event;
+
+  try {
+    event = stripe.webhooks.constructEvent(req.body, sig, process.env.STRIPE_WEBHOOK_SECRET!);
+  } catch (err: any) {
+    return res.status(400).send(`Webhook Error: ${err.message}`);
+  }
+
+  // Traitement idempotent de l'événement
+  switch (event.type) {
+    case 'invoice.payment_succeeded':
+      await handleInvoicePaid(event.data.object as Stripe.Invoice);
+      break;
+    case 'customer.subscription.deleted':
+      await handleSubscriptionCanceled(event.data.object as Stripe.Subscription);
+      break;
+  }
+
+  res.json({ received: true });
+});
+```
+
+---
+
+### 2. Gestion des Impayés (Dunning Management)
+
+Un taux d'échec de carte bancaire non géré peut générer jusqu'à **10% de churn involontaire** (cartes expirées, plafonds dépassés).
+
+- **Relances Automatisées** : Configuration des séquences de relance par e-mail via Stripe Billing.
+- **Grace Period** : Maintien temporaire de l'accès pendant 3 à 7 jours avant suspension de compte.
+- **Portail Libre-service Client** : Redirection vers le *Stripe Customer Portal* pour la mise à jour des coordonnées bancaires.
+
+---
+
+### 3. Conformité & Sécurité Financière
+
+- **PCI-DSS Compliance** : Aucune donnée de carte ne doit transiter par vos serveurs (utilisation stricte de Stripe Elements ou Checkout).
+- **Gestion des Taxes Internationales** : Activation de *Stripe Tax* pour calculer automatiquement la TVA / Sales Tax selon la géolocalisation du client.

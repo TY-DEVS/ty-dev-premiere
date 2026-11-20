@@ -1,0 +1,26 @@
+{
+  "slug": "passkeys-webauthn-l-aube-de-l-authentification-sans-mot-de-passe-en-2026",
+  "title_fr": "Passkeys & WebAuthn : L'Aube de l'Authentification Sans Mot de Passe en 2026",
+  "title_en": "Passkeys & WebAuthn: The Dawn of Passwordless Authentication in 2026",
+  "summary_fr": "Les Passkeys, basés sur la norme WebAuthn, redéfinissent la sécurité et l'expérience utilisateur en éliminant les mots de passe. Cette technologie cruciale pour 2026 promet une authentification robuste et fluide à travers tous les appareils.",
+  "summary_en": "Passkeys, leveraging the WebAuthn standard, are redefining security and user experience by eliminating passwords. This crucial technology for 2026 promises robust and seamless authentication across all devices.",
+  "category": "Software Architecture",
+  "date_fr": "07 Octobre 2026",
+  "date_en": "October 07, 2026",
+  "date_iso": "2026-10-07",
+  "author_name": "Amine Ben Ammar",
+  "author_role": "CO-FOUNDER",
+  "author_avatar": "/team/aminebenamamr.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "Tech",
+    "Engineering",
+    "Web",
+    "Security",
+    "Authentication",
+    "Passkeys",
+    "WebAuthn",
+    "Passwordless"
+  ]
+}

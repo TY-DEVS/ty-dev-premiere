@@ -1,0 +1,48 @@
+
+## Choisir le Bon Moteur de Données pour la Scalabilité
+
+Le choix de la couche de stockage est l'une des décisions d'architecture les plus critiques lors du développement d'une application SaaS. En 2026, l'approche dominante n'est pas le choix d'un moteur unique, mais l'adoption d'une **Architecture de Persistence Polyglotte**.
+
+---
+
+### 1. PostgreSQL : La Source Unique de Vérité (SSOT)
+
+PostgreSQL est devenu le moteur relationnel incontournable grâce à sa robustesse et sa grande polyvalence :
+
+- **Garanties ACID** : Transactions atomiques et cohérence absolue des données financières et comptes utilisateurs.
+- **Fonctionnalités Avancées** : Support natif du format JSONB, recherche plein texte et extensions géospatiales (PostGIS) ou vectorielles (Pgvector).
+- **Indexation Performante** : Utilisation des index B-Tree, BRIN, GIN et Partial Indexes pour des requêtes optimisées.
+
+```sql
+-- Index partiel pour optimiser les requêtes sur les utilisateurs actifs
+CREATE INDEX idx_active_users ON users (email) WHERE status = 'active';
+```
+
+---
+
+### 2. Redis : In-Memory Caching & Distributed Locks
+
+Redis complète la base relationnelle en gérant la couche de haute performance en mémoire :
+
+- **Cache de Session & Token JWT** : Accès ultra-rapide (< 2ms) aux données de session.
+- **Rate Limiting** : Algorithme Token Bucket pour protéger les routes API contre les abus.
+- **Verrous Distribués (Redlock)** : Protection contre les conditions de concurrence lors des paiements.
+
+---
+
+### 3. MongoDB : Documents Flexibles & Analytique
+
+MongoDB excelle dans la gestion de schémas hautement dynamiques et variables :
+
+- **Logs & Audit Trails** : Stockage de journaux d'événements sans schéma rigide préalable.
+- **Pipeline d'Agrégation** : Traitement analytique rapide de grands volumes de métriques.
+
+---
+
+### Recommandations & Matrice de Choix
+
+| Besoin Métier | Moteur Recommandé | Raison Technique |
+| :--- | :--- | :--- |
+| Utilisateurs, Facturation, Abonnements | **PostgreSQL** | Transactions ACID & Intégrité Référentielle |
+| Cache, Sessions, Rate Limits | **Redis** | Latence sub-milliseconde & In-Memory |
+| Logs d'activité, Analytics non-structurés | **MongoDB** | Schéma flexible & Agrégations rapides |

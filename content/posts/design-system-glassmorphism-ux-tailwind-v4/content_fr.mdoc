@@ -1,0 +1,35 @@
+## L'Évolution du Design d'Interface Web
+
+Le design web moderne privilégie désormais des esthétiques immersives basées sur des effets de verre translucide (**Glassmorphism**), des contrastes maîtrisés et des micro-interactions naturelles.
+
+---
+
+### 1. Les Piliers d'une Interface Premium en 2026
+
+1. **Effets Glassmorphism Subtils** : Combinaison de `backdrop-blur-md` avec des bordures semi-transparentes.
+2. **Espace de Couleurs OKLCH** : Palette de couleurs plus fidèle aux yeux humains en mode sombre.
+3. **Micro-Animations Fluides** : Effets de survol réactifs sous Framer Motion.
+
+---
+
+### 2. Implémentation CSS Native avec Tailwind v4
+
+```css
+/* Tokens de design système OKLCH */
+@theme {
+  --color-brand-cyan: oklch(0.75 0.18 200);
+  --color-surface-glass: oklch(0.09 0.03 250 / 0.8);
+}
+
+.glass-card {
+  background: var(--color-surface-glass);
+  backdrop-filter: blur(16px);
+  border: 1px solid oklch(0.75 0.18 200 / 0.2);
+}
+```
+
+---
+
+### Conclusion
+
+Une interface soignée transforme les visiteurs occasionnels en utilisateurs convaincus.

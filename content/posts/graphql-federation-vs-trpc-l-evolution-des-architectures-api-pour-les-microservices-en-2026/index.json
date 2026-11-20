@@ -1,0 +1,25 @@
+{
+  "slug": "graphql-federation-vs-trpc-l-evolution-des-architectures-api-pour-les-microservices-en-2026",
+  "title_fr": "GraphQL Federation vs tRPC : L'Évolution des Architectures API pour les Microservices en 2026",
+  "title_en": "GraphQL Federation vs tRPC: Evolving API Architectures for Microservices in 2026",
+  "summary_fr": "En 2026, la complexité croissante des microservices exige des approches API sophistiquées. Cet article explore les stratégies de GraphQL Federation et tRPC, analysant leurs forces et faiblesses pour bâtir des systèmes distribués performants et maintenables.",
+  "summary_en": "By 2026, the increasing complexity of microservices demands sophisticated API approaches. This article explores GraphQL Federation and tRPC strategies, analyzing their strengths and weaknesses for building high-performance, maintainable distributed systems.",
+  "category": "Software Architecture",
+  "date_fr": "14 Octobre 2026",
+  "date_en": "October 14, 2026",
+  "date_iso": "2026-10-14",
+  "author_name": "Mohamed Ben Khemis",
+  "author_role": "DEVOPS ENGINEER",
+  "author_avatar": "/team/mohamedbenkhemis.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1526374870839-e155464bb9b2?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "API Design",
+    "Microservices",
+    "GraphQL",
+    "tRPC",
+    "2026 Trends",
+    "SaaS",
+    "Cloud"
+  ]
+}

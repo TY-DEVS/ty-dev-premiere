@@ -1,0 +1,26 @@
+{
+  "slug": "bun-2-0-vs-node-js-24-benchmarks-et-strategies-d-architecture-pour-les-saas-de-2026",
+  "title_fr": "Bun 2.0 vs Node.js 24 : Benchmarks et Stratégies d'Architecture pour les SaaS de 2026",
+  "title_en": "Bun 2.0 vs Node.js 24: Benchmarks and Architectural Strategies for 2026 SaaS",
+  "summary_fr": "En 2026, le choix du runtime JavaScript est crucial pour la performance des applications SaaS. Cet article explore les innovations de Bun 2.0 face aux évolutions de Node.js 24, analysant leurs impacts sur les benchmarks et les architectures de microservices.",
+  "summary_en": "In 2026, the choice of JavaScript runtime is crucial for SaaS application performance. This article explores the innovations of Bun 2.0 against the evolutions of Node.js 24, analyzing their impact on benchmarks and microservices architectures.",
+  "category": "Software Architecture",
+  "date_fr": "13 Octobre 2026",
+  "date_en": "October 13, 2026",
+  "date_iso": "2026-10-13",
+  "author_name": "Amine Ben Ammar",
+  "author_role": "CO-FOUNDER",
+  "author_avatar": "/team/aminebenamamr.webp",
+  "author_slug": "yassine-ben-yaala",
+  "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
+  "tags": [
+    "Tech",
+    "Engineering",
+    "Web",
+    "JavaScript",
+    "Performance",
+    "SaaS",
+    "Bun",
+    "Node.js"
+  ]
+}
