@@ -28,6 +28,7 @@ COPY . .
 # Environment variables for build stage
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
+ENV BUILD_STANDALONE=true
 
 # Run Next.js production build (generates standalone server & copies assets via postbuild)
 RUN npm run build

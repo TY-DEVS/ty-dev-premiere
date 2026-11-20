@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "postbuild": "node scripts/copy-standalone.mjs",
-    "start": "node .next/standalone/server.js",
+    "start": "next start",
+    "start:standalone": "node .next/standalone/server.js",
     "lint": "eslint .",
     "format": "prettier --write .",
     "test:k6": ".\\k6-v0.56.0-windows-amd64\\k6.exe run tests/k6_load_test.js"
