@@ -1,45 +1,28 @@
 # ==============================================================================
-# Base Image: Lightweight Node 22 on Debian Slim (Fast glibc runtime)
+# Build Stage: Single builder to eliminate slow multi-stage file copying
 # ==============================================================================
-FROM node:22-slim AS base
+FROM node:22-slim AS builder
 WORKDIR /app
-
-# Install curl and ca-certificates for healthchecks and HTTPS requests
-RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates && rm -rf /var/lib/apt/lists/*
-
-# ==============================================================================
-# Stage 1: Install Dependencies
-# ==============================================================================
-FROM base AS deps
-WORKDIR /app
-
-COPY package.json package-lock.json ./
-# Fast clean install of dependencies
-RUN npm ci --ignore-scripts
-
-# ==============================================================================
-# Stage 2: Build the Application
-# ==============================================================================
-FROM base AS builder
-WORKDIR /app
-
-COPY --from=deps /app/node_modules ./node_modules
-COPY . .
 
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV BUILD_STANDALONE=false
 
-# Run Next.js production build (~4 mins without slow 60k files NFT trace)
+# 1. Fast dependency installation (no-audit, no-fund, no-scripts)
+COPY package.json package-lock.json ./
+RUN npm ci --no-audit --no-fund --ignore-scripts
+
+# 2. Build Next.js application
+COPY . .
 RUN npm run build
 
-# Remove development dependencies to keep the image slim
-RUN npm prune --omit=dev
+# 3. Strip devDependencies to minimize image size
+RUN npm prune --omit=dev --no-audit --no-fund
 
 # ==============================================================================
-# Stage 3: Production Runner
+# Runner Stage: Lean production runner
 # ==============================================================================
-FROM base AS runner
+FROM node:22-slim AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
@@ -47,21 +30,18 @@ ENV NEXT_TELEMETRY_DISABLED=1
 ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
 
-# Create non-root system user & group for enhanced container security
-RUN groupadd --system --gid 1001 nodejs && \
-    useradd --system --uid 1001 nextjs
+# Install curl for container healthchecks
+RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates && rm -rf /var/lib/apt/lists/*
 
-# Copy runtime files
-COPY --from=builder /app/public ./public
-COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
-COPY --from=builder --chown=nextjs:nodejs /app/node_modules ./node_modules
-COPY --from=builder --chown=nextjs:nodejs /app/package.json ./package.json
+# Copy only production assets and pruned node_modules
+COPY --from=builder --chown=node:node /app/.next ./.next
+COPY --from=builder --chown=node:node /app/public ./public
+COPY --from=builder --chown=node:node /app/node_modules ./node_modules
+COPY --from=builder --chown=node:node /app/package.json ./package.json
+COPY --from=builder --chown=node:node /app/content ./content
+COPY --from=builder --chown=node:node /app/keystatic.config.ts ./keystatic.config.ts
 
-# Copy content folder & config for runtime CMS reading
-COPY --from=builder --chown=nextjs:nodejs /app/content ./content
-COPY --from=builder --chown=nextjs:nodejs /app/keystatic.config.ts ./keystatic.config.ts
-
-USER nextjs
+USER node
 
 EXPOSE 3000
 
