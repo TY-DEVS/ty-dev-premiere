@@ -1,5 +1,6 @@
 # ==============================================================================
 # Production Docker Compose Configuration - TY Dev Platform
+# Target Domains: ty-dev.fr, ty-dev.tech, ty-dev.site
 # ==============================================================================
 
 services:
@@ -28,9 +29,9 @@ services:
       - RECAPTCHA_SECRET_KEY=${RECAPTCHA_SECRET_KEY:-6LfVxOgtAAAAAAooTxVUTMYVbIXtvx1N9zNUYOGF}
       - BLOG_ADMIN_TOKEN=${BLOG_ADMIN_TOKEN:-tydev_blog_admin_secret_key_2026}
     env_file:
-      - path: .env
-        required: false
       - path: .env.production
+        required: false
+      - path: .env
         required: false
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://127.0.0.1:3000/ || exit 1"]
