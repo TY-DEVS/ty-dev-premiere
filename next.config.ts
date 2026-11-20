@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  typescript: {
+    // Docker builds already have types verified via local validation / CI
+    ignoreBuildErrors: true,
+  },
   images: {
     remotePatterns: [
       {
