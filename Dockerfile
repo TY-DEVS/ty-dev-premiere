@@ -1,6 +1,5 @@
 # ==============================================================================
-# Lean Single-Stage Dockerfile for Fast Production Builds
-# Eliminates slow cross-layer file copying & unnecessary chown operations
+# Lean Single-Stage Dockerfile for Fast Production Builds with pnpm
 # ==============================================================================
 FROM node:22-slim
 
@@ -12,17 +11,18 @@ ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
 ENV NODE_ENV=production
 
-# Install curl for container healthchecks
-RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates && rm -rf /var/lib/apt/lists/*
+# Install curl for container healthchecks & global pnpm
+RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates && rm -rf /var/lib/apt/lists/* \
+    && npm install -g pnpm@latest
 
-# 1. Fast dependency installation
-COPY package.json package-lock.json ./
-RUN npm ci --no-audit --no-fund --ignore-scripts
+# 1. Fast dependency installation with pnpm (frozen lockfile)
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --frozen-lockfile --ignore-scripts --prod=false
 
 # 2. Build Next.js application
 COPY . .
-RUN npm run build
+RUN pnpm run build
 
 EXPOSE 3000
 
-CMD ["npm", "start"]
+CMD ["pnpm", "start"]
