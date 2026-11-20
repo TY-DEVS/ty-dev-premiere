@@ -25,8 +25,8 @@ RUN npm run build
 # 3. Strip devDependencies to minimize image size while retaining runtime deps (sharp, etc.)
 RUN npm prune --omit=dev --no-audit --no-fund
 
-# 4. Permissions for runtime cache
-RUN chown -R node:node /app/.next /app/content
+# 4. Permissions for runtime
+RUN chown -R node:node /app
 
 ENV NODE_ENV=production
 USER node

@@ -1,9 +1,8 @@
-import type { NextConfig } from "next";
-
+/** @type {import('next').NextConfig} */
 const isStandalone = process.env.BUILD_STANDALONE === "true";
 
-const nextConfig: NextConfig = {
-  ...(isStandalone ? { output: "standalone" as const } : {}),
+const nextConfig = {
+  ...(isStandalone ? { output: "standalone" } : {}),
   eslint: {
     ignoreDuringBuilds: true,
   },

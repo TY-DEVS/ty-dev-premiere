@@ -49,8 +49,11 @@ services:
           memory: 128M
     networks:
       - tydev-staging-network
+      - coolify
 
 networks:
   tydev-staging-network:
     name: tydev-staging-network
     driver: bridge
+  coolify:
+    external: true

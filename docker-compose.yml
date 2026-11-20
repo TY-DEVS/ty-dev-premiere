@@ -48,8 +48,11 @@ services:
           memory: 256M
     networks:
       - tydev-prod-network
+      - coolify
 
 networks:
   tydev-prod-network:
     name: tydev-prod-network
     driver: bridge
+  coolify:
+    external: true
