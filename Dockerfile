@@ -11,8 +11,8 @@ ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
 ENV NODE_ENV=production
 
-# Install curl for container healthchecks & global pnpm
-RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates && rm -rf /var/lib/apt/lists/* \
+# Install curl for container healthchecks & required native runtime dependencies for pnpm
+RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates libatomic1 && rm -rf /var/lib/apt/lists/* \
     && npm install -g pnpm@latest
 
 # 1. Fast dependency installation with pnpm (frozen lockfile)
