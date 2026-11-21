@@ -1,8 +1,29 @@
 import type { Metadata, Viewport } from "next";
 import { ReactNode } from "react";
+import { headers } from "next/headers";
+import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "../styles.css";
 import { Providers } from "./providers";
 import { getAggregateRatingSchema, getReviewsSchemaList } from "@/data/reviewsData";
+import { resolveTenantByHostname } from "@/config/tenants";
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+  display: "swap",
+});
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -175,15 +196,30 @@ const websiteSchema = {
   sameAs: ["https://ty-dev.fr", "https://ty-dev.tech"],
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({ children }: { children: ReactNode }) {
+  let tenant = undefined;
+  let lang: "fr" | "en" = "fr";
+
+  try {
+    const headersList = await headers();
+    const host =
+      headersList.get("x-tenant-domain") ||
+      headersList.get("x-forwarded-host") ||
+      headersList.get("host") ||
+      "";
+    tenant = resolveTenantByHostname(host);
+    lang = tenant.defaultLang;
+  } catch {
+    // Fallback if headers() is invoked during static export or build-time prerendering
+  }
+
   return (
-    <html lang="fr" suppressHydrationWarning>
+    <html
+      lang={lang}
+      suppressHydrationWarning
+      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+    >
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var h=window.location.hostname.toLowerCase(),c=document.querySelector('link[rel="canonical"]');if(c){var isStag=h.indexOf('staging.')!==-1;var prefix=isStag?'https://staging.':'https://';if(h.indexOf('ty-dev.fr')!==-1){c.setAttribute('href',prefix+'ty-dev.fr'+window.location.pathname);}else if(h.indexOf('ty-dev.tech')!==-1){c.setAttribute('href',prefix+'ty-dev.tech'+window.location.pathname);}}}catch(e){}})();`,
-          }}
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
@@ -192,15 +228,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
-        />
       </head>
-      <body suppressHydrationWarning>
-        <Providers>{children}</Providers>
+      <body suppressHydrationWarning className="font-sans antialiased">
+        <Providers initialTenant={tenant} initialLang={lang}>
+          {children}
+        </Providers>
       </body>
     </html>
   );

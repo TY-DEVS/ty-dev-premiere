@@ -1,867 +1,1300 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>https://ty-dev.site/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site"/>
     <lastmod>2026-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/services</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/services"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/services"/>
     <lastmod>2026-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/portfolio</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/portfolio"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/portfolio"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/portfolio"/>
     <lastmod>2026-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/demos</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/demos"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/demos"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/demos"/>
     <lastmod>2026-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog"/>
     <lastmod>2026-08-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/about</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/about"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/about"/>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/contact</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/contact"/>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/faq</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/faq"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/faq"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/faq"/>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/legal</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/legal"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/legal"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/legal"/>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/simulateur</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/simulateur"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/simulateur"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/simulateur"/>
     <lastmod>2026-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/projets/navicab</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/projets/navicab"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/projets/navicab"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/projets/navicab"/>
     <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/services/saas-sur-mesure</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/services/saas-sur-mesure"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/services/saas-sur-mesure"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/services/saas-sur-mesure"/>
     <lastmod>2026-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/services/applications-web-pwa</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/services/applications-web-pwa"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/services/applications-web-pwa"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/services/applications-web-pwa"/>
     <lastmod>2026-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/services/seo-et-marketing-digital</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/services/seo-et-marketing-digital"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/services/seo-et-marketing-digital"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/services/seo-et-marketing-digital"/>
     <lastmod>2026-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/services/automatisation-processus-metiers</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/services/automatisation-processus-metiers"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/services/automatisation-processus-metiers"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/services/automatisation-processus-metiers"/>
     <lastmod>2026-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/services/e-commerce-et-integrations</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/services/e-commerce-et-integrations"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/services/e-commerce-et-integrations"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/services/e-commerce-et-integrations"/>
     <lastmod>2026-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/services/integration-apis-webhooks</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/services/integration-apis-webhooks"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/services/integration-apis-webhooks"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/services/integration-apis-webhooks"/>
     <lastmod>2026-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/services/devops-cloud-infrastructure</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/services/devops-cloud-infrastructure"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/services/devops-cloud-infrastructure"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/services/devops-cloud-infrastructure"/>
     <lastmod>2026-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/services/integration-ia-llm</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/services/integration-ia-llm"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/services/integration-ia-llm"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/services/integration-ia-llm"/>
     <lastmod>2026-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/services/saas-transport-logistique</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/services/saas-transport-logistique"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/services/saas-transport-logistique"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/services/saas-transport-logistique"/>
     <lastmod>2026-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/services/saas-immobilier-conciergerie</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/services/saas-immobilier-conciergerie"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/services/saas-immobilier-conciergerie"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/services/saas-immobilier-conciergerie"/>
     <lastmod>2026-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/services/saas-e-commerce-b2b</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/services/saas-e-commerce-b2b"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/services/saas-e-commerce-b2b"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/services/saas-e-commerce-b2b"/>
     <lastmod>2026-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/team/yassine-ben-yaala</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/team/yassine-ben-yaala"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/team/yassine-ben-yaala"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/team/yassine-ben-yaala"/>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/team/moutia-ben-yahia</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/team/moutia-ben-yahia"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/team/moutia-ben-yahia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/team/moutia-ben-yahia"/>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/team/amine-ben-ammar</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/team/amine-ben-ammar"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/team/amine-ben-ammar"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/team/amine-ben-ammar"/>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/team/mohamed-ben-khemis</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/team/mohamed-ben-khemis"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/team/mohamed-ben-khemis"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/team/mohamed-ben-khemis"/>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/team/mohamed-ben-yahia</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/team/mohamed-ben-yahia"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/team/mohamed-ben-yahia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/team/mohamed-ben-yahia"/>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/crdts-et-webtransport-le-futur-immersif-de-la-collaboration-temps-reel-dans-les-applications-saas-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/crdts-et-webtransport-le-futur-immersif-de-la-collaboration-temps-reel-dans-les-applications-saas-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/crdts-et-webtransport-le-futur-immersif-de-la-collaboration-temps-reel-dans-les-applications-saas-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/crdts-et-webtransport-le-futur-immersif-de-la-collaboration-temps-reel-dans-les-applications-saas-en-2026"/>
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/integration-profonde-des-llm-dans-le-cycle-de-vie-logiciel-code-test-et-deploiement-augmentes-pour-le-saas-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/integration-profonde-des-llm-dans-le-cycle-de-vie-logiciel-code-test-et-deploiement-augmentes-pour-le-saas-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/integration-profonde-des-llm-dans-le-cycle-de-vie-logiciel-code-test-et-deploiement-augmentes-pour-le-saas-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/integration-profonde-des-llm-dans-le-cycle-de-vie-logiciel-code-test-et-deploiement-augmentes-pour-le-saas-en-2026"/>
     <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/bases-de-donnees-serverless-et-data-branching-revolutionner-la-gestion-des-donnees-pour-le-saas-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/bases-de-donnees-serverless-et-data-branching-revolutionner-la-gestion-des-donnees-pour-le-saas-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/bases-de-donnees-serverless-et-data-branching-revolutionner-la-gestion-des-donnees-pour-le-saas-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/bases-de-donnees-serverless-et-data-branching-revolutionner-la-gestion-des-donnees-pour-le-saas-en-2026"/>
     <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/gestion-d-etat-frontend-de-nouvelle-generation-l-ere-des-signals-et-de-react-forget-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/gestion-d-etat-frontend-de-nouvelle-generation-l-ere-des-signals-et-de-react-forget-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/gestion-d-etat-frontend-de-nouvelle-generation-l-ere-des-signals-et-de-react-forget-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/gestion-d-etat-frontend-de-nouvelle-generation-l-ere-des-signals-et-de-react-forget-en-2026"/>
     <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/planification-de-charges-carbone-intelligente-l-avenir-durable-du-saas-cloud-native-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/planification-de-charges-carbone-intelligente-l-avenir-durable-du-saas-cloud-native-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/planification-de-charges-carbone-intelligente-l-avenir-durable-du-saas-cloud-native-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/planification-de-charges-carbone-intelligente-l-avenir-durable-du-saas-cloud-native-en-2026"/>
     <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/securite-de-la-chaine-logistique-logicielle-sboms-slsa-et-attestation-pour-un-saas-resilient-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/securite-de-la-chaine-logistique-logicielle-sboms-slsa-et-attestation-pour-un-saas-resilient-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/securite-de-la-chaine-logistique-logicielle-sboms-slsa-et-attestation-pour-un-saas-resilient-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/securite-de-la-chaine-logistique-logicielle-sboms-slsa-et-attestation-pour-un-saas-resilient-en-2026"/>
     <lastmod>2026-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/revolution-de-l-outillage-web-pourquoi-rust-biome-et-oxlint-remplacent-eslint-et-prettier</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/revolution-de-l-outillage-web-pourquoi-rust-biome-et-oxlint-remplacent-eslint-et-prettier"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/revolution-de-l-outillage-web-pourquoi-rust-biome-et-oxlint-remplacent-eslint-et-prettier"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/revolution-de-l-outillage-web-pourquoi-rust-biome-et-oxlint-remplacent-eslint-et-prettier"/>
     <lastmod>2026-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/crossplane-et-gitops-le-plan-de-controle-universel-pour-le-saas-multi-cloud-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/crossplane-et-gitops-le-plan-de-controle-universel-pour-le-saas-multi-cloud-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/crossplane-et-gitops-le-plan-de-controle-universel-pour-le-saas-multi-cloud-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/crossplane-et-gitops-le-plan-de-controle-universel-pour-le-saas-multi-cloud-en-2026"/>
     <lastmod>2026-11-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/architectures-rag-avancees-et-bases-de-donnees-vectorielles-le-c-ur-intelligent-du-saas-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/architectures-rag-avancees-et-bases-de-donnees-vectorielles-le-c-ur-intelligent-du-saas-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/architectures-rag-avancees-et-bases-de-donnees-vectorielles-le-c-ur-intelligent-du-saas-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/architectures-rag-avancees-et-bases-de-donnees-vectorielles-le-c-ur-intelligent-du-saas-en-2026"/>
     <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/confidential-computing-pour-le-saas-securiser-les-donnees-en-usage-avec-les-environnements-d-execution-de-confiance-tee-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/confidential-computing-pour-le-saas-securiser-les-donnees-en-usage-avec-les-environnements-d-execution-de-confiance-tee-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/confidential-computing-pour-le-saas-securiser-les-donnees-en-usage-avec-les-environnements-d-execution-de-confiance-tee-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/confidential-computing-pour-le-saas-securiser-les-donnees-en-usage-avec-les-environnements-d-execution-de-confiance-tee-en-2026"/>
     <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/la-revolution-des-donnees-synthetiques-et-l-ia-data-centric-accelerer-le-saas-et-la-confiance-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/la-revolution-des-donnees-synthetiques-et-l-ia-data-centric-accelerer-le-saas-et-la-confiance-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/la-revolution-des-donnees-synthetiques-et-l-ia-data-centric-accelerer-le-saas-et-la-confiance-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/la-revolution-des-donnees-synthetiques-et-l-ia-data-centric-accelerer-le-saas-et-la-confiance-en-2026"/>
     <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/runtimes-javascript-de-nouvelle-generation-transformer-les-architectures-de-services-ultra-performants-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/runtimes-javascript-de-nouvelle-generation-transformer-les-architectures-de-services-ultra-performants-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/runtimes-javascript-de-nouvelle-generation-transformer-les-architectures-de-services-ultra-performants-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/runtimes-javascript-de-nouvelle-generation-transformer-les-architectures-de-services-ultra-performants-en-2026"/>
     <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/la-revolution-des-apis-distribuees-graphql-federation-vs-trpc-pour-une-architecture-microservices-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/la-revolution-des-apis-distribuees-graphql-federation-vs-trpc-pour-une-architecture-microservices-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/la-revolution-des-apis-distribuees-graphql-federation-vs-trpc-pour-une-architecture-microservices-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/la-revolution-des-apis-distribuees-graphql-federation-vs-trpc-pour-une-architecture-microservices-en-2026"/>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/cryptographie-post-quantique-pour-le-saas-anticiper-l-ere-quantique-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/cryptographie-post-quantique-pour-le-saas-anticiper-l-ere-quantique-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/cryptographie-post-quantique-pour-le-saas-anticiper-l-ere-quantique-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/cryptographie-post-quantique-pour-le-saas-anticiper-l-ere-quantique-en-2026"/>
     <lastmod>2026-11-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/architectures-evenementielles-resilientes-rabbitmq-redis-streams-bullmq-pour-traitements-asynchrones</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/architectures-evenementielles-resilientes-rabbitmq-redis-streams-bullmq-pour-traitements-asynchrones"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/architectures-evenementielles-resilientes-rabbitmq-redis-streams-bullmq-pour-traitements-asynchrones"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/architectures-evenementielles-resilientes-rabbitmq-redis-streams-bullmq-pour-traitements-asynchrones"/>
     <lastmod>2026-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/wasi-2-0-et-les-binaires-universels-revolutionner-le-cloud-native-performant-et-securise-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/wasi-2-0-et-les-binaires-universels-revolutionner-le-cloud-native-performant-et-securise-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/wasi-2-0-et-les-binaires-universels-revolutionner-le-cloud-native-performant-et-securise-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/wasi-2-0-et-les-binaires-universels-revolutionner-le-cloud-native-performant-et-securise-en-2026"/>
     <lastmod>2026-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/verification-formelle-et-politique-as-code-pour-l-iac-declarative-l-avenir-de-la-gouvernance-cloud-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/verification-formelle-et-politique-as-code-pour-l-iac-declarative-l-avenir-de-la-gouvernance-cloud-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/verification-formelle-et-politique-as-code-pour-l-iac-declarative-l-avenir-de-la-gouvernance-cloud-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/verification-formelle-et-politique-as-code-pour-l-iac-declarative-l-avenir-de-la-gouvernance-cloud-en-2026"/>
     <lastmod>2026-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/edge-api-gateways-et-bff-2-0-l-orchestration-declarative-pour-une-hyper-personnalisation-saas-a-l-ere-des-micro-frontends</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/edge-api-gateways-et-bff-2-0-l-orchestration-declarative-pour-une-hyper-personnalisation-saas-a-l-ere-des-micro-frontends"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/edge-api-gateways-et-bff-2-0-l-orchestration-declarative-pour-une-hyper-personnalisation-saas-a-l-ere-des-micro-frontends"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/edge-api-gateways-et-bff-2-0-l-orchestration-declarative-pour-une-hyper-personnalisation-saas-a-l-ere-des-micro-frontends"/>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/architectures-de-donnees-composables-et-couches-semantiques-la-revolution-de-la-donnee-produit-pour-le-saas-et-l-ia-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/architectures-de-donnees-composables-et-couches-semantiques-la-revolution-de-la-donnee-produit-pour-le-saas-et-l-ia-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/architectures-de-donnees-composables-et-couches-semantiques-la-revolution-de-la-donnee-produit-pour-le-saas-et-l-ia-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/architectures-de-donnees-composables-et-couches-semantiques-la-revolution-de-la-donnee-produit-pour-le-saas-et-l-ia-en-2026"/>
     <lastmod>2026-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/architectures-frontend-composables-l-ere-des-micro-frontends-2-0-pour-un-saas-agnostique-et-performant</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/architectures-frontend-composables-l-ere-des-micro-frontends-2-0-pour-un-saas-agnostique-et-performant"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/architectures-frontend-composables-l-ere-des-micro-frontends-2-0-pour-un-saas-agnostique-et-performant"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/architectures-frontend-composables-l-ere-des-micro-frontends-2-0-pour-un-saas-agnostique-et-performant"/>
     <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/platform-engineering-et-idp-catalyser-l-innovation-saas-a-l-echelle-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/platform-engineering-et-idp-catalyser-l-innovation-saas-a-l-echelle-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/platform-engineering-et-idp-catalyser-l-innovation-saas-a-l-echelle-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/platform-engineering-et-idp-catalyser-l-innovation-saas-a-l-echelle-en-2026"/>
     <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/agents-ia-autonomes-revolutionner-l-orchestration-des-processus-metier-et-l-experience-utilisateur-des-saas-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/agents-ia-autonomes-revolutionner-l-orchestration-des-processus-metier-et-l-experience-utilisateur-des-saas-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/agents-ia-autonomes-revolutionner-l-orchestration-des-processus-metier-et-l-experience-utilisateur-des-saas-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/agents-ia-autonomes-revolutionner-l-orchestration-des-processus-metier-et-l-experience-utilisateur-des-saas-en-2026"/>
     <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/ia-distribuee-en-bordure-de-reseau-et-apprentissage-federe-revolutionner-le-saas-avec-confidentialite-et-performance-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/ia-distribuee-en-bordure-de-reseau-et-apprentissage-federe-revolutionner-le-saas-avec-confidentialite-et-performance-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/ia-distribuee-en-bordure-de-reseau-et-apprentissage-federe-revolutionner-le-saas-avec-confidentialite-et-performance-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/ia-distribuee-en-bordure-de-reseau-et-apprentissage-federe-revolutionner-le-saas-avec-confidentialite-et-performance-en-2026"/>
     <lastmod>2026-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/l-ere-de-l-ingenierie-de-plateforme-accelerer-le-developpement-saas-avec-les-internal-developer-platforms-idp-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/l-ere-de-l-ingenierie-de-plateforme-accelerer-le-developpement-saas-avec-les-internal-developer-platforms-idp-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/l-ere-de-l-ingenierie-de-plateforme-accelerer-le-developpement-saas-avec-les-internal-developer-platforms-idp-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/l-ere-de-l-ingenierie-de-plateforme-accelerer-le-developpement-saas-avec-les-internal-developer-platforms-idp-en-2026"/>
     <lastmod>2026-10-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/passkeys-webauthn-en-typescript-supprimer-les-mots-de-passe-dans-vos-applications-saas</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/passkeys-webauthn-en-typescript-supprimer-les-mots-de-passe-dans-vos-applications-saas"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/passkeys-webauthn-en-typescript-supprimer-les-mots-de-passe-dans-vos-applications-saas"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/passkeys-webauthn-en-typescript-supprimer-les-mots-de-passe-dans-vos-applications-saas"/>
     <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/l-ere-des-interfaces-autonomes-quand-l-ia-generative-reinvente-le-developpement-frontend-saas-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/l-ere-des-interfaces-autonomes-quand-l-ia-generative-reinvente-le-developpement-frontend-saas-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/l-ere-des-interfaces-autonomes-quand-l-ia-generative-reinvente-le-developpement-frontend-saas-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/l-ere-des-interfaces-autonomes-quand-l-ia-generative-reinvente-le-developpement-frontend-saas-en-2026"/>
     <lastmod>2026-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/l-orchestration-d-agents-ia-avec-semantic-kernel-construire-des-applications-saas-intelligentes-et-composables-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/l-orchestration-d-agents-ia-avec-semantic-kernel-construire-des-applications-saas-intelligentes-et-composables-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/l-orchestration-d-agents-ia-avec-semantic-kernel-construire-des-applications-saas-intelligentes-et-composables-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/l-orchestration-d-agents-ia-avec-semantic-kernel-construire-des-applications-saas-intelligentes-et-composables-en-2026"/>
     <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/secops-augmente-par-l-ia-vers-une-cyberdefense-proactive-et-autonome-pour-les-applications-saas-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/secops-augmente-par-l-ia-vers-une-cyberdefense-proactive-et-autonome-pour-les-applications-saas-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/secops-augmente-par-l-ia-vers-une-cyberdefense-proactive-et-autonome-pour-les-applications-saas-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/secops-augmente-par-l-ia-vers-une-cyberdefense-proactive-et-autonome-pour-les-applications-saas-en-2026"/>
     <lastmod>2026-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/ingenierie-logicielle-verte-mesurer-et-optimiser-l-empreinte-carbone-de-votre-saas-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/ingenierie-logicielle-verte-mesurer-et-optimiser-l-empreinte-carbone-de-votre-saas-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/ingenierie-logicielle-verte-mesurer-et-optimiser-l-empreinte-carbone-de-votre-saas-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/ingenierie-logicielle-verte-mesurer-et-optimiser-l-empreinte-carbone-de-votre-saas-en-2026"/>
     <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/ia-embarquee-dans-le-navigateur-revolutionner-les-experiences-saas-avec-webgpu-et-webassembly-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/ia-embarquee-dans-le-navigateur-revolutionner-les-experiences-saas-avec-webgpu-et-webassembly-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/ia-embarquee-dans-le-navigateur-revolutionner-les-experiences-saas-avec-webgpu-et-webassembly-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/ia-embarquee-dans-le-navigateur-revolutionner-les-experiences-saas-avec-webgpu-et-webassembly-en-2026"/>
     <lastmod>2026-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/llms-comme-co-pilotes-de-developpement-revolutionner-les-workflows-saas-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/llms-comme-co-pilotes-de-developpement-revolutionner-les-workflows-saas-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/llms-comme-co-pilotes-de-developpement-revolutionner-les-workflows-saas-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/llms-comme-co-pilotes-de-developpement-revolutionner-les-workflows-saas-en-2026"/>
     <lastmod>2026-10-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/identite-decentralisee-did-verifiable-credentials-la-revolution-de-la-souverainete-des-donnees-saas-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/identite-decentralisee-did-verifiable-credentials-la-revolution-de-la-souverainete-des-donnees-saas-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/identite-decentralisee-did-verifiable-credentials-la-revolution-de-la-souverainete-des-donnees-saas-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/identite-decentralisee-did-verifiable-credentials-la-revolution-de-la-souverainete-des-donnees-saas-en-2026"/>
     <lastmod>2026-10-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/postgres-serverless-branching-de-bases-de-donnees-l-agilite-devops-reinventee-pour-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/postgres-serverless-branching-de-bases-de-donnees-l-agilite-devops-reinventee-pour-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/postgres-serverless-branching-de-bases-de-donnees-l-agilite-devops-reinventee-pour-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/postgres-serverless-branching-de-bases-de-donnees-l-agilite-devops-reinventee-pour-2026"/>
     <lastmod>2026-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/observabilite-augmentee-ebpf-et-ia-pour-la-detection-proactive-d-anomalies-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/observabilite-augmentee-ebpf-et-ia-pour-la-detection-proactive-d-anomalies-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/observabilite-augmentee-ebpf-et-ia-pour-la-detection-proactive-d-anomalies-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/observabilite-augmentee-ebpf-et-ia-pour-la-detection-proactive-d-anomalies-en-2026"/>
     <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/l-ia-edge-dans-le-navigateur-webgpu-et-onnx-web-pour-les-experiences-saas-de-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/l-ia-edge-dans-le-navigateur-webgpu-et-onnx-web-pour-les-experiences-saas-de-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/l-ia-edge-dans-le-navigateur-webgpu-et-onnx-web-pour-les-experiences-saas-de-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/l-ia-edge-dans-le-navigateur-webgpu-et-onnx-web-pour-les-experiences-saas-de-2026"/>
     <lastmod>2026-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/chiffrement-homomorphe-la-revolution-de-la-confidentialite-des-donnees-saas-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/chiffrement-homomorphe-la-revolution-de-la-confidentialite-des-donnees-saas-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/chiffrement-homomorphe-la-revolution-de-la-confidentialite-des-donnees-saas-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/chiffrement-homomorphe-la-revolution-de-la-confidentialite-des-donnees-saas-en-2026"/>
     <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/confidential-computing-securiser-les-donnees-saas-en-cours-d-utilisation-pour-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/confidential-computing-securiser-les-donnees-saas-en-cours-d-utilisation-pour-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/confidential-computing-securiser-les-donnees-saas-en-cours-d-utilisation-pour-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/confidential-computing-securiser-les-donnees-saas-en-cours-d-utilisation-pour-2026"/>
     <lastmod>2026-10-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/bases-vectorielles-a-grande-echelle-qdrant-pgvector-ou-milvus-pour-le-rag-entreprise</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/bases-vectorielles-a-grande-echelle-qdrant-pgvector-ou-milvus-pour-le-rag-entreprise"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/bases-vectorielles-a-grande-echelle-qdrant-pgvector-ou-milvus-pour-le-rag-entreprise"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/bases-vectorielles-a-grande-echelle-qdrant-pgvector-ou-milvus-pour-le-rag-entreprise"/>
     <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/graphql-federation-vs-trpc-l-evolution-des-architectures-api-pour-les-microservices-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/graphql-federation-vs-trpc-l-evolution-des-architectures-api-pour-les-microservices-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/graphql-federation-vs-trpc-l-evolution-des-architectures-api-pour-les-microservices-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/graphql-federation-vs-trpc-l-evolution-des-architectures-api-pour-les-microservices-en-2026"/>
     <lastmod>2026-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/bun-2-0-vs-node-js-24-benchmarks-et-strategies-d-architecture-pour-les-saas-de-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/bun-2-0-vs-node-js-24-benchmarks-et-strategies-d-architecture-pour-les-saas-de-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/bun-2-0-vs-node-js-24-benchmarks-et-strategies-d-architecture-pour-les-saas-de-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/bun-2-0-vs-node-js-24-benchmarks-et-strategies-d-architecture-pour-les-saas-de-2026"/>
     <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/bases-de-donnees-vectorielles-qdrant-pgvector-architectures-pour-les-applications-ia-de-nouvelle-generation-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/bases-de-donnees-vectorielles-qdrant-pgvector-architectures-pour-les-applications-ia-de-nouvelle-generation-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/bases-de-donnees-vectorielles-qdrant-pgvector-architectures-pour-les-applications-ia-de-nouvelle-generation-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/bases-de-donnees-vectorielles-qdrant-pgvector-architectures-pour-les-applications-ia-de-nouvelle-generation-en-2026"/>
     <lastmod>2026-10-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/l-ia-a-la-peripherie-du-navigateur-revolutionner-les-applications-web-avec-onnx-js-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/l-ia-a-la-peripherie-du-navigateur-revolutionner-les-applications-web-avec-onnx-js-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/l-ia-a-la-peripherie-du-navigateur-revolutionner-les-applications-web-avec-onnx-js-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/l-ia-a-la-peripherie-du-navigateur-revolutionner-les-applications-web-avec-onnx-js-en-2026"/>
     <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/wasi-3-0-et-les-runtimes-serverless-revolutionner-le-cloud-native-pour-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/wasi-3-0-et-les-runtimes-serverless-revolutionner-le-cloud-native-pour-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/wasi-3-0-et-les-runtimes-serverless-revolutionner-le-cloud-native-pour-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/wasi-3-0-et-les-runtimes-serverless-revolutionner-le-cloud-native-pour-2026"/>
     <lastmod>2026-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/gitops-a-l-ere-de-kubernetes-2026-revolutionner-le-deploiement-et-la-gestion-des-infrastructures-cloud-avec-argocd-et-fluxcd</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/gitops-a-l-ere-de-kubernetes-2026-revolutionner-le-deploiement-et-la-gestion-des-infrastructures-cloud-avec-argocd-et-fluxcd"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/gitops-a-l-ere-de-kubernetes-2026-revolutionner-le-deploiement-et-la-gestion-des-infrastructures-cloud-avec-argocd-et-fluxcd"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/gitops-a-l-ere-de-kubernetes-2026-revolutionner-le-deploiement-et-la-gestion-des-infrastructures-cloud-avec-argocd-et-fluxcd"/>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/cout-mvp-saas-tarifs-budget-guide-complet-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/cout-mvp-saas-tarifs-budget-guide-complet-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/cout-mvp-saas-tarifs-budget-guide-complet-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/cout-mvp-saas-tarifs-budget-guide-complet-2026"/>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/developpement-saas-sur-mesure-vs-no-code-bubble-flutterflow-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/developpement-saas-sur-mesure-vs-no-code-bubble-flutterflow-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/developpement-saas-sur-mesure-vs-no-code-bubble-flutterflow-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/developpement-saas-sur-mesure-vs-no-code-bubble-flutterflow-2026"/>
     <lastmod>2026-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/agence-tech-france-vs-offshore-comparatif-couts-qualite-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/agence-tech-france-vs-offshore-comparatif-couts-qualite-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/agence-tech-france-vs-offshore-comparatif-couts-qualite-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/agence-tech-france-vs-offshore-comparatif-couts-qualite-2026"/>
     <lastmod>2026-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/edge-computing-cloudflare-workers-executer-des-saas-au-plus-pres-des-utilisateurs</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/edge-computing-cloudflare-workers-executer-des-saas-au-plus-pres-des-utilisateurs"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/edge-computing-cloudflare-workers-executer-des-saas-au-plus-pres-des-utilisateurs"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/edge-computing-cloudflare-workers-executer-des-saas-au-plus-pres-des-utilisateurs"/>
     <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/l-ia-de-bord-de-navigateur-revolutionner-les-applications-web-avec-onnx-runtime-web-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/l-ia-de-bord-de-navigateur-revolutionner-les-applications-web-avec-onnx-runtime-web-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/l-ia-de-bord-de-navigateur-revolutionner-les-applications-web-avec-onnx-runtime-web-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/l-ia-de-bord-de-navigateur-revolutionner-les-applications-web-avec-onnx-runtime-web-en-2026"/>
     <lastmod>2026-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/passkeys-webauthn-l-aube-de-l-authentification-sans-mot-de-passe-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/passkeys-webauthn-l-aube-de-l-authentification-sans-mot-de-passe-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/passkeys-webauthn-l-aube-de-l-authentification-sans-mot-de-passe-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/passkeys-webauthn-l-aube-de-l-authentification-sans-mot-de-passe-en-2026"/>
     <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/l-ia-a-la-peripherie-onnx-web-et-l-inference-en-temps-reel-directement-dans-le-navigateur-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/l-ia-a-la-peripherie-onnx-web-et-l-inference-en-temps-reel-directement-dans-le-navigateur-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/l-ia-a-la-peripherie-onnx-web-et-l-inference-en-temps-reel-directement-dans-le-navigateur-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/l-ia-a-la-peripherie-onnx-web-et-l-inference-en-temps-reel-directement-dans-le-navigateur-en-2026"/>
     <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/deepseek-r1-llms-open-source-en-entreprise-deploiement-local-vllm-souverainete</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/deepseek-r1-llms-open-source-en-entreprise-deploiement-local-vllm-souverainete"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/deepseek-r1-llms-open-source-en-entreprise-deploiement-local-vllm-souverainete"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/deepseek-r1-llms-open-source-en-entreprise-deploiement-local-vllm-souverainete"/>
     <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/tanstack-start-vs-next-js-15-pourquoi-l-ecosysteme-fullstack-evolue-vers-vite-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/tanstack-start-vs-next-js-15-pourquoi-l-ecosysteme-fullstack-evolue-vers-vite-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/tanstack-start-vs-next-js-15-pourquoi-l-ecosysteme-fullstack-evolue-vers-vite-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/tanstack-start-vs-next-js-15-pourquoi-l-ecosysteme-fullstack-evolue-vers-vite-en-2026"/>
     <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/model-context-protocol-mcp-agents-ia-standardiser-l-architecture-d-outils-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/model-context-protocol-mcp-agents-ia-standardiser-l-architecture-d-outils-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/model-context-protocol-mcp-agents-ia-standardiser-l-architecture-d-outils-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/model-context-protocol-mcp-agents-ia-standardiser-l-architecture-d-outils-en-2026"/>
     <lastmod>2026-10-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
     <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite"/>
     <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation"/>
     <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients"/>
     <lastmod>2026-10-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026"/>
     <lastmod>2026-10-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
     <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite"/>
     <lastmod>2026-09-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation"/>
     <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients"/>
     <lastmod>2026-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026"/>
     <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
     <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite"/>
     <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation"/>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients"/>
     <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026"/>
     <lastmod>2026-09-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
     <lastmod>2026-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite"/>
     <lastmod>2026-09-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation"/>
     <lastmod>2026-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients"/>
     <lastmod>2026-09-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026"/>
     <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
     <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite"/>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation"/>
     <lastmod>2026-09-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients"/>
     <lastmod>2026-09-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026"/>
     <lastmod>2026-09-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
     <lastmod>2026-09-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite"/>
     <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation"/>
     <lastmod>2026-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients"/>
     <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026"/>
     <lastmod>2026-09-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
     <lastmod>2026-09-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite"/>
     <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation"/>
     <lastmod>2026-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients"/>
     <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026"/>
     <lastmod>2026-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite"/>
     <lastmod>2026-08-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation"/>
     <lastmod>2026-08-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients"/>
     <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026"/>
     <lastmod>2026-08-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
     <lastmod>2026-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite"/>
     <lastmod>2026-08-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation"/>
     <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients"/>
     <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026"/>
     <lastmod>2026-08-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
     <lastmod>2026-08-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/performance-frontend-code-splitting-accelerer-les-applications-react-vite"/>
     <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/monetisation-saas-integration-stripe-gestion-des-abonnements-facturation"/>
     <lastmod>2026-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/continuous-integration-deployment-ci-cd-pipelines-de-production-resilients"/>
     <lastmod>2026-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/bases-de-donnees-relationnelles-vs-nosql-postgresql-redis-mongodb-en-2026"/>
     <lastmod>2026-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/integration-d-agents-ia-llm-dans-les-saas-automatiser-les-workflows-metiers-en-2026"/>
     <lastmod>2026-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/architecture-saas-multi-tenant-scalabilite-cloud-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/architecture-saas-multi-tenant-scalabilite-cloud-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/architecture-saas-multi-tenant-scalabilite-cloud-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/architecture-saas-multi-tenant-scalabilite-cloud-2026"/>
     <lastmod>2026-08-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/integration-agents-ia-llm-model-context-protocol-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/integration-agents-ia-llm-model-context-protocol-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/integration-agents-ia-llm-model-context-protocol-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/integration-agents-ia-llm-model-context-protocol-2026"/>
     <lastmod>2026-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/design-system-glassmorphism-ux-tailwind-v4</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/design-system-glassmorphism-ux-tailwind-v4"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/design-system-glassmorphism-ux-tailwind-v4"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/design-system-glassmorphism-ux-tailwind-v4"/>
     <lastmod>2026-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/monetisation-saas-stripe-abonnements-webhooks-idempotents</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/monetisation-saas-stripe-abonnements-webhooks-idempotents"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/monetisation-saas-stripe-abonnements-webhooks-idempotents"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/monetisation-saas-stripe-abonnements-webhooks-idempotents"/>
     <lastmod>2026-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/performance-frontend-core-web-vitals-tanstack-start</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/performance-frontend-core-web-vitals-tanstack-start"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/performance-frontend-core-web-vitals-tanstack-start"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/performance-frontend-core-web-vitals-tanstack-start"/>
     <lastmod>2026-08-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/cybersecurite-web-protection-donnees-owasp-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/cybersecurite-web-protection-donnees-owasp-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/cybersecurite-web-protection-donnees-owasp-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/cybersecurite-web-protection-donnees-owasp-2026"/>
     <lastmod>2026-08-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/bases-de-donnees-postgresql-redis-mongodb-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/bases-de-donnees-postgresql-redis-mongodb-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/bases-de-donnees-postgresql-redis-mongodb-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/bases-de-donnees-postgresql-redis-mongodb-2026"/>
     <lastmod>2026-08-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/continuous-integration-cicd-pipelines-production-docker</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/continuous-integration-cicd-pipelines-production-docker"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/continuous-integration-cicd-pipelines-production-docker"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/continuous-integration-cicd-pipelines-production-docker"/>
     <lastmod>2026-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/infrastructure-as-code-terraform-kubernetes-cloud-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/infrastructure-as-code-terraform-kubernetes-cloud-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/infrastructure-as-code-terraform-kubernetes-cloud-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/infrastructure-as-code-terraform-kubernetes-cloud-2026"/>
     <lastmod>2026-08-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/pwa-progressive-web-apps-mobile-architecture-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/pwa-progressive-web-apps-mobile-architecture-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/pwa-progressive-web-apps-mobile-architecture-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/pwa-progressive-web-apps-mobile-architecture-2026"/>
     <lastmod>2026-08-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/strategie-seo-technique-donnees-structurees-json-ld-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/strategie-seo-technique-donnees-structurees-json-ld-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/strategie-seo-technique-donnees-structurees-json-ld-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/strategie-seo-technique-donnees-structurees-json-ld-2026"/>
     <lastmod>2026-08-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://ty-dev.site/blog/micro-frontends-architecture-modulaire-2026</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ty-dev.fr/blog/micro-frontends-architecture-modulaire-2026"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ty-dev.tech/blog/micro-frontends-architecture-modulaire-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ty-dev.site/blog/micro-frontends-architecture-modulaire-2026"/>
     <lastmod>2026-08-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>

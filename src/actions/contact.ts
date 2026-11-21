@@ -7,6 +7,15 @@ import { resolveTenantByHostname, isStagingEnvironment, type TenantConfig, DEFAU
 
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 const DEFAULT_HOST = "83.229.19.107";
 const DEFAULT_USER = "contact@ty-dev.site";
 
@@ -100,42 +109,50 @@ export async function sendContactEmailAction(data: ContactFormData) {
 
   const receivers = getTenantReceivers(tenant);
 
+  const safeName = escapeHtml(cleanName);
+  const safeEmail = escapeHtml(cleanEmail);
+  const safePhone = escapeHtml(cleanPhone || "Non renseigné");
+  const safeType = escapeHtml(type || "Non spécifié");
+  const safeBudget = escapeHtml(budget || "Non spécifié");
+  const safeDesc = escapeHtml(cleanDesc);
+  const safeSource = escapeHtml(source || tenant.seo.canonicalBase);
+
   const htmlContent = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #0f172a; color: #f8fafc; padding: 30px; border-radius: 12px; border: 1px solid #1e293b;">
       <div style="border-bottom: 2px solid #3b82f6; padding-bottom: 15px; margin-bottom: 20px;">
         <h2 style="color: #60a5fa; margin: 0; font-size: 22px;">🚀 Nouveau Message de Contact</h2>
         <p style="color: #94a3b8; font-size: 13px; margin: 5px 0 0 0;">
-          Marque: <strong>${tenant.brandName}</strong> | Domaine: <strong>${tenant.domain}</strong> | Reçu via: ${source || tenant.seo.canonicalBase}
+          Marque: <strong>${escapeHtml(tenant.brandName)}</strong> | Domaine: <strong>${escapeHtml(tenant.domain)}</strong> | Reçu via: ${safeSource}
         </p>
       </div>
       <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 14px;">
         <tr>
           <td style="padding: 8px 0; color: #94a3b8; width: 140px;"><strong>Nom complet:</strong></td>
-          <td style="padding: 8px 0; color: #ffffff;">${cleanName}</td>
+          <td style="padding: 8px 0; color: #ffffff;">${safeName}</td>
         </tr>
         <tr>
           <td style="padding: 8px 0; color: #94a3b8;"><strong>Email de contact:</strong></td>
-          <td style="padding: 8px 0; color: #60a5fa;"><a href="mailto:${cleanEmail}" style="color: #60a5fa; text-decoration: underline;">${cleanEmail}</a></td>
+          <td style="padding: 8px 0; color: #60a5fa;"><a href="mailto:${safeEmail}" style="color: #60a5fa; text-decoration: underline;">${safeEmail}</a></td>
         </tr>
         <tr>
           <td style="padding: 8px 0; color: #94a3b8;"><strong>Téléphone:</strong></td>
-          <td style="padding: 8px 0; color: #ffffff;">${cleanPhone || "Non renseigné"}</td>
+          <td style="padding: 8px 0; color: #ffffff;">${safePhone}</td>
         </tr>
         <tr>
           <td style="padding: 8px 0; color: #94a3b8;"><strong>Type de projet:</strong></td>
-          <td style="padding: 8px 0; color: #38bdf8;">${type || "Non spécifié"}</td>
+          <td style="padding: 8px 0; color: #38bdf8;">${safeType}</td>
         </tr>
         <tr>
           <td style="padding: 8px 0; color: #94a3b8;"><strong>Budget estimé:</strong></td>
-          <td style="padding: 8px 0; color: #34d399;">${budget || "Non spécifié"}</td>
+          <td style="padding: 8px 0; color: #34d399;">${safeBudget}</td>
         </tr>
       </table>
       <div style="background-color: #1e293b; padding: 18px; border-radius: 8px; border-left: 4px solid #3b82f6; margin-bottom: 20px;">
         <h3 style="color: #cbd5e1; margin-top: 0; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em;">Description du projet :</h3>
-        <p style="color: #f1f5f9; line-height: 1.6; white-space: pre-wrap; margin-bottom: 0;">${cleanDesc}</p>
+        <p style="color: #f1f5f9; line-height: 1.6; white-space: pre-wrap; margin-bottom: 0;">${safeDesc}</p>
       </div>
       <div style="font-size: 12px; color: #64748b; border-top: 1px solid #1e293b; padding-top: 15px; display: flex; justify-content: space-between;">
-        <span>TY Dev Automated Gateway • ${tenant.brandName}</span>
+        <span>TY Dev Automated Gateway • ${escapeHtml(tenant.brandName)}</span>
         <span>${new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" })}</span>
       </div>
     </div>

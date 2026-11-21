@@ -33,20 +33,36 @@ function getInitialLang(): Lang {
   return "fr";
 }
 
-export function I18nProvider({ children }: { children: ReactNode }) {
-  // Initialisation à "fr" pour correspondre au rendu SSR de référence et éviter les mismatches d'hydratation
-  const [lang, setLangState] = useState<Lang>("fr");
-  const [domainTarget, setDomainTarget] = useState<DomainTarget>("site");
+export function I18nProvider({
+  children,
+  initialLang = "fr",
+  initialDomainTarget = "site",
+}: {
+  children: ReactNode;
+  initialLang?: Lang;
+  initialDomainTarget?: DomainTarget;
+}) {
+  const [lang, setLangState] = useState<Lang>(initialLang);
+  const [domainTarget, setDomainTarget] = useState<DomainTarget>(initialDomainTarget);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       const tenant = resolveTenantByHostname(window.location.hostname);
       setDomainTarget(tenant.id);
 
-      const initial = getInitialLang();
-      setLangState(initial);
-      if (typeof document !== "undefined") {
-        document.documentElement.lang = initial;
+      // Si l'utilisateur a une préférence explicite sauvegardée, la respecter
+      const saved = localStorage.getItem("tydev_lang");
+      if (saved === "fr" || saved === "en") {
+        setLangState(saved);
+        if (typeof document !== "undefined") {
+          document.documentElement.lang = saved;
+        }
+      } else {
+        const initial = tenant.defaultLang;
+        setLangState(initial);
+        if (typeof document !== "undefined") {
+          document.documentElement.lang = initial;
+        }
       }
     }
   }, []);

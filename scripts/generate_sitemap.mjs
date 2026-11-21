@@ -86,8 +86,21 @@ async function generateSitemap() {
   // Robustly extract all blog posts and their exact publication dates
   const blogPosts = extractBlogPosts(content);
 
+  function getAlternateLinks(pathname) {
+    const isStag = domain.includes('staging.');
+    const prefixFr = isStag ? 'https://staging.ty-dev.fr' : 'https://ty-dev.fr';
+    const prefixTech = isStag ? 'https://staging.ty-dev.tech' : 'https://ty-dev.tech';
+    const prefixSite = isStag ? 'https://staging.ty-dev.site' : 'https://ty-dev.site';
+    const cleanPath = pathname === '/' ? '' : pathname;
+
+    return `    <xhtml:link rel="alternate" hreflang="fr" href="${prefixFr}${cleanPath}"/>\n` +
+           `    <xhtml:link rel="alternate" hreflang="en" href="${prefixTech}${cleanPath}"/>\n` +
+           `    <xhtml:link rel="alternate" hreflang="x-default" href="${prefixSite}${cleanPath}"/>\n`;
+  }
+
   let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
   xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n`;
+  xml += `        xmlns:xhtml="http://www.w3.org/1999/xhtml"\n`;
   xml += `        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"\n`;
   xml += `        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">\n`;
 
@@ -95,6 +108,7 @@ async function generateSitemap() {
   for (const page of staticPages) {
     xml += `  <url>\n`;
     xml += `    <loc>${domain}${page.url}</loc>\n`;
+    xml += getAlternateLinks(page.url);
     xml += `    <lastmod>${page.lastmod}</lastmod>\n`;
     xml += `    <changefreq>${page.changefreq}</changefreq>\n`;
     xml += `    <priority>${page.priority}</priority>\n`;
@@ -103,8 +117,10 @@ async function generateSitemap() {
 
   // Add service landing subpages
   for (const slug of serviceSlugs) {
+    const pageUrl = `/services/${slug}`;
     xml += `  <url>\n`;
-    xml += `    <loc>${domain}/services/${slug}</loc>\n`;
+    xml += `    <loc>${domain}${pageUrl}</loc>\n`;
+    xml += getAlternateLinks(pageUrl);
     xml += `    <lastmod>${STATIC_LASTMOD}</lastmod>\n`;
     xml += `    <changefreq>weekly</changefreq>\n`;
     xml += `    <priority>0.9</priority>\n`;
@@ -113,8 +129,10 @@ async function generateSitemap() {
 
   // Add expert team profiles (E-E-A-T Google Authority)
   for (const slug of teamSlugs) {
+    const pageUrl = `/team/${slug}`;
     xml += `  <url>\n`;
-    xml += `    <loc>${domain}/team/${slug}</loc>\n`;
+    xml += `    <loc>${domain}${pageUrl}</loc>\n`;
+    xml += getAlternateLinks(pageUrl);
     xml += `    <lastmod>${STATIC_LASTMOD}</lastmod>\n`;
     xml += `    <changefreq>monthly</changefreq>\n`;
     xml += `    <priority>0.8</priority>\n`;
@@ -123,8 +141,10 @@ async function generateSitemap() {
 
   // Add all blog posts with their actual publication date
   for (const post of blogPosts) {
+    const pageUrl = `/blog/${post.slug}`;
     xml += `  <url>\n`;
-    xml += `    <loc>${domain}/blog/${post.slug}</loc>\n`;
+    xml += `    <loc>${domain}${pageUrl}</loc>\n`;
+    xml += getAlternateLinks(pageUrl);
     xml += `    <lastmod>${post.iso}</lastmod>\n`;
     xml += `    <changefreq>weekly</changefreq>\n`;
     xml += `    <priority>0.85</priority>\n`;
