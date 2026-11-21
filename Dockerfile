@@ -13,11 +13,11 @@ ENV NODE_ENV=production
 
 # Install curl for container healthchecks & required native runtime dependencies for pnpm
 RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificates libatomic1 && rm -rf /var/lib/apt/lists/* \
-    && npm install -g pnpm@latest
+    && npm install -g pnpm@11.25.0
 
-# 1. Fast dependency installation with pnpm (frozen lockfile)
-COPY package.json pnpm-lock.yaml ./
-RUN pnpm install --frozen-lockfile --ignore-scripts --prod=false
+# 1. Fast dependency installation with pnpm (frozen lockfile & trusted supply chain)
+COPY package.json pnpm-lock.yaml .npmrc* ./
+RUN pnpm install --frozen-lockfile --trust-lockfile --ignore-scripts --prod=false
 
 # 2. Build Next.js application
 COPY . .
