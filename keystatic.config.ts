@@ -1,9 +1,23 @@
 import { config, collection, fields } from '@keystatic/core';
 
+const isProduction = process.env.NODE_ENV === 'production';
+const hasGitHubCredentials = Boolean(
+  process.env.KEYSTATIC_GITHUB_CLIENT_ID ||
+  process.env.NEXT_PUBLIC_KEYSTATIC_GITHUB_CLIENT_ID
+);
+
 export default config({
-  storage: {
-    kind: 'local',
-  },
+  storage: isProduction && hasGitHubCredentials
+    ? {
+        kind: 'github',
+        repo: {
+          owner: 'TY-DEVS',
+          name: 'ty-dev-premiere',
+        },
+      }
+    : {
+        kind: 'local',
+      },
   collections: {
     posts: collection({
       label: 'Articles de Blog',

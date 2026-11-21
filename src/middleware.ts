@@ -3,6 +3,54 @@ import type { NextRequest } from "next/server";
 import { resolveTenantByHostname } from "@/config/tenants";
 
 export function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+
+  // 1. Protection de Keystatic CMS en production (Basic Auth + Token)
+  if (
+    process.env.NODE_ENV === "production" &&
+    (pathname.startsWith("/keystatic") || pathname.startsWith("/api/keystatic"))
+  ) {
+    const validUser = process.env.KEYSTATIC_ADMIN_USER || "admin";
+    const validPassword =
+      process.env.KEYSTATIC_ADMIN_PASSWORD ||
+      process.env.BLOG_ADMIN_TOKEN ||
+      "tydev_blog_admin_secret_key_2026";
+
+    const authHeader = request.headers.get("authorization");
+    const tokenParam = request.nextUrl.searchParams.get("token");
+    const authCookie = request.cookies.get("tydev_cms_auth")?.value;
+
+    let isAuthenticated = false;
+
+    if (authCookie === validPassword || tokenParam === validPassword) {
+      isAuthenticated = true;
+    } else if (authHeader && authHeader.startsWith("Basic ")) {
+      try {
+        const base64Credentials = authHeader.split(" ")[1];
+        const credentials = atob(base64Credentials);
+        const [username, ...pwdParts] = credentials.split(":");
+        const password = pwdParts.join(":");
+        if (username === validUser && password === validPassword) {
+          isAuthenticated = true;
+        }
+      } catch {
+        isAuthenticated = false;
+      }
+    }
+
+    if (!isAuthenticated) {
+      return new NextResponse(
+        "Authentification requise pour accéder au CMS TY Dev.",
+        {
+          status: 401,
+          headers: {
+            "WWW-Authenticate": 'Basic realm="TY Dev Keystatic Admin"',
+          },
+        }
+      );
+    }
+  }
+
   const host =
     request.headers.get("x-forwarded-host") ||
     request.headers.get("host") ||
@@ -20,6 +68,20 @@ export function middleware(request: NextRequest) {
       headers: requestHeaders,
     },
   });
+
+  // Si authentifié via token URL, enregistrer le cookie de session CMS
+  const tokenParam = request.nextUrl.searchParams.get("token");
+  const validPassword =
+    process.env.KEYSTATIC_ADMIN_PASSWORD ||
+    process.env.BLOG_ADMIN_TOKEN ||
+    "tydev_blog_admin_secret_key_2026";
+  if (tokenParam === validPassword) {
+    response.cookies.set("tydev_cms_auth", validPassword, {
+      path: "/",
+      httpOnly: true,
+      sameSite: "lax",
+    });
+  }
 
   // Si l'utilisateur n'a pas encore de préférence de langue explicite en cookie,
   // lui assigner la langue par défaut du domaine (FR pour .fr et .site, EN pour .tech)
